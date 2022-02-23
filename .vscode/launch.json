@@ -1,0 +1,140 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch FileLoaderManager",
+            "request": "launch",
+            "mainClass": "org.openhie.openempi.loader.FileLoaderManager",
+            "projectName": "openempi-entity-core"
+        },
+        {
+            "type": "java",
+            "name": "Launch ProcessFileDataset",
+            "request": "launch",
+            "mainClass": "org.openhie.openempi.loader.ProcessFileDataset",
+            "projectName": "openempi-entity-core"
+        },
+        {
+            "type": "java",
+            "name": "Launch Version",
+            "request": "launch",
+            "mainClass": "org.openhie.openempi.model.Version",
+            "projectName": "openempi-entity-core"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestConversions",
+            "request": "launch",
+            "mainClass": "org.openhie.openempi.util.TestConversions",
+            "projectName": "openempi-entity-core"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestOrientDbQuery",
+            "request": "launch",
+            "mainClass": "org.openhie.openempi.util.TestOrientDbQuery",
+            "projectName": "openempi-entity-core"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestSplit",
+            "request": "launch",
+            "mainClass": "org.openhie.openempi.loader.TestSplit",
+            "projectName": "openempi-entity-file-loader-map"
+        },
+        {
+            "type": "java",
+            "name": "Launch Test",
+            "request": "launch",
+            "mainClass": "org.json.Test",
+            "projectName": "openempi-entity-ihe-common"
+        },
+        {
+            "type": "java",
+            "name": "Launch ConnectionCertificateHandler",
+            "request": "launch",
+            "mainClass": "org.openhealthtools.openexchange.actorconfig.net.ConnectionCertificateHandler",
+            "projectName": "openempi-entity-ihe-common"
+        },
+        {
+            "type": "java",
+            "name": "Launch IheAuditTrail",
+            "request": "launch",
+            "mainClass": "org.openhealthtools.openexchange.audit.IheAuditTrail",
+            "projectName": "openempi-entity-ihe-common"
+        },
+        {
+            "type": "java",
+            "name": "Launch Escape",
+            "request": "launch",
+            "mainClass": "org.openhealthtools.openexchange.utils.hl7.Escape",
+            "projectName": "openempi-entity-ihe-common"
+        },
+        {
+            "type": "java",
+            "name": "Launch ExtractBitPattern",
+            "request": "launch",
+            "mainClass": "org.openhie.openempi.matching.fellegisunter.ExtractBitPattern",
+            "projectName": "openempi-entity-probabilistic-matching"
+        },
+        {
+            "type": "java",
+            "name": "Launch FellegiSunterConfigurationManager",
+            "request": "launch",
+            "mainClass": "org.openhie.openempi.matching.fellegisunter.FellegiSunterConfigurationManager",
+            "projectName": "openempi-entity-probabilistic-matching"
+        },
+        {
+            "type": "java",
+            "name": "Launch ProbabilisticMatchingService",
+            "request": "launch",
+            "mainClass": "org.openhie.openempi.matching.fellegisunter.ProbabilisticMatchingService",
+            "projectName": "openempi-entity-probabilistic-matching"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "org.openempi.webservices.restful.Main",
+            "projectName": "openempi-entity-restful-webservices"
+        },
+        {
+            "type": "java",
+            "name": "Launch BaseModelDataDtoGenerator",
+            "request": "launch",
+            "mainClass": "org.openempi.webapp.server.util.BaseModelDataDtoGenerator",
+            "projectName": "openempi-entity-webapp-server"
+        },
+        {
+            "type": "java",
+            "name": "Launch PdSupplier",
+            "request": "launch",
+            "mainClass": "org.openhealthtools.openpixpdq.impl.v2.PdSupplier",
+            "projectName": "openpixpdq"
+        },
+        {
+            "type": "java",
+            "name": "Launch PixManager",
+            "request": "launch",
+            "mainClass": "org.openhealthtools.openpixpdq.impl.v2.PixManager",
+            "projectName": "openpixpdq"
+        },
+        {
+            "type": "java",
+            "name": "Launch AbstractIheService",
+            "request": "launch",
+            "mainClass": "org.openhie.openempi.openpixpdq.v3.impl.AbstractIheService",
+            "projectName": "openpixpdq"
+        }
+    ]
+}
