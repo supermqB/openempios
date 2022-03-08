@@ -39,7 +39,12 @@
 			<groupId>org.openhie.openempi</groupId>
 			<artifactId>openempi-entity-configuration</artifactId>
 			<version>${release.version}</version>
-		</dependency>	
+		</dependency>
+        <dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-entity-ihe-common</artifactId>
+			<version>${release.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.openhie.openempi</groupId>
 			<artifactId>openempi-entity-core</artifactId>

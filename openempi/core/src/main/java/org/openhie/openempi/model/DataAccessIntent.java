@@ -27,11 +27,11 @@ public interface DataAccessIntent
      * Activate the intent.
      * 
      */
-    public void begin(Entity entity, DataAccessIntent implementer);
+    void begin(Entity entity, DataAccessIntent implementer);
 
     /**
      * Deactivate the intent.
      * 
      */
-    public void end();
+    void end();
 }

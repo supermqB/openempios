@@ -35,8 +35,8 @@ public class Authentication implements Serializable {
      */
     public final static Authentication ANONYMOUS = new Authentication();
 
-    private String username;
-    private String password;
+    private final String username;
+    private final String password;
 
     /**
      * Constructs a new Anonymous Authentication

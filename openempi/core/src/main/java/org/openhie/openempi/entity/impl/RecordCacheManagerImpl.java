@@ -43,7 +43,7 @@ public class RecordCacheManagerImpl implements RecordCacheManager
 	private static final int MAX_IDENTIFIER_DOMAIN_ELEMENTS = 5000;
 	private static final int MAX_USER_ELEMENTS = 5000;
 
-	private Logger log = Logger.getLogger(getClass());
+	private final Logger log = Logger.getLogger(getClass());
 	private static CacheManager cacheManager;
 	private static Cache identifierDomainCache;
 	private static Cache userCache;

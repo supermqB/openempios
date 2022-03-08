@@ -51,7 +51,7 @@ public class SharedEnums {
         private String printValue = null;
         private String hl7Value = null;
         
-        private AddressType(String value, String printValue, String hl7Value) {
+        AddressType(String value, String printValue, String hl7Value) {
             this.value = value;
             this.printValue = printValue;
             this.hl7Value = hl7Value;
@@ -123,7 +123,7 @@ public class SharedEnums {
         private String printValue = null;
         private String hl7Value = null;
 
-        private PhoneType(String value, String printValue, String hl7Value) {
+        PhoneType(String value, String printValue, String hl7Value) {
             this.value = value;
             this.printValue = printValue;
             this.hl7Value = hl7Value;
@@ -192,7 +192,7 @@ public class SharedEnums {
         private String code = null;
         private String description = null;
 
-        private TelecomUseCode(String code, String description) {
+        TelecomUseCode(String code, String description) {
             this.code = code;
             this.description = description;
         }
@@ -236,7 +236,7 @@ public class SharedEnums {
 
         private String value = null;
         private String cprValue = null;
-        private ClinicalNoteType(String value, String cprValue){
+        ClinicalNoteType(String value, String cprValue){
             this.value = value;
             this.cprValue = cprValue;
         }
@@ -266,7 +266,7 @@ public class SharedEnums {
         private String value = null;
         private String cdaValue = null;
 
-        private SexType(String value, String cdaValue) {
+        SexType(String value, String cdaValue) {
             this.value = value;
             this.cdaValue = cdaValue;
         }
@@ -341,7 +341,7 @@ public class SharedEnums {
         private String value = null;
         private String hl7Value = null;
 
-        private MartitalStatusType(String value, String hl7Value) {
+        MartitalStatusType(String value, String hl7Value) {
             this.value = value;
             this.hl7Value = hl7Value;
         }
@@ -386,7 +386,7 @@ public class SharedEnums {
 		
 		private String value = null;
 		private String cdaValue = null;
-		private PatientContactType(String name, String cdaValue) {
+		PatientContactType(String name, String cdaValue) {
 			this.value = name;
 			this.cdaValue = cdaValue;
 		}
@@ -625,10 +625,10 @@ public class SharedEnums {
         private String value = null;
         private String cdaValue = null;
         private String code = null;
-        private String codeSystem = "2.16.840.1.113883.6.96";
-        private String codeSystemName = "SNOMED CT";
+        private final String codeSystem = "2.16.840.1.113883.6.96";
+        private final String codeSystemName = "SNOMED CT";
         
-        private ClinicalStatusCode(String value, String cdaValue, String code) {
+        ClinicalStatusCode(String value, String cdaValue, String code) {
             this.value = value;
             this.cdaValue = cdaValue;
             this.code = code;
@@ -676,8 +676,8 @@ public class SharedEnums {
     	ABORTED("aborted"),
     	CANCELLED("cancelled");
     	 
-    	private String value;
-    	private StatusCode(String value) {
+    	private final String value;
+    	StatusCode(String value) {
     		this.value = value;
     	}
         public String getValue() { return this.value; }      
@@ -696,7 +696,7 @@ public class SharedEnums {
         private String displayName = null;
         private String emrValue = null;
 
-        private SubscriberToPatientRelationshipType(String value, String displayName, String emrValue) {
+        SubscriberToPatientRelationshipType(String value, String displayName, String emrValue) {
             this.value = value;
             this.displayName = displayName;
             this.emrValue = emrValue;
@@ -778,7 +778,7 @@ public class SharedEnums {
         private String displayName = null;
         private String description = null;
         private String codeValue = null;
-        private ConfidentialityCode(String code,String codeValue, String displayName, String descriptoin) {
+        ConfidentialityCode(String code, String codeValue, String displayName, String descriptoin) {
             this.code = code;
             this.displayName = displayName;
             this.description = descriptoin;
@@ -823,11 +823,11 @@ public class SharedEnums {
         OTHER("888", "OTHER"),
         UNKNOWN("999", "Unknown");
 
-        private String code;
-        private String description;
-        private String codeSystem = "2.16.840.1.113883.6.102.4.2";
-        private String codeSystemName = "DEEDS8.02";
-        private DischargeDispositionCode(String code, String description) {
+        private final String code;
+        private final String description;
+        private final String codeSystem = "2.16.840.1.113883.6.102.4.2";
+        private final String codeSystemName = "DEEDS8.02";
+        DischargeDispositionCode(String code, String description) {
             this.code = code;
             this.description = description;
         }
@@ -857,11 +857,11 @@ public class SharedEnums {
         OTHER("88", "Other modef of transport"),
         UNKNOWN("99", "Unknown mode of transport");
 
-        private String code;
-        private String description;
-        private String codeSystem = "2.16.840.1.113883.6.102.4.2";
-        private String codeSystemName = "DEEDS4.02";
-        private TransportModeCode(String code, String description) {
+        private final String code;
+        private final String description;
+        private final String codeSystem = "2.16.840.1.113883.6.102.4.2";
+        private final String codeSystemName = "DEEDS4.02";
+        TransportModeCode(String code, String description) {
             this.code = code;
             this.description = description;
         }

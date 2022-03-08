@@ -39,13 +39,13 @@ public interface PersonQueryService
 	 * 
 	 * @return
 	 */
-	public List<IdentifierDomain> getIdentifierDomains();
+    List<IdentifierDomain> getIdentifierDomains();
 	
 	/**
 	 * Returns the list of distinct identifier domain type codes
 	 * 
 	 */
-	public List<String> getIdentifierDomainTypeCodes();
+    List<String> getIdentifierDomainTypeCodes();
 	
 	/**
 	 * Returns an instance of an IdentifierDomainAttribute associated with the identifier domain passed in and with the 
@@ -58,7 +58,7 @@ public interface PersonQueryService
 	 * @param attributeName The name of the attribute.
 	 * @return
 	 */
-	public IdentifierDomainAttribute getIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName);
+    IdentifierDomainAttribute getIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName);
 	
 	/**
 	 * This method returns a list of all the identifier domain attributes associated with a given identifier domain.
@@ -69,9 +69,9 @@ public interface PersonQueryService
 	 * attribute which is only useful internally to an OpenEMPI instance.
 	 * @return List of IdentifierDomainAttributes found.
 	 */
-	public List<IdentifierDomainAttribute> getIdentifierDomainAttributes(IdentifierDomain identifierDomain);
+    List<IdentifierDomainAttribute> getIdentifierDomainAttributes(IdentifierDomain identifierDomain);
 	
-	public Person findPersonById(PersonIdentifier identifier);
+	Person findPersonById(PersonIdentifier identifier);
 	
 	/**
 	 * This method returns a list of all person records that have either an exact or partial match with the
@@ -82,19 +82,19 @@ public interface PersonQueryService
 	 * out the result set by including identifier domain attributes
 	 * @return List of person records that match the search criteria
 	 */
-	public List<Person> findPersonsById(PersonIdentifier identifier);
+    List<Person> findPersonsById(PersonIdentifier identifier);
 
-	public PersonIdentifier getGlobalIdentifierById(PersonIdentifier identifier);
+	PersonIdentifier getGlobalIdentifierById(PersonIdentifier identifier);
 
-	public List<Person> findLinkedPersons(PersonIdentifier identifier);
+	List<Person> findLinkedPersons(PersonIdentifier identifier);
 	
-	public List<Person> findLinkedPersons(Person person);
+	List<Person> findLinkedPersons(Person person);
 	
-	public Person loadPerson(Integer personId);
+	Person loadPerson(Integer personId);
 	
-	public List<Person> loadPersons(List<Integer> personIds);
+	List<Person> loadPersons(List<Integer> personIds);
 	
-	public List<Person> loadAllPersonsPaged(int firstRecord, int maxRecords);
+	List<Person> loadAllPersonsPaged(int firstRecord, int maxRecords);
 	
 	/**
 	 * This method returns all the probable person link entries that have been identified by the
@@ -103,9 +103,9 @@ public interface PersonQueryService
 	 * 
 	 * @return List of unreviewed person link review entries.
 	 */
-	public List<ReviewRecordPair> loadAllUnreviewedPersonLinks();
+    List<ReviewRecordPair> loadAllUnreviewedPersonLinks();
 	
-	public List<ReviewRecordPair> loadUnreviewedPersonLinks(int maxResults);
+	List<ReviewRecordPair> loadUnreviewedPersonLinks(int maxResults);
 	
 	/**
 	 * This method returns the specific probable review record pair entry identified by the
@@ -114,7 +114,7 @@ public interface PersonQueryService
 	 * @param reviewRecordPairId
 	 * @return The populated review record pair entry or null if not found.
 	 */
-	public ReviewRecordPair loadReviewRecordPair(int reviewRecordPairId);
+    ReviewRecordPair loadReviewRecordPair(int reviewRecordPairId);
 	
 	/**
 	 * This method returns a list of all person records that match any of the person attributes that
@@ -123,7 +123,7 @@ public interface PersonQueryService
 	 * @param person Person object with any attributes provided as search criteria
 	 * @return List of person records that match the search criteria
 	 */
-	public List<Person> findPersonsByAttributes(Person person);
+    List<Person> findPersonsByAttributes(Person person);
 	
 	/**
 	 * This method returns the single best representative record for each cluster
@@ -137,9 +137,9 @@ public interface PersonQueryService
 	 * in the response corresponds to the position of the key identifiers from which
 	 * person and its cluster, the single best record was selected.
 	 */
-	public List<Person> getSingleBestRecords(List<Integer> personIds);
+    List<Person> getSingleBestRecords(List<Integer> personIds);
 	
-	public Person getSingleBestRecord(Integer personId);
+	Person getSingleBestRecord(Integer personId);
 	
 	/**
 	 * This method returns an identifier domain located using whichever key is provided
@@ -154,9 +154,9 @@ public interface PersonQueryService
 	 * @param identifierDomain
 	 * @return
 	 */
-	public IdentifierDomain findIdentifierDomain(IdentifierDomain identifierDomain);
+    IdentifierDomain findIdentifierDomain(IdentifierDomain identifierDomain);
 	
-    public IdentifierDomain findIdentifierDomainByName(String identifierDomainName);
+    IdentifierDomain findIdentifierDomainByName(String identifierDomainName);
     
 	/**
 	 * This method returns all the links associated with the person whose
@@ -166,7 +166,7 @@ public interface PersonQueryService
 	 * 
 	 * @return List of links associated with the person or an empty list if no records are found.
 	 */
-	public List<PersonLink> getPersonLinks(Person person);
+    List<PersonLink> getPersonLinks(Person person);
 	
 	/**
 	 * This method returns a list of all person records that match any of the person attributes that
@@ -178,7 +178,7 @@ public interface PersonQueryService
 	 * @param person Person object with any attributes provided as search criteria
 	 * @return List of person records that match the search criteria
 	 */
-	public List<Person> findMatchingPersonsByAttributes(Person person);
+    List<Person> findMatchingPersonsByAttributes(Person person);
 	
 	/**
 	 * This method returns a page of person records that match any of the person attributes that
@@ -189,8 +189,8 @@ public interface PersonQueryService
 	 * @param maxResults Size of the page
 	 * @return List of person records that match the search criteria
 	 */
-	public List<Person> findPersonsByAttributesPaged(Person person, int firstResult,
-			int maxResults);
+    List<Person> findPersonsByAttributesPaged(Person person, int firstResult,
+                                              int maxResults);
 	
 	/**
 	 * This method returns a list of all person attributes that are supported by the
@@ -200,7 +200,7 @@ public interface PersonQueryService
 	 * 
 	 * @return A sorted list of the attributes
 	 */
-	public List<String> getPersonModelAllAttributeNames();
+    List<String> getPersonModelAllAttributeNames();
 	
 	/**
 	 * This method returns a list of all person attributes that are supported by the
@@ -211,7 +211,7 @@ public interface PersonQueryService
 	 * 
 	 * @return A sorted list of the attributes
 	 */
-	public List<String> getPersonModelAttributeNames();
+    List<String> getPersonModelAttributeNames();
 	
 	/**
 	 * This method returns a list of all person attributes which designated to be custom
@@ -221,15 +221,15 @@ public interface PersonQueryService
 	 * 
 	 * @return A sorted list of the custom field attributes
 	 */
-	public List<String> getPersonModelCustomAttributeNames();
+    List<String> getPersonModelCustomAttributeNames();
 	
-	public Race findRaceByCode(String raceCode);
+	Race findRaceByCode(String raceCode);
 	
-	public Race findRaceByName(String raceName);
+	Race findRaceByName(String raceName);
 	
-	public Gender findGenderByCode(String genderCode);
+	Gender findGenderByCode(String genderCode);
 	
-	public Gender findGenderByName(String genderName);
+	Gender findGenderByName(String genderName);
 	
-	public List<PersonLink> getPersonLinksByLinkSource(Integer linkSourceId);
+	List<PersonLink> getPersonLinksByLinkSource(Integer linkSourceId);
 }

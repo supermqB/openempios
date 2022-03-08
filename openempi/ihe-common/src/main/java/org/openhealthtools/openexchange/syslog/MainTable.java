@@ -31,7 +31,8 @@ import java.util.HashMap;
 import org.apache.log4j.Logger;
 
 
-enum MainTableFields { messageid , ip  , timereceived  , test  ,pass , is_secure } ;  
+enum MainTableFields { messageid , ip  , timereceived  , test  ,pass , is_secure }
+
 /**
  *Class representing the main informations to display in the table of messages.
  * 
@@ -80,7 +81,7 @@ public class MainTable extends AbstractLogTable {
 	    /** TODO PUT THAT ( preparedStatement ) into a static method in order to do it once and not to each constructor call **/
 	    if ( readPreparedStatement == null   ) readPreparedStatement = database.prepareStatement(readSqlCommand ) ;
 	    if ( writePreparedStatement  == null ) writePreparedStatement = database.prepareStatement(writeSqlCommand ) ;
-	    test      = new String() ;	
+	    test      = "";
 	} catch (SQLException sqlException) 
 	{
 	    logger.debug("Database problem (SqlException ) " + sqlException.getMessage()) ;			
@@ -375,7 +376,7 @@ public class MainTable extends AbstractLogTable {
 	
 	stringBuff.append(" [ \"MessageId\" , \""+ messageId  + "\"],\n "  ) ;
 	if ( ipAddress!= null )  stringBuff.append("[ \"IP\"        , \""+ ipAddress + "\"] ,\n "  ) ;
-	if ( timestamp != null ) stringBuff.append("[ \"Timestamp\" , \""+ timestamp.toString() + "\"],\n "  ) ;
+	if ( timestamp != null ) stringBuff.append("[ \"Timestamp\" , \""+ timestamp + "\"],\n "  ) ;
 	stringBuff.append("[ \"Pass\"      , \""+ pass + "\" ], \n "  ) ;
 	stringBuff.append("[ \"Test\"      , \""+ test + "\" ]\n]} "  ) ;
 

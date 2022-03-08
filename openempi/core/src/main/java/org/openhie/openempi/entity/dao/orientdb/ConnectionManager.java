@@ -35,7 +35,7 @@ import com.tinkerpop.blueprints.impls.orient.OrientGraphNoTx;
 
 public class ConnectionManager
 {
-    private static Map<String,OrientGraphFactory> connectionPoolByEntity = new HashMap<String,OrientGraphFactory>();
+    private static final Map<String,OrientGraphFactory> connectionPoolByEntity = new HashMap<String,OrientGraphFactory>();
     protected Logger log = Logger.getLogger(getClass());
 
     private int minPoolConnections;

@@ -38,7 +38,7 @@ import org.openhie.openempi.report.ReportDownloadService;
 
 public class ReportDownloadServlet extends HttpServlet
 {
-	private Logger log = Logger.getLogger(getClass());
+	private final Logger log = Logger.getLogger(getClass());
 
 	private ReportDownloadService reportDownloadService;
 	
@@ -56,7 +56,7 @@ public class ReportDownloadServlet extends HttpServlet
 			throws ServletException, IOException {
 
 		// get the 'file' parameter
-		String reportHandle = (String) request.getParameter("reportHandle");
+		String reportHandle = request.getParameter("reportHandle");
 		if (reportHandle == null || reportHandle.equals("")) {
 			log.error("Received request to retrieve report using invalid report handle: " + reportHandle);
 			throw new ServletException(

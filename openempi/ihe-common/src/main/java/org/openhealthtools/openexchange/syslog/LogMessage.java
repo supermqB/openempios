@@ -30,16 +30,16 @@ import java.sql.Timestamp;
 */
 
 public interface LogMessage {
-	public void setTimeStamp ( Timestamp timestamp  );
-	public void setSecure ( boolean isSecure  );
-	public void setTestMessage ( String testMessage );
-	public void setPass ( boolean pass );
-	public void setIP ( String ip ) throws LoggerException;
-	public void setCompany ( String companyName ) throws LoggerException;
-	public void addParam ( String messageType , String name , String value ) throws LoggerException;
-	public void addHTTPParam( String name , String value ) throws LoggerException;
-	public void addSoapParam( String name , String value ) throws LoggerException;
-	public void addErrorParam( String name , String value ) throws LoggerException;
-	public void addOtherParam ( String name , String value ) throws LoggerException;
-	public String getMessageID();
+	void setTimeStamp(Timestamp timestamp);
+	void setSecure(boolean isSecure);
+	void setTestMessage(String testMessage);
+	void setPass(boolean pass);
+	void setIP(String ip) throws LoggerException;
+	void setCompany(String companyName) throws LoggerException;
+	void addParam(String messageType, String name, String value) throws LoggerException;
+	void addHTTPParam(String name, String value) throws LoggerException;
+	void addSoapParam(String name, String value) throws LoggerException;
+	void addErrorParam(String name, String value) throws LoggerException;
+	void addOtherParam(String name, String value) throws LoggerException;
+	String getMessageID();
 }

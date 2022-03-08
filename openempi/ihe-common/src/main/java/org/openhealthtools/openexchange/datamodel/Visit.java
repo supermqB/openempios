@@ -31,8 +31,8 @@ import java.util.Date;
  **/
 
 public class Visit {
-    private String          systemId;
-    private String          visitId;
+    private final String          systemId;
+    private final String          visitId;
     private Date            visitStartTimestamp;
     private Date            visitEndTimestamp;
     private String          reason;
@@ -154,9 +154,7 @@ public class Visit {
         final Visit visit = (Visit) o;
 
         if (systemId != null ? !systemId.equals(visit.systemId) : visit.systemId != null) return false;
-        if (visitId != null ? !visitId.equals(visit.visitId) : visit.visitId != null) return false;
-
-        return true;
+        return visitId != null ? visitId.equals(visit.visitId) : visit.visitId == null;
     }
 
     public int hashCode() {

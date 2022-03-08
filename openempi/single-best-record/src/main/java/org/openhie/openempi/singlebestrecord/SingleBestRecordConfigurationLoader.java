@@ -32,7 +32,7 @@ import org.openhie.openempi.configuration.xml.singlebestrecord.SingleBestRecordT
 
 public class SingleBestRecordConfigurationLoader implements ConfigurationLoader
 {
-	private Log log = LogFactory.getLog(getClass());
+	private final Log log = LogFactory.getLog(getClass());
 	private String entityName;
 	
 	@Override

@@ -92,7 +92,7 @@ public class ReportDesignController extends Controller
 	private void addReportData(AppEvent event) {
 		ReportDataServiceAsync reportDataService = getReportDataService();
 		
-		ReportWeb report = (ReportWeb) event.getData();		
+		ReportWeb report = event.getData();
 		
 		reportDataService.addReport(report, new AsyncCallback<ReportWeb>() {
 			
@@ -119,7 +119,7 @@ public class ReportDesignController extends Controller
 	private void editReportData(AppEvent event) {
 		ReportDataServiceAsync reportDataService = getReportDataService();
 		
-		ReportWeb report = (ReportWeb) event.getData();		
+		ReportWeb report = event.getData();
 		
 		reportDataService.updateReport(report, new AsyncCallback<ReportWeb>() {
 			
@@ -145,7 +145,7 @@ public class ReportDesignController extends Controller
 	private void deleteReportData(AppEvent event) {
 		ReportDataServiceAsync reportDataService = getReportDataService();
 		
-		ReportWeb report = (ReportWeb) event.getData();		
+		ReportWeb report = event.getData();
 		
 		reportDataService.deleteReport(report, new AsyncCallback<String>() {
 			

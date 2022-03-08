@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.BlockDistance;
 
 public class BlockDistanceMetric extends AbstractDistanceMetric
 {
-	private BlockDistance blockDistance = new BlockDistance();
+	private final BlockDistance blockDistance = new BlockDistance();
 	
 	public BlockDistanceMetric() {
 	}

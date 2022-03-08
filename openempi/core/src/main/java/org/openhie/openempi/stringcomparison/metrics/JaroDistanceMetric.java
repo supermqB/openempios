@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.Jaro;
 
 public class JaroDistanceMetric extends AbstractDistanceMetric
 {
-	private Jaro jaro = new Jaro();
+	private final Jaro jaro = new Jaro();
 	
 	public JaroDistanceMetric() {
 	}

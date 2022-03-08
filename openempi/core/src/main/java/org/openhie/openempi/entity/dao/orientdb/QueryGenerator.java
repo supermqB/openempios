@@ -37,7 +37,7 @@ public class QueryGenerator
 {
 	private static final String DATE_FORMAT_STRING = "'%1$tY-%1$tm-%1$td'";
 	private static final String DATETIME_FORMAT_STRING = "'%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS'";
-	private static Logger log = Logger.getLogger(QueryGenerator.class);
+	private static final Logger log = Logger.getLogger(QueryGenerator.class);
 
 	public static String generateQueryFromRecordIds(Entity entity, int clusterId,  List<Integer> recordIds) {
 		
@@ -58,7 +58,7 @@ public class QueryGenerator
 		 query.append("]");
 		
 		if (log.isDebugEnabled()) {
-			log.debug("Generated query: " + query.toString());
+			log.debug("Generated query: " + query);
 		}
 		return query.toString();
 	}	
@@ -82,7 +82,7 @@ public class QueryGenerator
 		addPagingModifiersToQuery(firstResult, maxResults, query);
 
 		if (log.isDebugEnabled()) {
-			log.debug("Generated query: " + query.toString());
+			log.debug("Generated query: " + query);
 		}
 		return query.toString();
 	}
@@ -90,11 +90,11 @@ public class QueryGenerator
 	public static String generateCountQueryFromRecordLinks(RecordLinkState state) {
 		StringBuffer query = new StringBuffer("select count(*) from recordLink");
 		if (state != null) {
-			query.append(" where state = '").append(state.getState().toString()).append("'");
+			query.append(" where state = '").append(state.getState()).append("'");
 		}
 		
 		if (log.isDebugEnabled()) {
-			log.debug("Generated query: " + query.toString());
+			log.debug("Generated query: " + query);
 		}
 		return query.toString();
 	}	
@@ -102,12 +102,12 @@ public class QueryGenerator
 	public static String generateQueryForRecordLinks(RecordLinkState state, int firstResult, int maxResults) {
 		StringBuffer query = new StringBuffer("select from recordLink");
 		if (state != null) {
-			query.append(" where state = '").append(state.getState().toString()).append("'");
+			query.append(" where state = '").append(state.getState()).append("'");
 		}
 		addPagingModifiersToQuery(firstResult, maxResults, query);
 
 		if (log.isDebugEnabled()) {
-			log.debug("Generated query: " + query.toString());
+			log.debug("Generated query: " + query);
 		}
 		return query.toString();
 	}
@@ -175,7 +175,7 @@ public class QueryGenerator
 		}
 
 		if (log.isDebugEnabled()) {
-			log.debug("Generated query: " + query.toString());
+			log.debug("Generated query: " + query);
 		}
 		return query.toString();
 	}	
@@ -206,7 +206,7 @@ public class QueryGenerator
 		
 		
 		if (log.isDebugEnabled()) {
-			log.debug("Generated query: " + query.toString());
+			log.debug("Generated query: " + query);
 		}
 		return query.toString();
 	}	
@@ -245,7 +245,7 @@ public class QueryGenerator
 		}
 
 		if (log.isDebugEnabled()) {
-			log.debug("Generated query: " + query.toString());
+			log.debug("Generated query: " + query);
 		}
 		return query.toString();
 	}
@@ -255,7 +255,7 @@ public class QueryGenerator
 		addPagingModifiersToQuery(firstResult, maxResults, query);
 
 		if (log.isDebugEnabled()) {
-			log.debug("Generated query: " + query.toString());
+			log.debug("Generated query: " + query);
 		}
 		return query.toString();
 	}
@@ -266,7 +266,7 @@ public class QueryGenerator
 	    addPagingModifiersToQuery(0, maxResults, query);
 
 	    if (log.isDebugEnabled()) {
-	        log.debug("Generated query: " + query.toString());
+	        log.debug("Generated query: " + query);
 	    }
 	    return query.toString();
 	}
@@ -299,7 +299,7 @@ public class QueryGenerator
 		addPagingModifiersToQuery(firstResult, maxResults, query);
 
 		if (log.isDebugEnabled()) {
-			log.debug("Generated query: " + query.toString());
+			log.debug("Generated query: " + query);
 		}
 		return query.toString();
 	}
@@ -326,7 +326,7 @@ public class QueryGenerator
         addPagingModifiersToQuery(firstResult, maxResults, query);
 
         if (log.isDebugEnabled()) {
-            log.debug("Generated query: " + query.toString());
+            log.debug("Generated query: " + query);
         }
         return query.toString();
     }
@@ -366,7 +366,7 @@ public class QueryGenerator
 					.append(chooseWhereClauseOperator(value))
 					.append(" ")
 					.append(":").append((attrib.getName()));
-                    params.put(attrib.getName(), (String)value);
+                    params.put(attrib.getName(), value);
 				break;
 			case TIMESTAMP:
 				query.append("format(")

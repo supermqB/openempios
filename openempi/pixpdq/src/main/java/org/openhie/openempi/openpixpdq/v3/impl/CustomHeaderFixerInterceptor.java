@@ -76,7 +76,7 @@ public class CustomHeaderFixerInterceptor extends AbstractSoapInterceptor {
 
         Collection<BindingOperationInfo> bops = ep.getBinding().getBindingInfo().getOperations();
         for (BindingOperationInfo boi : bops) {
-            SoapOperationInfo soi = (SoapOperationInfo) boi.getExtensor(SoapOperationInfo.class);
+            SoapOperationInfo soi = boi.getExtensor(SoapOperationInfo.class);
             if (soi != null && soi.getAction().equals(action)) {
                 if (bindingOp != null) {
                     //more than one op with the same action, will need to parse normally

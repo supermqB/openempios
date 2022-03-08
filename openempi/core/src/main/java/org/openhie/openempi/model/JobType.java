@@ -108,11 +108,8 @@ public class JobType extends BaseObject implements Serializable
         if (jobTypeCd != other.jobTypeCd)
             return false;
         if (jobTypeName == null) {
-            if (other.jobTypeName != null)
-                return false;
-        } else if (!jobTypeName.equals(other.jobTypeName))
-            return false;
-        return true;
+            return other.jobTypeName == null;
+        } else return jobTypeName.equals(other.jobTypeName);
     }
 
     @Override

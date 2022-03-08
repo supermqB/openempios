@@ -845,12 +845,8 @@ public class Patient {
 		} else if (!vipIndicator.equals(other.vipIndicator))
 			return false;		
 		if (visits == null) {
-			if (other.visits != null)
-				return false;
-		} else if (!visits.equals(other.visits))
-			return false;
-		
-		return true;
+			return other.visits == null;
+		} else return visits.equals(other.visits);
 	}
 	
 	public void setPatientIds(List<PatientIdentifier> patientIds) {

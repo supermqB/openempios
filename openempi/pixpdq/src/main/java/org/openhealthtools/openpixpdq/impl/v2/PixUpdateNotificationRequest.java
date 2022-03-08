@@ -74,7 +74,7 @@ import ca.uhn.hl7v2.model.v25.segment.PID;
 */
 class PixUpdateNotificationRequest implements IPixUpdateNotificationRequest {
 	
-    private static Logger log = Logger.getLogger(PixUpdateNotificationRequest.class);
+    private static final Logger log = Logger.getLogger(PixUpdateNotificationRequest.class);
 
     /** The connection description of the actor for this handler */
 	protected Collection<IConnectionDescription> connections;

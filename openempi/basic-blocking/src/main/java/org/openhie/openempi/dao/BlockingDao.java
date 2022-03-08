@@ -29,11 +29,11 @@ import org.openhie.openempi.model.Record;
 
 public interface BlockingDao
 {
-	public List<Record> blockRecords(Criteria criteria);
+	List<Record> blockRecords(Criteria criteria);
 	
-	public List<NameValuePair> getDistinctValues(String field);
+	List<NameValuePair> getDistinctValues(String field);
 	
-	public List<List<NameValuePair>> getDistinctValues(List<String> fields);
+	List<List<NameValuePair>> getDistinctValues(List<String> fields);
 	
-	public List<String> getBlockingKeyValues(final List<String> fields);
+	List<String> getBlockingKeyValues(final List<String> fields);
 }

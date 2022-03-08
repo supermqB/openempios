@@ -173,9 +173,9 @@ public abstract class AbstractLoggingInterceptor extends AbstractPhaseIntercepto
             serializer.transform(new StreamSource(cos.getInputStream()), new StreamResult(swriter));
             String result = swriter.toString();
             if (result.length() < limit || limit == -1) {
-                builder.append(swriter.toString());
+                builder.append(swriter);
             } else {
-                builder.append(swriter.toString().substring(0, limit));
+                builder.append(swriter.toString(), 0, limit);
             }
 
         } else {
@@ -206,9 +206,9 @@ public abstract class AbstractLoggingInterceptor extends AbstractPhaseIntercepto
                                  new StreamResult(swriter));
             String result = swriter.toString();
             if (result.length() < limit || limit == -1) {
-                builder.append(swriter.toString());
+                builder.append(swriter);
             } else {
-                builder.append(swriter.toString().substring(0, limit));
+                builder.append(swriter.toString(), 0, limit);
             }
 
         } else {

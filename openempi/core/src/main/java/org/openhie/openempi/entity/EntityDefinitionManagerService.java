@@ -32,65 +32,65 @@ import org.openhie.openempi.model.EntityAttributeValidation;
 
 public interface EntityDefinitionManagerService
 {
-	public List<Entity> loadEntities();
+	List<Entity> loadEntities();
 	
-	public Entity loadEntity(Integer id);
+	Entity loadEntity(Integer id);
 	
-    public Entity loadEntityByName(String name);
+    Entity loadEntityByName(String name);
 
-    public Entity getEntityByName(String name);
+    Entity getEntityByName(String name);
     
-    public void createEntityIndexes(Integer entityVersionId) throws ApplicationException;
+    void createEntityIndexes(Integer entityVersionId) throws ApplicationException;
 
-    public void dropEntityIndexes(Integer entityVersionId) throws ApplicationException;
+    void dropEntityIndexes(Integer entityVersionId) throws ApplicationException;
 
-    public List<Entity> findEntitiesByName(String name);
+    List<Entity> findEntitiesByName(String name);
 	
-	public List<EntityAttributeDatatype> getEntityAttributeDatatypes();
+	List<EntityAttributeDatatype> getEntityAttributeDatatypes();
 	
-	public Entity addEntity(Entity entity) throws ApplicationException;
+	Entity addEntity(Entity entity) throws ApplicationException;
 	
-	public Entity updateEntity(Entity entity) throws ApplicationException;
+	Entity updateEntity(Entity entity) throws ApplicationException;
 	
-	public void deleteEntity(Entity entity) throws ApplicationException;
+	void deleteEntity(Entity entity) throws ApplicationException;
 
-	public String exportEntity(Entity entity, String filename) throws ApplicationException;
+	String exportEntity(Entity entity, String filename) throws ApplicationException;
 	
-	public String exportEntity(Integer entityVersionId) throws ApplicationException;
+	String exportEntity(Integer entityVersionId) throws ApplicationException;
 	
-	public void importEntity(String filename) throws ApplicationException;
+	void importEntity(String filename) throws ApplicationException;
 
-	public EntityAttributeGroup addEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws ApplicationException;
+	EntityAttributeGroup addEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws ApplicationException;
 	
-	public EntityAttributeGroup updateEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws ApplicationException;
+	EntityAttributeGroup updateEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws ApplicationException;
 	
-	public void updateEntityAttributeGroups(List<EntityAttributeGroup> groups, Entity updatedEntity) throws ApplicationException;
+	void updateEntityAttributeGroups(List<EntityAttributeGroup> groups, Entity updatedEntity) throws ApplicationException;
 	
-	public void deleteEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws ApplicationException;
+	void deleteEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws ApplicationException;
 	
-	public EntityAttributeGroup loadEntityAttributeGroup(Integer id);
+	EntityAttributeGroup loadEntityAttributeGroup(Integer id);
 	
-	public List<EntityAttributeGroup> loadEntityAttributeGroups(Entity entity);
+	List<EntityAttributeGroup> loadEntityAttributeGroups(Entity entity);
 	
-	public EntityAttributeValidation addEntityAttributeValidation(EntityAttributeValidation validation) throws ApplicationException;
+	EntityAttributeValidation addEntityAttributeValidation(EntityAttributeValidation validation) throws ApplicationException;
 	
-	public EntityAttributeValidation updateEntityAttributeValidation(EntityAttributeValidation validation) throws ApplicationException;
+	EntityAttributeValidation updateEntityAttributeValidation(EntityAttributeValidation validation) throws ApplicationException;
 	
-	public void updateEntityAttributeValidations(List<EntityAttributeValidation> validations, Entity updatedEntity, String attributeName) throws ApplicationException;
+	void updateEntityAttributeValidations(List<EntityAttributeValidation> validations, Entity updatedEntity, String attributeName) throws ApplicationException;
 	
-	public void deleteEntityAttributeValidation(EntityAttributeValidation validation) throws ApplicationException;
+	void deleteEntityAttributeValidation(EntityAttributeValidation validation) throws ApplicationException;
 	
-	public EntityAttributeValidation loadEntityAttributeValidation(Integer id);
+	EntityAttributeValidation loadEntityAttributeValidation(Integer id);
 	
-	public List<EntityAttributeValidation> loadEntityAttributeValidations(EntityAttribute entityAttribute);
+	List<EntityAttributeValidation> loadEntityAttributeValidations(EntityAttribute entityAttribute);
 	
-	public List<CustomField> loadCustomFields(String entityName);
+	List<CustomField> loadCustomFields(String entityName);
 	
-	public CustomField findCustomField(String entityName, String fieldName);
+	CustomField findCustomField(String entityName, String fieldName);
 	
-	public CustomField addCustomField(CustomField field) throws ApplicationException;
+	CustomField addCustomField(CustomField field) throws ApplicationException;
 
-	public void updateCustomField(CustomField field) throws ApplicationException;
+	void updateCustomField(CustomField field) throws ApplicationException;
 	
-	public void deleteCustomField(CustomField field) throws ApplicationException;
+	void deleteCustomField(CustomField field) throws ApplicationException;
 }

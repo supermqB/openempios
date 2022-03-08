@@ -33,5 +33,5 @@ public enum ObservationEventType
     RECORD_ADD_EVENT,
     RECORDS_ADD_EVENT,
     RECORD_DELETE_EVENT,
-    RECORD_UPDATE_EVENT;
+    RECORD_UPDATE_EVENT
 }

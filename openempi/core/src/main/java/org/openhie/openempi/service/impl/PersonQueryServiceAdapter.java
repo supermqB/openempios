@@ -253,7 +253,7 @@ public class PersonQueryServiceAdapter extends BaseServiceImpl implements Person
 		    int left = reviewRecordPairId >> 16; 
 		    int right = reviewRecordPairId & 0xFF;  
 
-			RecordLink recordLink = new RecordLink("#"+Integer.toString(left)+":"+Integer.toString(right));
+			RecordLink recordLink = new RecordLink("#"+ left +":"+ right);
 			recordLink = recordQueryService.loadRecordLink(getEntity(), recordLink.getRecordLinkId());
 					
 			// convert RecordLink to ReviewRecordPair

@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.JaccardSimilarity;
 
 public class JaccardSimilarityMetricStringVersion extends AbstractDistanceMetric
 {
-	private JaccardSimilarity jaccardSimilarity = new JaccardSimilarity();
+	private final JaccardSimilarity jaccardSimilarity = new JaccardSimilarity();
 	
 	public JaccardSimilarityMetricStringVersion() {
 	}

@@ -34,7 +34,7 @@ public class Operation implements Serializable
 	public static Operation LIKE = new Operation("Like");
 	public static Operation NE = new Operation("Not Equals");
 	
-	private String name;
+	private final String name;
 	
 	private Operation(String name) {
 		this.name = name;

@@ -24,7 +24,7 @@ import java.util.Set;
 
 public interface EntityValidationService
 {
-	public Set<ValidationRule> getValidationRules();
+	Set<ValidationRule> getValidationRules();
 	
-	public ValidationRule getValidationRule(String ruleName);
+	ValidationRule getValidationRule(String ruleName);
 }

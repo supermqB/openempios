@@ -74,13 +74,8 @@ public final class Pair<A,B> implements Serializable {
             return false;
         }
         if (this.second == null) {
-            if (other.second != null) {
-                return false;
-            }
-        } else if (!this.second.equals(other.second)) {
-            return false;
-        }
-        return true;
+            return other.second == null;
+        } else return this.second.equals(other.second);
     }
 
     @Override

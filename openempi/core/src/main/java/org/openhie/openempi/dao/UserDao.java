@@ -82,12 +82,12 @@ public interface UserDao extends GenericDao<User, Long>
     String getUserPassword(String username);
     
     @Transactional
-    public UserFile saveUserFile(UserFile userFile);
+    UserFile saveUserFile(UserFile userFile);
     
-    public List<UserFile> getUserFiles(User user);
+    List<UserFile> getUserFiles(User user);
 
-    public UserFile getUserFile(Integer userFileId);
+    UserFile getUserFile(Integer userFileId);
     
     @Transactional
-    public void removeUserFile(UserFile userFile);
+    void removeUserFile(UserFile userFile);
 }

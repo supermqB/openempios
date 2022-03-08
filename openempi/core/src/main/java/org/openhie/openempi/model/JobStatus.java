@@ -107,11 +107,8 @@ public class JobStatus extends BaseObject implements Serializable
         if (jobStatusCd != other.jobStatusCd)
             return false;
         if (jobStatusName == null) {
-            if (other.jobStatusName != null)
-                return false;
-        } else if (!jobStatusName.equals(other.jobStatusName))
-            return false;
-        return true;
+            return other.jobStatusName == null;
+        } else return jobStatusName.equals(other.jobStatusName);
     }
 
     @Override

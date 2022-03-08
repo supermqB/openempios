@@ -256,7 +256,7 @@ public class CustomLoggingOutInterceptor extends LoggingOutInterceptor
             } catch (Exception ex) {
                 //ignore
             }
-            theLog.append(buffer.toString());
+            theLog.append(buffer);
             message.setContent(Writer.class, out);
             super.close();
         }

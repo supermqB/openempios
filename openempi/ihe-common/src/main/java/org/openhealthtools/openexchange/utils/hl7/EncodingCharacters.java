@@ -74,7 +74,7 @@ public class EncodingCharacters extends Object implements Cloneable {
     
     private char fieldSep;
     
-    private char[] encChars;
+    private final char[] encChars;
     
     
     
@@ -306,15 +306,11 @@ public class EncodingCharacters extends Object implements Cloneable {
     public boolean equals(Object o) {
         if (o instanceof EncodingCharacters) {
             EncodingCharacters other = (EncodingCharacters) o;
-            if (this.getFieldSeparator() == other.getFieldSeparator() 
-                && this.getComponentSeparator() == other.getComponentSeparator()
-                && this.getEscapeCharacter() == other.getEscapeCharacter() 
-                && this.getRepetitionSeparator() == other.getRepetitionSeparator()
-                && this.getSubcomponentSeparator() == other.getSubcomponentSeparator()) {
-                    return true;
-            } else {
-                return false;
-            }
+            return this.getFieldSeparator() == other.getFieldSeparator()
+                    && this.getComponentSeparator() == other.getComponentSeparator()
+                    && this.getEscapeCharacter() == other.getEscapeCharacter()
+                    && this.getRepetitionSeparator() == other.getRepetitionSeparator()
+                    && this.getSubcomponentSeparator() == other.getSubcomponentSeparator();
         } else {
             return false;
         }   

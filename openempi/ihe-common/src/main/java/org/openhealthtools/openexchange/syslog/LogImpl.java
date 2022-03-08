@@ -101,7 +101,7 @@ public class LogImpl extends HibernateDaoSupport implements Log {
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
 	public void writeMessage(LogMessage message) throws LoggerException {
 		if (message != null)
-			getHibernateTemplate().saveOrUpdate((Message)message);
+			getHibernateTemplate().saveOrUpdate(message);
 	}
 
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
@@ -110,7 +110,7 @@ public class LogImpl extends HibernateDaoSupport implements Log {
 	}
 	public void deleteMessage(LogMessage m) throws LoggerException {
 		if (m != null)
-			getHibernateTemplate().delete((Message)m);
+			getHibernateTemplate().delete(m);
 
 	}
 

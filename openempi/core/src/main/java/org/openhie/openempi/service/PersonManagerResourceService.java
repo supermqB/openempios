@@ -30,46 +30,46 @@ import org.openhie.openempi.model.ReviewRecordPair;
 
 public interface PersonManagerResourceService
 {
-    public Person addPerson(Person person) throws ApplicationException;
+    Person addPerson(Person person) throws ApplicationException;
 
-    public void updatePerson(Person person) throws ApplicationException;
+    void updatePerson(Person person) throws ApplicationException;
 
-    public Person updatePersonById(Person person) throws ApplicationException;
+    Person updatePersonById(Person person) throws ApplicationException;
 
-    public void deletePerson(PersonIdentifier personIdentifier) throws ApplicationException;
+    void deletePerson(PersonIdentifier personIdentifier) throws ApplicationException;
     
-    public void removePersonById(Integer personId) throws ApplicationException;
+    void removePersonById(Integer personId) throws ApplicationException;
     
-    public void mergePersons(PersonIdentifier retiredIdentifier, PersonIdentifier survivingIdentier) throws ApplicationException;
+    void mergePersons(PersonIdentifier retiredIdentifier, PersonIdentifier survivingIdentier) throws ApplicationException;
     
-    public void deletePersonById(Person person) throws ApplicationException;
+    void deletePersonById(Person person) throws ApplicationException;
     
-    public Person importPerson(Person person) throws ApplicationException;
+    Person importPerson(Person person) throws ApplicationException;
     
-    public IdentifierDomain addIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
+    IdentifierDomain addIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
 
-    public IdentifierDomain updateIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
+    IdentifierDomain updateIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
     
-    public void deleteIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
+    void deleteIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
     
-    public IdentifierDomain obtainUniqueIdentifierDomain(String universalIdentifierTypeCode);
+    IdentifierDomain obtainUniqueIdentifierDomain(String universalIdentifierTypeCode);
     
-    public IdentifierDomainAttribute addIdentifierDomainAttribute(IdentifierDomain identifierDomain,
-            String attributeName, String attributeValue);
+    IdentifierDomainAttribute addIdentifierDomainAttribute(IdentifierDomain identifierDomain,
+                                                           String attributeName, String attributeValue);
 
-    public void updateIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
+    void updateIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
     
-    public void removeIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
+    void removeIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
     
-    public void addReviewRecordPair(ReviewRecordPair recordPair) throws ApplicationException;
+    void addReviewRecordPair(ReviewRecordPair recordPair) throws ApplicationException;
 
-    public void matchReviewRecordPair(ReviewRecordPair recordPair) throws ApplicationException;
+    void matchReviewRecordPair(ReviewRecordPair recordPair) throws ApplicationException;
 
-    public void deleteReviewRecordPair(ReviewRecordPair recordPair);
+    void deleteReviewRecordPair(ReviewRecordPair recordPair);
 
-    public void deleteReviewRecordPairs();
+    void deleteReviewRecordPairs();
     
-    public void linkPersons(PersonLink personLink) throws ApplicationException;
+    void linkPersons(PersonLink personLink) throws ApplicationException;
 
-    public void unlinkPersons(PersonLink personLink) throws ApplicationException;    
+    void unlinkPersons(PersonLink personLink) throws ApplicationException;
 }

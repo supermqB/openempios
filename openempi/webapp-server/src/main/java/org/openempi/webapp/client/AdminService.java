@@ -26,23 +26,23 @@ import com.google.gwt.user.client.rpc.RemoteService;
 
 public interface AdminService extends RemoteService
 {
-	public String assignGlobalIdentifiers(EntityWeb entity) throws Exception;
+	String assignGlobalIdentifiers(EntityWeb entity) throws Exception;
     
-	public String clearLoggedLinks(EntityWeb entity) throws Exception;
+	String clearLoggedLinks(EntityWeb entity) throws Exception;
 	
-	public String createEntityIndexes(EntityWeb entity) throws Exception;
+	String createEntityIndexes(EntityWeb entity) throws Exception;
     
-    public String dropEntityIndexes(EntityWeb entity) throws Exception;
+    String dropEntityIndexes(EntityWeb entity) throws Exception;
 
-	public String startPixPdqServer() throws Exception;
+	String startPixPdqServer() throws Exception;
 
-	public String stopPixPdqServer() throws Exception;
+	String stopPixPdqServer() throws Exception;
 
-	public String initializeRepository(EntityWeb entity)  throws Exception;
+	String initializeRepository(EntityWeb entity)  throws Exception;
 
-	public String linkAllRecordPairs(EntityWeb entity) throws Exception;
+	String linkAllRecordPairs(EntityWeb entity) throws Exception;
 
-	public String initializeCustomConfiguration(EntityWeb entity) throws Exception;
+	String initializeCustomConfiguration(EntityWeb entity) throws Exception;
 
-	public String rebuildBlockingIndex(EntityWeb entity) throws Exception;
+	String rebuildBlockingIndex(EntityWeb entity) throws Exception;
 }

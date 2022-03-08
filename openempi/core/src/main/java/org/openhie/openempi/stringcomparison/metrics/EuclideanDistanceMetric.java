@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.EuclideanDistance;
 
 public class EuclideanDistanceMetric extends AbstractDistanceMetric
 {
-	private EuclideanDistance euclideanDistance = new EuclideanDistance();
+	private final EuclideanDistance euclideanDistance = new EuclideanDistance();
 	
 	public EuclideanDistanceMetric() {
 	}

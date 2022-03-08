@@ -60,7 +60,7 @@ import ca.uhn.hl7v2.util.Terser;
  */
 public class PdSupplier extends HL7Actor implements IPdSupplier {
     /* Logger for problems */
-    private static Logger log = Logger.getLogger(PdSupplier.class);
+    private static final Logger log = Logger.getLogger(PdSupplier.class);
 
 	/** The main server connection this actor will be using */
 	protected IConnectionDescription connection = null;  

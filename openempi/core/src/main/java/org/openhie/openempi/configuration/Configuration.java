@@ -92,7 +92,7 @@ public class Configuration extends BaseServiceImpl implements ConfigurationRegis
 			validateConfiguration(configuration);
 			processConfiguration(configuration);
 //			setupRecordCache();
-			log.info("System configuration: " + this.toString());
+			log.info("System configuration: " + this);
 		} catch (Exception e) {
 			log.error("Failed while locating and parsing the configuration file. System is shutting down due to: " + e, e);
 			throw new RuntimeException("Failed while locating and parsing the configuration file. System is shutting down.");
@@ -282,12 +282,8 @@ public class Configuration extends BaseServiceImpl implements ConfigurationRegis
 		} else {
 			adminConfiguration.setConfigFileDirectory(adminConfig.getFileRepositoryDirectory());
 		}
-		
-		if (adminConfig.getAutostartPixpdq()) {
-			adminConfiguration.setAutoStartPIXPDQ(true);
-		} else {
-			adminConfiguration.setAutoStartPIXPDQ(false);
-		}
+
+		adminConfiguration.setAutoStartPIXPDQ(adminConfig.getAutostartPixpdq());
 
 		if (adminConfig.getDataDirectory() == null) {
 			adminConfiguration.setDataDirectory(Context.getOpenEmpiHome() + "/data");
@@ -315,22 +311,22 @@ public class Configuration extends BaseServiceImpl implements ConfigurationRegis
     private UpdateNotificationRegistrationEntry processUpdateNotificationEntry(UpdateNotificationEntry xmlEntry) {
         String userName = xmlEntry.getUser();
         if (userName == null ||  userName.length() == 0) {
-            log.error("Encountered update notification registration entry without a user account. Entry will be ignored: " + xmlEntry.toString());
+            log.error("Encountered update notification registration entry without a user account. Entry will be ignored: " + xmlEntry);
             return null;
         }
         User user = Context.getUserManager().getUserByUsername(userName);
         if (user == null) {
-            log.error("Encountered update notification registration entry with an unknown user account. Entry will be ignored: " + xmlEntry.toString());
+            log.error("Encountered update notification registration entry with an unknown user account. Entry will be ignored: " + xmlEntry);
             return null;
         }
         String identifierDomainName = xmlEntry.getIdentifierDomainName();
         if (identifierDomainName == null || identifierDomainName.length() == 0) {
-            log.error("Encountered update notification registration entry without an identifier domain. Entry will be ignored: " + xmlEntry.toString());
+            log.error("Encountered update notification registration entry without an identifier domain. Entry will be ignored: " + xmlEntry);
             return null;
         }
         IdentifierDomain domain = Context.getPersonQueryService().findIdentifierDomainByName(identifierDomainName);
         if (domain == null) {
-            log.error("Encountered update notification registration entry with an unknown domain. Entry will be ignored: " + xmlEntry.toString());
+            log.error("Encountered update notification registration entry with an unknown domain. Entry will be ignored: " + xmlEntry);
             return null;
         }
         UpdateNotificationRegistrationEntry entry = new UpdateNotificationRegistrationEntry(user, domain, xmlEntry.getTimeToLive());

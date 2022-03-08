@@ -44,7 +44,7 @@ public class FileUploadServlet extends HttpServlet
 {
 	private static File uploadDirectory;
 	private UserManager userManager; 
-	private Logger log = Logger.getLogger(getClass());
+	private final Logger log = Logger.getLogger(getClass());
 
     @Override
 	public void init(ServletConfig config) throws ServletException {

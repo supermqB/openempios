@@ -82,7 +82,7 @@ public class DeleteEntityView extends BaseEntityView
     private FormPanel rightFormPanel;
     private FormPanel buttonPanel;
 
-    private ListStore<IdentifierWeb> identifierStore = new ListStore<IdentifierWeb>();
+    private final ListStore<IdentifierWeb> identifierStore = new ListStore<IdentifierWeb>();
     private Grid<IdentifierWeb> identifierGrid;
 
     private Status status;
@@ -330,14 +330,12 @@ public class DeleteEntityView extends BaseEntityView
         formlayout.setCellVerticalAlign(VerticalAlignment.TOP);
 
         identifierContainer = new LayoutContainer();
-        ;
         identifierContainer.setLayout(identlayout);
         FormPanel identifierPanel = setupForm("", 150, 850);
         identifierPanel.add(setupIdentifierfieldSet(875, 1));
         identifierContainer.add(identifierPanel);
 
         topContainer = new LayoutContainer();
-        ;
         topContainer.setLayout(toplayout);
         topFormPanel = setupForm("", 150, 400);
         topFormPanel.setStyleAttribute("padding-left", "15px");
@@ -428,7 +426,7 @@ public class DeleteEntityView extends BaseEntityView
         data.setMargins(new Margins(4, 2, 4, 2));
         container.add(formButtonContainer, data);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();

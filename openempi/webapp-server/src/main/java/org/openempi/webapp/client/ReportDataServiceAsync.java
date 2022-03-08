@@ -29,15 +29,15 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface ReportDataServiceAsync
 {	
-	public void getReports( AsyncCallback<List<ReportWeb>> callback);
+	void getReports(AsyncCallback<List<ReportWeb>> callback);
 	
-	public void addReport(ReportWeb report, AsyncCallback<ReportWeb> callback);
+	void addReport(ReportWeb report, AsyncCallback<ReportWeb> callback);
 
-	public void deleteReport(ReportWeb report, AsyncCallback<String> callback);
+	void deleteReport(ReportWeb report, AsyncCallback<String> callback);
 	
-	public void updateReport(ReportWeb report, AsyncCallback<ReportWeb> callback);
+	void updateReport(ReportWeb report, AsyncCallback<ReportWeb> callback);
 	
-	public void generateReport(ReportRequestWeb reportRequest, AsyncCallback<ReportRequestEntryWeb> callback);
+	void generateReport(ReportRequestWeb reportRequest, AsyncCallback<ReportRequestEntryWeb> callback);
 	
-	public void getReportRequests( AsyncCallback<List<ReportRequestEntryWeb>> callback);
+	void getReportRequests(AsyncCallback<List<ReportRequestEntryWeb>> callback);
 }

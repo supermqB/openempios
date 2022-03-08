@@ -63,11 +63,7 @@ public class SpringEntityLoaderManager implements EntityLoaderManager
 		if (properties != null) {
 			
 			Object previewOnlyFlag = properties.get(FileLoaderParameters.PREVIEW_ONLY);
-			if (previewOnlyFlag != null  && previewOnlyFlag instanceof Boolean && previewOnlyFlag.equals(Boolean.TRUE)) {
-				previewOnly = true;
-			} else {
-			    previewOnly = false;
-			}
+			previewOnly = previewOnlyFlag != null && previewOnlyFlag instanceof Boolean && previewOnlyFlag.equals(Boolean.TRUE);
 
 			Object isImportFlag = properties.get(FileLoaderParameters.IS_IMPORT);
 			if (isImportFlag != null  && isImportFlag instanceof Boolean && isImportFlag.equals(Boolean.TRUE)) {

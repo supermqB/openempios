@@ -24,7 +24,7 @@ import org.apache.commons.codec.language.Soundex;
 
 public class SoundexFunction extends AbstractTransformationFunction
 {
-	private Soundex soundex;
+	private final Soundex soundex;
 	
 	public SoundexFunction() {
 		super();

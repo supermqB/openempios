@@ -56,7 +56,7 @@ public class PdqSupplierServiceImpl extends AbstractIheService implements PDQSup
 	protected final Log log = LogFactory.getLog(getClass());
 	private IPdSupplierAdapter pdAdapter;
 	private PdqSupplierV3 pdqSupplier;
-	private static HashMap<String,ContinuationPointer> cachedQueryResults = new HashMap<String,ContinuationPointer>();
+	private static final HashMap<String,ContinuationPointer> cachedQueryResults = new HashMap<String,ContinuationPointer>();
 	
 	public void init() {
 		pdAdapter = PixPdqFactory.getPdSupplierAdapter();
@@ -139,8 +139,8 @@ public class PdqSupplierServiceImpl extends AbstractIheService implements PDQSup
 	    } catch (Throwable e) {
 	    	
 	    	log.error("Encountered a problem while processing the query continuation request: " + e, e);
-	    	response = Hl7ConversionHelper.generateResponseMessage(0, 0, null, body);;
-	    }
+	    	response = Hl7ConversionHelper.generateResponseMessage(0, 0, null, body);
+		}
 	    				
 		return response;
 	}

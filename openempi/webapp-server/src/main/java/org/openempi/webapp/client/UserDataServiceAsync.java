@@ -30,25 +30,25 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface UserDataServiceAsync
 {	
-	public void getUsers( AsyncCallback<List<UserWeb>> callback);
+	void getUsers(AsyncCallback<List<UserWeb>> callback);
 	
-	public void getUserByUsername(String username, AsyncCallback<UserWeb> callback);
+	void getUserByUsername(String username, AsyncCallback<UserWeb> callback);
 	
-	public void saveUser(UserWeb user, AsyncCallback<UserWeb> callback);
+	void saveUser(UserWeb user, AsyncCallback<UserWeb> callback);
 	
-	public void deleteUser(UserWeb user, AsyncCallback<String> callback);
+	void deleteUser(UserWeb user, AsyncCallback<String> callback);
 	
-	public void authenticateUser(String username, String password, boolean verifyPasswordOnly, AsyncCallback<UserWeb> callback);
+	void authenticateUser(String username, String password, boolean verifyPasswordOnly, AsyncCallback<UserWeb> callback);
 	
-	public void getRoles( AsyncCallback<List<RoleWeb>> callback);
+	void getRoles(AsyncCallback<List<RoleWeb>> callback);
 	
-	public void getRole(Long roleId, AsyncCallback<RoleWeb> callback);
+	void getRole(Long roleId, AsyncCallback<RoleWeb> callback);
 	
-	public void saveRole(RoleWeb role, AsyncCallback<RoleWeb> callback);
+	void saveRole(RoleWeb role, AsyncCallback<RoleWeb> callback);
 	
-	public void deleteRole(RoleWeb role, AsyncCallback<String> callback);
+	void deleteRole(RoleWeb role, AsyncCallback<String> callback);
 	
-	public void getPermissions( AsyncCallback<List<PermissionWeb>> callback);
+	void getPermissions(AsyncCallback<List<PermissionWeb>> callback);
 	
-	public void getUserPermissions( UserWeb user, AsyncCallback<Map<String,PermissionWeb>> callback );
+	void getUserPermissions(UserWeb user, AsyncCallback<Map<String, PermissionWeb>> callback);
 }

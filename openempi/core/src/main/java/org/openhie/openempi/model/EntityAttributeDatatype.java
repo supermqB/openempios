@@ -144,11 +144,8 @@ public class EntityAttributeDatatype extends BaseObject implements Serializable
 		} else if (!datatypeCd.equals(other.datatypeCd))
 			return false;
 		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
+			return other.name == null;
+		} else return name.equals(other.name);
 	}
 
 	@Override

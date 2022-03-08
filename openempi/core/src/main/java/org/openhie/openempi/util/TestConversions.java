@@ -160,7 +160,7 @@ public class TestConversions
 		
 		ConvertUtils.register(converter, java.util.Date.class);
 		ConvertUtils convertUtils = new ConvertUtils();
-		System.out.println(convertUtils.convert("2009.03.06 15:13:29 EST", java.util.Date.class));
+		System.out.println(ConvertUtils.convert("2009.03.06 15:13:29 EST", java.util.Date.class));
 		
 		try {
 			BeanUtils.setProperty(person, "dateOfBirth", "2009.03.06 15:13:29 EST");

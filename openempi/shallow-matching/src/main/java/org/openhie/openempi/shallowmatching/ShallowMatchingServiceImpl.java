@@ -44,7 +44,7 @@ import org.openhie.openempi.stringcomparison.StringComparisonService;
 
 public class ShallowMatchingServiceImpl extends AbstractMatchingLifecycleObserver implements ShallowMatchingService
 {    
-    private Map<String,List<MatchField>> matchFieldsByEntityName = new HashMap<String,List<MatchField>>();
+    private final Map<String,List<MatchField>> matchFieldsByEntityName = new HashMap<String,List<MatchField>>();
     private StringComparisonService comparisonService;
     private EntityDao entityDao;
 
@@ -93,7 +93,7 @@ public class ShallowMatchingServiceImpl extends AbstractMatchingLifecycleObserve
         }
         
         String entityName = record.getEntity().getName();
-        List<MatchField> fields = (List<MatchField>) matchFieldsByEntityName.get(entityName);
+        List<MatchField> fields = matchFieldsByEntityName.get(entityName);
         for (Record candidate : candidates) {
             RecordPair pair = new RecordPair(record, candidate);
             evaluateRecordPair(pair, fields, pairs);
@@ -128,10 +128,7 @@ public class ShallowMatchingServiceImpl extends AbstractMatchingLifecycleObserve
         String lVal = left.getAsString(matchField.getFieldName());
         String rVal = right.getAsString(matchField.getFieldName());
         if (lVal == null) {
-            if (rVal == null) {
-                return true;
-            }
-            return false;
+            return rVal == null;
         }
         if (matchField.getComparatorFunction() == null) {
             return lVal.equals(rVal);
@@ -143,10 +140,7 @@ public class ShallowMatchingServiceImpl extends AbstractMatchingLifecycleObserve
                     functionName + " was found to be " + distance + " as compared to threshold " + 
                     matchField.getMatchThreshold());
         }
-        if (distance > matchField.getMatchThreshold()) {
-            return true;
-        }
-        return false;
+        return distance > matchField.getMatchThreshold();
     }
     
     private Set<Record> getCandidates(Record record) {

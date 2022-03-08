@@ -31,7 +31,7 @@ public abstract class AbstractDistanceMetric implements DistanceMetric
 	protected final Log log = LogFactory.getLog(getClass());
 	
 	private String name;
-	private Map<String,Object> parameters;
+	private final Map<String,Object> parameters;
 	private boolean missingValuesMatch = false;
 	
 	public AbstractDistanceMetric() {
@@ -60,18 +60,14 @@ public abstract class AbstractDistanceMetric implements DistanceMetric
 	}
 	
 	public boolean missingValues(Object value1, Object value2) {
-		if (value1 == null || value2 == null || value1.toString().length() == 0 || value2.toString().length() == 0) {
-			return true;
-		}
-		return false;
-	}
+        return value1 == null || value2 == null || value1.toString().length() == 0 || value2.toString().length() == 0;
+    }
 	
 	
 	public double handleMissingValues(Object value1, Object value2) {
 		double distance = 0;
 		if (value1 == null && value2 != null || value1 != null && value2 == null) {
-			;
-		} else if ((value1 == null && value2 == null) || (value1.toString().length() == 0 && value2.toString().length() == 0)) {
+        } else if ((value1 == null && value2 == null) || (value1.toString().length() == 0 && value2.toString().length() == 0)) {
 			if (isMissingValuesMatch()) {
 				distance = 1.0;
 			}

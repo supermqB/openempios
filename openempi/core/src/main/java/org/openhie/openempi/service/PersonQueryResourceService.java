@@ -33,57 +33,57 @@ import org.openhie.openempi.model.ReviewRecordPair;
 
 public interface PersonQueryResourceService
 {
-    public Gender findGenderByCode(String genderCode);
+    Gender findGenderByCode(String genderCode);
 
-    public Gender findGenderByName(String genderName);
+    Gender findGenderByName(String genderName);
     
-    public Race findRaceByCode(String raceCode);
+    Race findRaceByCode(String raceCode);
     
-    public Race findRaceByName(String raceName);
+    Race findRaceByName(String raceName);
     
-    public List<String> getIdentifierDomainTypeCodes();
+    List<String> getIdentifierDomainTypeCodes();
  
-    public IdentifierDomain findIdentifierDomain(IdentifierDomain identifierDomain);
+    IdentifierDomain findIdentifierDomain(IdentifierDomain identifierDomain);
 
-    public List<IdentifierDomain> getIdentifierDomains();
+    List<IdentifierDomain> getIdentifierDomains();
     
-    public List<IdentifierDomainAttribute> getIdentifierDomainAttributes(IdentifierDomain identifierDomain);
+    List<IdentifierDomainAttribute> getIdentifierDomainAttributes(IdentifierDomain identifierDomain);
     
-    public IdentifierDomainAttribute getIdentifierDomainAttribute(IdentifierDomain domain, String attributeName);
+    IdentifierDomainAttribute getIdentifierDomainAttribute(IdentifierDomain domain, String attributeName);
 
-    public List<String> getPersonModelAllAttributeNames();
+    List<String> getPersonModelAllAttributeNames();
     
-    public List<String> getPersonModelAttributeNames();
+    List<String> getPersonModelAttributeNames();
     
-    public List<String> getPersonModelCustomAttributeNames();
+    List<String> getPersonModelCustomAttributeNames();
     
-    public Person findPersonById(PersonIdentifier identifier);
+    Person findPersonById(PersonIdentifier identifier);
 
-    public PersonIdentifier getGlobalIdentifierById(PersonIdentifier identifier);
+    PersonIdentifier getGlobalIdentifierById(PersonIdentifier identifier);
 
-    public Person getSingleBestRecord(Integer personId);
+    Person getSingleBestRecord(Integer personId);
     
-    public List<Person> getSingleBestRecords(List<Integer> personIds);
+    List<Person> getSingleBestRecords(List<Integer> personIds);
     
-    public List<Person> findLinkedPersons(PersonIdentifier identifier);
+    List<Person> findLinkedPersons(PersonIdentifier identifier);
 
-    public List<PersonLink> getPersonLinks(Person person);
+    List<PersonLink> getPersonLinks(Person person);
     
-    public List<Person> findPersonsByAttributes(Person person);
+    List<Person> findPersonsByAttributes(Person person);
     
-    public List<Person> findPersonsByAttributesPaged(Person person, int first, int last);
+    List<Person> findPersonsByAttributesPaged(Person person, int first, int last);
     
-    public List<Person> findMatchingPersonsByAttributes(Person person);
+    List<Person> findMatchingPersonsByAttributes(Person person);
     
-    public Person loadPerson(Integer personId);
+    Person loadPerson(Integer personId);
     
-    public List<Person> loadAllPersonsPaged(Integer firstRecord, Integer maxRecords);
+    List<Person> loadAllPersonsPaged(Integer firstRecord, Integer maxRecords);
     
-    public List<Person> loadPersons(List<Integer> personIds);
+    List<Person> loadPersons(List<Integer> personIds);
     
-    public List<ReviewRecordPair> loadAllUnreviewedPersonLinks();
+    List<ReviewRecordPair> loadAllUnreviewedPersonLinks();
     
-    public List<ReviewRecordPair> loadUnreviewedPersonLinks(Integer maxRecords);
+    List<ReviewRecordPair> loadUnreviewedPersonLinks(Integer maxRecords);
     
-    public ReviewRecordPair loadReviewRecordPair(Integer personLinkReviewId);
+    ReviewRecordPair loadReviewRecordPair(Integer personLinkReviewId);
 }

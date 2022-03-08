@@ -60,6 +60,6 @@ public class ExceptionUtil {
 		e.printStackTrace(ps);
 
 		return "Exception thrown: " + e.getClass().getName() + "\n" + 
-			e.getMessage() + "\n" + new String(baos.toByteArray());
+			e.getMessage() + "\n" + baos.toString();
 	}
 }

@@ -31,7 +31,7 @@ public class Criteria extends BaseObject
 	private static final long serialVersionUID = 7534673028743277151L;
 
 	private List<Criterion> criteria;
-	private List<OrderCriterion> orderCriteria;
+	private final List<OrderCriterion> orderCriteria;
 	private boolean lazyIdentifiers = false;
 
 	public Criteria() {

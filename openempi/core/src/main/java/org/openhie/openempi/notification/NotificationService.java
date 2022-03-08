@@ -28,13 +28,13 @@ public interface NotificationService
 	 * This method is used for staring the Notification Service. It is primarily used for hiding
 	 * all implementation details relating to the broker from the rest of the application.
 	 */
-	public void startup();
+    void startup();
 	
 	/**
 	 * This method is used for stopping the Notification Service. It is primarily used for hiding
 	 * all implementation details relating to the broker from the rest of the application.
 	 */
-	public void shutdown();
+    void shutdown();
 	
 	/**
 	 * Uses the notification mechanism to send out an event. The caller is usually core code that
@@ -43,7 +43,7 @@ public interface NotificationService
 	 * 
 	 * @param event An object that encapsulates the event type information and the payload that is associated with this particular event
 	 */
-	public void fireNotificationEvent(NotificationEvent event);
+    void fireNotificationEvent(NotificationEvent event);
 	
 	/**
 	 * Used by the caller to indicate interest in receiving notifications regarding
@@ -52,7 +52,7 @@ public interface NotificationService
 	 * @param eventTypeName Name of the event for which the caller wishes to receive notifications about
 	 * @param handler The handler that will receive notifications of events for processing
 	 */
-	public void registerListener(String eventTypeName, MessageHandler handler);
+    void registerListener(String eventTypeName, MessageHandler handler);
 	
 	/**
 	 * Used by the caller to indicate interest in receiving notifications regarding
@@ -61,7 +61,7 @@ public interface NotificationService
 	 * @param eventTypeNames List of event names for which the caller wishes to receive notifications about
 	 * @param handler The handler that will receive notifications of events for processing
 	 */
-	public void registerListener(List<String> eventTypeNames, MessageHandler handler);
+    void registerListener(List<String> eventTypeNames, MessageHandler handler);
 	
 	/**
 	 * Used by the caller to indicate that it is no longer interested in receiving notifications regarding
@@ -70,7 +70,7 @@ public interface NotificationService
 	 * @param eventTypeName Name of the event for which the caller does no longer want to receive notifications about
 	 * @param handler The handler that was registered to receive notifications of events
 	 */
-	public void unregisterListener(String eventTypeName, MessageHandler handler);
+    void unregisterListener(String eventTypeName, MessageHandler handler);
 	
 	/**
 	 * Used by the caller to indicate that it is no longer interested in receiving notifications regarding
@@ -79,5 +79,5 @@ public interface NotificationService
 	 * @param eventTypeName List of event names for which the caller does no longer want to receive notifications about
 	 * @param handler The handler that was registered to receive notifications of events
 	 */
-	public void unregisterListener(List<String> eventTypeName, MessageHandler handler);
+    void unregisterListener(List<String> eventTypeName, MessageHandler handler);
 }

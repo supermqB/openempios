@@ -35,7 +35,7 @@ import com.thoughtworks.xstream.io.xml.XmlFriendlyReplacer;
  * 
  */
 public abstract class Marshaler {
-    private static XStream xStream = initializeXStream();
+    private static final XStream xStream = initializeXStream();
 
     private static final String XML_HEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 

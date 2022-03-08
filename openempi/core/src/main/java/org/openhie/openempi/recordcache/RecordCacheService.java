@@ -27,7 +27,7 @@ import org.openhie.openempi.model.Record;
 
 public interface RecordCacheService extends Observer
 {
-    public Record getRecord(Entity entity, Long recordId);
+    Record getRecord(Entity entity, Long recordId);
     
-    public void putRecord(Record record);    
+    void putRecord(Record record);
 }

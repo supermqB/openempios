@@ -28,11 +28,11 @@ import org.openhie.openempi.model.DataProfileAttributeValue;
 
 public interface DataProfileService
 {
-    public List<DataProfile> getDataProfiles();
+    List<DataProfile> getDataProfiles();
 
-    public void removeDataProfile(int dataProfileId);
+    void removeDataProfile(int dataProfileId);
 
-	public List<DataProfileAttribute> getDataProfileAttributes(int dataProfileId);
+	List<DataProfileAttribute> getDataProfileAttributes(int dataProfileId);
 	
-	public List<DataProfileAttributeValue> getTopDataProfileAttributeValues(int attributeId, int topCount);
+	List<DataProfileAttributeValue> getTopDataProfileAttributeValues(int attributeId, int topCount);
 }

@@ -62,7 +62,7 @@ import org.openhie.openempi.openpixpdq.v3.impl.PixManagerV3;
 
 public class HL7AckTransforms
 {
-    private static Log log = LogFactory.getLog(HL7AckTransforms.class);
+    private static final Log log = LogFactory.getLog(HL7AckTransforms.class);
 
     public static MCCIIN000002UV01 createAckFrom201305(PRPAIN201305UV02 request, String ackMsgText) {
         MCCIIN000002UV01 ack = new MCCIIN000002UV01();

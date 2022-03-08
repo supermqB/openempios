@@ -170,12 +170,12 @@ public class ReportServiceImpl extends BaseServiceImpl implements ReportService
 	{
 		protected final Log log = LogFactory.getLog(getClass());
 		
-		private Report report;
-		private ReportRequest reportRequest;
-		private ReportRequestEntry requestEntry;
-		private ReportDao reportDao;
+		private final Report report;
+		private final ReportRequest reportRequest;
+		private final ReportRequestEntry requestEntry;
+		private final ReportDao reportDao;
 		private File reportDataDirectory;
-		private ReportGenerator dataGenerator;
+		private final ReportGenerator dataGenerator;
 
 		public ReportGeneratorTask(Report report, ReportRequest reportRequest, ReportRequestEntry requestEntry, ReportDao reportDao, ReportGenerator dataGenerator) {
 			this.report = report;

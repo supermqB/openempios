@@ -67,7 +67,7 @@ public class SchemaManagerRemote extends SchemaManagerAbstract
             }            
             db.getRawGraph().getMetadata().getSecurity()
                 .createUser(connectionManager.getUsername(), connectionManager.getPassword(),
-                    new String[] { "admin" });
+                        "admin");
             log.debug("Created user: " + connectionManager.getUsername());
 //            db.getRawGraph().setInternal(ODatabase.ATTRIBUTES.CUSTOM, "useLightweightEdges=false");
 //            db.getRawGraph().setInternal(ODatabase.ATTRIBUTES.CUSTOM, "useClassForEdgeLabel=false");

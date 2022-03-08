@@ -943,7 +943,7 @@ public class EntityDefinitionManagerServiceImpl extends BaseServiceImpl
 			index++;
 		}
 		if (log.isDebugEnabled()) {
-			log.debug("Serialized custom field params as: " + sb.toString());
+			log.debug("Serialized custom field params as: " + sb);
 		}
 		return sb.toString();
 	}

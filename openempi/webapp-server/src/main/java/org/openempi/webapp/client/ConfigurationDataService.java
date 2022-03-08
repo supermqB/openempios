@@ -34,21 +34,21 @@ import com.google.gwt.user.client.rpc.RemoteService;
 
 public interface ConfigurationDataService extends RemoteService
 {
-	public List<StringComparatorFunctionWeb> getStringComparatorFunctionList();
+	List<StringComparatorFunctionWeb> getStringComparatorFunctionList();
 
-	public List<TransformationFunctionWeb> getTransfromationFunctionList();
+	List<TransformationFunctionWeb> getTransfromationFunctionList();
 
-	public List<CustomFieldWeb> loadCustomFieldsConfiguration(String entityName) throws Exception;
+	List<CustomFieldWeb> loadCustomFieldsConfiguration(String entityName) throws Exception;
 
-    public List<VectorConfigurationWeb> loadVectorConfiguration(String entityName) throws Exception;
+    List<VectorConfigurationWeb> loadVectorConfiguration(String entityName) throws Exception;
 
-	public MatchConfigurationWeb loadProbabilisticMatchingConfiguration(String entityName) throws Exception;
+	MatchConfigurationWeb loadProbabilisticMatchingConfiguration(String entityName) throws Exception;
 
-	public MatchRuleEntryListWeb loadExactMatchingConfiguration(String entityName) throws Exception;
+	MatchRuleEntryListWeb loadExactMatchingConfiguration(String entityName) throws Exception;
 
-	public String saveCustomFieldsConfiguration(EntityWeb entityModel, List<CustomFieldWeb> customFieldsConfiguration) throws Exception;
+	String saveCustomFieldsConfiguration(EntityWeb entityModel, List<CustomFieldWeb> customFieldsConfiguration) throws Exception;
 
-    public String saveExactMatchingConfiguration(MatchRuleEntryListWeb matchConfiguration) throws Exception;
+    String saveExactMatchingConfiguration(MatchRuleEntryListWeb matchConfiguration) throws Exception;
 
-	public String saveProbabilisticMatchingConfiguration(MatchConfigurationWeb matchConfiguration) throws Exception;
+	String saveProbabilisticMatchingConfiguration(MatchConfigurationWeb matchConfiguration) throws Exception;
 }

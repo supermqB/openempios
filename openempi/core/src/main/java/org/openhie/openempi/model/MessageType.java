@@ -102,11 +102,8 @@ public class MessageType extends BaseObject implements java.io.Serializable
 			return false;
 		MessageType other = (MessageType) obj;
 		if (messageTypeCd == null) {
-			if (other.messageTypeCd != null)
-				return false;
-		} else if (!messageTypeCd.equals(other.messageTypeCd))
-			return false;
-		return true;
+			return other.messageTypeCd == null;
+		} else return messageTypeCd.equals(other.messageTypeCd);
 	}
 
 	@Override

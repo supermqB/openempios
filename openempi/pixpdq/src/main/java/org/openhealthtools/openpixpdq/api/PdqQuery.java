@@ -58,7 +58,7 @@ public class PdqQuery {
 	//the reference pointer for subsequent query
 	private String continuationPointer;  
 	//the domains in which patients will be returned
-	private List<Identifier> returnDomains = new ArrayList<Identifier>(); 
+	private final List<Identifier> returnDomains = new ArrayList<Identifier>();
 	
 	//the query tag (the query id), used by QPD-2 in PDQ Query, 
 	//and by QID-1 in Cancel Query.

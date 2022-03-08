@@ -25,7 +25,7 @@ import org.openhie.openempi.model.JobEntry;
 
 public interface JobTypeHandler extends Runnable
 {
-    public void setJobEntry(JobEntry jobEntry);
+    void setJobEntry(JobEntry jobEntry);
 
-    public void setJobEntryDao(JobEntryDao jobEntryDao);
+    void setJobEntryDao(JobEntryDao jobEntryDao);
 }

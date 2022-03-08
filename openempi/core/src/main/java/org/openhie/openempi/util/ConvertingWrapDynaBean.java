@@ -76,7 +76,7 @@ public class ConvertingWrapDynaBean extends org.apache.commons.beanutils.Convert
 					 String searchKey = name.substring(posOfColon+1,secondColon);
 					 for (Object val : set) {
 						 if (val.toString().indexOf(searchKey) >= 0) {
-							 String propertyName = name.substring(secondColon+1, name.length());
+							 String propertyName = name.substring(secondColon+1);
 							 Object pval = PropertyUtils.getNestedProperty(val, propertyName);
 							 return pval;
 						 }

@@ -139,9 +139,7 @@ public class Provider {
         if (provNameMiddle != null ? !provNameMiddle.equals(provider.provNameMiddle) : provider.provNameMiddle != null) return false;
         if (provNameSuffix != null ? !provNameSuffix.equals(provider.provNameSuffix) : provider.provNameSuffix != null) return false;
         if (provNameTitle != null ? !provNameTitle.equals(provider.provNameTitle) : provider.provNameTitle != null) return false;
-        if (providerId != null ? !providerId.equals(provider.providerId) : provider.providerId != null) return false;
-
-        return true;
+        return providerId != null ? providerId.equals(provider.providerId) : provider.providerId == null;
     }
 
     public int hashCode() {

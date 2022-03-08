@@ -159,10 +159,7 @@ public class ProcessFileDataset
 	}
 	
 	private boolean isPopulatedField(String field) {
-		if (field != null && field.length() > 0) {
-			return true;
-		}
-		return false;
+		return field != null && field.length() > 0;
 	}
 	
 	public class PersonIdentifier

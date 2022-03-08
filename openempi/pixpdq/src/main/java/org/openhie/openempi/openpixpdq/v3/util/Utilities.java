@@ -89,11 +89,11 @@ public class Utilities
 					.getTimeZone("GMT"));
 
 			timestamp = String.valueOf(today.get(GregorianCalendar.YEAR))
-					+ String.valueOf(today.get(GregorianCalendar.MONTH) + 1)
-					+ String.valueOf(today.get(GregorianCalendar.DAY_OF_MONTH))
-					+ String.valueOf(today.get(GregorianCalendar.HOUR_OF_DAY))
-					+ String.valueOf(today.get(GregorianCalendar.MINUTE))
-					+ String.valueOf(today.get(GregorianCalendar.SECOND));
+					+ (today.get(GregorianCalendar.MONTH) + 1)
+					+ today.get(GregorianCalendar.DAY_OF_MONTH)
+					+ today.get(GregorianCalendar.HOUR_OF_DAY)
+					+ today.get(GregorianCalendar.MINUTE)
+					+ today.get(GregorianCalendar.SECOND);
 		} catch (Exception e) {
 			log.error("Exception when creating Gregorian Date");
 			log.error(" message: " + e.getMessage());
@@ -510,7 +510,7 @@ public class Utilities
         log.debug("begin CreatePNExplicit");
         log.debug("firstName = " + firstName + "; lastName = " + lastName);
         org.hl7.v3.ObjectFactory factory = new org.hl7.v3.ObjectFactory();
-        PNExplicit name = (PNExplicit) (factory.createPNExplicit());
+        PNExplicit name = factory.createPNExplicit();
         
         if (isNotNullish(lastName)) {
             EnExplicitFamily familyName = new EnExplicitFamily();
@@ -538,7 +538,7 @@ public class Utilities
 		}
 
 		org.hl7.v3.ObjectFactory factory = new org.hl7.v3.ObjectFactory();
-		ADExplicit address = (ADExplicit) (factory.createADExplicit());
+		ADExplicit address = factory.createADExplicit();
 		List<Serializable> addrlist = address.getContent();
 
 		if (isNotNullish(street)) {
@@ -693,15 +693,12 @@ public class Utilities
 
 	public static String generateMessageId() {
 		java.rmi.server.UID uid = new java.rmi.server.UID();
-		log.debug("generated message id=" + uid.toString());
+		log.debug("generated message id=" + uid);
 		return uid.toString();
 	}
 
 	public static boolean isNullish(String value) {
-		boolean result = false;
-		if ((value == null) || (value.contentEquals(""))) {
-			result = true;
-		}
+		boolean result = (value == null) || (value.contentEquals(""));
 		return result;
 	}
 
@@ -711,10 +708,7 @@ public class Utilities
 
 	@SuppressWarnings("rawtypes")
 	public static boolean isNullish(java.util.List value) {
-		boolean result = false;
-		if ((value == null) || (value.size() == 0)) {
-			result = true;
-		}
+		boolean result = (value == null) || (value.size() == 0);
 		return result;
 	}
 
@@ -743,6 +737,6 @@ public class Utilities
 	}
 	public static void logMessageObject(Object message) {
 		String messageString = objectMessageToString(message);
-		log.info("Generated message:\n" + messageString.toString());
+		log.info("Generated message:\n" + messageString);
 	}
 }

@@ -40,96 +40,96 @@ import org.openhie.openempi.model.RecordLinkState;
 
 public interface EntityDao
 {
-    public EntityStore getEntityStoreByName(String entityName);
+    EntityStore getEntityStoreByName(String entityName);
     
-    public void initializeStore(Entity entity);
+    void initializeStore(Entity entity);
     
-    public void initializeStore(Entity entity, String dataDirectory);
+    void initializeStore(Entity entity, String dataDirectory);
     
-    public void shutdownStore(Entity entity);
+    void shutdownStore(Entity entity);
 
-    public List<Record> loadRecords(Entity entity, int firstResult, int maxResults);
+    List<Record> loadRecords(Entity entity, int firstResult, int maxResults);
 
-    public Record loadRecord(Entity entity, Long id);
+    Record loadRecord(Entity entity, Long id);
     
-    public Map<String,Object> loadObject(Entity entity, String recordId);
+    Map<String,Object> loadObject(Entity entity, String recordId);
     
-    public List<Long> getRecordIds(Entity entity, int firstResult, int maxResults);
+    List<Long> getRecordIds(Entity entity, int firstResult, int maxResults);
     
-    public void loadRecords(Entity entity, List<BlockingQueue<Record>> queues, int blockSize);
+    void loadRecords(Entity entity, List<BlockingQueue<Record>> queues, int blockSize);
     
-    public List<Long> getAllRecordIds(Entity entity);
+    List<Long> getAllRecordIds(Entity entity);
 
-    public Record updateRecord(Entity entity, Record record) throws ApplicationException;
+    Record updateRecord(Entity entity, Record record) throws ApplicationException;
 
-    public void updateRecords(Entity entity, List<Record> records) throws ApplicationException;
+    void updateRecords(Entity entity, List<Record> records) throws ApplicationException;
 
-    public void deleteRecord(Entity entity, Record record) throws ApplicationException;
+    void deleteRecord(Entity entity, Record record) throws ApplicationException;
 
-    public void removeRecord(Entity entity, Record record) throws ApplicationException;
+    void removeRecord(Entity entity, Record record) throws ApplicationException;
 
-    public Record saveRecord(Entity entity, Record record);
+    Record saveRecord(Entity entity, Record record);
 
-    public Set<Record> saveRecords(Entity entity, Collection<Record> record);
+    Set<Record> saveRecords(Entity entity, Collection<Record> record);
 
-    public List<Record> findRecordsByAttributes(Entity entity, Record record);
+    List<Record> findRecordsByAttributes(Entity entity, Record record);
 
-    public Long getRecordCount(Entity entity);
+    Long getRecordCount(Entity entity);
 
-    public Long getRecordCount(Entity entity, Record record);
+    Long getRecordCount(Entity entity, Record record);
 
-    public Long getRecordLinkCount(Entity entity, RecordLinkState state);
+    Long getRecordLinkCount(Entity entity, RecordLinkState state);
 
-    public Long getRecordCount(Entity entity, Identifier identifier);
+    Long getRecordCount(Entity entity, Identifier identifier);
 
-    public Set<Record> loadDirtyRecords(Entity entity, int maxResults);
+    Set<Record> loadDirtyRecords(Entity entity, int maxResults);
     
-    public List<Record> findRecordsByAttributes(Entity entity, Record record, int firstResult, int maxResults);
+    List<Record> findRecordsByAttributes(Entity entity, Record record, int firstResult, int maxResults);
 
-    public List<Record> findRecordsByIdentifier(Entity entity, Identifier identifier);
+    List<Record> findRecordsByIdentifier(Entity entity, Identifier identifier);
 
-    public List<Record> findRecordsByIdentifier(Entity entity, Identifier identifier, int firstResult, int maxResults);
+    List<Record> findRecordsByIdentifier(Entity entity, Identifier identifier, int firstResult, int maxResults);
     
-    public List<Record> findRecordsWithoutIdentifierInDomain(Entity entity, IdentifierDomain domain, boolean hasLinks,
-            int firstResult, int maxResult);
+    List<Record> findRecordsWithoutIdentifierInDomain(Entity entity, IdentifierDomain domain, boolean hasLinks,
+                                                      int firstResult, int maxResult);
 
-    public void saveData(Entity entity, String className, Record record);
+    void saveData(Entity entity, String className, Record record);
     
-    public List<Map<String,Object>> executeQuery(Entity entity, String query);
+    List<Map<String,Object>> executeQuery(Entity entity, String query);
 
-    public void executeQueryAsync(Entity entity, String query, AsyncQueryCallback callback);
+    void executeQueryAsync(Entity entity, String query, AsyncQueryCallback callback);
 
-    public RecordCacheManager getEntityCacheManager();
+    RecordCacheManager getEntityCacheManager();
 
-    public RecordLink saveRecordLink(RecordLink link);
+    RecordLink saveRecordLink(RecordLink link);
 
-    public List<RecordLink> saveRecordLinks(List<RecordLink> link);
+    List<RecordLink> saveRecordLinks(List<RecordLink> link);
 
-    public RecordLink loadRecordLink(Entity entityDef, String recordLinkId);
+    RecordLink loadRecordLink(Entity entityDef, String recordLinkId);
 
-    public List<RecordLink> loadRecordLinks(Entity entity, RecordLinkState state, int firstResult, int maxResults);
+    List<RecordLink> loadRecordLinks(Entity entity, RecordLinkState state, int firstResult, int maxResults);
 
-    public List<RecordLink> loadRecordLinks(Entity entity, Long recordId);
+    List<RecordLink> loadRecordLinks(Entity entity, Long recordId);
 
-    public List<RecordLink> loadRecordLinks(Entity entity, Long recordId, RecordLinkState state);
+    List<RecordLink> loadRecordLinks(Entity entity, Long recordId, RecordLinkState state);
     
-    public List<Record> loadRecordLinksById(Entity entity, Long recordId);
+    List<Record> loadRecordLinksById(Entity entity, Long recordId);
     
-    public List<RecordLink> getRecordLinksBySource(Entity entity, LinkSource linkSource, RecordLinkState state);
+    List<RecordLink> getRecordLinksBySource(Entity entity, LinkSource linkSource, RecordLinkState state);
 
-    public void removeRecordLink(RecordLink link);
+    void removeRecordLink(RecordLink link);
     
-    public int removeRecordLinksBySource(Entity entity, LinkSource linkSource, RecordLinkState state);
+    int removeRecordLinksBySource(Entity entity, LinkSource linkSource, RecordLinkState state);
     
-    public void declareIntent(Entity entity, DataAccessIntent intent);
+    void declareIntent(Entity entity, DataAccessIntent intent);
     
-    public void createClass(Entity baseEntity, Entity classEntity, String baseClass) throws ApplicationException;
+    void createClass(Entity baseEntity, Entity classEntity, String baseClass) throws ApplicationException;
     
-    public boolean classExists(Entity baseEntity, String className) throws ApplicationException;
+    boolean classExists(Entity baseEntity, String className) throws ApplicationException;
     
-    public void dropClass(Entity baseEntity, String className) throws ApplicationException;
+    void dropClass(Entity baseEntity, String className) throws ApplicationException;
     
-    public void createIndexes(Entity entity) throws ApplicationException;
+    void createIndexes(Entity entity) throws ApplicationException;
     
-    public void dropIndexes(Entity entity) throws ApplicationException;
+    void dropIndexes(Entity entity) throws ApplicationException;
 }

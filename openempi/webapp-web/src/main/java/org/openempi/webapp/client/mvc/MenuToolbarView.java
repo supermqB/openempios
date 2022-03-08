@@ -82,7 +82,7 @@ public class MenuToolbarView extends View
     }
 
     private void initUI() {
-        SystemConfigurationWeb systemInfo = (SystemConfigurationWeb) Registry.get(Constants.SYSTEM_CONFIGURATION_INFO);
+        SystemConfigurationWeb systemInfo = Registry.get(Constants.SYSTEM_CONFIGURATION_INFO);
         // Info.display("MenuToolbarView: ", ""+systemInfo.getBlockingAlgorithmName());
         // Info.display("MenuToolbarView: ", ""+systemInfo.getMatchingAlgorithmName());
 
@@ -435,14 +435,14 @@ public class MenuToolbarView extends View
                 if (be.getType() == Events.CheckChange) {
                     if (be.isChecked()) {
                         // Info.display("Info Panel: ", "checked");
-                        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.SOUTH_PANEL);
+                        LayoutContainer wrapper = Registry.get(Constants.SOUTH_PANEL);
                         wrapper.setVisible(true);
 
                         Dispatcher.get().dispatch(AppEvents.InformationPanelView);
 
                     } else {
                         // Info.display("Info Panel: ", "unchecked");
-                        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.SOUTH_PANEL);
+                        LayoutContainer wrapper = Registry.get(Constants.SOUTH_PANEL);
                         wrapper.setVisible(false);
                     }
                 }
@@ -899,7 +899,7 @@ public class MenuToolbarView extends View
             initUI();
         } else if (event.getType() == AppEvents.UpdateConfigurationMenu) {
 
-            SystemConfigurationWeb systemInfo = (SystemConfigurationWeb) Registry
+            SystemConfigurationWeb systemInfo = Registry
                     .get(Constants.SYSTEM_CONFIGURATION_INFO);
                     // Info.display("Information",""+systemInfo.getBlockingAlgorithmName());
                     // Info.display("Information",""+systemInfo.getMatchingAlgorithmName());

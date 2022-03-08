@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class DateUtil
 {
-    private static Log log = LogFactory.getLog(DateUtil.class);
+    private static final Log log = LogFactory.getLog(DateUtil.class);
     private static final String TIME_PATTERN = "HH:mm";
 
     /**

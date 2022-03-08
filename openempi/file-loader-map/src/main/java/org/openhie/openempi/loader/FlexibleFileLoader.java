@@ -69,17 +69,17 @@ public class FlexibleFileLoader extends AbstractFileLoader
     public static final String DEFAULT_DATE_FORMAT = "yyyyMMdd";
 
     private FileLoaderMap fileMap;
-    private Map<Integer, FieldType> fieldMapByColumnIndex = new HashMap<Integer, FieldType>();
-    private Map<String, Method> methodByFieldName = new HashMap<String, Method>();
+    private final Map<Integer, FieldType> fieldMapByColumnIndex = new HashMap<Integer, FieldType>();
+    private final Map<String, Method> methodByFieldName = new HashMap<String, Method>();
     private String delimiter;
     private Pattern delimitingPattern;
     private TrainingDataExtractor trainingDataExtractor;
-    private LinkedBlockingQueue<TaskRecord> recordsQueue;
+    private final LinkedBlockingQueue<TaskRecord> recordsQueue;
     private Map<Serializable, Set<Long>> cacheOfRecordsLoaded;
     private Entity currentEntity;
     private int recordCounter = 0;
     private int recordLoadCounter = 0;
-    private LinkSource goldStandardLinkSource;
+    private final LinkSource goldStandardLinkSource;
 
     private int numLoaderThreads;
     private int recordChunkSize;
@@ -91,10 +91,10 @@ public class FlexibleFileLoader extends AbstractFileLoader
     public static final String LANGUAGE = "language";
     public static final String RELIGION = "religion";
 
-    private String[] referenceTypes = {}; // { GENDER, ETHNIC_GROUP, RACE, NATIONALITY, LANGUAGE, RELIGION };
-    private Map<String, String> referenceTypeMap = new HashMap<String, String>();
-    private List<RecordLoaderTask> loaderThreads = new ArrayList<RecordLoaderTask>();
-    private List<Future<Object>> futures = new ArrayList<Future<Object>>();
+    private final String[] referenceTypes = {}; // { GENDER, ETHNIC_GROUP, RACE, NATIONALITY, LANGUAGE, RELIGION };
+    private final Map<String, String> referenceTypeMap = new HashMap<String, String>();
+    private final List<RecordLoaderTask> loaderThreads = new ArrayList<RecordLoaderTask>();
+    private final List<Future<Object>> futures = new ArrayList<Future<Object>>();
     private Charset characterSetEncoding;
 
     public FlexibleFileLoader() {
@@ -307,10 +307,10 @@ public class FlexibleFileLoader extends AbstractFileLoader
 
     private class RecordParseTask implements Runnable
     {
-        private UserContext userContext;
-        private String lineRecord;
-        private int lineIndex;
-        private Entity entityModel;
+        private final UserContext userContext;
+        private final String lineRecord;
+        private final int lineIndex;
+        private final Entity entityModel;
         private Record record;
 
         public RecordParseTask(Entity entity, String lineRecord, int lineIndex, UserContext userContext) {
@@ -500,10 +500,7 @@ public class FlexibleFileLoader extends AbstractFileLoader
 
         private boolean isOfReferenceType(FieldType field) {
             String fieldName = field.getFieldName();
-            if (referenceTypeMap.get(fieldName) != null) {
-                return true;
-            }
-            return false;
+            return referenceTypeMap.get(fieldName) != null;
         }
 
         private String removeEnclosingCharacters(String token, String enclosingCharacter) {
@@ -617,12 +614,12 @@ public class FlexibleFileLoader extends AbstractFileLoader
 
     public class RecordLoaderTask implements Runnable
     {
-        private Logger log = Logger.getLogger(getClass());
+        private final Logger log = Logger.getLogger(getClass());
         protected EntityLoaderManager entityLoaderManager;
-        private UserContext userContext;
+        private final UserContext userContext;
         private Serializable key;
         private boolean done = false;
-        private List<TaskRecord> tasks = new ArrayList<TaskRecord>();
+        private final List<TaskRecord> tasks = new ArrayList<TaskRecord>();
 
         public RecordLoaderTask(EntityLoaderManager entityLoaderManager, UserContext userContext) {
             this.entityLoaderManager = entityLoaderManager;

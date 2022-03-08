@@ -123,7 +123,6 @@ public abstract class GenericConnection implements IConnection {
                 socket.close();
             }
             catch (IOException e) {
-                ;
             } // TODO add logging message.
             // TODO add ATNA message?
         }

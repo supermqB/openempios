@@ -28,9 +28,9 @@ import com.google.gwt.user.client.rpc.RemoteService;
 
 public interface EventNotificationService extends RemoteService
 {
-	public List<NotificationEventWeb> getEvents();
+	List<NotificationEventWeb> getEvents();
 	
-	public String registerListener(String eventTypeName);
+	String registerListener(String eventTypeName);
 	
-	public String unregisterListener(String eventTypeName);
+	String unregisterListener(String eventTypeName);
 }

@@ -169,11 +169,8 @@ public class Permission extends BaseObject implements Serializable, GrantedAutho
 		} else if (!name.equals(other.name))
 			return false;
 		if (permissionId == null) {
-			if (other.permissionId != null)
-				return false;
-		} else if (!permissionId.equals(other.permissionId))
-			return false;
-		return true;
+			return other.permissionId == null;
+		} else return permissionId.equals(other.permissionId);
 	}
 
 	@Override

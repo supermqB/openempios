@@ -34,91 +34,91 @@ import org.openhie.openempi.model.Record;
 
 public interface PersonDao extends UniversalDao
 {
-	public void addPerson(Person person);
+	void addPerson(Person person);
 
-	public void saveIdentifierDomain(IdentifierDomain identifierDomain);
+	void saveIdentifierDomain(IdentifierDomain identifierDomain);
 		
-	public void updatePerson(Person person);
+	void updatePerson(Person person);
 	
-	public void addPersonIdentifier(PersonIdentifier identifier);
+	void addPersonIdentifier(PersonIdentifier identifier);
 
-	public void addPersonIdentifiers(Set<PersonIdentifier> identifiers);
+	void addPersonIdentifiers(Set<PersonIdentifier> identifiers);
 	
-	public void updatePersons(List<Person> persons);
+	void updatePersons(List<Person> persons);
 	
-	public List<Integer> getAllPersons();
+	List<Integer> getAllPersons();
 	
-	public Person getPersonById(PersonIdentifier personIdentifier);
+	Person getPersonById(PersonIdentifier personIdentifier);
 	
-	public List<Person> getPersonsByIdentifier(final PersonIdentifier personIdentifier);
+	List<Person> getPersonsByIdentifier(final PersonIdentifier personIdentifier);
 	
-	public List<Person> getPersons(final org.openhie.openempi.model.Criteria criteria);
+	List<Person> getPersons(final org.openhie.openempi.model.Criteria criteria);
 	
-	public int getRecordCount();
+	int getRecordCount();
 	
-	public List<Person> getPersonsPaged(final int firstResult, final int maxResults);
+	List<Person> getPersonsPaged(final int firstResult, final int maxResults);
 	
-	public List<Record> getRecordsPaged(final int firstResult, final int maxResults);
+	List<Record> getRecordsPaged(final int firstResult, final int maxResults);
 	
-	public List<Record> getRecordsPaged(final org.openhie.openempi.model.Criteria criteria, final int firstResult, final int maxResults);
+	List<Record> getRecordsPaged(final org.openhie.openempi.model.Criteria criteria, final int firstResult, final int maxResults);
 	
-	public List<Person> getPersonsPaged(final org.openhie.openempi.model.Criteria criteria, final int firstResult, final int maxResults);
+	List<Person> getPersonsPaged(final org.openhie.openempi.model.Criteria criteria, final int firstResult, final int maxResults);
 			
-	public List<Person> getPersons(final org.openhie.openempi.model.Criteria personCriteria, final Set<PersonIdentifier> personIdentifier);
+	List<Person> getPersons(final org.openhie.openempi.model.Criteria personCriteria, final Set<PersonIdentifier> personIdentifier);
 	
-	public List<Person> getPersonsPaged(final org.openhie.openempi.model.Criteria personCriteria,
-			final Set<PersonIdentifier> personIdentifiers, final int firstResult, final int maxResults,
-			final boolean hydrate);
+	List<Person> getPersonsPaged(final org.openhie.openempi.model.Criteria personCriteria,
+                                 final Set<PersonIdentifier> personIdentifiers, final int firstResult, final int maxResults,
+                                 final boolean hydrate);
 	
-	public Person loadPerson(Integer personId);
+	Person loadPerson(Integer personId);
 	
-	public Person loadPersonComplete(Integer personId);
+	Person loadPersonComplete(Integer personId);
 	
-	public List<Person> loadPersons(List<Integer> personIds);
+	List<Person> loadPersons(List<Integer> personIds);
 	
-	public Record loadRecord(Long recordId);
+	Record loadRecord(Long recordId);
 	
-	public List<Record> loadRecords(List<Long> recordIs);
+	List<Record> loadRecords(List<Long> recordIs);
 	
-	public List<IdentifierDomain> getIdentifierDomains();
+	List<IdentifierDomain> getIdentifierDomains();
 	
-	public List<String> getIdentifierDomainTypeCodes();
+	List<String> getIdentifierDomainTypeCodes();
 	
-	public IdentifierDomain findIdentifierDomain(final IdentifierDomain identifierDomain);
+	IdentifierDomain findIdentifierDomain(final IdentifierDomain identifierDomain);
 	
-	public IdentifierDomain findIdentifierDomainByName(final String identifierDomainName);
+	IdentifierDomain findIdentifierDomainByName(final String identifierDomainName);
 	
-	public void addIdentifierDomain(IdentifierDomain identifierDomain);
+	void addIdentifierDomain(IdentifierDomain identifierDomain);
 	
-	public void removeIdentifierDomain(IdentifierDomain identifierDomain);
+	void removeIdentifierDomain(IdentifierDomain identifierDomain);
 	
-	public void removePerson(Integer personId);
+	void removePerson(Integer personId);
 	
-	public List<Integer> getPersonsWithoutIdentifierInDomain(IdentifierDomain identifierDomain, boolean haveLinks);
+	List<Integer> getPersonsWithoutIdentifierInDomain(IdentifierDomain identifierDomain, boolean haveLinks);
 	
-	public boolean isKnownUniversalIdentifierTypeCode(String universalIdentifierTypeCode);
+	boolean isKnownUniversalIdentifierTypeCode(String universalIdentifierTypeCode);
 	
-	public IdentifierDomainAttribute addIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName, String attributeValue);
+	IdentifierDomainAttribute addIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName, String attributeValue);
 	
-	public IdentifierDomainAttribute getIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName);
+	IdentifierDomainAttribute getIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName);
 	
-	public List<IdentifierDomainAttribute> getIdentifierDomainAttributes(IdentifierDomain identifierDomain);
+	List<IdentifierDomainAttribute> getIdentifierDomainAttributes(IdentifierDomain identifierDomain);
 	
-	public void updateIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
+	void updateIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
 	
-	public void removeIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
+	void removeIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
 	
-	public void clearCustomFields();
+	void clearCustomFields();
 	
-	public Race findRaceByName(String raceName);
+	Race findRaceByName(String raceName);
 	
-	public Race findRaceByCode(String raceCode);
+	Race findRaceByCode(String raceCode);
 	
-	public Gender findGenderByName(String genderName);
+	Gender findGenderByName(String genderName);
 
-	public Gender findGenderByCode(String genderCode);
+	Gender findGenderByCode(String genderCode);
     
-    public Nationality findNationalityByName(String genderName);
+    Nationality findNationalityByName(String genderName);
 
-    public Nationality findNationalityByCode(String genderCode);
+    Nationality findNationalityByCode(String genderCode);
 }

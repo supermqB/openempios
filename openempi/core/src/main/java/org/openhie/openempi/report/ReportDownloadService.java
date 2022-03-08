@@ -24,5 +24,5 @@ import java.io.File;
 
 public interface ReportDownloadService
 {
-	public File retrieveReportFileUsingHandle(String reportHandle);
+	File retrieveReportFileUsingHandle(String reportHandle);
 }

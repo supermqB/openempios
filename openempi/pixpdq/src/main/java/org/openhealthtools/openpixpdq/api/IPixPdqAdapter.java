@@ -45,7 +45,7 @@ public interface IPixPdqAdapter {
      * @defaultDomains the default domains configured in the OpenPIXPDQ configuration file.
      * @return A set of domain identifiers.
      */
-	public Set<Identifier> getDomainIdentifiers(Set<Identifier> defaultDomains);
+    Set<Identifier> getDomainIdentifiers(Set<Identifier> defaultDomains);
 	
 	/**
 	 * Gets the global domain (or global assigning authority) supported by this PIX Manager/PD
@@ -55,6 +55,6 @@ public interface IPixPdqAdapter {
 	 * 		   configuration file
 	 * @return the global domain identifier
 	 */
-	public Identifier getGlobalDomainIdentifier(Identifier defaultGlobalDomain);
+    Identifier getGlobalDomainIdentifier(Identifier defaultGlobalDomain);
 
 }

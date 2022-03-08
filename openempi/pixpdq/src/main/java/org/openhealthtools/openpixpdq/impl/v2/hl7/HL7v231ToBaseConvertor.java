@@ -73,14 +73,14 @@ import ca.uhn.hl7v2.model.v231.segment.PV2;
  */
 public class HL7v231ToBaseConvertor{
 
-    private MSH msh;
-    private PID pid;
-    private PV1 pv1;
+    private final MSH msh;
+    private final PID pid;
+    private final PV1 pv1;
     private PV2 pv2;
     private PD1 pd1;
     private DG1 dg1;
     private MRG mrg;
-    private NK1 nk1Array[];
+    private NK1[] nk1Array;
     private ADT_A39_PIDPD1MRGPV1 pidpd1mrgpv1;
 
     IBaseDescription description;
@@ -221,7 +221,7 @@ public class HL7v231ToBaseConvertor{
                 SI setId = nk1.getSetIDNK1();
                 if (setId != null && setId.getValue() != null && setId.getValue().length() > 0) {
                     NextOfKin nok = new NextOfKin();
-                    XPN names[] = nk1.getNKName();
+                    XPN[] names = nk1.getNKName();
                     if (names.length > 0) {
                         PersonName pName = new PersonName();
                         pName.setSuffix(names[0].getSuffixEgJRorIII().getValue()); //patient name suffix
@@ -245,7 +245,7 @@ public class HL7v231ToBaseConvertor{
                         }
                     }
 
-                    XTN phoneNums[] = nk1.getPhoneNumber();
+                    XTN[] phoneNums = nk1.getPhoneNumber();
                     if (phoneNums != null) {
                         for (XTN phoneNum : phoneNums) {
                             PhoneNumber phone = new PhoneNumber();

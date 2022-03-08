@@ -48,7 +48,7 @@ public class BlockingServiceImpl extends AbstractBlockingLifecycleObserver imple
     private final static int BASIC_BLOCKING_ALGORITHM_ID = 1;
 
     private BlockingDao blockingDao;
-	private Map<String,List<BlockingRound>> roundsByEntity = new HashMap<String,List<BlockingRound>>();
+	private final Map<String,List<BlockingRound>> roundsByEntity = new HashMap<String,List<BlockingRound>>();
 
 	public void startup() throws InitializationException {
 		log.trace("Starting the Traditional Blocking Service");

@@ -79,7 +79,7 @@ public class PersonLinkDaoHibernate extends UniversalDaoHibernate implements Per
             return null;
         } else {
         	log.trace("Found links between person " + leftPerson + " and " + rightPerson);
-            return (PersonLink) links.get(0);
+            return links.get(0);
         }
 	}
 
@@ -328,7 +328,7 @@ public class PersonLinkDaoHibernate extends UniversalDaoHibernate implements Per
 
 	public void removeLink(PersonLink personLink) {
 		log.trace("Removing person link with id " + personLink.getPersonLinkId());
-		PersonLink personLinkFound = (PersonLink) getHibernateTemplate().load(PersonLink.class, personLink.getPersonLinkId());
+		PersonLink personLinkFound = getHibernateTemplate().load(PersonLink.class, personLink.getPersonLinkId());
 		if (personLinkFound == null) {
 			return;
 		}
@@ -462,8 +462,7 @@ public class PersonLinkDaoHibernate extends UniversalDaoHibernate implements Per
 
 	public void removeReviewRecordPair(ReviewRecordPair reviewRecordPair) {
 		log.trace("Removing review record pair with id " + reviewRecordPair.getReviewRecordPairId());
-		ReviewRecordPair reviewRecordPairFound = (ReviewRecordPair) 
-				getHibernateTemplate().load(ReviewRecordPair.class, reviewRecordPair.getReviewRecordPairId());
+		ReviewRecordPair reviewRecordPairFound = getHibernateTemplate().load(ReviewRecordPair.class, reviewRecordPair.getReviewRecordPairId());
 		if (reviewRecordPairFound == null) {
 			return;
 		}

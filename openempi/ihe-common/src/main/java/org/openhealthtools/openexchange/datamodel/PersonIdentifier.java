@@ -184,11 +184,8 @@ public class PersonIdentifier {
 		} else if (!assigningAuthority.equals(other.assigningAuthority))
 			return false;
 		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
+			return other.id == null;
+		} else return id.equals(other.id);
 	}
 	
 	

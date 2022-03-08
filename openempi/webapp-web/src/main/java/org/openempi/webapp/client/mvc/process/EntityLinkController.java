@@ -47,7 +47,7 @@ public class EntityLinkController extends Controller
 {
     private EntityLinkView entityLinkView;
 
-    private Integer maxRecords = new Integer(15);
+    private final Integer maxRecords = new Integer(15);
 
     public EntityLinkController() {
         this.registerEventTypes(AppEvents.EntityLinkView);

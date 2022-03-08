@@ -278,7 +278,7 @@ public class PersonManagerServiceAdapter extends BaseServiceImpl implements Pers
             int personLinkId = personLink.getPersonLinkId();
             int left = personLinkId >> 16; 
             int right = personLinkId & 0xFF;      
-            recordLink = new RecordLink("#"+Integer.toString(left)+":"+Integer.toString(right));
+            recordLink = new RecordLink("#"+ left +":"+ right);
             recordLink = recordQueryService.loadRecordLink(getEntity(), recordLink.getRecordLinkId());
             recordLink.setState(RecordLinkState.MATCH);            
             recordLink = recordManagerService.updateRecordLink(recordLink);
@@ -290,7 +290,7 @@ public class PersonManagerServiceAdapter extends BaseServiceImpl implements Pers
         int personLinkId = personLink.getPersonLinkId();
         int left = personLinkId >> 16; 
         int right = personLinkId & 0xFF;      
-        RecordLink recordLink = new RecordLink("#"+Integer.toString(left)+":"+Integer.toString(right));
+        RecordLink recordLink = new RecordLink("#"+ left +":"+ right);
         recordLink = recordQueryService.loadRecordLink(getEntity(), recordLink.getRecordLinkId());
         recordLink.setState(RecordLinkState.NON_MATCH);      
 

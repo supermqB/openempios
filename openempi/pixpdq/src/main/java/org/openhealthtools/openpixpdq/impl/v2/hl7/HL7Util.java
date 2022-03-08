@@ -37,7 +37,7 @@ import ca.uhn.hl7v2.util.Terser;
  */
 public class HL7Util
 {
-    private static HapiContext context;
+    private static final HapiContext context;
     
     static {
         context = new DefaultHapiContext();
@@ -63,7 +63,7 @@ public class HL7Util
                //Consider only 5 components and 5 subcomponents
                for (int j=1; j<=5; j++) {
                    for (int k=1; k<=5; k++) {
-                       out.set(qpdOut, f, i, j, k, in.get(qpdIn, f, i, j, k));
+                       Terser.set(qpdOut, f, i, j, k, Terser.get(qpdIn, f, i, j, k));
                    }
                }
             }

@@ -109,16 +109,16 @@ import ca.uhn.hl7v2.util.Terser;
  */
 class PdQueryHandler extends BaseHandler implements ReceivingApplication {
     /* Logger for problems */
-    private static Logger log = Logger.getLogger(PdSupplier.class);
+    private static final Logger log = Logger.getLogger(PdSupplier.class);
 
     /** The connection description of the actor for this handler */
-	private IConnectionDescription connection;
+	private final IConnectionDescription connection;
 
 	private PdSupplier actor = null;
     private IPdSupplierAdapter pdqAdapter = null;
     private IJMXEventNotifier eventBean = null;
     /** Used to store continuation pointer  <String(pointer), ContinuationPointer> */
-    private static Hashtable<String, ContinuationPointer> dscMap = new Hashtable<String, ContinuationPointer>();
+    private static final Hashtable<String, ContinuationPointer> dscMap = new Hashtable<String, ContinuationPointer>();
     
     /**
      * Constructor 
@@ -142,10 +142,7 @@ class PdQueryHandler extends BaseHandler implements ReceivingApplication {
      * otherwise <code>false</code>.
      */
     public boolean canProcess(Message theIn) {
-         if (theIn instanceof QBP_Q21 || theIn instanceof QCN_J01)
-            return true;
-         else
-            return false;
+        return theIn instanceof QBP_Q21 || theIn instanceof QCN_J01;
     }
 
     /**
@@ -407,8 +404,7 @@ class PdQueryHandler extends BaseHandler implements ReceivingApplication {
 		       }
 		       if (removeList.size() > 0) {
 		    	   for (String key : removeList) {
-		    		   if(dscMap.containsKey(key))
-		    		        dscMap.remove(key);
+                       dscMap.remove(key);
 		    	   }
 		       }
 	       }
@@ -490,7 +486,7 @@ class PdQueryHandler extends BaseHandler implements ReceivingApplication {
                 int idIndex = populatePID(pid, patient, patientIndex+1, returnDomains);
                 //For subsequent patient record, we only retrieve its patient id
                 for (int i=1; i<patientRecord.size(); i++) { //has to start with the second one, the first was handled above
-                    Patient pd = (Patient)patientRecord.get(i);                        
+                    Patient pd = patientRecord.get(i);
                     List<PatientIdentifier> patientIds = pd.getPatientIds();
                     for (PatientIdentifier patientId : patientIds) {
                     	String id = patientId.getId();

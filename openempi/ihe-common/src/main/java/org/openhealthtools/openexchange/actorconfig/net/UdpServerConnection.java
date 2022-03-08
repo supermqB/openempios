@@ -34,7 +34,7 @@ import org.apache.commons.logging.LogFactory;
 public class UdpServerConnection implements IUdpServerConnection {
 
     private static final Log log = LogFactory.getLog(UdpServerConnection.class);
-    private IConnectionDescription description;
+    private final IConnectionDescription description;
     private DatagramSocket socket;
     private final int DEFAULT_MAX_TRANSMISSION_UNIT = 32786;
 

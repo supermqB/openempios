@@ -41,9 +41,9 @@ public class AuditTrailDescription {
 	public static final String RELIABLE = "RELIABLE SYSLOG";
 	public static final String LOG4J = "LOG4J LOGGER";
 	
-	private String localHostname;
-	private String localIp;
-	private String localName;
+	private final String localHostname;
+	private final String localIp;
+	private final String localName;
 	
 	private String applicationName = "OpenXDS";
 	private String facilityName="MISYS PLC";
@@ -52,12 +52,12 @@ public class AuditTrailDescription {
 	private String auditSourceId;
 	
 	private String auditTrailType = LOG4J;
-	private String defaultIdEncoding;
-	private String defaultNameEncoding;
+	private final String defaultIdEncoding;
+	private final String defaultNameEncoding;
 
-	private String remoteHostname;
-	private int remotePort;
-	private String remoteType;
+	private final String remoteHostname;
+	private final int remotePort;
+	private final String remoteType;
 	
 	private boolean asynchronous = false;
 	private int transmissionInterval = 1000;

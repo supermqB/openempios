@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.CosineSimilarity;
 
 public class CosineSimilarityMetric extends AbstractDistanceMetric
 {
-	private CosineSimilarity cosineSimilarity = new CosineSimilarity();
+	private final CosineSimilarity cosineSimilarity = new CosineSimilarity();
 	
 	public CosineSimilarityMetric() {
 	}

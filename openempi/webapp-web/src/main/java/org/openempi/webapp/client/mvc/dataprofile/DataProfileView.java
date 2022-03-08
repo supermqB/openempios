@@ -99,10 +99,10 @@ public class DataProfileView extends View
     private Button reloadDataProfileButton;
     private Grid<DataProfileAttributeWeb> grid;
     private Grid<DataProfileAttributeWeb> grid2;
-    private ListStore<DataProfileAttributeWeb> profileAttributeStore = new ListStore<DataProfileAttributeWeb>();
+    private final ListStore<DataProfileAttributeWeb> profileAttributeStore = new ListStore<DataProfileAttributeWeb>();
 
     private Grid<DataProfileAttributeValueWeb> gridAttributeValue;
-    private ListStore<DataProfileAttributeValueWeb> profileAttributeValueStore = new ListStore<DataProfileAttributeValueWeb>();
+    private final ListStore<DataProfileAttributeValueWeb> profileAttributeValueStore = new ListStore<DataProfileAttributeValueWeb>();
 
     private Chart barChartCount;
     private Chart barChartLength;
@@ -133,14 +133,14 @@ public class DataProfileView extends View
             grid2 = null;
             gridAttributeValue = null;
 
-            dataProfileId = (Integer) event.getData();
+            dataProfileId = event.getData();
             initUI(dataProfileId);
 
             showWaitCursor();
 
         } else if (event.getType() == AppEvents.DataProfileAttributeReceived) {
 
-            List<DataProfileAttributeWeb> attributeList = (List<DataProfileAttributeWeb>) event.getData();
+            List<DataProfileAttributeWeb> attributeList = event.getData();
             /*
              * for (DataProfileAttributeWeb attributeWeb : attributeList) { Info.display("Information",
              * ""+attributeWeb.getAttributeName()); }
@@ -151,7 +151,7 @@ public class DataProfileView extends View
 
         } else if (event.getType() == AppEvents.DataProfileAttributeValueReceived) {
 
-            List<DataProfileAttributeValueWeb> attributeValueList = (List<DataProfileAttributeValueWeb>) event
+            List<DataProfileAttributeValueWeb> attributeValueList = event
                     .getData();
 
             double cumulative = 0.0;
@@ -823,7 +823,7 @@ public class DataProfileView extends View
         data.setMargins(new Margins(4, 2, 4, 2));
         container.add(formContainer, data);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();

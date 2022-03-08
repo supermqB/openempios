@@ -36,7 +36,7 @@ public class BasicRecordPairIterator implements RecordPairIterator
 {
 	protected final Log log = LogFactory.getLog(getClass());
 
-	private BasicRecordPairSource recordPairSource;
+	private final BasicRecordPairSource recordPairSource;
 	private boolean initialized = false;
 	private List<String> blockRecordIds;
 	private List<RecordPair> recordPairs;
@@ -78,11 +78,8 @@ public class BasicRecordPairIterator implements RecordPairIterator
 	        recordPairs.clear();
 	        loadRecordPairsForBlock();
 		}
-		if (currentRecordId < blockRecordIds.size() && recordPairs.size() > 0) {
-		    return true;
-		}
-		return false;
-	}
+        return currentRecordId < blockRecordIds.size() && recordPairs.size() > 0;
+    }
 
     public RecordPair next() {
         return nextPair;

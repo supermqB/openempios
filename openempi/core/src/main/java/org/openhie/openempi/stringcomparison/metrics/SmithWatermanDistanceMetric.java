@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.SmithWaterman;
 
 public class SmithWatermanDistanceMetric extends AbstractDistanceMetric
 {
-	private SmithWaterman smithWaterman = new SmithWaterman();
+	private final SmithWaterman smithWaterman = new SmithWaterman();
 	
 	public SmithWatermanDistanceMetric() {
 	}

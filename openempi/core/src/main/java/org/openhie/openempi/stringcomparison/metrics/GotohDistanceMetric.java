@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.SmithWatermanGotoh;
 
 public class GotohDistanceMetric extends AbstractDistanceMetric
 {
-	private SmithWatermanGotoh gotoh = new SmithWatermanGotoh();
+	private final SmithWatermanGotoh gotoh = new SmithWatermanGotoh();
 	
 	public GotohDistanceMetric() {
 	}

@@ -160,11 +160,8 @@ public class LoggedLink extends BaseObject implements java.io.Serializable
 			return false;
 		LoggedLink other = (LoggedLink) obj;
 		if (linkId == null) {
-			if (other.linkId != null)
-				return false;
-		} else if (!linkId.equals(other.linkId))
-			return false;
-		return true;
+			return other.linkId == null;
+		} else return linkId.equals(other.linkId);
 	}
 
 	@Override

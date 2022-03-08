@@ -93,7 +93,7 @@ public class UserFileView extends View
 	private ContentPanel dynamicFieldsPanel;
 
 		private ComboBox<FileLoaderConfigurationWeb> fileLoadersCombo;
-		private ListStore<FileLoaderConfigurationWeb> fileLoadersStroe = new GroupingStore<FileLoaderConfigurationWeb>();
+		private final ListStore<FileLoaderConfigurationWeb> fileLoadersStroe = new GroupingStore<FileLoaderConfigurationWeb>();
 
 	private EntityWeb currentEntity;
 
@@ -370,7 +370,7 @@ public class UserFileView extends View
 		}));
 		cp.add(panel);
 		
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();		
@@ -553,8 +553,8 @@ public class UserFileView extends View
 		Field<?> field;
 		if(type.getDisplayType().equals("CHECKBOX")) {
 			
-		   CheckBox checkBox = new CheckBox();  ;
-		   checkBox.setBoxLabel("");  		   
+		   CheckBox checkBox = new CheckBox();
+			checkBox.setBoxLabel("");
 		   checkBox.setValue(false); 
 		   if (fileLoaderName.equals("flexibleDataLoader")) {
     		   if(type.getName().equals("skipHeaderLine")) {

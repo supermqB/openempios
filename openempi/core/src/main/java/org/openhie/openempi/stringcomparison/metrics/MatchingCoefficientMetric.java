@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.MatchingCoefficient;
 
 public class MatchingCoefficientMetric extends AbstractDistanceMetric
 {
-	private MatchingCoefficient matchingCoefficient = new MatchingCoefficient();
+	private final MatchingCoefficient matchingCoefficient = new MatchingCoefficient();
 	
 	public MatchingCoefficientMetric() {
 	}

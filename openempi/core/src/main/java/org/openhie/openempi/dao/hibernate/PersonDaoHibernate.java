@@ -296,7 +296,7 @@ public class PersonDaoHibernate extends UniversalDaoHibernate implements PersonD
 				Query query = session.createQuery("from Person p where p.dateVoided is null order by p.personId");
 				query.setFirstResult(firstResult);
 				query.setMaxResults(maxResults);
-				log.debug("Querying using " + query.toString());
+				log.debug("Querying using " + query);
 				List<Person> list = (List<Person>) query.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 						.list();
 				removeDeletedIdentifiers(list);
@@ -314,7 +314,7 @@ public class PersonDaoHibernate extends UniversalDaoHibernate implements PersonD
 				Query query = session.createQuery("from Person p where p.dateVoided is null order by p.personId");
 				query.setFirstResult(firstResult);
 				query.setMaxResults(maxResults);
-				log.debug("Querying using " + query.toString());
+				log.debug("Querying using " + query);
 				List<Person> list = (List<Person>) query.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 						.list();
 				removeDeletedIdentifiers(list);
@@ -462,10 +462,7 @@ public class PersonDaoHibernate extends UniversalDaoHibernate implements PersonD
 	public boolean isKnownUniversalIdentifierTypeCode(String universalIdentifierTypeCode) {
 		String queryString = "from IdentifierDomain i where i.universalIdentifierTypeCode = ?";
 		List<IdentifierDomain> domains = getHibernateTemplate().find(queryString, universalIdentifierTypeCode);
-		if (domains.size() == 0) {
-			return false;
-		}
-		return true;
+		return domains.size() != 0;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -474,7 +471,7 @@ public class PersonDaoHibernate extends UniversalDaoHibernate implements PersonD
 			log.debug("User attempted to add identifier domain attribute for an unknown identifier domain: " + identifierDomain);
 			return null;
 		}
-		IdentifierDomain foundIdentifierDomain = (IdentifierDomain) getHibernateTemplate().get(IdentifierDomain.class, identifierDomain.getIdentifierDomainId());
+		IdentifierDomain foundIdentifierDomain = getHibernateTemplate().get(IdentifierDomain.class, identifierDomain.getIdentifierDomainId());
 		if (foundIdentifierDomain == null) {
 			log.debug("User attempted to add identifier domain attribute for an unknown identifier domain: " + identifierDomain);
 			return null;

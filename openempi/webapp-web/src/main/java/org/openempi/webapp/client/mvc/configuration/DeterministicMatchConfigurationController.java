@@ -69,7 +69,7 @@ public class DeterministicMatchConfigurationController extends Controller
 
 	private void saveMatchConfiguration(AppEvent event) {
 		ConfigurationDataServiceAsync configurationDataService = getConfigurationDataService();
-		MatchRuleEntryListWeb configuration = (MatchRuleEntryListWeb) event.getData();
+		MatchRuleEntryListWeb configuration = event.getData();
 	    EntityWeb currentEntity = Registry.get(Constants.ENTITY_ATTRIBUTE_MODEL);
 	    if (currentEntity != null) {
 	        configuration.setEntityName(currentEntity.getName());

@@ -36,7 +36,7 @@ import org.openhie.openempi.service.impl.BaseServiceImpl;
 public class BinarySamplingServiceImpl extends BaseServiceImpl implements SamplingService
 {
     private double selectionProbability;
-    private Random random;
+    private final Random random;
     
     public BinarySamplingServiceImpl() {
         random = new Random(new Date().getTime());

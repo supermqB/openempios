@@ -117,14 +117,11 @@ public class RecordPair
 		} else if (!leftRecord.equals(other.leftRecord))
 			return false;
 		if (rightRecord == null) {
-			if (other.rightRecord != null)
-				return false;
-		} else if (!rightRecord.equals(other.rightRecord))
-			return false;
+			return other.rightRecord == null;
+		} else return rightRecord.equals(other.rightRecord);
 //		if (!leftRecord.getRecordId().equals(other.rightRecord.getRecordId()) ||
 //				!rightRecord.getRecordId().equals(other.leftRecord.getRecordId()))
 //			return false;
-		return true;
 	}
 
 	@Override

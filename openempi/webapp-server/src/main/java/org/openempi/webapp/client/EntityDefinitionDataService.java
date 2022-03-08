@@ -29,15 +29,15 @@ import com.google.gwt.user.client.rpc.RemoteService;
 
 public interface EntityDefinitionDataService extends RemoteService
 {	
-	public List<EntityWeb> loadEntities() throws Exception;	
+	List<EntityWeb> loadEntities() throws Exception;
 	
-	public EntityWeb addEntity(EntityWeb entity) throws Exception;	
+	EntityWeb addEntity(EntityWeb entity) throws Exception;
 	
-	public EntityWeb updateEntity(EntityWeb entity) throws Exception;	
+	EntityWeb updateEntity(EntityWeb entity) throws Exception;
 	
-	public String deleteEntity(EntityWeb entity) throws Exception;
+	String deleteEntity(EntityWeb entity) throws Exception;
 	
-	public String importEntity(UserFileWeb userFile) throws Exception;
+	String importEntity(UserFileWeb userFile) throws Exception;
     
-	public String exportEntity(EntityWeb entityModel, String fileName) throws Exception;	
+	String exportEntity(EntityWeb entityModel, String fileName) throws Exception;
 }

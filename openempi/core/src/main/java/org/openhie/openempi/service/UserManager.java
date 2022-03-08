@@ -61,7 +61,7 @@ public interface UserManager extends UniversalManager {
      * username/password pair credentials. In the future we need to add support for certificate
      * based authentication.
      */
-    public User authenticate(String username, String password) throws AuthenticationException;
+    User authenticate(String username, String password) throws AuthenticationException;
     
     /**
      * Authentication method using a session Key. This authentication method is used
@@ -76,7 +76,7 @@ public interface UserManager extends UniversalManager {
      * 
      * @throws AuthenticationException
      */
-    public User authenticate(String sessionKey) throws AuthenticationException;
+    User authenticate(String sessionKey) throws AuthenticationException;
     
     /**
      * Creates a new session usually as a result of a successful authentication event. End users
@@ -84,7 +84,7 @@ public interface UserManager extends UniversalManager {
      */
     String createSession(User user);
     
-    public void logout(String sessionKey);
+    void logout(String sessionKey);
     
     /**
     /**
@@ -124,14 +124,14 @@ public interface UserManager extends UniversalManager {
      * @param user parameter to filter on
      * @return List
      */
-    public List<UserFile> getUserFiles(User user);
+    List<UserFile> getUserFiles(User user);
     
     /**
      * Retrieves a specific file entry using the entry's primary key
      * @param unique identifier for user file entry
      * @return UserFile
      */
-    public UserFile getUserFile(Integer userFileId);
+    UserFile getUserFile(Integer userFileId);
     
     /**
      * Save a user file entry
@@ -139,7 +139,7 @@ public interface UserManager extends UniversalManager {
      * @param userFile a populated user file entry
      * @return userFile the stored user file object with identifying information
      */
-    public UserFile saveUserFile(UserFile userFile);
+    UserFile saveUserFile(UserFile userFile);
     
     /**
      * Removes a user entry from the database by its id
@@ -152,7 +152,7 @@ public interface UserManager extends UniversalManager {
      * Returns the list of roles that have been defined in the system.
      * 
      */
-    public List<Role> getRoles();
+    List<Role> getRoles();
     
     /**
      * Returns the list of permissions that are assigned to a user through
@@ -161,23 +161,23 @@ public interface UserManager extends UniversalManager {
      * @param
      * @return The set of permissions that the user has.
      */
-    public Set<Permission> getUserPermissions(User user);
+    Set<Permission> getUserPermissions(User user);
     
     /**
      * Returns the role identified by the id provided by the caller.
      * 
      * @param roleId
      */
-    public Role getRole(Long roleId);
+    Role getRole(Long roleId);
     
-    public Role getRoleByName(String roleName);
+    Role getRoleByName(String roleName);
     
-    public Role saveRole(Role role) throws ApplicationException;
+    Role saveRole(Role role) throws ApplicationException;
     
-    public void removeRole(String roleName) throws ApplicationException;
+    void removeRole(String roleName) throws ApplicationException;
     
     /**
      * Returns the list of all known and supported permissions on the system.
      */
-    public List<Permission> getPermissions();
+    List<Permission> getPermissions();
 }

@@ -108,11 +108,8 @@ public class LinkSource extends BaseObject implements Serializable
         } else if (!sourceDescription.equals(other.sourceDescription))
             return false;
         if (sourceName == null) {
-            if (other.sourceName != null)
-                return false;
-        } else if (!sourceName.equals(other.sourceName))
-            return false;
-        return true;
+            return other.sourceName == null;
+        } else return sourceName.equals(other.sourceName);
     }
 
     @Override

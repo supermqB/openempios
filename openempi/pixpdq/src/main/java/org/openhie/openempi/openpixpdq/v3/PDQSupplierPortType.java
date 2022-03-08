@@ -42,24 +42,24 @@ public interface PDQSupplierPortType {
     @WebResult(name = "PRPA_IN201306UV02", targetNamespace = "urn:hl7-org:v3", partName = "Body")
     @Action(input = "urn:hl7-org:v3:QUQI_IN000003UV01_Continue", output = "urn:hl7-org:v3:PRPA_IN201306UV02")
     @WebMethod(operationName = "PDQSupplier_QUQI_IN000003UV01_Continue", action = "urn:hl7-org:v3:QUQI_IN000003UV01_Continue")
-    public org.hl7.v3.PRPAIN201306UV02 pdqSupplierQUQIIN000003UV01Continue(
-        @WebParam(partName = "Body", name = "QUQI_IN000003UV01", targetNamespace = "urn:hl7-org:v3")
-        org.hl7.v3.QUQIIN000003UV01Type body
+    org.hl7.v3.PRPAIN201306UV02 pdqSupplierQUQIIN000003UV01Continue(
+            @WebParam(partName = "Body", name = "QUQI_IN000003UV01", targetNamespace = "urn:hl7-org:v3")
+                    org.hl7.v3.QUQIIN000003UV01Type body
     );
 
     @WebResult(name = "MCCI_IN000002UV01", targetNamespace = "urn:hl7-org:v3", partName = "Body")
     @Action(input = "urn:hl7-org:v3:QUQI_IN000003UV01_Cancel", output = "urn:hl7-org:v3:MCCI_IN000002UV01")
     @WebMethod(operationName = "PDQSupplier_QUQI_IN000003UV01_Cancel", action = "urn:hl7-org:v3:QUQI_IN000003UV01_Cancel")
-    public org.hl7.v3.MCCIIN000002UV01 pdqSupplierQUQIIN000003UV01Cancel(
-        @WebParam(partName = "Body", name = "QUQI_IN000003UV01_Cancel", targetNamespace = "urn:hl7-org:v3")
-        org.hl7.v3.QUQIIN000003UV01Type body
+    org.hl7.v3.MCCIIN000002UV01 pdqSupplierQUQIIN000003UV01Cancel(
+            @WebParam(partName = "Body", name = "QUQI_IN000003UV01_Cancel", targetNamespace = "urn:hl7-org:v3")
+                    org.hl7.v3.QUQIIN000003UV01Type body
     );
 
     @WebResult(name = "PRPA_IN201306UV02", targetNamespace = "urn:hl7-org:v3", partName = "Body")
     @Action(input = "urn:hl7-org:v3:PRPA_IN201305UV02", output = "urn:hl7-org:v3:PRPA_IN201306UV02")
     @WebMethod(operationName = "PDQSupplier_PRPA_IN201305UV02", action = "urn:hl7-org:v3:PRPA_IN201305UV02")
-    public org.hl7.v3.PRPAIN201306UV02 pdqSupplierPRPAIN201305UV02(
-        @WebParam(partName = "Body", name = "PRPA_IN201305UV02", targetNamespace = "urn:hl7-org:v3")
-        org.hl7.v3.PRPAIN201305UV02 body
+    org.hl7.v3.PRPAIN201306UV02 pdqSupplierPRPAIN201305UV02(
+            @WebParam(partName = "Body", name = "PRPA_IN201305UV02", targetNamespace = "urn:hl7-org:v3")
+                    org.hl7.v3.PRPAIN201305UV02 body
     );
 }

@@ -70,7 +70,7 @@ import com.google.gwt.core.client.GWT;
 public class ManageIdentifierDomainView extends View
 {
 	private Grid<IdentifierDomainWeb> grid;
-	private ListStore<IdentifierDomainWeb> store = new ListStore<IdentifierDomainWeb>();
+	private final ListStore<IdentifierDomainWeb> store = new ListStore<IdentifierDomainWeb>();
 
 	private Dialog  addIdentifierDomainDialog = null;
 	private String  addEditDeleteMode = "ADD";
@@ -78,11 +78,11 @@ public class ManageIdentifierDomainView extends View
 	private IdentifierDomainWeb globalIdentifierDomain;
 	private IdentifierDomainWeb editedIdentifierDomain;
 
-	private TextField<String> identifierName = new TextField<String>();
-	private TextField<String> identifierDescription = new TextField<String>();
-	private TextField<String> namespaceIdentifier = new TextField<String>();
-	private TextField<String> universalIdentifier = new TextField<String>();
-	private TextField<String> universalIdentifierType = new TextField<String>();
+	private final TextField<String> identifierName = new TextField<String>();
+	private final TextField<String> identifierDescription = new TextField<String>();
+	private final TextField<String> namespaceIdentifier = new TextField<String>();
+	private final TextField<String> universalIdentifier = new TextField<String>();
+	private final TextField<String> universalIdentifierType = new TextField<String>();
 
 	private Button addDomainButton;
 	private Button updateDomainButton;
@@ -119,7 +119,7 @@ public class ManageIdentifierDomainView extends View
 
 			store.removeAll();
 
-			List<IdentifierDomainWeb> identifierDomains = (List<IdentifierDomainWeb>) event.getData();
+			List<IdentifierDomainWeb> identifierDomains = event.getData();
 			store.add(identifierDomains);
 
 			grid.getSelectionModel().select(0, true);
@@ -129,7 +129,7 @@ public class ManageIdentifierDomainView extends View
 
 	        MessageBox.alert("Information", "A new Identifier Domain was successfully saved", null);
 
-	        IdentifierDomainWeb newDomain = (IdentifierDomainWeb) event.getData();
+	        IdentifierDomainWeb newDomain = event.getData();
 	        // Info.display("Information", "New Domain ID: " + newDomain.getIdentifierDomainId());
 	       	store.add(newDomain);
 
@@ -141,7 +141,7 @@ public class ManageIdentifierDomainView extends View
 		} else if (event.getType() == AppEvents.ManageIdentifierDomainUpdateComplete) {
 
 	       	store.remove(editedIdentifierDomain);
-	        IdentifierDomainWeb updateDomain = (IdentifierDomainWeb) event.getData();
+	        IdentifierDomainWeb updateDomain = event.getData();
 	       	store.add(updateDomain);
 
 			//controller.handleEvent(new AppEvent(AppEvents.ManageIdentifierDomainRequest));
@@ -360,7 +360,7 @@ public class ManageIdentifierDomainView extends View
 
 		container.add(cp);
 
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

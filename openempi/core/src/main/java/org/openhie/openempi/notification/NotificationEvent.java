@@ -74,11 +74,8 @@ public class NotificationEvent implements Serializable
 		} else if (!eventData.equals(other.eventData))
 			return false;
 		if (eventType == null) {
-			if (other.eventType != null)
-				return false;
-		} else if (!eventType.getEventTypeName().equals(other.eventType.getEventTypeName()))
-			return false;
-		return true;
+			return other.eventType == null;
+		} else return eventType.getEventTypeName().equals(other.eventType.getEventTypeName());
 	}
 
 	@Override

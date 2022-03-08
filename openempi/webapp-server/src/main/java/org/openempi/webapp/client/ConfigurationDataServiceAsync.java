@@ -34,21 +34,21 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface ConfigurationDataServiceAsync
 {
-	public void getStringComparatorFunctionList(AsyncCallback<List<StringComparatorFunctionWeb>> callback);
+	void getStringComparatorFunctionList(AsyncCallback<List<StringComparatorFunctionWeb>> callback);
 
-	public void getTransfromationFunctionList(AsyncCallback<List<TransformationFunctionWeb>> callback);
+	void getTransfromationFunctionList(AsyncCallback<List<TransformationFunctionWeb>> callback);
 
-	public void loadCustomFieldsConfiguration(String entityName, AsyncCallback<List<CustomFieldWeb>> callback);
+	void loadCustomFieldsConfiguration(String entityName, AsyncCallback<List<CustomFieldWeb>> callback);
 	
-	public void loadProbabilisticMatchingConfiguration(String entityName, AsyncCallback<MatchConfigurationWeb> callback);
+	void loadProbabilisticMatchingConfiguration(String entityName, AsyncCallback<MatchConfigurationWeb> callback);
 
-	public void loadExactMatchingConfiguration(String entityName, AsyncCallback<MatchRuleEntryListWeb> callback);
+	void loadExactMatchingConfiguration(String entityName, AsyncCallback<MatchRuleEntryListWeb> callback);
 	
-	public void loadVectorConfiguration(String entityName, AsyncCallback<List<VectorConfigurationWeb>> callback);
+	void loadVectorConfiguration(String entityName, AsyncCallback<List<VectorConfigurationWeb>> callback);
 
-	public void saveCustomFieldsConfiguration(EntityWeb entityModel, List<CustomFieldWeb> customFieldsConfiguration, AsyncCallback<String> callback);
+	void saveCustomFieldsConfiguration(EntityWeb entityModel, List<CustomFieldWeb> customFieldsConfiguration, AsyncCallback<String> callback);
 
-	public void saveExactMatchingConfiguration(MatchRuleEntryListWeb matchingConfiguration, AsyncCallback<String> callback);
+	void saveExactMatchingConfiguration(MatchRuleEntryListWeb matchingConfiguration, AsyncCallback<String> callback);
 	
-	public void saveProbabilisticMatchingConfiguration(MatchConfigurationWeb matchingConfiguration, AsyncCallback<String> callback);
+	void saveProbabilisticMatchingConfiguration(MatchConfigurationWeb matchingConfiguration, AsyncCallback<String> callback);
 }

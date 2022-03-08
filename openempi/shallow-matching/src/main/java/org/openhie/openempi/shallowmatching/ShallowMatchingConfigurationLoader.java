@@ -41,7 +41,7 @@ import org.openhie.openempi.notification.ObservationEventType;
 
 public class ShallowMatchingConfigurationLoader implements ConfigurationLoader
 {
-	private Log log = LogFactory.getLog(ShallowMatchingConfigurationLoader.class);
+	private final Log log = LogFactory.getLog(ShallowMatchingConfigurationLoader.class);
 	
 	private String entityName;
 	

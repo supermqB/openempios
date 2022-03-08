@@ -23,7 +23,7 @@ package org.openhie.openempi.transformation.function;
 
 public class NysiisFunction extends AbstractTransformationFunction
 {
-	private Nysiis nysiis;
+	private final Nysiis nysiis;
 	
 	public NysiisFunction() {
 		super();

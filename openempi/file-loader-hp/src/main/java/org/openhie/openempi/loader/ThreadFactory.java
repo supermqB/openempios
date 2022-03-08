@@ -24,8 +24,8 @@ import java.util.concurrent.Executors;
 
 public class ThreadFactory implements java.util.concurrent.ThreadFactory
 {
-	private java.util.concurrent.ThreadFactory defaultThreadFactory;
-	private UncaughtExceptionHandler exceptionHandler;
+	private final java.util.concurrent.ThreadFactory defaultThreadFactory;
+	private final UncaughtExceptionHandler exceptionHandler;
 	
 	public ThreadFactory() {
 		defaultThreadFactory = Executors.defaultThreadFactory();

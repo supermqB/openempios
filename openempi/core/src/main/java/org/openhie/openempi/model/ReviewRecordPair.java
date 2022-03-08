@@ -226,11 +226,8 @@ public class ReviewRecordPair extends BaseObject implements java.io.Serializable
 				personRight.getPersonId() == other.getPersonLeft().getPersonId())
 			return true;
 		if (reviewRecordPairId == null) {
-			if (other.reviewRecordPairId != null)
-				return false;
-		} else if (!reviewRecordPairId.equals(other.reviewRecordPairId))
-			return false;
-		return true;
+			return other.reviewRecordPairId == null;
+		} else return reviewRecordPairId.equals(other.reviewRecordPairId);
 	}
 
 	@Override

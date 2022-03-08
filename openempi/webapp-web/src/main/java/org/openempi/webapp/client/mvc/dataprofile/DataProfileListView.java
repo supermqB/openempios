@@ -73,7 +73,7 @@ public class DataProfileListView extends View
     private LayoutContainer gridContainer;
 
     private Grid<DataProfileWeb> grid;
-    private ListStore<DataProfileWeb> dataProfileStore = new ListStore<DataProfileWeb>();
+    private final ListStore<DataProfileWeb> dataProfileStore = new ListStore<DataProfileWeb>();
 
     private Status status;
     private Button viewButton;
@@ -99,7 +99,7 @@ public class DataProfileListView extends View
 
         } else if (event.getType() == AppEvents.DataProfileListReceived) {
 
-            List<DataProfileWeb> dataProfileList = (List<DataProfileWeb>) event.getData();
+            List<DataProfileWeb> dataProfileList = event.getData();
             /*
              * for (DataProfileWeb dataProfileWeb : dataProfileList) { Info.display("Information",
              * ""+dataProfileWeb..getEntity().getName()); }
@@ -271,7 +271,7 @@ public class DataProfileListView extends View
         data.setMargins(new Margins(2, 2, 2, 2));
         container.add(gridContainer, data);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();

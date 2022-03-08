@@ -74,7 +74,7 @@ public class MapAdapter<K, V> extends XmlAdapter<MapAdapter.Adapter<K, V>, Map<K
         private V value;
 
         public MapElement() {
-        };
+        }
 
         public MapElement(K key, V value) {
             this.key = key;

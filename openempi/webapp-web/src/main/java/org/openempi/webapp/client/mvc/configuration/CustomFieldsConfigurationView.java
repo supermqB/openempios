@@ -78,11 +78,11 @@ import com.google.gwt.core.client.GWT;
 
 public class CustomFieldsConfigurationView extends View
 {
-	private String[] SubstringNames = { "start", "end" };
-	private String[] DateTransformationNames = { "dateFormat" };
+	private final String[] SubstringNames = { "start", "end" };
+	private final String[] DateTransformationNames = { "dateFormat" };
 
 	private Grid<CustomFieldWeb> grid;
-	private ListStore<CustomFieldWeb> store = new ListStore<CustomFieldWeb>();
+	private final ListStore<CustomFieldWeb> store = new ListStore<CustomFieldWeb>();
 
 	private Dialog addEditCustomFieldDialog = null;
 		private Boolean addOrEditFieldMode = true;
@@ -90,22 +90,22 @@ public class CustomFieldsConfigurationView extends View
 		private CustomFieldWeb editedField;
 		private List<ModelPropertyWeb> attributeNames;
 //		private ListStore<ModelPropertyWeb> customFieldNameStore = new ListStore<ModelPropertyWeb>();
-		private ListStore<ModelPropertyWeb> attributeNameStore = new ListStore<ModelPropertyWeb>();
-		private ListStore<ModelPropertyWeb> trafoFuncNameStore = new ListStore<ModelPropertyWeb>();
+		private final ListStore<ModelPropertyWeb> attributeNameStore = new ListStore<ModelPropertyWeb>();
+		private final ListStore<ModelPropertyWeb> trafoFuncNameStore = new ListStore<ModelPropertyWeb>();
 
 //		private ComboBox<ModelPropertyWeb> customFieldNameCombo = new ComboBox<ModelPropertyWeb>();
 		private TextField<String> customFieldNameText;
 		private TextField<String> customFieldNameDescriptionText;
-		private ComboBox<ModelPropertyWeb> attributeNameCombo = new ComboBox<ModelPropertyWeb>();
-		private ComboBox<ModelPropertyWeb> trafoFuncNameCombo = new ComboBox<ModelPropertyWeb>();
+		private final ComboBox<ModelPropertyWeb> attributeNameCombo = new ComboBox<ModelPropertyWeb>();
+		private final ComboBox<ModelPropertyWeb> trafoFuncNameCombo = new ComboBox<ModelPropertyWeb>();
 
 	// Function Parameters
 		private ContentPanel functionParameterPanel = null;
 		private ComboBox<ModelPropertyWeb> parameterNameCombo = new ComboBox<ModelPropertyWeb>();
-		private ListStore<ModelPropertyWeb> parameterNameStore = new GroupingStore<ModelPropertyWeb>();
+		private final ListStore<ModelPropertyWeb> parameterNameStore = new GroupingStore<ModelPropertyWeb>();
 
 		private Grid<ModelPropertyWeb> parametersGrid;
-		private ListStore<ModelPropertyWeb> parameterStore = new GroupingStore<ModelPropertyWeb>();
+		private final ListStore<ModelPropertyWeb> parameterStore = new GroupingStore<ModelPropertyWeb>();
 
 	private LayoutContainer container;
 
@@ -115,7 +115,7 @@ public class CustomFieldsConfigurationView extends View
 	public CustomFieldsConfigurationView(Controller controller) {
 		super(controller);
 
-		List<ModelPropertyWeb> trafoFuncNames = (List<ModelPropertyWeb>) Registry.get(Constants.TRANSFORMATION_FUNCTION_NAMES);
+		List<ModelPropertyWeb> trafoFuncNames = Registry.get(Constants.TRANSFORMATION_FUNCTION_NAMES);
 		try {
 			trafoFuncNameStore.add(trafoFuncNames);
 		} catch (Exception e) {
@@ -133,7 +133,7 @@ public class CustomFieldsConfigurationView extends View
 			currentEntity = Registry.get(Constants.ENTITY_ATTRIBUTE_MODEL);
 
 			store.removeAll();
-			List<CustomFieldWeb> customFields = (List<CustomFieldWeb>) event.getData();
+			List<CustomFieldWeb> customFields = event.getData();
 
 			for (CustomFieldWeb customField : customFields) {
 				customField.setFieldDescription(Utility.convertToDescription(customField.getFieldName()));
@@ -162,7 +162,7 @@ public class CustomFieldsConfigurationView extends View
 		GWT.log("Initializing the UI ", null);
 
 		attributeNameStore.removeAll();
-		attributeNames = (List<ModelPropertyWeb>) Registry.get(Constants.PERSON_MODEL_ATTRIBUTE_NAMES);
+		attributeNames = Registry.get(Constants.PERSON_MODEL_ATTRIBUTE_NAMES);
 		if (attributeNames != null) {
 			attributeNameStore.add(attributeNames);
 		}
@@ -309,7 +309,7 @@ public class CustomFieldsConfigurationView extends View
 				public void handleEvent(SelectionChangedEvent<CustomFieldWeb> be) {
 					CustomFieldWeb selectionItem = be.getSelectedItem();
 
-					List<ModelPropertyWeb> allAttributeNames = (List<ModelPropertyWeb>) Registry.get(Constants.PERSON_MODEL_ALL_ATTRIBUTE_NAMES);
+					List<ModelPropertyWeb> allAttributeNames = Registry.get(Constants.PERSON_MODEL_ALL_ATTRIBUTE_NAMES);
 
 					Boolean editFieldEnabled = true;
 					Boolean removeFieldEnabled = true;
@@ -358,7 +358,7 @@ public class CustomFieldsConfigurationView extends View
 				CustomFieldWeb selectField = grid.getSelectionModel().getSelectedItem();
 
 				int selectionIndex = grid.getStore().indexOf(selectField);
-				Boolean moveUpEnabled = (selectionIndex > 0);;
+				Boolean moveUpEnabled = (selectionIndex > 0);
 				Boolean moveDownEnabled = (selectionIndex < grid.getStore().getCount() - 1);
 				moveUpFieldButton.setEnabled(moveUpEnabled);
 				moveDownFieldButton.setEnabled(moveDownEnabled);
@@ -388,7 +388,7 @@ public class CustomFieldsConfigurationView extends View
 
 		container.add(cp);
 
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

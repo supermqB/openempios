@@ -52,7 +52,7 @@ public class UnZip {
   /** For a given jar file, process each entry. */
   public void unZip(String fileName,String localAxisRepo) {
 	  String[] jarPath = fileName.split("!");
-      String exactPath[] = jarPath[0].split("file:/");
+      String[] exactPath = jarPath[0].split("file:/");
 	  String exactjarPath = exactPath[1];  
 	  dirsMade = new TreeSet();
     try {

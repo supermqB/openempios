@@ -58,7 +58,7 @@ import com.google.gwt.core.client.GWT;
 public class EventNotificationView extends View
 {
 	private Grid<NotificationEventWeb> grid;
-	private ListStore<NotificationEventWeb> eventStore = new ListStore<NotificationEventWeb>();
+	private final ListStore<NotificationEventWeb> eventStore = new ListStore<NotificationEventWeb>();
 
 	private LayoutContainer container;
 	private LayoutContainer gridContainer;
@@ -147,7 +147,7 @@ public class EventNotificationView extends View
 		data.setMargins(new Margins(85, 0, 2, 0));
 		container.add(gridContainer, data);
 		
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

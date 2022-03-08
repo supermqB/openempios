@@ -29,11 +29,11 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface JobQueueDataServiceAsync
 {
-    public void getJobEntries(AsyncCallback<List<JobEntryWeb>> callback);
+    void getJobEntries(AsyncCallback<List<JobEntryWeb>> callback);
 
-    public void getJobEntryEventLogs(JobEntryWeb jobEntry, AsyncCallback<List<JobEntryEventLogWeb>> callback);
+    void getJobEntryEventLogs(JobEntryWeb jobEntry, AsyncCallback<List<JobEntryEventLogWeb>> callback);
 
-    public void updateJobEntry(JobEntryWeb jobEntry, AsyncCallback<JobEntryWeb> callback);
+    void updateJobEntry(JobEntryWeb jobEntry, AsyncCallback<JobEntryWeb> callback);
 
-    public void deleteJobEntry(JobEntryWeb jobEntry, AsyncCallback<String> callback);
+    void deleteJobEntry(JobEntryWeb jobEntry, AsyncCallback<String> callback);
 }

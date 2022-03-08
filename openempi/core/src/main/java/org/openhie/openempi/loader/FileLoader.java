@@ -28,19 +28,19 @@ import org.openhie.openempi.model.ParameterType;
 
 public interface FileLoader
 {
-	public void init();
+	void init();
 	
-	public void setLoaderAlias(String loaderAlias);
+	void setLoaderAlias(String loaderAlias);
 	
-	public void setEntityLoaderManager(EntityLoaderManager entityManager);
+	void setEntityLoaderManager(EntityLoaderManager entityManager);
 	
-	public FileLoaderResults parseFile(Entity entity, File file);
+	FileLoaderResults parseFile(Entity entity, File file);
 	
-	public ParameterType[] getParameterTypes();
+	ParameterType[] getParameterTypes();
 	
-	public void setParameter(String parameterName, Object value);
+	void setParameter(String parameterName, Object value);
 	
-	public boolean isDone();
+	boolean isDone();
 	
-	public void shutdown();
+	void shutdown();
 }

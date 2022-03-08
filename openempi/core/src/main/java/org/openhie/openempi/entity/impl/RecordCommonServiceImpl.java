@@ -343,8 +343,8 @@ public class RecordCommonServiceImpl extends BaseServiceImpl
 
     protected class RecordInPair
     {
-        private RecordPair pair;
-        private Record record;
+        private final RecordPair pair;
+        private final Record record;
 
         public RecordInPair(Record record, RecordPair pair) {
             this.pair = pair;

@@ -30,13 +30,13 @@ public interface IheActor {
 	
 	/**
 	 *  Starts this actor. It must be called once for each actor when the program starts. 
-	 */  
-	public void start();
+	 */
+    void start();
 
 	/**
 	 * Stops this actor. It must be called once for each actor just before the program quits. 
-	 */ 
-	public void stop();
+	 */
+    void stop();
   
 	/**
 	 * Returns a useful name for this Actor so that it can be put into
@@ -44,20 +44,20 @@ public interface IheActor {
 	 * 
 	 * @returns a useful name for this Actor
 	 */
-	public String getName(); 
+    String getName();
 	
 	/**
 	 * Gets the <code>IActorDescription</code> of this actor.
 	 * 
 	 * @return the actor description
 	 */
-	public IActorDescription getActorDescription();
+    IActorDescription getActorDescription();
 	
 	/**
 	 * Gets the Audit Trail of this actor.
 	 * 
 	 * @return the auditTrail
 	 */
-	public IAuditTrailLifeCycle getAuditTrail();
+    IAuditTrailLifeCycle getAuditTrail();
 
 }

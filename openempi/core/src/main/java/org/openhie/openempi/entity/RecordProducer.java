@@ -28,11 +28,11 @@ import org.openhie.openempi.model.Record;
 
 public interface RecordProducer extends Runnable
 {
-    public Entity getEntity();
+    Entity getEntity();
     
-    public void setEntity(Entity entity);
+    void setEntity(Entity entity);
     
-    public void setQueueList(List<BlockingQueue<Record>> queueList);
+    void setQueueList(List<BlockingQueue<Record>> queueList);
     
-    public List<BlockingQueue<Record>> getQueueList();
+    List<BlockingQueue<Record>> getQueueList();
 }

@@ -39,7 +39,7 @@ public class Component extends BaseObject
 	private String description;
 	private ComponentType componentType;
 	
-	private Map<ExtensionInterface, Extension> extensionByInterface = new HashMap<ExtensionInterface, Extension>();
+	private final Map<ExtensionInterface, Extension> extensionByInterface = new HashMap<ExtensionInterface, Extension>();
 	
 	public Component() {
 	}

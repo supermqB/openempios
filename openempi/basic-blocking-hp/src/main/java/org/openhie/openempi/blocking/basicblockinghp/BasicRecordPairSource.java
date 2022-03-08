@@ -39,7 +39,7 @@ public class BasicRecordPairSource implements RecordPairSource
 	private List<BlockingRound> blockingRounds;
 	private BlockingDao blockingDao;
 	private BlockingServiceCache cache;
-	private Entity entity;
+	private final Entity entity;
 	
 	public BasicRecordPairSource(Entity entity) {
 		this.entity = entity;

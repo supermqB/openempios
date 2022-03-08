@@ -23,9 +23,9 @@ package org.openhealthtools.openexchange.actorconfig;
 public interface IAuditTrailLifeCycle {
 
 	/**	Sends actor start log message.  Must be called when actor is started. */
-	public void start();
+    void start();
 	
 	/**	Sends actor stop log message.  Must be called when actor is finished. */
-	public void stop();
+    void stop();
 
 }

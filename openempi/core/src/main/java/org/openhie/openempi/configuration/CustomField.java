@@ -74,10 +74,7 @@ public class CustomField extends BaseField
 	}
 	
 	public boolean hasConfigurationParameters() {
-		if (configurationParameters.keySet().size() > 0) {
-			return true;
-		}
-		return false;
+		return configurationParameters.keySet().size() > 0;
 	}
 	
 	public Map<String, String> getConfigurationParameters() {

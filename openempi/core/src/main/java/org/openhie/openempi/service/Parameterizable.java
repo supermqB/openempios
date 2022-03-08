@@ -24,7 +24,7 @@ import java.util.Map;
 
 public interface Parameterizable
 {
-    public Map<String,Object> getParameters();
+    Map<String,Object> getParameters();
 
-    public void setParameters(Map<String,Object> parameters);
+    void setParameters(Map<String, Object> parameters);
 }

@@ -24,5 +24,5 @@ import java.io.Serializable;
 
 public interface TrainingDataExtractor
 {
-	public Serializable extractKey(String line);
+	Serializable extractKey(String line);
 }

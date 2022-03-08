@@ -252,7 +252,7 @@ public abstract class AbstractLogTable
 	  try 
 	  {
 		deletePreparedStatement.setString( 1 , inMessageId ) ;
-		System.out.println(deletePreparedStatement.toString()) ;
+		System.out.println(deletePreparedStatement) ;
 		deletePreparedStatement.executeUpdate() ;
 		 
 	  } catch (SQLException e) 

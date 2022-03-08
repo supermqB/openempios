@@ -31,10 +31,10 @@ public enum JobTypeEnum
     GENERATE_CUSTOM_FIELDS(7, "Generate Custom Fields"),
     ASSIGN_GLOBAL_IDENTIFIERS(8, "Assign Global Identifiers");
     
-    private int code;
-    private String name;
+    private final int code;
+    private final String name;
     
-    private JobTypeEnum(int code, String name) {
+    JobTypeEnum(int code, String name) {
         this.code = code;
         this.name = name;
     }

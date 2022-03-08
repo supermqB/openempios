@@ -24,9 +24,9 @@ public enum RecordLinkState
 {
 	MATCH("M"), NON_MATCH("N"), POSSIBLE_MATCH("P");
 	 
-	private String state;
+	private final String state;
  
-	private RecordLinkState(String linkState) {
+	RecordLinkState(String linkState) {
 		state = linkState;
 	}
  

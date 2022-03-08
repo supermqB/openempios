@@ -131,11 +131,8 @@ public class ReportParameter extends BaseObject implements Serializable
 		} else if (!name.equals(other.name))
 			return false;
 		if (reportParameterId == null) {
-			if (other.reportParameterId != null)
-				return false;
-		} else if (!reportParameterId.equals(other.reportParameterId))
-			return false;
-		return true;
+			return other.reportParameterId == null;
+		} else return reportParameterId.equals(other.reportParameterId);
 	}
 
 	@Override

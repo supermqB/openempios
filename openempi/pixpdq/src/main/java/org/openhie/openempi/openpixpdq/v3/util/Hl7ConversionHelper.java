@@ -95,13 +95,13 @@ import org.openhealthtools.openpixpdq.common.ContinuationPointer;
 
 public class Hl7ConversionHelper
 {
-    private static Log log = LogFactory.getLog(Hl7ConversionHelper.class);
-    private static SimpleDateFormat hl7DateFormat = new SimpleDateFormat("yyyyMMdd");
+    private static final Log log = LogFactory.getLog(Hl7ConversionHelper.class);
+    private static final SimpleDateFormat hl7DateFormat = new SimpleDateFormat("yyyyMMdd");
  
     private static boolean allowAddressQueryAttribute=true;
     private static boolean allowTelecomQueryAttribute=true;
     private static boolean allowSocialSecurityNumberQueryAttribute=true;
-    private static boolean allowAddressResponseAttribute=true;
+    private static final boolean allowAddressResponseAttribute=true;
     private static boolean allowTelecomResponseAttribute=true;
     private static boolean allowSocialSecurityNumberResponseAttribute=true;
     
@@ -173,7 +173,7 @@ public class Hl7ConversionHelper
 			log.info("controlActProcess or query parameter section is missing.");
             return null;
 		}
-		PRPAMT201306UV02QueryByParameter queryParams = (PRPAMT201306UV02QueryByParameter) message.getControlActProcess()
+		PRPAMT201306UV02QueryByParameter queryParams = message.getControlActProcess()
 				.getQueryByParameter().getValue();
 		ContinuationPointer contPointer = new ContinuationPointer();
 		if (queryParams.getInitialQuantity() == null ||
@@ -192,7 +192,7 @@ public class Hl7ConversionHelper
 		// is that you will only call this one if the method extractContinuation returned a non-null ContinuationPointer
 		// object.
 		//
-		PRPAMT201306UV02QueryByParameter queryParams = (PRPAMT201306UV02QueryByParameter) message.getControlActProcess()
+		PRPAMT201306UV02QueryByParameter queryParams = message.getControlActProcess()
 				.getQueryByParameter().getValue();
 		
 		if( queryParams.getInitialQuantity() == null ) {
@@ -298,7 +298,7 @@ public class Hl7ConversionHelper
 
         if (controlActProcess.getQueryByParameter() != null &&
                 controlActProcess.getQueryByParameter().getValue() != null) {
-            PRPAMT201306UV02QueryByParameter queryParams = (PRPAMT201306UV02QueryByParameter) controlActProcess.getQueryByParameter().getValue();
+            PRPAMT201306UV02QueryByParameter queryParams = controlActProcess.getQueryByParameter().getValue();
 
             if (queryParams.getParameterList() != null) {
                 queryParamList = queryParams.getParameterList();
@@ -682,11 +682,7 @@ public class Hl7ConversionHelper
     	
     	PRPAIN201306UV02 message = new PRPAIN201306UV02();   	
     	if(isSystemError) {
-    		if( invalidDomains != null ) {
-    			buildMessageTransmissionWrapper(request, message, AcknowledgementType.AE.value(), invalidDomains);
-    		} else {
-    			buildMessageTransmissionWrapper(request, message, AcknowledgementType.AE.value(), null);    			
-    		}
+			buildMessageTransmissionWrapper(request, message, AcknowledgementType.AE.value(), invalidDomains);
     	} else {
     		buildMessageTransmissionWrapper(request, message, AcknowledgementType.AA.value(), null);    		
     	}

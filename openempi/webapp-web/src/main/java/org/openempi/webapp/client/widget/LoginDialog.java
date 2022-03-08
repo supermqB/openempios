@@ -49,7 +49,7 @@ public class LoginDialog extends Dialog {
 	protected Button reset;
 	protected Button login;
 	protected Status status;
-	private Controller controller;
+	private final Controller controller;
 
 	public LoginDialog(Controller controller) {
 		this.controller = controller;

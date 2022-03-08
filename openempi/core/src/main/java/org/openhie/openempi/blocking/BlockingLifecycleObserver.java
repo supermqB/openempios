@@ -37,7 +37,7 @@ public interface BlockingLifecycleObserver
 	 * exception.
 	 * 
 	 */
-	public void startup() throws InitializationException;
+    void startup() throws InitializationException;
 	
 	/**
 	 * The system uses the isReady method to confirm that the blocking algorithm has finished its
@@ -46,7 +46,7 @@ public interface BlockingLifecycleObserver
 	 * initialization.
 	 * 
 	 */
-	public boolean isReady();
+    boolean isReady();
 	
 	/**
 	 * The shutdown method is invoked against the blocking algorithm when the system starts to
@@ -55,14 +55,14 @@ public interface BlockingLifecycleObserver
 	 * it needs this to synchronize its on-disk data structures with changes that have taken
 	 * place in memory.
 	 */
-	public void shutdown();
+    void shutdown();
 	
 	/**
 	 * The isDown method is the mirror image of the isReady method and it is the polling
 	 * mechanism used by the system to confirm that the system has shutdown before "pulling
 	 * the plug". After a certain amount of time, it will force the shutdown.
 	 */
-	public boolean isDown();
+    boolean isDown();
 
 	/**
 	 * The rebuildIndex method is used by the system to support blocking algorithms that
@@ -70,5 +70,5 @@ public interface BlockingLifecycleObserver
 	 * requests. If the underlying data changes due to a substantial import or the
 	 * blocking algorithm parameters change, the index needs to be rebuild.
 	 */
-	public void rebuildIndex() throws InitializationException;
+    void rebuildIndex() throws InitializationException;
 }

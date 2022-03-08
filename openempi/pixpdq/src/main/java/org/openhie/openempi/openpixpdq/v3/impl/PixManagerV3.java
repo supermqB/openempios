@@ -46,7 +46,7 @@ import org.openhealthtools.openpixpdq.common.HL7Actor;
 public class PixManagerV3 extends HL7Actor implements IPixManager
 {
     /* Logger for problems during SOAP exchanges */
-    private static Logger log = Logger.getLogger(PixManagerV3.class);
+    private static final Logger log = Logger.getLogger(PixManagerV3.class);
 
 	/** The XDS Registry Connection */
 	private IConnectionDescription xdsRegistryConnection = null;

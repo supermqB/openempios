@@ -30,23 +30,23 @@ import org.openhie.openempi.model.JobType;
 
 public interface JobEntryDao extends UniversalDao
 {
-    public JobEntry createJobEntry(JobEntry jobEntry);
+    JobEntry createJobEntry(JobEntry jobEntry);
 
-    public List<JobEntry> getJobEntries();
+    List<JobEntry> getJobEntries();
 
-    public JobEntry getJobEntry(JobEntry jobEntry);
+    JobEntry getJobEntry(JobEntry jobEntry);
     
-    public List<JobEntry> getQueueJobEntries();
+    List<JobEntry> getQueueJobEntries();
     
-    public JobEntry updateJobEntry(JobEntry jobEntry);
+    JobEntry updateJobEntry(JobEntry jobEntry);
 
-    public void deleteJobEntry(JobEntry jobEntry);
+    void deleteJobEntry(JobEntry jobEntry);
 
-    public void logJobEntryEvent(JobEntry jobEntry, JobEntryEventLog eventLog);
+    void logJobEntryEvent(JobEntry jobEntry, JobEntryEventLog eventLog);
 
-    public List<JobEntryEventLog> getJobEntryEventLogs(Integer jobEntryId);
+    List<JobEntryEventLog> getJobEntryEventLogs(Integer jobEntryId);
 
-    public List<JobType> getJobTypes();
+    List<JobType> getJobTypes();
 
-    public List<JobStatus> getJobStatuses();
+    List<JobStatus> getJobStatuses();
 }

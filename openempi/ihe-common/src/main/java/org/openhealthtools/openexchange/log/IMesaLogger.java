@@ -38,19 +38,19 @@ public interface IMesaLogger {
 	 * 
 	 * @param message The text string to display
 	 */
-	public void writeString(String message);
+    void writeString(String message);
 
 	/**
 	 * Writes a SOAP message to the MESA log
 	 * 
 	 * @param message The SOAP message to display
 	 */
-	public void writeSoapMessage(SOAPMessage message);
+    void writeSoapMessage(SOAPMessage message);
 
 	/**
 	 * Writes an HL7 message to the MESA log
 	 * 
 	 * @param message the HL7 message to display
 	 */
-	public void writeHL7Message(Message message);
+    void writeHL7Message(Message message);
 }

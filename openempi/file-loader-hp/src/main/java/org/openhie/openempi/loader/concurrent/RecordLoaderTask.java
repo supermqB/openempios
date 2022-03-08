@@ -31,11 +31,11 @@ import org.openhie.openempi.model.Record;
 
 public class RecordLoaderTask implements Runnable
 {
-	private Logger log = Logger.getLogger(getClass());
+	private final Logger log = Logger.getLogger(getClass());
 	protected EntityLoaderManager entityLoaderManager;
-	private UserContext userContext;
-	private Entity entity;
-	private Record record;
+	private final UserContext userContext;
+	private final Entity entity;
+	private final Record record;
 	private Serializable key;
 	
 	public RecordLoaderTask(EntityLoaderManager entityLoaderManager, Entity entity, Record record, UserContext userContext) {

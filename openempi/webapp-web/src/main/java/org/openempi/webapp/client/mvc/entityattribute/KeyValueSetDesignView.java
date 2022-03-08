@@ -71,15 +71,15 @@ public class KeyValueSetDesignView extends View
 {
 	
 	private Grid<EntityKeyValuesWeb> grid;
-	private GroupingStore<EntityKeyValuesWeb> store = new GroupingStore<EntityKeyValuesWeb>();
+	private final GroupingStore<EntityKeyValuesWeb> store = new GroupingStore<EntityKeyValuesWeb>();
 	
 	private Dialog keyValueDesignDialog = null;	
 	
-		private TextField<String> keyNameEdit = new TextField<String>();
-		private TextField<String> keyValueEdit = new TextField<String>();
+		private final TextField<String> keyNameEdit = new TextField<String>();
+		private final TextField<String> keyValueEdit = new TextField<String>();
 		
 		private Grid<EntityKeyValuesWeb> keyValueGrid;
-		private ListStore<EntityKeyValuesWeb> keyValueStore = new GroupingStore<EntityKeyValuesWeb>(); 
+		private final ListStore<EntityKeyValuesWeb> keyValueStore = new GroupingStore<EntityKeyValuesWeb>();
 		
 	private LayoutContainer container;
 	
@@ -196,7 +196,7 @@ public class KeyValueSetDesignView extends View
 
 		container.add(cp);
 
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

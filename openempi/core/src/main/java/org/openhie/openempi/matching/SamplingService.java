@@ -27,5 +27,5 @@ import org.openhie.openempi.model.RecordPair;
 
 public interface SamplingService
 {
-    public List<RecordPair> getRecordPairs(Entity entity);
+    List<RecordPair> getRecordPairs(Entity entity);
 }

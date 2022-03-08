@@ -44,7 +44,7 @@ public interface IPixManagerAdapter extends IPixPdqAdapter {
 	 * @param header the <code>MessageHeader</code> from the incoming PIX client message
      * @return <code>true</code> if the patient id is valid; <code>false</code> otherwise.
      */
-    public boolean isValidPatient(PatientIdentifier pid, MessageHeader header) throws PixManagerException;
+    boolean isValidPatient(PatientIdentifier pid, MessageHeader header) throws PixManagerException;
 
     /**
      * Finds from the underneath eMPI all patient ids cross all patient 
@@ -57,7 +57,7 @@ public interface IPixManagerAdapter extends IPixPdqAdapter {
      *         Return an empty list instead of null if no matching is found.
      * @throws PixManagerException when there is trouble cross finding all patients
      */
-    public List<PatientIdentifier> findPatientIds(PatientIdentifier pid, MessageHeader header) throws PixManagerException;
+    List<PatientIdentifier> findPatientIds(PatientIdentifier pid, MessageHeader header) throws PixManagerException;
     
 	/**
 	 * Creates a new patient in the eMPI database.  This method 
@@ -78,7 +78,7 @@ public interface IPixManagerAdapter extends IPixPdqAdapter {
      *           can be returned.
 	 * @throws PixManagerException When there is trouble creating the patient
 	 */
-	public List<PatientIdentifier> createPatient(Patient patient, MessageHeader header) 
+    List<PatientIdentifier> createPatient(Patient patient, MessageHeader header)
 	throws PixManagerException;
 
 	/**
@@ -107,7 +107,7 @@ public interface IPixManagerAdapter extends IPixPdqAdapter {
      *            
 	 * @throws PixManagerException when there is trouble updating the patient
 	 */
-	public List<List<PatientIdentifier>> updatePatient(Patient patient, MessageHeader header) 
+    List<List<PatientIdentifier>> updatePatient(Patient patient, MessageHeader header)
 	throws PixManagerException;
 
 	/**
@@ -133,7 +133,7 @@ public interface IPixManagerAdapter extends IPixPdqAdapter {
      * 
 	 * @throws PixManagerException when there is trouble merging the patients
 	 */
-	public List<List<PatientIdentifier>> mergePatients(Patient patientMain, 
-			Patient patientOld, MessageHeader header) throws PixManagerException;
+    List<List<PatientIdentifier>> mergePatients(Patient patientMain,
+                                                Patient patientOld, MessageHeader header) throws PixManagerException;
 
 }

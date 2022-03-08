@@ -282,7 +282,7 @@ public class ConfigurationDataServiceImpl extends AbstractRemoteServiceServlet i
 
             String logDestination = (String) configurationData.get(PROBABILISTIC_MATCHING_LOGGING_DESTIONATION);
             if (logDestination == null || 
-                    logDestination.toString().equalsIgnoreCase(Constants.PROBABILISTIC_MATCHING_LOGGING_DESTINATION_TO_FILE)) {
+                    logDestination.equalsIgnoreCase(Constants.PROBABILISTIC_MATCHING_LOGGING_DESTINATION_TO_FILE)) {
                 matchConfigurationWeb.setLoggingDestination(MatchConfigurationWeb.LOG_TO_FILE_DESTINATION);
             } else {
                 matchConfigurationWeb.setLoggingDestination(MatchConfigurationWeb.LOG_TO_DB_DESTINATION);

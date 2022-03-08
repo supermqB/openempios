@@ -28,81 +28,81 @@ import com.tinkerpop.blueprints.impls.orient.OrientBaseGraph;
 
 public interface SchemaManager
 {
-    static final InternalAttribute DATE_CHANGED_PROPERTY = new InternalAttribute(
+    InternalAttribute DATE_CHANGED_PROPERTY = new InternalAttribute(
             Constants.DATE_CHANGED_PROPERTY, OType.DATETIME, false);
-    static final InternalAttribute DATE_CREATED_PROPERTY = new InternalAttribute(
+    InternalAttribute DATE_CREATED_PROPERTY = new InternalAttribute(
             Constants.DATE_CREATED_PROPERTY, OType.DATETIME, false);
-    static final InternalAttribute DATE_REVIEWED_PROPERTY = new InternalAttribute(
+    InternalAttribute DATE_REVIEWED_PROPERTY = new InternalAttribute(
             Constants.DATE_REVIEWED_PROPERTY, OType.DATETIME, false);
-    static final InternalAttribute DATE_VOIDED_PROPERTY = new InternalAttribute(Constants.DATE_VOIDED_PROPERTY,
+    InternalAttribute DATE_VOIDED_PROPERTY = new InternalAttribute(Constants.DATE_VOIDED_PROPERTY,
             OType.DATETIME, false);
-    static final InternalAttribute DIRTY_RECORD_PROPERTY = new InternalAttribute(Constants.DIRTY_RECORD_PROPERTY,
+    InternalAttribute DIRTY_RECORD_PROPERTY = new InternalAttribute(Constants.DIRTY_RECORD_PROPERTY,
             OType.BOOLEAN, true);
-    static final InternalAttribute ENTITY_VERSION_ID_PROPERTY = new InternalAttribute(
+    InternalAttribute ENTITY_VERSION_ID_PROPERTY = new InternalAttribute(
             Constants.ENTITY_VERSION_ID_PROPERTY, OType.LONG, false);
-    static final InternalAttribute IDENTIFIER_PROPERTY = new InternalAttribute(Constants.IDENTIFIER_PROPERTY,
+    InternalAttribute IDENTIFIER_PROPERTY = new InternalAttribute(Constants.IDENTIFIER_PROPERTY,
             OType.STRING, true);
 //    static final InternalAttribute IDENTIFIER_SET_PROPERTY = new InternalAttribute(
 //            Constants.IDENTIFIER_EDGE_TYPE, OType.LINKSET, false);
-    static final InternalAttribute IDENTIFIER_DOMAIN_ID_PROPERTY = new InternalAttribute(
+InternalAttribute IDENTIFIER_DOMAIN_ID_PROPERTY = new InternalAttribute(
             Constants.IDENTIFIER_DOMAIN_ID_PROPERTY, OType.INTEGER, false);
-    static final InternalAttribute LINK_SOURCE_PROPERTY = new InternalAttribute(Constants.LINK_SOURCE_PROPERTY,
+    InternalAttribute LINK_SOURCE_PROPERTY = new InternalAttribute(Constants.LINK_SOURCE_PROPERTY,
             OType.INTEGER, false);
-    static final InternalAttribute LINK_STATE_PROPERTY = new InternalAttribute(Constants.LINK_STATE_PROPERTY,
+    InternalAttribute LINK_STATE_PROPERTY = new InternalAttribute(Constants.LINK_STATE_PROPERTY,
             OType.STRING, true);
-    static final InternalAttribute LINK_VECTOR_PROPERTY = new InternalAttribute(Constants.LINK_VECTOR_PROPERTY,
+    InternalAttribute LINK_VECTOR_PROPERTY = new InternalAttribute(Constants.LINK_VECTOR_PROPERTY,
             OType.INTEGER, false);
-    static final InternalAttribute LINK_WEIGHT_PROPERTY = new InternalAttribute(Constants.LINK_WEIGHT_PROPERTY,
+    InternalAttribute LINK_WEIGHT_PROPERTY = new InternalAttribute(Constants.LINK_WEIGHT_PROPERTY,
             OType.DOUBLE, true);
-    static final InternalAttribute USER_CHANGED_BY_PROPERTY = new InternalAttribute(
+    InternalAttribute USER_CHANGED_BY_PROPERTY = new InternalAttribute(
             Constants.USER_CHANGED_BY_PROPERTY, OType.LONG, false);
-    static final InternalAttribute USER_CREATED_BY_PROPERTY = new InternalAttribute(
+    InternalAttribute USER_CREATED_BY_PROPERTY = new InternalAttribute(
             Constants.USER_CREATED_BY_PROPERTY, OType.LONG, false);
-    static final InternalAttribute USER_REVIEWED_BY_PROPERTY = new InternalAttribute(
+    InternalAttribute USER_REVIEWED_BY_PROPERTY = new InternalAttribute(
             Constants.USER_REVIEWED_BY_PROPERTY, OType.LONG, false);
-    static final InternalAttribute USER_VOIDED_BY_PROPERTY = new InternalAttribute(
+    InternalAttribute USER_VOIDED_BY_PROPERTY = new InternalAttribute(
             Constants.USER_VOIDED_BY_PROPERTY, OType.LONG, false);
 
-    static final InternalAttribute[] INTERNAL_ATTRIBUTES = { DATE_CHANGED_PROPERTY, DATE_CREATED_PROPERTY,
+    InternalAttribute[] INTERNAL_ATTRIBUTES = { DATE_CHANGED_PROPERTY, DATE_CREATED_PROPERTY,
             DATE_VOIDED_PROPERTY, DIRTY_RECORD_PROPERTY, ENTITY_VERSION_ID_PROPERTY, // IDENTIFIER_SET_PROPERTY,
             USER_CHANGED_BY_PROPERTY, USER_CREATED_BY_PROPERTY, USER_VOIDED_BY_PROPERTY, 
             };
 
-    static final InternalAttribute[] IDENTIFIER_ATTRIBUTES = { IDENTIFIER_PROPERTY,
+    InternalAttribute[] IDENTIFIER_ATTRIBUTES = { IDENTIFIER_PROPERTY,
             IDENTIFIER_DOMAIN_ID_PROPERTY, USER_CREATED_BY_PROPERTY, USER_VOIDED_BY_PROPERTY,
             DATE_CREATED_PROPERTY, DATE_VOIDED_PROPERTY };
 
-    static final InternalAttribute[] LINK_ATTRIBUTES = { DATE_CREATED_PROPERTY, DATE_REVIEWED_PROPERTY,
+    InternalAttribute[] LINK_ATTRIBUTES = { DATE_CREATED_PROPERTY, DATE_REVIEWED_PROPERTY,
             LINK_STATE_PROPERTY, LINK_VECTOR_PROPERTY, LINK_WEIGHT_PROPERTY, LINK_SOURCE_PROPERTY,
             USER_CREATED_BY_PROPERTY, USER_REVIEWED_BY_PROPERTY };
     
-    public void createDatabase(EntityStore store, OrientBaseGraph db);
+    void createDatabase(EntityStore store, OrientBaseGraph db);
     
-    public void dropDatabase(EntityStore store, OrientBaseGraph db);
+    void dropDatabase(EntityStore store, OrientBaseGraph db);
     
-    public void createIndexes(Entity entity, OrientBaseGraph db);
+    void createIndexes(Entity entity, OrientBaseGraph db);
     
-    public ConnectionManager getConnectionManager();
+    ConnectionManager getConnectionManager();
     
-    public EntityStore getEntityStoreByName(String entityName);
+    EntityStore getEntityStoreByName(String entityName);
     
-    public void createClass(OrientBaseGraph db, Entity entity, String baseClassName);
+    void createClass(OrientBaseGraph db, Entity entity, String baseClassName);
 
-    public void dropClass(OrientBaseGraph db, String className);
+    void dropClass(OrientBaseGraph db, String className);
     
-    public boolean isClassDefined(OrientBaseGraph db, String className);
+    boolean isClassDefined(OrientBaseGraph db, String className);
     
-    public Object getParameter(String key);
+    Object getParameter(String key);
 
-    public void initializeSchema(Entity entity, EntityStore store);
+    void initializeSchema(Entity entity, EntityStore store);
     
-    public void dropSchema(Entity entity, EntityStore store);
+    void dropSchema(Entity entity, EntityStore store);
 
-    public boolean isInternalAttribute(String fieldName);
+    boolean isInternalAttribute(String fieldName);
     
-    public void removeIndexes(Entity entity, OrientBaseGraph db);
+    void removeIndexes(Entity entity, OrientBaseGraph db);
     
-    public void setParameter(String key, Object value);
+    void setParameter(String key, Object value);
     
-    public void shutdownStore(Entity entity);
+    void shutdownStore(Entity entity);
 }

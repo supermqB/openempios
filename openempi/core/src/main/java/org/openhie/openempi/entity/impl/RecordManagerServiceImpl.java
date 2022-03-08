@@ -126,11 +126,7 @@ public class RecordManagerServiceImpl extends RecordCommonServiceImpl implements
 		            record.setDirty(true);
 		        } else {
 		            shallowMatchedPairs = matching.match(record);
-		            if (shallowMatchedPairs.size() == 0) {
-		                record.setDirty(true);
-		            } else {
-		                record.setDirty(false);
-		            }
+					record.setDirty(shallowMatchedPairs.size() == 0);
 		        }
                 record = getEntityDao().saveRecord(entity, record);
                 persistRecordPairs(record, shallowMatchedPairs, state);
@@ -210,11 +206,7 @@ public class RecordManagerServiceImpl extends RecordCommonServiceImpl implements
                     for (Record record : records) {
                         RecordState state = new RecordState(record.getRecordId(), IdentifierUpdateEvent.ADD_SOURCE);                        
                         Set<RecordPair> pairs = matching.match(record);
-                        if (pairs.size() == 0) {
-                            record.setDirty(true);
-                        } else {
-                            record.setDirty(false);
-                        }
+						record.setDirty(pairs.size() == 0);
                         persistRecordPairs(record, pairs, state);
                         getUpdateEventNotificationGenerator().generateEvents(state);
                     }
@@ -516,11 +508,7 @@ public class RecordManagerServiceImpl extends RecordCommonServiceImpl implements
                     record.setDirty(true);
                 } else {
                     shallowMatchedPairs = matching.match(record);
-                    if (shallowMatchedPairs.size() == 0) {
-                        record.setDirty(true);
-                    } else {
-                        record.setDirty(false);
-                    }
+					record.setDirty(shallowMatchedPairs.size() == 0);
                 }
                 record = getEntityDao().updateRecord(entity, record);
                 persistRecordPairs(record, shallowMatchedPairs, state);

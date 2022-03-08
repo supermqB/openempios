@@ -29,11 +29,11 @@ import com.google.gwt.user.client.rpc.RemoteService;
 
 public interface JobQueueDataService extends RemoteService
 {
-	public List<JobEntryWeb> getJobEntries() throws Exception;
+	List<JobEntryWeb> getJobEntries() throws Exception;
 
-	public List<JobEntryEventLogWeb> getJobEntryEventLogs(JobEntryWeb jobEntry) throws Exception;
+	List<JobEntryEventLogWeb> getJobEntryEventLogs(JobEntryWeb jobEntry) throws Exception;
 
-    public JobEntryWeb updateJobEntry(JobEntryWeb jobEntry) throws Exception;
+    JobEntryWeb updateJobEntry(JobEntryWeb jobEntry) throws Exception;
 
-    public String deleteJobEntry(JobEntryWeb jobEntry) throws Exception;
+    String deleteJobEntry(JobEntryWeb jobEntry) throws Exception;
 }

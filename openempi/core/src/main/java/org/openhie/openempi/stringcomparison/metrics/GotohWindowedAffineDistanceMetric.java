@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.SmithWatermanGotohWindowedAff
 
 public class GotohWindowedAffineDistanceMetric extends AbstractDistanceMetric
 {
-	private SmithWatermanGotohWindowedAffine gotohWindowedAffine = new SmithWatermanGotohWindowedAffine();
+	private final SmithWatermanGotohWindowedAffine gotohWindowedAffine = new SmithWatermanGotohWindowedAffine();
 	
 	public GotohWindowedAffineDistanceMetric() {
 	}

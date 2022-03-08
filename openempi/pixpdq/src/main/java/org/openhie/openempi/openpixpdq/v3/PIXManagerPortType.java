@@ -42,32 +42,32 @@ public interface PIXManagerPortType {
     @WebResult(name = "PRPA_IN201310UV02", targetNamespace = "urn:hl7-org:v3", partName = "Body")
     @Action(input = "urn:hl7-org:v3:PRPA_IN201309UV02", output = "urn:hl7-org:v3:PRPA_IN201310UV02")
     @WebMethod(operationName = "PIXManager_PRPA_IN201309UV02", action = "urn:hl7-org:v3:PRPA_IN201309UV02")
-    public org.hl7.v3.PRPAIN201310UV02 pixManagerPRPAIN201309UV02(
-        @WebParam(partName = "Body", name = "PRPA_IN201309UV02", targetNamespace = "urn:hl7-org:v3")
-        org.hl7.v3.PRPAIN201309UV02 body
+    org.hl7.v3.PRPAIN201310UV02 pixManagerPRPAIN201309UV02(
+            @WebParam(partName = "Body", name = "PRPA_IN201309UV02", targetNamespace = "urn:hl7-org:v3")
+                    org.hl7.v3.PRPAIN201309UV02 body
     );
 
     @WebResult(name = "MCCI_IN000002UV01", targetNamespace = "urn:hl7-org:v3", partName = "Body")
     @Action(input = "urn:hl7-org:v3:PRPA_IN201302UV02", output = "urn:hl7-org:v3:MCCI_IN000002UV01")
     @WebMethod(operationName = "PIXManager_PRPA_IN201302UV02", action = "urn:hl7-org:v3:PRPA_IN201302UV02")
-    public org.hl7.v3.MCCIIN000002UV01 pixManagerPRPAIN201302UV02(
-        @WebParam(partName = "Body", name = "PRPA_IN201302UV02", targetNamespace = "urn:hl7-org:v3")
-        org.hl7.v3.PRPAIN201302UV02 body
+    org.hl7.v3.MCCIIN000002UV01 pixManagerPRPAIN201302UV02(
+            @WebParam(partName = "Body", name = "PRPA_IN201302UV02", targetNamespace = "urn:hl7-org:v3")
+                    org.hl7.v3.PRPAIN201302UV02 body
     );
 
     @WebResult(name = "MCCI_IN000002UV01", targetNamespace = "urn:hl7-org:v3", partName = "Body")
     @Action(input = "urn:hl7-org:v3:PRPA_IN201304UV02", output = "urn:hl7-org:v3:MCCI_IN000002UV01")
     @WebMethod(operationName = "PIXManager_PRPA_IN201304UV02", action = "urn:hl7-org:v3:PRPA_IN201304UV02")
-    public org.hl7.v3.MCCIIN000002UV01 pixManagerPRPAIN201304UV02(
-        @WebParam(partName = "Body", name = "PRPA_IN201304UV02", targetNamespace = "urn:hl7-org:v3")
-        org.hl7.v3.PRPAIN201304UV02 body
+    org.hl7.v3.MCCIIN000002UV01 pixManagerPRPAIN201304UV02(
+            @WebParam(partName = "Body", name = "PRPA_IN201304UV02", targetNamespace = "urn:hl7-org:v3")
+                    org.hl7.v3.PRPAIN201304UV02 body
     );
 
     @WebResult(name = "MCCI_IN000002UV01", targetNamespace = "urn:hl7-org:v3", partName = "Body")
     @Action(input = "urn:hl7-org:v3:PRPA_IN201301UV02", output = "urn:hl7-org:v3:MCCI_IN000002UV01")
     @WebMethod(operationName = "PIXManager_PRPA_IN201301UV02", action = "urn:hl7-org:v3:PRPA_IN201301UV02")
-    public org.hl7.v3.MCCIIN000002UV01 pixManagerPRPAIN201301UV02(
-        @WebParam(partName = "Body", name = "PRPA_IN201301UV02", targetNamespace = "urn:hl7-org:v3")
-        org.hl7.v3.PRPAIN201301UV02 body
+    org.hl7.v3.MCCIIN000002UV01 pixManagerPRPAIN201301UV02(
+            @WebParam(partName = "Body", name = "PRPA_IN201301UV02", targetNamespace = "urn:hl7-org:v3")
+                    org.hl7.v3.PRPAIN201301UV02 body
     );
 }

@@ -470,11 +470,8 @@ public class NextOfKin {
 		} else if (!religion.equals(other.religion))
 			return false;
 		if (ssn == null) {
-			if (other.ssn != null)
-				return false;
-		} else if (!ssn.equals(other.ssn))
-			return false;
-		return true;
+			return other.ssn == null;
+		} else return ssn.equals(other.ssn);
 	}
 
     public void setPhoneNumbers(List<PhoneNumber> phoneNumbers) {

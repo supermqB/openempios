@@ -113,8 +113,8 @@ public class UpdateUserView extends View
 	
 	// Roles
 	CheckBoxListView<RoleWeb> roleCheckBoxList;
-	private ListStore<RoleWeb> roleStore = new ListStore<RoleWeb>();;
-	
+	private final ListStore<RoleWeb> roleStore = new ListStore<RoleWeb>();
+
 	private Status status;
 	private Button submitButton;
 	private Button resetButton;
@@ -147,14 +147,14 @@ public class UpdateUserView extends View
 			clearFormFields(false);			
 			setReadonlyFields(updateStatus, false);	
 			
-			updateUser = (UserWeb) event.getData();	
+			updateUser = event.getData();
 			
 		} else if (event.getType() == AppEvents.UserAddComplete) {	
 	
 			status.hide();
 			submitButton.unmask(); 
 			
-			updateUser = (UserWeb) event.getData();		
+			updateUser = event.getData();
 	        MessageBox.alert("Information", "New user was successfully added", listenInfoMsg);  	      
 	        
 		} else if (event.getType() == AppEvents.UserUpdateRenderData ) {
@@ -168,7 +168,7 @@ public class UpdateUserView extends View
 			clearFormFields(false);
 			setReadonlyFields(updateStatus, false);	
 			
-			updateUser = (UserWeb) event.getData();
+			updateUser = event.getData();
 			displayRecords(updateUser);	
 			// Info.display("Person ID:", ""+ updateUser.getId());	
 			
@@ -177,7 +177,7 @@ public class UpdateUserView extends View
 			status.hide();
 			submitButton.unmask(); 
 			  
-			updateUser = (UserWeb) event.getData();				
+			updateUser = event.getData();
 			UserWeb loginUser = Registry.get(Constants.LOGIN_USER);	
 			if(	loginUser.getId() ==  updateUser.getId()) {
 			    Registry.register(Constants.LOGIN_USER, updateUser);
@@ -195,7 +195,7 @@ public class UpdateUserView extends View
 			clearFormFields(false);
 			setReadonlyFields(updateStatus, true);	
 			
-			updateUser = (UserWeb) event.getData();
+			updateUser = event.getData();
 			displayRecords(updateUser);	
 			
 		} else if (event.getType() == AppEvents.UserDeleteComplete) {	
@@ -897,7 +897,7 @@ public class UpdateUserView extends View
 		data.setMargins(new Margins(4, 2, 4, 2));
 		container.add(formButtonContainer, data);		
 				
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

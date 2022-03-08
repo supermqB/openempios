@@ -39,7 +39,7 @@ public interface JobQueueService
      *
      * @throws ApplicationException
      */
-    public JobEntry createJobEntry(JobEntry jobEntry) throws ApplicationException;
+    JobEntry createJobEntry(JobEntry jobEntry) throws ApplicationException;
 
     /**
      * Returns the list of all job entries in the system in reverse chronological
@@ -50,7 +50,7 @@ public interface JobQueueService
      * the system.
      *
      */
-    public List<JobEntry> getJobEntries();
+    List<JobEntry> getJobEntries();
 
 
     /**
@@ -61,7 +61,7 @@ public interface JobQueueService
      * @param jobEntry
      * @return
      */
-    public JobEntry getJobEntry(JobEntry jobEntry);
+    JobEntry getJobEntry(JobEntry jobEntry);
 
 
     /**
@@ -72,7 +72,7 @@ public interface JobQueueService
      * @param jobEntry
      * @param eventLog
      */
-    public void logJobEntryEvent(JobEntry jobEntry, JobEntryEventLog eventLog) throws ApplicationException;
+    void logJobEntryEvent(JobEntry jobEntry, JobEntryEventLog eventLog) throws ApplicationException;
 
     /**
      * Updates the job entry identified by the internal key that must be present
@@ -93,7 +93,7 @@ public interface JobQueueService
      * @return
      * @throws ApplicationException
      */
-    public JobEntry updateJobEntry(JobEntry jobEntry) throws ApplicationException;
+    JobEntry updateJobEntry(JobEntry jobEntry) throws ApplicationException;
 
     /**
      * Deletes the job entry and any associated job entry event logs in the system. The
@@ -103,7 +103,7 @@ public interface JobQueueService
 
      * @param jobEntry
      */
-    public void deleteJobEntry(JobEntry jobEntry) throws ApplicationException;
+    void deleteJobEntry(JobEntry jobEntry) throws ApplicationException;
 
     /**
      * Returns the list of job entry event logs based on the jobEntryId.
@@ -111,15 +111,15 @@ public interface JobQueueService
      * @param jobEntryId
      * @return
      */
-    public List<JobEntryEventLog> getJobEntryEventLogs(Integer jobEntryId);
+    List<JobEntryEventLog> getJobEntryEventLogs(Integer jobEntryId);
  
     /**
      * Returns the list of job type.
      */
-    public List<JobType> getJobTypes();
+    List<JobType> getJobTypes();
 
     /**
      * Returns the list of job status.
      */
-    public List<JobStatus> getJobStatuses();
+    List<JobStatus> getJobStatuses();
 }

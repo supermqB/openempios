@@ -53,7 +53,7 @@ import com.tinkerpop.blueprints.impls.orient.OrientVertex;
 
 public class OrientdbConverter
 {
-    private static Logger log = Logger.getLogger(OrientdbConverter.class);
+    private static final Logger log = Logger.getLogger(OrientdbConverter.class);
 
     public static List<Record> convertODocumentToRecord(RecordCacheManager cache, Entity entity, Collection<ODocument> result) {
         List<Record> list = new ArrayList<Record>(result.size());
@@ -106,14 +106,14 @@ public class OrientdbConverter
         List<Record> links = new ArrayList<Record>();
 
         for (ODocument odoc : result) {
-            ODocument lDoc = odoc.field((String) Constants.EDGE_IN_PROPERTY);
+            ODocument lDoc = odoc.field(Constants.EDGE_IN_PROPERTY);
             Record record = convertODocumentToRecord(cache, entity, lDoc);
             if (recordId != record.getRecordId()) {
                 if (!links.contains(record)) {
                     links.add(record);
                 }
             }
-            lDoc = odoc.field((String) Constants.EDGE_OUT_PROPERTY);
+            lDoc = odoc.field(Constants.EDGE_OUT_PROPERTY);
             record = convertODocumentToRecord(cache, entity, lDoc);
             if (recordId != record.getRecordId()) {
                 if (!links.contains(record)) {
@@ -145,11 +145,7 @@ public class OrientdbConverter
             record.set(property, value);
         }
         Boolean dirty = odoc.field(Constants.DIRTY_RECORD_PROPERTY);
-        if (dirty == null || dirty.booleanValue() == false) {
-            record.setDirty(false);
-        } else {
-            record.setDirty(true);
-        }
+        record.setDirty(dirty != null && dirty.booleanValue() != false);
         extractIdAndCluster(odoc, record);
         extractIdentifiers(cache, odoc, record);
         return record;
@@ -171,11 +167,7 @@ public class OrientdbConverter
         }
         addInternalAttributes(cache, vertex, record);
         Boolean dirty = vertex.getProperty(Constants.DIRTY_RECORD_PROPERTY);
-        if (dirty == null || dirty.booleanValue() == false) {
-            record.setDirty(false);
-        } else {
-            record.setDirty(true);
-        }
+        record.setDirty(dirty != null && dirty.booleanValue() != false);
         extractIdAndCluster(vertex, record);
         if (vertex.getProperty(Constants.IDENTIFIER_OUT_PROPERTY) != null) {
             extractIdentifiers(cache, vertex, record);
@@ -201,10 +193,10 @@ public class OrientdbConverter
     public static RecordLink convertODocumentToRecordLink(RecordCacheManager cache, Entity entity, ODocument odoc) {
         String recordLinkId = odoc.getIdentity().toString();
         RecordLink link = createRecordLinkFromEdge(cache, odoc, recordLinkId);
-        ODocument lDoc = odoc.field((String) Constants.EDGE_IN_PROPERTY);
+        ODocument lDoc = odoc.field(Constants.EDGE_IN_PROPERTY);
         Record record = convertODocumentToRecord(cache, entity, lDoc);
         link.setLeftRecord(record);
-        lDoc = odoc.field((String) Constants.EDGE_OUT_PROPERTY);
+        lDoc = odoc.field(Constants.EDGE_OUT_PROPERTY);
         record = convertODocumentToRecord(cache, entity, lDoc);
         link.setRightRecord(record);
         return link;
@@ -355,7 +347,7 @@ public class OrientdbConverter
 
     private static User lookupUserById(RecordCacheManager cache, Vertex vertex, String fieldName) {
         User user = null;
-        Long userId = (Long) vertex.getProperty(fieldName);
+        Long userId = vertex.getProperty(fieldName);
         if (userId != null) {
             user = cache.getUser(userId);
         }
@@ -364,7 +356,7 @@ public class OrientdbConverter
 
     private static User lookupUserById(RecordCacheManager cache, ODocument idoc, String fieldName) {
         User user = null;
-        Long userId = (Long) idoc.field(fieldName);
+        Long userId = idoc.field(fieldName);
         if (userId != null) {
             user = cache.getUser(userId);
         }
@@ -387,7 +379,7 @@ public class OrientdbConverter
         record.setRecordId(orid.getClusterPosition());
         if (log.isTraceEnabled()) {
             log.trace("Extracted the values " + record.get(Constants.ORIENTDB_CLUSTER_ID_KEY) + " and "
-                    + record.getRecordId() + " from ODocument " + orid.toString());
+                    + record.getRecordId() + " from ODocument " + orid);
         }
     }
 
@@ -429,7 +421,7 @@ public class OrientdbConverter
         identifier.setIdentifier((String) vertex.getProperty(Constants.IDENTIFIER_PROPERTY));
         identifier.setDateCreated((Date) vertex.getProperty(Constants.DATE_CREATED_PROPERTY));
         identifier.setDateVoided((Date) vertex.getProperty(Constants.DATE_VOIDED_PROPERTY));
-        Integer identifierDomainId = (Integer) vertex.getProperty(Constants.IDENTIFIER_DOMAIN_ID_PROPERTY);
+        Integer identifierDomainId = vertex.getProperty(Constants.IDENTIFIER_DOMAIN_ID_PROPERTY);
         IdentifierDomain domain = cache.getIdentifierDomain(identifierDomainId);
         if (domain != null) {
             identifier.setIdentifierDomain(domain);
@@ -444,7 +436,7 @@ public class OrientdbConverter
         identifier.setIdentifier((String) idoc.field(Constants.IDENTIFIER_PROPERTY));
         identifier.setDateCreated((Date) idoc.field(Constants.DATE_CREATED_PROPERTY));
         identifier.setDateVoided((Date) idoc.field(Constants.DATE_VOIDED_PROPERTY));
-        Integer identifierDomainId = (Integer) idoc.field(Constants.IDENTIFIER_DOMAIN_ID_PROPERTY);
+        Integer identifierDomainId = idoc.field(Constants.IDENTIFIER_DOMAIN_ID_PROPERTY);
         IdentifierDomain domain = cache.getIdentifierDomain(identifierDomainId);
         if (domain != null) {
             identifier.setIdentifierDomain(domain);
@@ -467,7 +459,7 @@ public class OrientdbConverter
         record.setRecordId(orid.getClusterPosition());
         if (log.isTraceEnabled()) {
             log.trace("Extracted the values " + record.get(Constants.ORIENTDB_CLUSTER_ID_KEY) + " and "
-                    + record.getRecordId() + " from ODocument " + orid.toString());
+                    + record.getRecordId() + " from ODocument " + orid);
         }
     }
     

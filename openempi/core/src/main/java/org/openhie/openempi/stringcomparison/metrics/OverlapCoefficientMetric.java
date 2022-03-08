@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.OverlapCoefficient;
 
 public class OverlapCoefficientMetric extends AbstractDistanceMetric
 {
-	private OverlapCoefficient overlapCoefficient = new OverlapCoefficient();
+	private final OverlapCoefficient overlapCoefficient = new OverlapCoefficient();
 	
 	public OverlapCoefficientMetric() {
 	}

@@ -36,6 +36,6 @@ public interface IPixUpdateNotificationRequest {
 	 * actually sends a PIX update notification to subscribed 
 	 * PIX Consumers
 	 */
-	public void execute();
+    void execute();
 	
 }

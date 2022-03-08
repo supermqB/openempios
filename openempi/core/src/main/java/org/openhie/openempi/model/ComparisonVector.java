@@ -36,9 +36,9 @@ public class ComparisonVector extends BaseObject implements Serializable
 	private static final long serialVersionUID = 7534673028743277151L;
 	protected final Log log = LogFactory.getLog(getClass());
 	
-	private List<MatchField> matchFields;
+	private final List<MatchField> matchFields;
 	private double[] scores;
-	private int[] binaryScores;
+	private final int[] binaryScores;
 	private double vectorProbGivenM;
 	private double vectorProbGivenU;
 	private double vectorWeight;
@@ -86,7 +86,7 @@ public class ComparisonVector extends BaseObject implements Serializable
 		StringBuffer sb = new StringBuffer("[ ");
 		for (int i = 0; i < binaryScores.length; i++) {
 //			sb.append(((binaryScores[i] == 1) ? "1" : "0"));
-			sb.append(Integer.toString(binaryScores[i]));
+			sb.append(binaryScores[i]);
 			sb.append((i < binaryScores.length - 1) ? ", " : " ");
 		}
 		sb.append("]");
@@ -109,7 +109,7 @@ public class ComparisonVector extends BaseObject implements Serializable
 
 	private double calculateVectorProbability(double[] estimatedMarginals) {
 		if (estimatedMarginals.length == 0 || estimatedMarginals.length != binaryScores.length) {
-			log.error("Unable to calculate vector marginal probability since length of estimated marginals is less than vector length:\n" + this.toString());
+			log.error("Unable to calculate vector marginal probability since length of estimated marginals is less than vector length:\n" + this);
 			throw new RuntimeException("Unable to calculate vector marginal probabilities.");
 		}
 		double product = 1.0;

@@ -36,7 +36,7 @@ public interface PropertyConfig {
 	 * @param name the property name
 	 * @return the String value; null if not found
 	 */
-	public String getString(String name);
+    String getString(String name);
 
 	
 	/**
@@ -47,7 +47,7 @@ public interface PropertyConfig {
 	 * @return the String value
 	 * @throws ConfigurationException if the required property is not found
 	 */
-	public String getString(String name, boolean required) throws ConfigurationException;
+    String getString(String name, boolean required) throws ConfigurationException;
 
 	/**
 	 * Gets the String value of the given property name
@@ -56,7 +56,7 @@ public interface PropertyConfig {
 	 * @defaultVal the default value
 	 * @return the String value; return defaultVal if not found
 	 */
-	public String getString(String name, String defaultVal);
+    String getString(String name, String defaultVal);
 	
 	/** 
 	 * Gets the String Array of values of the given property name
@@ -64,7 +64,7 @@ public interface PropertyConfig {
 	 * @param name the property name
 	 * @return the String Array; null if not found
 	 */
-	public String[] getStringArray(String name);
+    String[] getStringArray(String name);
 	
 	/**
 	 * Gets the String Array of values of the given property name
@@ -74,7 +74,7 @@ public interface PropertyConfig {
 	 * @return the String Array
 	 * @throws ConfigurationException if the required property is not found
 	 */
-	public String[] getStringArray(String name, boolean required) throws ConfigurationException;
+    String[] getStringArray(String name, boolean required) throws ConfigurationException;
 
 	/**
 	 * Gets the boolean value of the given property name.
@@ -82,7 +82,7 @@ public interface PropertyConfig {
 	 * @param name the property name
 	 * @return the boolean value; false if not found
 	 */
-	public boolean getBoolean(String name); 
+    boolean getBoolean(String name);
 	
 	/**
 	 * Gets the boolean value of the given property name.
@@ -91,7 +91,7 @@ public interface PropertyConfig {
 	 * @defaultVal the default value
 	 * @return the boolean value; defaultValue if not found
 	 */
-	public boolean getBoolean(String name, boolean defaultVal); 
+    boolean getBoolean(String name, boolean defaultVal);
 
 	/**
 	 * Gets the int value of the given property name.
@@ -99,7 +99,7 @@ public interface PropertyConfig {
 	 * @param name the property name
 	 * @return the integer value; -1 if not found
 	 */
-	public int getInteger(String name);  
+    int getInteger(String name);
 
 	/**
 	 * Gets the int value of the given property name.
@@ -109,7 +109,7 @@ public interface PropertyConfig {
 	 * @return the integer value
 	 * @throws ConfigurationException if the required property is not found
 	 */
-	public int getInteger(String name, boolean required) throws ConfigurationException;  
+    int getInteger(String name, boolean required) throws ConfigurationException;
 	
 	/**
 	 * Gets the int value of the given property name.
@@ -118,7 +118,7 @@ public interface PropertyConfig {
 	 * @defaultVal the default value
 	 * @return the integer value;  if not found, return defaultValue
 	 */
-	public int getInteger(String name, int defaultVal);  
+    int getInteger(String name, int defaultVal);
 
 	/** 
 	 * Gets the Integer Array of values of the given property name
@@ -126,7 +126,7 @@ public interface PropertyConfig {
 	 * @param name the property name
 	 * @return the integer Array; null if the property not found.
 	 */
-	public int[] getIntegerArray(String name);
+    int[] getIntegerArray(String name);
 	
 	/** 
 	 * Gets the Integer Array of values of the given property name
@@ -136,7 +136,7 @@ public interface PropertyConfig {
 	 * @return the integer Array
 	 * @throws ConfigurationException if the required property is not found
 	 */
-	public int[] getIntegerArray(String name, boolean required) throws ConfigurationException;
+    int[] getIntegerArray(String name, boolean required) throws ConfigurationException;
 
 	/**
 	 * Checks whether a given property name is contained in the properties.
@@ -144,5 +144,5 @@ public interface PropertyConfig {
 	 * @param name the property name to check
 	 * @return <code>true</code> if the property name is found.
 	 */
-	public boolean contains(String name);
+    boolean contains(String name);
 }

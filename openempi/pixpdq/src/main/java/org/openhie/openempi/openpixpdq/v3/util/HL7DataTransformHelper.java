@@ -36,7 +36,7 @@ import org.hl7.v3.*;
  */
 public class HL7DataTransformHelper {
 
-    private static Log log = LogFactory.getLog(HL7DataTransformHelper.class);
+    private static final Log log = LogFactory.getLog(HL7DataTransformHelper.class);
 
     public static II IIFactory(String root) {
         return IIFactory(root, null, null);
@@ -126,11 +126,11 @@ public class HL7DataTransformHelper {
             GregorianCalendar today = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
 
             timestamp = String.valueOf(today.get(GregorianCalendar.YEAR)) +
-                    String.valueOf(today.get(GregorianCalendar.MONTH) + 1) +
-                    String.valueOf(today.get(GregorianCalendar.DAY_OF_MONTH)) +
-                    String.valueOf(today.get(GregorianCalendar.HOUR_OF_DAY)) +
-                    String.valueOf(today.get(GregorianCalendar.MINUTE)) +
-                    String.valueOf(today.get(GregorianCalendar.SECOND));
+                    (today.get(GregorianCalendar.MONTH) + 1) +
+                    today.get(GregorianCalendar.DAY_OF_MONTH) +
+                    today.get(GregorianCalendar.HOUR_OF_DAY) +
+                    today.get(GregorianCalendar.MINUTE) +
+                    today.get(GregorianCalendar.SECOND);
         } catch (Exception e) {
             log.error("Exception when creating XMLGregorian Date");
             log.error(" message: " + e.getMessage());
@@ -146,7 +146,7 @@ public class HL7DataTransformHelper {
 
     public static ENExplicit ConvertPNToEN(PNExplicit pnName) {
         org.hl7.v3.ObjectFactory factory = new org.hl7.v3.ObjectFactory();
-        ENExplicit enName = (ENExplicit) (factory.createENExplicit());
+        ENExplicit enName = factory.createENExplicit();
         List enNamelist = enName.getContent();
         EnExplicitFamily familyName = new EnExplicitFamily();
         EnExplicitGiven givenName = new EnExplicitGiven();
@@ -181,7 +181,7 @@ public class HL7DataTransformHelper {
 
     public static PNExplicit convertENtoPN(ENExplicit value) {
         org.hl7.v3.ObjectFactory factory = new org.hl7.v3.ObjectFactory();
-        PNExplicit result = (PNExplicit) (factory.createPNExplicit());
+        PNExplicit result = factory.createPNExplicit();
         List namelist = result.getContent();
         String lastName = "";
         String firstName = "";
@@ -244,7 +244,7 @@ public class HL7DataTransformHelper {
             String middleName, String lastName, String title, String suffix)
     {
         org.hl7.v3.ObjectFactory factory = new org.hl7.v3.ObjectFactory();
-        ENExplicit enName = (ENExplicit) (factory.createENExplicit());
+        ENExplicit enName = factory.createENExplicit();
         List enNamelist = enName.getContent();
 
 
@@ -280,7 +280,7 @@ public class HL7DataTransformHelper {
         log.debug("begin CreatePNExplicit");
         log.debug("firstName = " + firstName + "; lastName = " + lastName);
         org.hl7.v3.ObjectFactory factory = new org.hl7.v3.ObjectFactory();
-        PNExplicit name = (PNExplicit) (factory.createPNExplicit());
+        PNExplicit name = factory.createPNExplicit();
         List namelist = name.getContent();
         
         if (Utilities.isNotNullish(lastName)) {

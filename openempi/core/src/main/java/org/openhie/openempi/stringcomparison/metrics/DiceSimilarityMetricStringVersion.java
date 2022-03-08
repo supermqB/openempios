@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.DiceSimilarity;
 
 public class DiceSimilarityMetricStringVersion extends AbstractDistanceMetric
 {
-	private DiceSimilarity diceSimilarity = new DiceSimilarity();
+	private final DiceSimilarity diceSimilarity = new DiceSimilarity();
 	
 	public DiceSimilarityMetricStringVersion() {
 	}

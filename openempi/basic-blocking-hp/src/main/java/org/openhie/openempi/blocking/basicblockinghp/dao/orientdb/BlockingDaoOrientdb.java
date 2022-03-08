@@ -42,8 +42,8 @@ public class BlockingDaoOrientdb implements BlockingDao
 {
     public final static String BLOCKINGKEYVALUE_FIELD = "blockingKeyValue";
     public final static String RECORDIDS_FIELD = "rids";
-	private Logger log = Logger.getLogger(getClass());
-	private Set<Entity> initializedEntities = new HashSet<Entity>();
+	private final Logger log = Logger.getLogger(getClass());
+	private final Set<Entity> initializedEntities = new HashSet<Entity>();
 	private EntityDao entityDao;
 	
 	public Long getRecordPairCount(Entity entity, BlockingRound round) {
@@ -55,8 +55,8 @@ public class BlockingDaoOrientdb implements BlockingDao
 				sb.append(",");
 			}
 		}
-		final String query = "select count(*) as c, " + sb.toString() + " from " + entity.getName() + 
-				" where dateVoided is null group by " + sb.toString();
+		final String query = "select count(*) as c, " + sb + " from " + entity.getName() +
+				" where dateVoided is null group by " + sb;
 		log.debug("Counting block sizes for round " + round.getName() + " using query:\n" + query);
 		
 		List<Long> valueCounts = new ArrayList<Long>();
@@ -125,7 +125,7 @@ public class BlockingDaoOrientdb implements BlockingDao
 	public Long loadBlockDataCount(Entity entity, BlockingRoundClass roundClass) {
 	    StringBuilder sb = new StringBuilder("select count(*) from ");
 	    sb.append(roundClass.getRoundClass().getName());
-	    log.debug("Retrieving the count of blocking data using: " + sb.toString());
+	    log.debug("Retrieving the count of blocking data using: " + sb);
 	    List<Map<String,Object>> countDoc = getEntityDao(entity).executeQuery(entity, sb.toString());
 	    Long count = (Long) countDoc.get(0).get("count");
 	    return count;

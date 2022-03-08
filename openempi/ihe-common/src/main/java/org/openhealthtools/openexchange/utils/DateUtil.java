@@ -38,9 +38,9 @@ public class DateUtil {
 	 public final static String FORMAT_yyyyMMddHHmmssZ = "yyyyMMddHHmmssZ";
 	 
 	
-	 private static SimpleDateFormat hl7formatter1 = new SimpleDateFormat(FORMAT_yyyyMMdd);
-	 private static SimpleDateFormat hl7formatter2 = new SimpleDateFormat(FORMAT_yyyyMMddHHmm);
-	 private static SimpleDateFormat DTMformatter = new SimpleDateFormat(FORMAT_yyyyMMddHHmmssZ);
+	 private static final SimpleDateFormat hl7formatter1 = new SimpleDateFormat(FORMAT_yyyyMMdd);
+	 private static final SimpleDateFormat hl7formatter2 = new SimpleDateFormat(FORMAT_yyyyMMddHHmm);
+	 private static final SimpleDateFormat DTMformatter = new SimpleDateFormat(FORMAT_yyyyMMddHHmmssZ);
 
     /**
      * Parses a datetime string to its corresponding calendar value

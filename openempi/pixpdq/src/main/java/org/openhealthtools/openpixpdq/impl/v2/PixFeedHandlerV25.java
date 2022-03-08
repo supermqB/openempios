@@ -288,7 +288,7 @@ class PixFeedHandlerV25 extends BaseHandler {
 		if (!isPixCreate) { 
 			//Do not valid patient id for PIX patient creation
 			boolean isValidPid = validatePatientId(reply, patientId, hl7Header.toMessageHeader(), incomingMessageId);
-			if (!isValidPid) return false;
+			return isValidPid;
 		}
 		
 		//Finally, it must be true when it reaches here

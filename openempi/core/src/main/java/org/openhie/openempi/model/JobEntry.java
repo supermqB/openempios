@@ -235,11 +235,8 @@ public class JobEntry extends BaseObject implements Serializable
             return false;
         JobEntry other = (JobEntry) obj;
         if (jobEntryId == null) {
-            if (other.jobEntryId != null)
-                return false;
-        } else if (!jobEntryId.equals(other.jobEntryId))
-            return false;
-        return true;
+            return other.jobEntryId == null;
+        } else return jobEntryId.equals(other.jobEntryId);
     }
 
     @Override

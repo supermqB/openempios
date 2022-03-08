@@ -26,15 +26,15 @@ import org.openhie.openempi.ValidationException;
 
 public interface ValidationRule
 {
-	public String[] getParameters();
+	String[] getParameters();
 	
-	public void setParameterValues(Map<String,String> parameterValueMap);
+	void setParameterValues(Map<String, String> parameterValueMap);
 	
-	public boolean isValid(Object value) throws ValidationException;
+	boolean isValid(Object value) throws ValidationException;
 
-	public boolean isValid(Object value, Map<String,String> parameterValueMap) throws ValidationException;
+	boolean isValid(Object value, Map<String, String> parameterValueMap) throws ValidationException;
 	
-	public String getValidationRuleName();
+	String getValidationRuleName();
 
-	public String getValidationRuleDisplayName();	
+	String getValidationRuleDisplayName();
 }

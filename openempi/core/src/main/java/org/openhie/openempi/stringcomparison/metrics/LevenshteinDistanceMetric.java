@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.Levenshtein;
 
 public class LevenshteinDistanceMetric extends AbstractDistanceMetric
 {
-	private Levenshtein levenshtein = new Levenshtein();
+	private final Levenshtein levenshtein = new Levenshtein();
 	
 	public LevenshteinDistanceMetric() {
 	}

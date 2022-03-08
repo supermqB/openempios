@@ -31,9 +31,9 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface AuditEventDataServiceAsync
 {
-	public void getAuditEventsBySearch(AuditEventSearchCriteriaWeb searchCriteria, AsyncCallback<AuditEventListWeb> callback);
+	void getAuditEventsBySearch(AuditEventSearchCriteriaWeb searchCriteria, AsyncCallback<AuditEventListWeb> callback);
 	
-	public void getAuditEventEntriesBySearch(AuditEventSearchCriteriaWeb searchCriteria, AsyncCallback<AuditEventEntryListWeb> callback);
-	public void getMessageLogsBySearch(MessageLogSearchCriteriaWeb searchCriteria, AsyncCallback<MessageLogListWeb> callback);
-	public void getMessageLogEntry(Integer messageLogId, AsyncCallback<MessageLogEntryWeb> callback);
+	void getAuditEventEntriesBySearch(AuditEventSearchCriteriaWeb searchCriteria, AsyncCallback<AuditEventEntryListWeb> callback);
+	void getMessageLogsBySearch(MessageLogSearchCriteriaWeb searchCriteria, AsyncCallback<MessageLogListWeb> callback);
+	void getMessageLogEntry(Integer messageLogId, AsyncCallback<MessageLogEntryWeb> callback);
 }

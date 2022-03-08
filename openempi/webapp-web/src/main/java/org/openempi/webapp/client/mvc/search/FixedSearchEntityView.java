@@ -130,7 +130,7 @@ public class FixedSearchEntityView extends BaseSearchEntityView
     private RecordSearchCriteriaWeb searchCriteria;
 
     private EntityWeb currentEntity;
-    private ListStore<EntityWeb> entityStore = new GroupingStore<EntityWeb>();
+    private final ListStore<EntityWeb> entityStore = new GroupingStore<EntityWeb>();
 
 
     private List<EntityAttributeWeb> sortedEntityAttributes;
@@ -143,7 +143,7 @@ public class FixedSearchEntityView extends BaseSearchEntityView
     private Dialog recordLinksDialog = null;
 
     private Grid<RecordWeb> gridLinkList;
-    private ListStore<RecordWeb> storeLinkList = new ListStore<RecordWeb>();
+    private final ListStore<RecordWeb> storeLinkList = new ListStore<RecordWeb>();
 
     public FixedSearchEntityView(Controller controller) {
         super(controller);
@@ -190,13 +190,13 @@ public class FixedSearchEntityView extends BaseSearchEntityView
         } else if (event.getType() == AppEvents.EntitiesReceived) {
 
             // Info.display("Information", "EntitiesReceived.");
-            List<EntityWeb> entities = (List<EntityWeb>) event.getData();
+            List<EntityWeb> entities = event.getData();
             entityStore.removeAll();
             entityStore.add(entities);
 
         } else if (event.getType() == AppEvents.EntityInstancesReceived) {
 
-            List<RecordWeb> entities = (List<RecordWeb>) event.getData();
+            List<RecordWeb> entities = event.getData();
 
             /*
              * Info.display("Information", "EntityInstancesReceived. "+entities.size()); for( RecordWeb record :
@@ -215,7 +215,7 @@ public class FixedSearchEntityView extends BaseSearchEntityView
             searchButton.unmask();
 
         } else if (event.getType() == AppEvents.EntityLinksReceived) {
-            List<RecordWeb> entityLinks = (List<RecordWeb>) event.getData();
+            List<RecordWeb> entityLinks = event.getData();
             // Info.display("Information", "EnttyLinks: "+entityLinks.size());
 
             buildRecordLinksDialog();
@@ -295,7 +295,7 @@ public class FixedSearchEntityView extends BaseSearchEntityView
             pagingLoader.load(config);
 
         } else if (event.getType() == AppEvents.EntityBasicLinkPairReceived) {
-            unlinkedPair = (RecordLinkWeb) event.getData();
+            unlinkedPair = event.getData();
             // Info.display("Information", "Link Pair: "+ linkedPair.getLeftRecord().getRecordId() +", "+linkedPair.getRightRecord().getRecordId());
 
             buildRecordLinkPairDialog(Constants.BASIC_SEARCH, currentEntity);
@@ -693,7 +693,7 @@ public class FixedSearchEntityView extends BaseSearchEntityView
             }
         }
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();
@@ -826,7 +826,7 @@ public class FixedSearchEntityView extends BaseSearchEntityView
         data.setMargins(new Margins(4, 2, 4, 2));
         container.add(formButtonContainer, data);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();

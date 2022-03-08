@@ -27,23 +27,23 @@ import org.openhie.openempi.model.ReportRequestEntry;
 
 public interface ReportDao extends UniversalDao
 {
-	public Report addReport(Report report);
+	Report addReport(Report report);
 	
-	public Report getReportByName(String reportName);
+	Report getReportByName(String reportName);
 	
-	public Report getReportById(Integer reportId);
+	Report getReportById(Integer reportId);
 	
-	public List<ReportRequestEntry> getReportRequests();
+	List<ReportRequestEntry> getReportRequests();
 	
-	public ReportRequestEntry addReportRequest(ReportRequestEntry reportRequest);
+	ReportRequestEntry addReportRequest(ReportRequestEntry reportRequest);
 	
-	public ReportRequestEntry updateReportRequest(ReportRequestEntry reportRequestEntry);
+	ReportRequestEntry updateReportRequest(ReportRequestEntry reportRequestEntry);
 	
-	public void reassignReportRequestsToReport(Integer oldReportId, Integer newReportId);
+	void reassignReportRequestsToReport(Integer oldReportId, Integer newReportId);
 	
-	public List<Report> getReports();
+	List<Report> getReports();
 	
-	public Report updateReport(Report report);
+	Report updateReport(Report report);
 	
-	public void removeReport(Report report);
+	void removeReport(Report report);
 }

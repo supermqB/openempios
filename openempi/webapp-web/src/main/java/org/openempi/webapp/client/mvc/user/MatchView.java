@@ -61,7 +61,7 @@ import com.google.gwt.core.client.GWT;
 public class MatchView extends View
 {
 	private Grid<PersonPairWeb> grid;
-	private ListStore<PersonPairWeb> pairStore = new ListStore<PersonPairWeb>();
+	private final ListStore<PersonPairWeb> pairStore = new ListStore<PersonPairWeb>();
 
 	private LayoutContainer container;
 	private LayoutContainer gridContainer;
@@ -297,7 +297,7 @@ public class MatchView extends View
 		data.setMargins(new Margins(80, 2, 2, 2));
 		container.add(gridContainer, data);
 
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

@@ -34,61 +34,61 @@ import org.openhie.openempi.model.Person;
 
 public interface AuditEventService
 {
-	public AuditEventType getAuditEventTypeByCode(String eventTypeCode);
+	AuditEventType getAuditEventTypeByCode(String eventTypeCode);
 	
-	public AuditEvent saveAuditEvent(AuditEvent auditEvent);
+	AuditEvent saveAuditEvent(AuditEvent auditEvent);
 	
-	public AuditEvent saveAuditEvent(String auditEventType, String auditEventDescription);
+	AuditEvent saveAuditEvent(String auditEventType, String auditEventDescription);
 
-	public AuditEvent saveAuditEvent(String auditEventType, String auditEventDescription, Person refPerson);
+	AuditEvent saveAuditEvent(String auditEventType, String auditEventDescription, Person refPerson);
 	
-	public AuditEvent saveAuditEvent(String auditEventType, String auditEventDescription, Person refPerson, Person altRefPerson);
+	AuditEvent saveAuditEvent(String auditEventType, String auditEventDescription, Person refPerson, Person altRefPerson);
 	
-	public List<AuditEvent> getAllAuditEvents();
+	List<AuditEvent> getAllAuditEvents();
 	
-	public List<AuditEventType> getAllAuditEventTypes();
+	List<AuditEventType> getAllAuditEventTypes();
 	
-	public int getAuditEventCount(Date startDate, Date endDate, List<Integer> auditEventTypeCodes);
+	int getAuditEventCount(Date startDate, Date endDate, List<Integer> auditEventTypeCodes);
 	
-	public List<AuditEvent> filterAuditEvents(Date startDate, Date endDate, List<Integer> auditEventTypeCodes);
+	List<AuditEvent> filterAuditEvents(Date startDate, Date endDate, List<Integer> auditEventTypeCodes);
 	
-	public List<AuditEvent> filterAuditEventsPaged(Date startDate, Date endDate, List<Integer> auditEventTypeCodes, int firstResult, int maxResults);
+	List<AuditEvent> filterAuditEventsPaged(Date startDate, Date endDate, List<Integer> auditEventTypeCodes, int firstResult, int maxResults);
 
 	
 	// Audit event entry		
-	public AuditEventEntry saveAuditEventEntry(AuditEventEntry auditEventEntry);
+    AuditEventEntry saveAuditEventEntry(AuditEventEntry auditEventEntry);
 	
-	public AuditEventEntry saveAuditEventEntry(String auditEventType, String auditEventDescription, String entityName);
+	AuditEventEntry saveAuditEventEntry(String auditEventType, String auditEventDescription, String entityName);
 
-	public AuditEventEntry saveAuditEventEntry(String auditEventType, String auditEventDescription, String entityName, Record refRecord);
+	AuditEventEntry saveAuditEventEntry(String auditEventType, String auditEventDescription, String entityName, Record refRecord);
 	
-	public AuditEventEntry saveAuditEventEntry(String auditEventType, String auditEventDescription, String entityName, Record refRecord, Record altRefRecord);
+	AuditEventEntry saveAuditEventEntry(String auditEventType, String auditEventDescription, String entityName, Record refRecord, Record altRefRecord);
 	
-	public List<AuditEventEntry> getAllAuditEventEntries();
+	List<AuditEventEntry> getAllAuditEventEntries();
 		
-	public int getAuditEventEntryCount(Date startDate, Date endDate, List<Integer> auditEventTypeCodes);
+	int getAuditEventEntryCount(Date startDate, Date endDate, List<Integer> auditEventTypeCodes);
 	
-	public List<AuditEventEntry> filterAuditEventEntries(Date startDate, Date endDate, List<Integer> auditEventTypeCodes);
+	List<AuditEventEntry> filterAuditEventEntries(Date startDate, Date endDate, List<Integer> auditEventTypeCodes);
 	
-	public List<AuditEventEntry> filterAuditEventEntriesPaged(Date startDate, Date endDate, List<Integer> auditEventTypeCodes, int firstResult, int maxResults);
+	List<AuditEventEntry> filterAuditEventEntriesPaged(Date startDate, Date endDate, List<Integer> auditEventTypeCodes, int firstResult, int maxResults);
 	
-	public List<MessageType> getMessageTypes();
+	List<MessageType> getMessageTypes();
 	
-	public MessageType getMessageTypeByCode(String messageTypeCode);
+	MessageType getMessageTypeByCode(String messageTypeCode);
 
-	public MessageLogEntry getMessageLogEntry(Integer messageLogId);
+	MessageLogEntry getMessageLogEntry(Integer messageLogId);
 
-	public int getMessageLogEntryCount(Date startDate, Date endDate, List<Integer> messageTypeCodes);
+	int getMessageLogEntryCount(Date startDate, Date endDate, List<Integer> messageTypeCodes);
 
-	public MessageLogEntry saveMessageLogEntry(MessageLogEntry messageLogEntry);
+	MessageLogEntry saveMessageLogEntry(MessageLogEntry messageLogEntry);
 	
-	public List<MessageLogEntry> filterMessageLogEntries(Date startDate, Date endDate, List<Integer> messageType, int firstResult, int maxResults);
+	List<MessageLogEntry> filterMessageLogEntries(Date startDate, Date endDate, List<Integer> messageType, int firstResult, int maxResults);
 	
 	// Link logs
-	public void clearLoggedLinks(int entityVersionId);
+    void clearLoggedLinks(int entityVersionId);
 	
-    public int getLoggedLinksCount(int entityVersionId, int vectorValue);
+    int getLoggedLinksCount(int entityVersionId, int vectorValue);
     
-    public List<LoggedLink> getLoggedLinks(final int entityVersionId, final int vectorValue, final int start, final int maxResults);
+    List<LoggedLink> getLoggedLinks(final int entityVersionId, final int vectorValue, final int start, final int maxResults);
 
 }

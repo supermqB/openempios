@@ -37,7 +37,7 @@ public class NotificationEventWeb extends BaseModelData
 	private final static String IDENTIFIER = "identifier";
 	private final static String TIMESTAMP = "timestamp";
 	
-	private static java.util.HashMap<String,String> eventTypeNameDisplayMap = new java.util.HashMap<String, String>();
+	private static final java.util.HashMap<String,String> eventTypeNameDisplayMap = new java.util.HashMap<String, String>();
 	
 	static {
 		eventTypeNameDisplayMap.put(ADD_EVENT_TYPE, "Add Event");

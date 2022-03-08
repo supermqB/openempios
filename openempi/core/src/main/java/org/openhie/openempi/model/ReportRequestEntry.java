@@ -151,11 +151,8 @@ public class ReportRequestEntry extends BaseObject implements Serializable
 		} else if (!reportRequestId.equals(other.reportRequestId))
 			return false;
 		if (userRequested == null) {
-			if (other.userRequested != null)
-				return false;
-		} else if (!userRequested.equals(other.userRequested))
-			return false;
-		return true;
+			return other.userRequested == null;
+		} else return userRequested.equals(other.userRequested);
 	}
 
 	@Override

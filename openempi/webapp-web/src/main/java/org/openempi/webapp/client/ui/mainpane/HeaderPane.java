@@ -47,7 +47,7 @@ import com.google.gwt.user.client.ui.Widget;
 public class HeaderPane extends Pane {
 
 	private PopupPanel confirmPopup;
-	private DockPanel main;
+	private final DockPanel main;
 
 	/**
 	 * Constructs a new HeaderPane that displays the given text.

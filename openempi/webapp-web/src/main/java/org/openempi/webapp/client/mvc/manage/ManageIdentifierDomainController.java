@@ -94,7 +94,7 @@ public class ManageIdentifierDomainController extends Controller
     }
 
     private void addIdentifierDomain(AppEvent event) {
-        IdentifierDomainWeb domain = (IdentifierDomainWeb) event.getData();
+        IdentifierDomainWeb domain = event.getData();
 
         IdentifierDomainDataServiceAsync identifierDomainDataService = getIdentifierDomainDataService();
         identifierDomainDataService.addIdentifierDomain(domain, (new AsyncCallback<IdentifierDomainWeb>()
@@ -117,7 +117,7 @@ public class ManageIdentifierDomainController extends Controller
     }
 
     private void updateIdentifierDomain(AppEvent event) {
-        IdentifierDomainWeb domain = (IdentifierDomainWeb) event.getData();
+        IdentifierDomainWeb domain = event.getData();
 
         IdentifierDomainDataServiceAsync identifierDomainDataService = getIdentifierDomainDataService();
         identifierDomainDataService.updateIdentifierDomain(domain, (new AsyncCallback<IdentifierDomainWeb>()
@@ -140,7 +140,7 @@ public class ManageIdentifierDomainController extends Controller
     }
 
     private void deleteIdentifierDomain(AppEvent event) {
-        IdentifierDomainWeb domain = (IdentifierDomainWeb) event.getData();
+        IdentifierDomainWeb domain = event.getData();
 
         IdentifierDomainDataServiceAsync identifierDomainDataService = getIdentifierDomainDataService();
         identifierDomainDataService.deleteIdentifierDomain(domain, (new AsyncCallback<String>()

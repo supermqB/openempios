@@ -102,13 +102,13 @@ public class Context implements ApplicationContextAware
 	private static ValidationService validationService;
 	private static Configuration configuration;
     private static Map<String,Object> localConfigurationRegistry;
-    private static Map<String,EntityRegistryEntry> entityRegistryCache = new HashMap<String,EntityRegistryEntry>();
-	private static List<MatchingService> matchingServiceList = new ArrayList<MatchingService>();
-	private static Map<String,MatchingService> matchingServiceMap = new HashMap<String,MatchingService>();
-    private static List<BlockingService> blockingServiceList = new ArrayList<BlockingService>();
-    private static Map<String,BlockingService> blockingServiceMap = new HashMap<String,BlockingService>();
-    private static List<ShallowMatchingService> shallowMatchingServiceList = new ArrayList<ShallowMatchingService>();
-    private static Map<String,ShallowMatchingService> shallowMatchingServiceMap = new HashMap<String,ShallowMatchingService>();
+    private static final Map<String,EntityRegistryEntry> entityRegistryCache = new HashMap<String,EntityRegistryEntry>();
+	private static final List<MatchingService> matchingServiceList = new ArrayList<MatchingService>();
+	private static final Map<String,MatchingService> matchingServiceMap = new HashMap<String,MatchingService>();
+    private static final List<BlockingService> blockingServiceList = new ArrayList<BlockingService>();
+    private static final Map<String,BlockingService> blockingServiceMap = new HashMap<String,BlockingService>();
+    private static final List<ShallowMatchingService> shallowMatchingServiceList = new ArrayList<ShallowMatchingService>();
+    private static final Map<String,ShallowMatchingService> shallowMatchingServiceMap = new HashMap<String,ShallowMatchingService>();
 	private static AuditEventService auditEventService;
 	private static StringComparisonService stringComparisonService;
 	private static TransformationService transformationService;
@@ -123,7 +123,7 @@ public class Context implements ApplicationContextAware
 	private static DataAccessIntent currentIntent;
 	private static boolean isInitialized = false;
 	private static boolean isClusterNode = false;
-	private static Map<ObservationEventType,EventObservable> observableByType = new HashMap<ObservationEventType,EventObservable>(); 
+	private static final Map<ObservationEventType,EventObservable> observableByType = new HashMap<ObservationEventType,EventObservable>();
 	
 	static {
 		for (ObservationEventType type : ObservationEventType.values()) {
@@ -311,7 +311,7 @@ public class Context implements ApplicationContextAware
 	
 	public static String[] getConfigLocationsAsArray() {
 		ArrayList<String> configLocations = getConfigLocations();
-		return (String[]) configLocations.toArray(new String[]{});
+		return configLocations.toArray(new String[]{});
 	}
 
 	public static ArrayList<String> getConfigLocations() {
@@ -342,10 +342,7 @@ public class Context implements ApplicationContextAware
 	    if (value == null || value.isEmpty()) {
 	        return false;
 	    }
-	    if (value.equalsIgnoreCase(Constants.TRUE_VALUE)) {
-	        return true;
-	    }
-	    return false;
+		return value.equalsIgnoreCase(Constants.TRUE_VALUE);
 	}
 
 	private static ArrayList<String> generateConfigFileList() {
@@ -947,10 +944,10 @@ public class Context implements ApplicationContextAware
         private final static int RECORD_CACHE_SERVICE = 5;
         private final static int SHALLOW_MATCHING_SERVICE = 6;
 		
-		private String message;
-		private int operation;
-		private int serviceType;
-		private Object service;
+		private final String message;
+		private final int operation;
+		private final int serviceType;
+		private final Object service;
 		
 		public ServiceStarterStopper(String message, int operation, int serviceType, Object service) {
 			this.message = message;
@@ -1055,8 +1052,8 @@ public class Context implements ApplicationContextAware
 
     private static class EntityRegistryEntry
     {
-        private Map<String,Object> entityRegistry;
-        private Date lastAccessTime;
+        private final Map<String,Object> entityRegistry;
+        private final Date lastAccessTime;
 
         public EntityRegistryEntry(Map<String, Object> entityRegistry) {
             this.entityRegistry = entityRegistry;
@@ -1065,11 +1062,8 @@ public class Context implements ApplicationContextAware
 
         public boolean isRecentEntry() {
             Date now = new Date();
-            if (now.getTime() - lastAccessTime.getTime() < ENTITY_REGISTRY_LIFETIME_DURATION) {
-                return true;
-            }
-            return false;
-        }
+			return now.getTime() - lastAccessTime.getTime() < ENTITY_REGISTRY_LIFETIME_DURATION;
+		}
 
         public Map<String, Object> getEntityRegistry() {
             return entityRegistry;

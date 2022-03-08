@@ -36,10 +36,10 @@ public interface ConfigProcessor {
 	/**
 	 * The logics to invoke before the configuration is loaded.
 	 */
-	public void preProcess();
+    void preProcess();
 	
 	/**
 	 * The logics to invoke after the configuration is loaded.
 	 */
-	public void postProcess(Collection<IActorDescription> actors);
+    void postProcess(Collection<IActorDescription> actors);
 }

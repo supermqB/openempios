@@ -38,7 +38,7 @@ import java.util.*;
  */
 public class Escape {
    
-    private static HashMap variousEncChars = new HashMap(5);
+    private static final HashMap variousEncChars = new HashMap(5);
 
     /** Creates a new instance of Escape */
     public Escape() {
@@ -63,7 +63,7 @@ public class Escape {
 		}
 	    }
 	    if(!isReplaced){
-		result.append(text.substring(position,(position + 1)));
+		result.append(text, position, (position + 1));
 	    }
 	    position++;
 	}
@@ -93,7 +93,7 @@ public class Escape {
 		}
 	    }
 	    if(!isReplaced){
-		result.append(text.substring(position,(position + 1)));
+		result.append(text, position, (position + 1));
 		position++;
 	    }
 	}
@@ -232,7 +232,7 @@ public class Escape {
     /**
      * Test harness
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 	String testString = "foo$r$this is $ $p$test$r$r$ string";
         //System.out.println(testString);
         //System.out.println(replace(testString, "$r$", "***"));

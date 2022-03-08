@@ -27,7 +27,7 @@ import org.apache.log4j.Logger;
 
 public class BaseModelDataDtoGenerator
 {
-	private static Logger log = Logger.getLogger(BaseModelDataDtoGenerator.class);
+	private static final Logger log = Logger.getLogger(BaseModelDataDtoGenerator.class);
 	
 	/**
 	 * @param args
@@ -53,7 +53,7 @@ public class BaseModelDataDtoGenerator
 			}
 		}
 		sourceCode.append("}");
-		System.out.println(sourceCode.toString());
+		System.out.println(sourceCode);
 	}
 
 	private static void generateGetterSetter(StringBuilder sourceCode, PropertyDescriptor desc) {

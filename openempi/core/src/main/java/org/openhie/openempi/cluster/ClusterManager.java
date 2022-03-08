@@ -26,19 +26,19 @@ import org.openhie.openempi.ApplicationException;
 
 public interface ClusterManager
 {
-	public String getClusterNodeId();
+	String getClusterNodeId();
 	
-	public CommandRequest executeRemoteRequest(CommandRequest request);
+	CommandRequest executeRemoteRequest(CommandRequest request);
 	
-	public Map<String, Object> getConfigurationRegistry();
+	Map<String, Object> getConfigurationRegistry();
 	
-	public void processRequest(CommandRequest request);
+	void processRequest(CommandRequest request);
 	
-	public void nodeIsReady();
+	void nodeIsReady();
 	
-	public void nodeIsGoingDown();
+	void nodeIsGoingDown();
 	
-	public void start() throws ApplicationException;
+	void start() throws ApplicationException;
 	
-	public void stop() throws ApplicationException;
+	void stop() throws ApplicationException;
 }

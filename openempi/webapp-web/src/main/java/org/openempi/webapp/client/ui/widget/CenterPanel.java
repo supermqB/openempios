@@ -31,7 +31,7 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public class CenterPanel extends Composite {
 
-    private DockPanel container;
+    private final DockPanel container;
 
     private Widget content;
 

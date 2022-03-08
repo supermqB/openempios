@@ -89,11 +89,8 @@ public class ComparatorFunction extends BaseObject
 		} else if (!functionName.equals(other.functionName))
 			return false;
 		if (parameterMap == null) {
-			if (other.parameterMap != null)
-				return false;
-		} else if (!parameterMap.equals(other.parameterMap))
-			return false;
-		return true;
+			return other.parameterMap == null;
+		} else return parameterMap.equals(other.parameterMap);
 	}
 
 	@Override

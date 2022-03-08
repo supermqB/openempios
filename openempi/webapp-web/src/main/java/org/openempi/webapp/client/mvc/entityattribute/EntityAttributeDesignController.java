@@ -83,7 +83,7 @@ public class EntityAttributeDesignController extends Controller
 			deleteEntityData(event);
 
 		} else if (type == AppEvents.CustomFieldsConfigurationRequest) {
-			EntityWeb entity = (EntityWeb) event.getData();
+			EntityWeb entity = event.getData();
 
             loadSystemConfigurationInfo(entity);
             
@@ -190,7 +190,7 @@ public class EntityAttributeDesignController extends Controller
 	private void addEntityData(AppEvent event) {
 		EntityDefinitionDataServiceAsync entityDataService = getEntityDefinitionDataService();
 
-		EntityWeb entity = (EntityWeb) event.getData();
+		EntityWeb entity = event.getData();
 
 		entityDataService.addEntity(entity, new AsyncCallback<EntityWeb>() {
 
@@ -214,7 +214,7 @@ public class EntityAttributeDesignController extends Controller
 	private void updateEntityData(AppEvent event) {
 		EntityDefinitionDataServiceAsync entityDataService = getEntityDefinitionDataService();
 
-		EntityWeb entity = (EntityWeb) event.getData();
+		EntityWeb entity = event.getData();
 
 		entityDataService.updateEntity(entity, new AsyncCallback<EntityWeb>() {
 
@@ -238,7 +238,7 @@ public class EntityAttributeDesignController extends Controller
 	private void deleteEntityData(AppEvent event) {
 		EntityDefinitionDataServiceAsync entityDataService = getEntityDefinitionDataService();
 
-		EntityWeb entity = (EntityWeb) event.getData();
+		EntityWeb entity = event.getData();
 
 		entityDataService.deleteEntity(entity, new AsyncCallback<String>() {
 

@@ -77,8 +77,8 @@ public class ConversionHelper
 	private static final String OPENEMPI_RACE_SPANISH_AMERICAN_INDIAN = "1074-4";
 	private static final String OPENEMPI_RACE_CODE_OTHER = "2131-1";
 	
-	private static HashMap<String,String> pixPdqToOpenEmpiRaceCodeMap = new HashMap<String,String>();
-	private static HashMap<String,String> openempiToPixPdqRaceCodeMap = new HashMap<String,String>();
+	private static final HashMap<String,String> pixPdqToOpenEmpiRaceCodeMap = new HashMap<String,String>();
+	private static final HashMap<String,String> openempiToPixPdqRaceCodeMap = new HashMap<String,String>();
 	static {
 		pixPdqToOpenEmpiRaceCodeMap.put(PIXPDQ_RACE_CODE_AMERICAN_INDIAN, OPENEMPI_RACE_CODE_AMERICAN_INDIAN);
 		pixPdqToOpenEmpiRaceCodeMap.put(PIXPDQ_RACE_CODE_ASIAN, OPENEMPI_RACE_CODE_ASIAN);

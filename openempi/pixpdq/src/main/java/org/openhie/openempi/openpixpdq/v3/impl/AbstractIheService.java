@@ -84,7 +84,7 @@ import org.openhie.openempi.openpixpdq.v3.util.Utilities;
 public class AbstractIheService extends BaseHandler
 {
 	protected final Log log = LogFactory.getLog(getClass());
-    private static SimpleDateFormat hl7DateFormat = new SimpleDateFormat("yyyyMMdd");
+    private static final SimpleDateFormat hl7DateFormat = new SimpleDateFormat("yyyyMMdd");
 
 	private String configurationFilename;
 	private String actorName;

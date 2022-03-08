@@ -40,38 +40,38 @@ public interface IUdpServerConnection {
      * @return True if you can use this connection to get input and output streams.
      * @see ConnectionFactory
      */
-    public boolean isServerConnectionValid();
+    boolean isServerConnectionValid();
 
     /**
      * Gets a direct handle on the UDP server socket.
      *
      * @return The sever socket that is being used for communication.
      */
-    public DatagramSocket getServerSocket();
+    DatagramSocket getServerSocket();
 
     /**
      * Closes the server connection.
      */
-    public void closeServerConnection();
+    void closeServerConnection();
 
     /**
      * Gets the max transmission unit of a datagram packet.
      *
      * @return
      */
-    public int getMaxTransmissionUnit();
+    int getMaxTransmissionUnit();
 
     /**
      * Gets the description object for this connection.
      *
      * @return The description object for this connenction.
      */
-    public IConnectionDescription getConnectionDescription();
+    IConnectionDescription getConnectionDescription();
 
 
     /**
      * Connects the server connection.  Only called by the factory.
      */
-    public void connect();
+    void connect();
 
 }

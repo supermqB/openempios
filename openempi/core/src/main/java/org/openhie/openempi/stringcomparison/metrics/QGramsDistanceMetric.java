@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.QGramsDistance;
 
 public class QGramsDistanceMetric extends AbstractDistanceMetric
 {
-	private QGramsDistance qGramsDistance = new QGramsDistance();
+	private final QGramsDistance qGramsDistance = new QGramsDistance();
 	
 	public QGramsDistanceMetric() {
 	}

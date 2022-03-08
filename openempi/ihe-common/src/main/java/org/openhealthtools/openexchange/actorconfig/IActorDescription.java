@@ -45,13 +45,13 @@ public interface IActorDescription extends IBaseDescription {
      * @return <code>true</code> if this actor is installed; 
      * otherwise return <code>false</code>
      */
-	public boolean isInstalled();
+    boolean isInstalled();
     
     /**
      * Sets this actor to be installed. By install it means
      * the actor is started and registered with its broker. 
      */
-	public void setInstalled();
+    void setInstalled();
 	
 	/**
 	 * Gets a human-readable string naming type of this actor
@@ -61,7 +61,7 @@ public interface IActorDescription extends IBaseDescription {
 	 * 
 	 * @return the human-readable type 
 	 */
-	public String getHumanReadableType();
+    String getHumanReadableType();
 	
 	/**
 	 * Sets a human-readable string naming type of this actor
@@ -71,7 +71,7 @@ public interface IActorDescription extends IBaseDescription {
 	 * 
 	 * @return the human-readable type 
 	 */
-	public void setHumanReadableType(String type);
+    void setHumanReadableType(String type);
 	
 	/**
 	 * Gets a connection description of a given connection name.
@@ -79,7 +79,7 @@ public interface IActorDescription extends IBaseDescription {
 	 * @param name the connection name
 	 * @return the {@link IConnectionDescription} matching the given name
 	 */
-    public IConnectionDescription getConnectionDescription(String name);
+    IConnectionDescription getConnectionDescription(String name);
     
 	/**
 	 * Looks up a collection of connection descriptions given the connection type
@@ -88,7 +88,7 @@ public interface IActorDescription extends IBaseDescription {
 	 * @return a collection of connection descriptions. If the given type is not 
 	 * found, an empty collection will be returned.
 	 */
-	public Collection<IConnectionDescription> getConnectionDescriptionsByType(String type);
+    Collection<IConnectionDescription> getConnectionDescriptionsByType(String type);
  
 	/**
 	 * Looks up a connection descriptions given the connection type
@@ -97,7 +97,7 @@ public interface IActorDescription extends IBaseDescription {
 	 * @return a connection description. If the given type is not 
 	 * found, null will be returned.
 	 */
-	public IConnectionDescription getConnectionDescriptionByType(String type);
+    IConnectionDescription getConnectionDescriptionByType(String type);
 	
     /**
      * Gets a set of transactions of a given type
@@ -105,7 +105,7 @@ public interface IActorDescription extends IBaseDescription {
      * @param type the type of the transactions to get
      * @return the {@link TransactionsSet} 
      */
-    public TransactionsSet getTransactionSet(String type);
+    TransactionsSet getTransactionSet(String type);
 
     /**
 	 * Gets a collection of audit trail log connections for this actor.
@@ -113,6 +113,6 @@ public interface IActorDescription extends IBaseDescription {
 	 * @return a collection of audit trail log connections. If no audit log is defined, 
 	 * an empty collection will be returned.
 	 */
-	public Collection<IConnectionDescription> getAuditLogConnection(); 
+    Collection<IConnectionDescription> getAuditLogConnection();
 
 }

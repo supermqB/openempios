@@ -40,7 +40,7 @@ import org.hl7.v3.II;
  */
 public class HL7MessageIdGenerator
 {
-    private static Log log = LogFactory.getLog(HL7MessageIdGenerator.class);
+    private static final Log log = LogFactory.getLog(HL7MessageIdGenerator.class);
     
     public static II GenerateHL7MessageId(String myDeviceId) {
         II messageId = new II();
@@ -68,7 +68,7 @@ public class HL7MessageIdGenerator
     
     public static String GenerateMessageId() {
     	java.util.UUID uuid = java.util.UUID.randomUUID();
-        log.debug("generated message id=" + uuid.toString());
+        log.debug("generated message id=" + uuid);
         return uuid.toString();
     }
 }

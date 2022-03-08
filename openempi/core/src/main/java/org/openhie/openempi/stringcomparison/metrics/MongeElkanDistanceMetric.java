@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.MongeElkan;
 
 public class MongeElkanDistanceMetric extends AbstractDistanceMetric
 {
-	private MongeElkan mongeElkan = new MongeElkan();
+	private final MongeElkan mongeElkan = new MongeElkan();
 	
 	public MongeElkanDistanceMetric() {
 	}

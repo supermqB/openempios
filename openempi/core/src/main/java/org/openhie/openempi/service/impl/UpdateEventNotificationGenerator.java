@@ -37,7 +37,7 @@ import org.openhie.openempi.model.RecordLink;
 
 public class UpdateEventNotificationGenerator
 {
-	private Logger log = Logger.getLogger(getClass());
+	private final Logger log = Logger.getLogger(getClass());
 	
 	private IdentifierDomainDao identifierDao;
 	List<UpdateNotificationRegistrationEntry> configurationEntries;
@@ -155,13 +155,10 @@ public class UpdateEventNotificationGenerator
 		if (beforeIdentifier == null && afterIdentifier == null) {
 			return false;
 		}
-		
-		
-		if (!beforeIdentifier.equalsIgnoreCase(afterIdentifier)) {
-			return true;
-		}
-		return false;
-	}
+
+
+        return !beforeIdentifier.equalsIgnoreCase(afterIdentifier);
+    }
 
 	private String getIdentifierInDomainOfInterest(Integer domainOfInterest, Set<Identifier> identifiers) {
 		for (Identifier identifier : identifiers) {		    

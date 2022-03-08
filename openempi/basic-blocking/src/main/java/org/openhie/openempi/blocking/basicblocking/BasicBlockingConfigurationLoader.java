@@ -47,7 +47,7 @@ import org.openhie.openempi.context.Context;
  */
 public class BasicBlockingConfigurationLoader implements ConfigurationLoader
 {
-	private Log log = LogFactory.getLog(BasicBlockingConfigurationLoader.class);
+	private final Log log = LogFactory.getLog(BasicBlockingConfigurationLoader.class);
 	private String entityName;
 	
 	@SuppressWarnings("unchecked")

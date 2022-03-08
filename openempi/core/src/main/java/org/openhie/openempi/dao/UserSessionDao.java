@@ -27,17 +27,17 @@ import org.openhie.openempi.model.UserSession;
 
 public interface UserSessionDao extends UniversalDao
 {
-	public void saveUserSession(UserSession session);
+	void saveUserSession(UserSession session);
 	
-	public List<UserSession> findAll();
+	List<UserSession> findAll();
     
-    public List<UserSession> findByUser(Long userId);
+    List<UserSession> findByUser(Long userId);
 	
-	public UserSession findById(Integer sessionId);
+	UserSession findById(Integer sessionId);
 	
-	public List<UserSession> findExpiredSessions(Date cutoff);
+	List<UserSession> findExpiredSessions(Date cutoff);
 	
-	public UserSession findBySessionKey(String sessionKey);
+	UserSession findBySessionKey(String sessionKey);
 	
-	public void removeUserSession(String sessionKey);
+	void removeUserSession(String sessionKey);
 }

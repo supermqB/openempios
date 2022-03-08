@@ -104,7 +104,7 @@ public class PropertyFacade
      * @return <code>true</code> if loaded, otherwise <code>false</code>
      */
     public static boolean isPropertyConfiged() {
-    	return config == null ? false : true;
+    	return config != null;
     }
     
     /**

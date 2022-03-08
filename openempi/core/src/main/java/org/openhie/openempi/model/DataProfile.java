@@ -125,11 +125,8 @@ public class DataProfile extends BaseObject implements Serializable
             return false;
         DataProfile other = (DataProfile) obj;
         if (dataProfileId == null) {
-            if (other.dataProfileId != null)
-                return false;
-        } else if (!dataProfileId.equals(other.dataProfileId))
-            return false;
-        return true;
+            return other.dataProfileId == null;
+        } else return dataProfileId.equals(other.dataProfileId);
     }
 
     public String toString() {

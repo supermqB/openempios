@@ -100,7 +100,7 @@ public class UserManagerImpl extends UniversalManagerImpl implements UserManager
 
 		User user = null;
         try {
-        	user = (User) getUserByUsername(username);
+        	user = getUserByUsername(username);
         } catch (UsernameNotFoundException e) {
         	log.warn("Authentication attempt with unknown username " + username);
 			throw new AuthenticationException("Authentication failed.");     	
@@ -339,7 +339,7 @@ public class UserManagerImpl extends UniversalManagerImpl implements UserManager
     
     public class SessionUpdater implements Runnable
     {
-        private UserSession session;
+        private final UserSession session;
         
         public SessionUpdater(UserSession session) {
             this.session = session;

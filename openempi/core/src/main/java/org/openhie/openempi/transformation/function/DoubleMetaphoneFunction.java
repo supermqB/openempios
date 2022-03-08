@@ -24,7 +24,7 @@ import org.apache.commons.codec.language.DoubleMetaphone;
 
 public class DoubleMetaphoneFunction extends AbstractTransformationFunction
 {
-	private DoubleMetaphone metaphone;
+	private final DoubleMetaphone metaphone;
 	
 	public DoubleMetaphoneFunction() {
 		super();

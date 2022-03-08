@@ -51,12 +51,12 @@ import org.openhie.openempi.openpixpdq.v3.util.Utilities;
 
 public class PixUpdateNotificationRequestV3 implements IPixUpdateNotificationRequest
 {
-	private static Logger log = Logger.getLogger(PixUpdateNotificationRequestV3.class);
+	private static final Logger log = Logger.getLogger(PixUpdateNotificationRequestV3.class);
 
 	private PixManagerV3 actor = null;
-	private Patient patient;
+	private final Patient patient;
 	private List<PatientIdentifier> pids = null;
-	private IPixManagerAdapter pixAdapter;
+	private final IPixManagerAdapter pixAdapter;
 	
 	/**
 	 * Constructor

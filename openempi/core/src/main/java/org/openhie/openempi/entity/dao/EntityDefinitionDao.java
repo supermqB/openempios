@@ -31,43 +31,43 @@ import org.openhie.openempi.model.EntityAttributeValidation;
 
 public interface EntityDefinitionDao
 {
-	public Entity addEntity(Entity entity) throws DaoException;
+	Entity addEntity(Entity entity) throws DaoException;
 	
-	public Entity updateEntity(Entity entity) throws DaoException;
+	Entity updateEntity(Entity entity) throws DaoException;
 
-	public Entity loadEntity(Integer id);
+	Entity loadEntity(Integer id);
 	
-	public List<Entity> findEntitiesByName(String name);
+	List<Entity> findEntitiesByName(String name);
 	
-	public List<Entity> loadEntities();
+	List<Entity> loadEntities();
 	
-	public List<Entity> findEntityVersions(Integer entityId);
+	List<Entity> findEntityVersions(Integer entityId);
 
-	public List<EntityAttributeDatatype> getEntityAttributeDatatypes();
+	List<EntityAttributeDatatype> getEntityAttributeDatatypes();
 	
-	public EntityAttributeGroup addEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws DaoException;
+	EntityAttributeGroup addEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws DaoException;
 	
-	public EntityAttributeGroup updateEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws DaoException;
+	EntityAttributeGroup updateEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws DaoException;
 	
-	public EntityAttributeGroup loadEntityAttributeGroup(Integer id);
+	EntityAttributeGroup loadEntityAttributeGroup(Integer id);
 	
-	public List<EntityAttributeGroup> loadEntityAttributeGroups(Entity entity);
+	List<EntityAttributeGroup> loadEntityAttributeGroups(Entity entity);
 	
-	public void deleteEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws DaoException;
+	void deleteEntityAttributeGroup(EntityAttributeGroup entityAttributeGroup) throws DaoException;
 	
-	public EntityAttributeValidation addEntityAttributeValidation(EntityAttributeValidation validation) throws DaoException;
+	EntityAttributeValidation addEntityAttributeValidation(EntityAttributeValidation validation) throws DaoException;
 	
-	public EntityAttributeValidation updateEntityAttributeValidation(EntityAttributeValidation validation) throws DaoException;
+	EntityAttributeValidation updateEntityAttributeValidation(EntityAttributeValidation validation) throws DaoException;
 	
-	public void deleteEntityAttributeValidation(EntityAttributeValidation validation) throws DaoException;
+	void deleteEntityAttributeValidation(EntityAttributeValidation validation) throws DaoException;
 	
-	public EntityAttributeValidation loadEntityAttributeValidation(Integer id);
+	EntityAttributeValidation loadEntityAttributeValidation(Integer id);
 	
-	public List<EntityAttributeValidation> loadEntityAttributeValidations(EntityAttribute entityAttribute);
+	List<EntityAttributeValidation> loadEntityAttributeValidations(EntityAttribute entityAttribute);
 
-	public List<EntityAttribute> loadCustomFields(Entity entity);
+	List<EntityAttribute> loadCustomFields(Entity entity);
 
-	public EntityAttribute addCustomField(Entity entity, EntityAttribute field) throws DaoException;
+	EntityAttribute addCustomField(Entity entity, EntityAttribute field) throws DaoException;
 	
-	public EntityAttribute findCustomField(Entity entity, String fieldName);
+	EntityAttribute findCustomField(Entity entity, String fieldName);
 }

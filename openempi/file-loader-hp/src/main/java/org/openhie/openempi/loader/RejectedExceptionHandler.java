@@ -27,7 +27,7 @@ import org.apache.log4j.Logger;
 
 public class RejectedExceptionHandler implements RejectedExecutionHandler
 {
-	private Logger log = Logger.getLogger(this.getClass());
+	private final Logger log = Logger.getLogger(this.getClass());
 	
 	@Override
 	public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {

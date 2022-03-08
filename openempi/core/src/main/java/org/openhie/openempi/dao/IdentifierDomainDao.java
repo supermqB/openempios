@@ -31,47 +31,47 @@ import org.openhie.openempi.model.User;
 public interface IdentifierDomainDao extends UniversalDao
 {
 
-	public List<IdentifierDomain> getIdentifierDomains();
+	List<IdentifierDomain> getIdentifierDomains();
 
-	public List<String> getIdentifierDomainTypeCodes();
+	List<String> getIdentifierDomainTypeCodes();
 
-	public IdentifierDomain findIdentifierDomain(final IdentifierDomain identifierDomain);
+	IdentifierDomain findIdentifierDomain(final IdentifierDomain identifierDomain);
 
-	public IdentifierDomain findIdentifierDomainByName(final String identifierDomainName);
+	IdentifierDomain findIdentifierDomainByName(final String identifierDomainName);
 
-	public IdentifierDomain findIdentifierDomainById(final Integer id);
+	IdentifierDomain findIdentifierDomainById(final Integer id);
 
-	public void addIdentifierDomain(IdentifierDomain identifierDomain);
+	void addIdentifierDomain(IdentifierDomain identifierDomain);
 
-	public void removeIdentifierDomain(IdentifierDomain identifierDomain);
+	void removeIdentifierDomain(IdentifierDomain identifierDomain);
 
-	public void saveIdentifierDomain(IdentifierDomain identifierDomain);
+	void saveIdentifierDomain(IdentifierDomain identifierDomain);
 
-	public boolean isKnownUniversalIdentifierTypeCode(String universalIdentifierTypeCode);
+	boolean isKnownUniversalIdentifierTypeCode(String universalIdentifierTypeCode);
 
-	public IdentifierDomainAttribute addIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName, String attributeValue);
+	IdentifierDomainAttribute addIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName, String attributeValue);
 
-	public IdentifierDomainAttribute getIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName);
+	IdentifierDomainAttribute getIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName);
 
-	public List<IdentifierDomainAttribute> getIdentifierDomainAttributes(IdentifierDomain identifierDomain);
+	List<IdentifierDomainAttribute> getIdentifierDomainAttributes(IdentifierDomain identifierDomain);
 
-	public void updateIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
+	void updateIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
 
-	public void removeIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
+	void removeIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
 
-    public int getIdentifierUpdateEventCount(User eventRecipient);
+    int getIdentifierUpdateEventCount(User eventRecipient);
 
-    public IdentifierUpdateEvent findIdentifierUpdateEvent(long identifierUpdateEventId);
+    IdentifierUpdateEvent findIdentifierUpdateEvent(long identifierUpdateEventId);
 
-    public IdentifierUpdateEvent addIdentifierUpdateEvent(IdentifierUpdateEvent identifierUpdateEvent);
+    IdentifierUpdateEvent addIdentifierUpdateEvent(IdentifierUpdateEvent identifierUpdateEvent);
 
-    public void removeIdentifierUpdateEvent(IdentifierUpdateEvent identifierUpdateEvent);
+    void removeIdentifierUpdateEvent(IdentifierUpdateEvent identifierUpdateEvent);
 
-    public List<IdentifierUpdateEvent> getIdentifierUpdateEvents(int startIndex, int maxEvents, User eventRecipient);
+    List<IdentifierUpdateEvent> getIdentifierUpdateEvents(int startIndex, int maxEvents, User eventRecipient);
 
-    public List<IdentifierUpdateEvent> getIdentifierUpdateEvents(User eventRecipient);
+    List<IdentifierUpdateEvent> getIdentifierUpdateEvents(User eventRecipient);
 
-    public List<IdentifierUpdateEvent> getIdentifierUpdateEventsByDate(final Date startDate, final User eventRecipient);
+    List<IdentifierUpdateEvent> getIdentifierUpdateEventsByDate(final Date startDate, final User eventRecipient);
 
-    public List<IdentifierUpdateEvent> getIdentifierUpdateEventsBeforeDate(final Date startDate, final User eventRecipient);
+    List<IdentifierUpdateEvent> getIdentifierUpdateEventsBeforeDate(final Date startDate, final User eventRecipient);
 }

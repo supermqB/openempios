@@ -63,7 +63,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
     protected Map<String, EntityStore> storeByName = new HashMap<String, EntityStore>();
     protected ConnectionManager connectionManager;
 
-    private static Map<String, InternalAttribute> internalAttributeMap = new HashMap<String, InternalAttribute>();
+    private static final Map<String, InternalAttribute> internalAttributeMap = new HashMap<String, InternalAttribute>();
 
     static {
         for (InternalAttribute attribute : INTERNAL_ATTRIBUTES) {
@@ -198,10 +198,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
     }
 
     public boolean isInternalAttribute(String fieldName) {
-        if (internalAttributeMap.get(fieldName) == null) {
-            return false;
-        }
-        return true;
+        return internalAttributeMap.get(fieldName) != null;
     }
     
 
@@ -233,7 +230,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
         }
         String className = entity.getName();
         int[] clusterIds = null;
-        final OClassImpl sourceClass = (OClassImpl) ((OSchemaProxy) db.getRawGraph().getMetadata().getSchema())
+        final OClassImpl sourceClass = (OClassImpl) db.getRawGraph().getMetadata().getSchema()
                 .createClass(className, baseClass, clusterIds);
         log.info("Class " + className + " has been assigned cluster " + sourceClass.getDefaultClusterId());
         sourceClass.save();
@@ -241,7 +238,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
         for (EntityAttribute attribute : entity.getAttributes()) {
             String fieldName = attribute.getName();
             OType type = getOrientdbType(attribute.getDatatype());
-            boolean isCaseInsensitive = (attribute.getCaseInsensitive() == null) ? false : attribute.getCaseInsensitive();
+            boolean isCaseInsensitive = attribute.getCaseInsensitive() != null && attribute.getCaseInsensitive();
             addAttributeToClass(className, sourceClass, fieldName, type, isCaseInsensitive);
         }
         sourceClass.save();
@@ -260,7 +257,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
         int[] clusterIds = null;
         String className = entityStore.getEntityName();
         OClass vertexClass = findGraphClass(db, VERTEX_CLASS_NAME);
-        final OClassImpl sourceClass = (OClassImpl) ((OSchemaProxy) db.getRawGraph().getMetadata().getSchema())
+        final OClassImpl sourceClass = (OClassImpl) db.getRawGraph().getMetadata().getSchema()
                 .createClass(className, vertexClass, clusterIds);
         log.info("Class " + className + " has been assigned cluster " + sourceClass.getDefaultClusterId());
         sourceClass.save();
@@ -269,7 +266,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
         for (EntityAttribute attribute : entity.getAttributes()) {
             String fieldName = attribute.getName();
             OType type = getOrientdbType(attribute.getDatatype());
-            boolean isCaseInsensitive = (attribute.getCaseInsensitive() == null) ? false : attribute.getCaseInsensitive();
+            boolean isCaseInsensitive = attribute.getCaseInsensitive() != null && attribute.getCaseInsensitive();
             addAttributeToClass(className, sourceClass, fieldName, type, isCaseInsensitive);
         }
 
@@ -278,7 +275,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
         // Create schema for storing associated identifiers
         className = IDENTIFIER_TYPE;
         clusterIds = null;
-        final OClassImpl idClass = (OClassImpl) ((OSchemaProxy) db.getRawGraph().getMetadata().getSchema())
+        final OClassImpl idClass = (OClassImpl) db.getRawGraph().getMetadata().getSchema()
                 .createClass(className, vertexClass, clusterIds);
         log.info("Class " + className + " has been assigned cluster " + idClass.getDefaultClusterId());
         idClass.save();
@@ -298,7 +295,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
         // Create edge type for storing identifier associations
         className = IDENTIFIER_EDGE_TYPE;
         clusterIds = null;
-        final OClassImpl identifierEdgeClass = (OClassImpl) ((OSchemaProxy) db.getRawGraph().getMetadata().getSchema())
+        final OClassImpl identifierEdgeClass = (OClassImpl) db.getRawGraph().getMetadata().getSchema()
                 .createClass(className, edgeClass, clusterIds);
         log.info("Class " + className + " has been assigned cluster " + identifierEdgeClass.getDefaultClusterId());
         identifierEdgeClass.save();
@@ -306,7 +303,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
         // Create edge type for storing links
         className = RECORD_LINK_TYPE;
         clusterIds = null;
-        final OClassImpl linkClass = (OClassImpl) ((OSchemaProxy) db.getRawGraph().getMetadata().getSchema())
+        final OClassImpl linkClass = (OClassImpl) db.getRawGraph().getMetadata().getSchema()
                 .createClass(className, edgeClass, clusterIds);
         log.info("Class " + className + " has been assigned cluster " + linkClass.getDefaultClusterId());
         linkClass.save();
@@ -318,7 +315,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
         for (OClass clazz : classes) {
             sb.append("Class: " + clazz.getName() + "\n");
         }
-        log.debug("Before creating the indexes the list of classes is: " + sb.toString());
+        log.debug("Before creating the indexes the list of classes is: " + sb);
         createIndexes(entityStore, entity, db);
 
         log.info("Finished initializing graph classes.");
@@ -446,7 +443,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
         sql.append(")  NOTUNIQUE");
         log.warn("Creating index: " + sql);
         try {
-            db.command(new OCommandSQL(sql.toString())).execute(new Object[] {});
+            db.command(new OCommandSQL(sql.toString())).execute();
         } catch (OIndexException e) {
             log.info("Index already exists:" + sql);
         }
@@ -626,7 +623,7 @@ public abstract class SchemaManagerAbstract extends Constants implements SchemaM
                 
                 String fieldName = attribute.getName();
                 OType type = getOrientdbType(attribute.getDatatype());
-                boolean isCaseInsensitive = (attribute.getCaseInsensitive() == null) ? false : attribute.getCaseInsensitive();
+                boolean isCaseInsensitive = attribute.getCaseInsensitive() != null && attribute.getCaseInsensitive();
                 addAttributeToClass(className, vertexClass, fieldName, type, isCaseInsensitive);
                 log.debug("Adding field " + attribute.getName() + " to class " + className);
 

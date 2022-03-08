@@ -4,11 +4,11 @@ import java.io.IOException;
 
 public interface IHL7Channel<M>
 {
-	public M sendMessage(M message) throws IOException;
+	M sendMessage(M message) throws IOException;
 	
-	public M sendMessage(M message, boolean keepOpen) throws IOException;
+	M sendMessage(M message, boolean keepOpen) throws IOException;
 	
-	public void close();
+	void close();
 	
-	public boolean isOpen();	
+	boolean isOpen();
 }

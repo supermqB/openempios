@@ -42,7 +42,7 @@ import org.openhie.openempi.context.Context;
 
 public class ExactMatchingConfigurationLoader implements ConfigurationLoader
 {
-	private Log log = LogFactory.getLog(ExactMatchingConfigurationLoader.class);
+	private final Log log = LogFactory.getLog(ExactMatchingConfigurationLoader.class);
 	private String entityName;
 
 	public void loadAndRegisterComponentConfiguration(ConfigurationRegistry registry, Object configurationFragment)

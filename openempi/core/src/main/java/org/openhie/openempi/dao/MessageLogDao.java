@@ -28,13 +28,13 @@ import org.openhie.openempi.model.MessageType;
 
 public interface MessageLogDao extends UniversalDao
 {
-	public List<MessageType> getMessageTypes();
+	List<MessageType> getMessageTypes();
 	
-	public List<MessageLogEntry> filterMessageLogEntries(Date startDate, Date endDate, List<Integer> messageTypeCodes, int firstResult, int maxResults);
+	List<MessageLogEntry> filterMessageLogEntries(Date startDate, Date endDate, List<Integer> messageTypeCodes, int firstResult, int maxResults);
 
-	public int getMessageLogEntryCount(Date startDate, Date endDate, List<Integer> messageTypeCodes);
+	int getMessageLogEntryCount(Date startDate, Date endDate, List<Integer> messageTypeCodes);
 	
-	public MessageLogEntry getMessageLogEntry(Integer messageLogId);
+	MessageLogEntry getMessageLogEntry(Integer messageLogId);
 	
-	public MessageLogEntry saveMessageLogEntry(MessageLogEntry entry);
+	MessageLogEntry saveMessageLogEntry(MessageLogEntry entry);
 }

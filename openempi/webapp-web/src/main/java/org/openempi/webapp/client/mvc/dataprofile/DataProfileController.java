@@ -67,7 +67,7 @@ public class DataProfileController extends Controller
 
         } else if (type == AppEvents.DataProfileDelete) {
 
-            Integer dataProfileId = (Integer) event.getData();
+            Integer dataProfileId = event.getData();
             removeDataProfile(dataProfileId);
 
 	    } else if (type == AppEvents.DataProfileView) {
@@ -77,7 +77,7 @@ public class DataProfileController extends Controller
 		} else if (type == AppEvents.DataProfileAttributeRequest) {
 
 			// Data profile attributes can be coming from difference data profile
-	        Integer dataProfileId = (Integer) event.getData();
+	        Integer dataProfileId = event.getData();
 			requestProfileAttributeData(dataProfileId);
 
 		} else if (type == AppEvents.DataProfileAttributeValueRequest) {

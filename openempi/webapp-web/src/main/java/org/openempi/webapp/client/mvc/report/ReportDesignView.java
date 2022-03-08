@@ -84,43 +84,43 @@ public class ReportDesignView extends View
 	public static final String DELETE_REPORT = "Delete";
 	
 	private Grid<ReportWeb> grid;
-	private GroupingStore<ReportWeb> store = new GroupingStore<ReportWeb>();
+	private final GroupingStore<ReportWeb> store = new GroupingStore<ReportWeb>();
 	
 	private Dialog reportDesignDialog = null;	
 	private String addOrEditOrDeleteMode = "";
-		private TextField<String> reportNameEdit = new TextField<String>();
-		private TextField<String> reportNameDisplayedEdit = new TextField<String>();
-		private TextField<String> reportDescriptionEdit = new TextField<String>();
-		private TextField<String> reportTemplateEdit = new TextField<String>();
-		private TextField<String> reportDataGeneratorEdit = new TextField<String>();
+		private final TextField<String> reportNameEdit = new TextField<String>();
+		private final TextField<String> reportNameDisplayedEdit = new TextField<String>();
+		private final TextField<String> reportDescriptionEdit = new TextField<String>();
+		private final TextField<String> reportTemplateEdit = new TextField<String>();
+		private final TextField<String> reportDataGeneratorEdit = new TextField<String>();
 		
 		private Grid<ReportParameterWeb> parametersGrid;
-		private ListStore<ReportParameterWeb> parameterStore = new GroupingStore<ReportParameterWeb>(); 
+		private final ListStore<ReportParameterWeb> parameterStore = new GroupingStore<ReportParameterWeb>();
 		
 		private Grid<ReportQueryWeb> queryGrid;
-		private ListStore<ReportQueryWeb> queryStore = new GroupingStore<ReportQueryWeb>();	
+		private final ListStore<ReportQueryWeb> queryStore = new GroupingStore<ReportQueryWeb>();
 		
 	private Dialog parameterDialog = null;	
 	private String addOrEditParameterMode = "";
-		private TextField<String> parameterNameEdit = new TextField<String>();
-		private TextField<String> parameterNameDisplayedEdit = new TextField<String>();
-		private TextField<String> parameterDescriptionEdit = new TextField<String>();		
+		private final TextField<String> parameterNameEdit = new TextField<String>();
+		private final TextField<String> parameterNameDisplayedEdit = new TextField<String>();
+		private final TextField<String> parameterDescriptionEdit = new TextField<String>();
 		
-		private ListStore<ParameterType> parameterDataTypeStore = new ListStore<ParameterType>();
-		private ComboBox<ParameterType> parameterDataTypeCombo = new ComboBox<ParameterType>();
+		private final ListStore<ParameterType> parameterDataTypeStore = new ListStore<ParameterType>();
+		private final ComboBox<ParameterType> parameterDataTypeCombo = new ComboBox<ParameterType>();
 		
 		
 	private Dialog queryDialog = null;
 	private String addOrEditQueryMode = "";
-		private TextField<String> queryNameEdit = new TextField<String>();
+		private final TextField<String> queryNameEdit = new TextField<String>();
 //		private TextField<String> queryQueryEdit = new TextField<String>();
-		private TextArea queryQueryEdit = new TextArea();
+		private final TextArea queryQueryEdit = new TextArea();
 		
 		private ComboBox<ReportParameterWeb> reportParameterCombo = new ComboBox<ReportParameterWeb>();
-		private ListStore<ReportParameterWeb> reportParameterStore = new GroupingStore<ReportParameterWeb>();
+		private final ListStore<ReportParameterWeb> reportParameterStore = new GroupingStore<ReportParameterWeb>();
 		
 		private Grid<ReportQueryParameterWeb> queryParameterGrid;
-		private ListStore<ReportQueryParameterWeb> queryParameterStore = new GroupingStore<ReportQueryParameterWeb>();
+		private final ListStore<ReportQueryParameterWeb> queryParameterStore = new GroupingStore<ReportQueryParameterWeb>();
 		
 	private ReportWeb editedReport;
 	private ReportParameterWeb editedParameter;
@@ -157,7 +157,7 @@ public class ReportDesignView extends View
 			parameterStore.removeAll();
 			queryStore.removeAll();
 						
-			List<ReportWeb> reports = (List<ReportWeb>) event.getData();						
+			List<ReportWeb> reports = event.getData();
 			store.add(reports);
 			
 			grid.getSelectionModel().select(0, true);
@@ -380,7 +380,7 @@ public class ReportDesignView extends View
 
 		container.add(cp);
 
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();
@@ -839,7 +839,7 @@ public class ReportDesignView extends View
 					"<th class=\"identifierColumn\">Required</th>" +
 					"<th class=\"identifierColumn\">Substitution Key</th>" +
 				"</tr> " +
-				"<tpl if=\"typeof reportQueryParameters !=\'undefined\'\">" +
+				"<tpl if=\"typeof reportQueryParameters !='undefined'\">" +
 					"<tpl for=\"reportQueryParameters\"> " +
 						"<tr> " +
 							// "<td>{reportParameter.name}</td> " + 

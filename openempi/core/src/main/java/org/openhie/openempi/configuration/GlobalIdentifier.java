@@ -113,11 +113,8 @@ public class GlobalIdentifier extends BaseObject
 		} else if (!universalIdentifier.equals(other.universalIdentifier))
 			return false;
 		if (universalIdentifierType == null) {
-			if (other.universalIdentifierType != null)
-				return false;
-		} else if (!universalIdentifierType.equals(other.universalIdentifierType))
-			return false;
-		return true;
+			return other.universalIdentifierType == null;
+		} else return universalIdentifierType.equals(other.universalIdentifierType);
 	}
 
 	@Override

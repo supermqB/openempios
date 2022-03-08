@@ -27,6 +27,7 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openhealthtools.openexchange.datamodel.Identifier;
+import org.openhealthtools.openpixpdq.api.MessageStore;
 import org.openhie.openempi.context.Context;
 import org.openhie.openempi.model.IdentifierDomain;
 import org.openhie.openempi.service.IdentifierDomainService;
@@ -48,7 +49,7 @@ public class BasePixPdqAdapter
 			log.error("Failed while initializing the Pix/Pdq Adapter due to: " + e, e);
 		}
 	}
-	
+	public void saveLog(MessageStore messageLog){};
 	public Set<Identifier> getDomainIdentifiers(Set<Identifier> defaultDomains) {
 		Set<Identifier> idSet = new HashSet<Identifier>();
 		idSet.addAll(defaultDomains);

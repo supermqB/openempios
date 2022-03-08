@@ -58,7 +58,7 @@ import ca.uhn.hl7v2.protocol.ReceivingApplication;
  */
 public class PixManager extends HL7Actor implements IPixManager {
     /* Logger for problems during SOAP exchanges */
-    private static Logger log = Logger.getLogger(PixManager.class);
+    private static final Logger log = Logger.getLogger(PixManager.class);
 
 	/** The main server connection this actor will be using */
 	protected IConnectionDescription connection = null;  
@@ -94,7 +94,7 @@ public class PixManager extends HL7Actor implements IPixManager {
 		this.xdsRegistryConnection = Configuration.getConnection(actor, Constants.XDS_REGISTRY, false);
 		this.pixConsumerConnections = Configuration.getConnections(actor, Constants.PIX_CONSUMER, false);
         if(this.connection.getProperty("notify") != null){
-            setNotification(this.connection.getProperty("notify").equalsIgnoreCase("true")?true:false);
+            setNotification(this.connection.getProperty("notify").equalsIgnoreCase("true"));
         }
     }
 

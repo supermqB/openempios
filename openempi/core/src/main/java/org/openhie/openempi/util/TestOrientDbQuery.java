@@ -33,7 +33,7 @@ import com.tinkerpop.blueprints.impls.orient.OrientGraph;
 
 public class TestOrientDbQuery
 {
-    private static Logger log = Logger.getLogger(TestOrientDbQuery.class);
+    private static final Logger log = Logger.getLogger(TestOrientDbQuery.class);
     public static void main(String[] args) {
         OrientGraph database = new OrientGraph("plocal:/mnt/sysnet/person-db", "admin", "admin");
         String[][] pairs = {

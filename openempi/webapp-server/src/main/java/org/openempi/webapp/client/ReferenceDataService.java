@@ -35,31 +35,31 @@ import com.google.gwt.user.client.rpc.RemoteService;
 
 public interface ReferenceDataService extends RemoteService
 {
-    public IdentifierDomainWeb getGlobalIdentifierDomain();
+    IdentifierDomainWeb getGlobalIdentifierDomain();
 
-	public List<IdentifierDomainWeb> getIdentifierDomains();
+	List<IdentifierDomainWeb> getIdentifierDomains();
 
-	public List<IdentifierDomainTypeCodeWeb> getIdentifierDomainTypeCodes();
+	List<IdentifierDomainTypeCodeWeb> getIdentifierDomainTypeCodes();
 
-	public List<AuditEventTypeWeb> getAuditEventTypeCodes();
+	List<AuditEventTypeWeb> getAuditEventTypeCodes();
 
-	public List<String> getPersonModelAllAttributeNames();
+	List<String> getPersonModelAllAttributeNames();
 
-	public List<String> getPersonModelAttributeNames();
+	List<String> getPersonModelAttributeNames();
 
-	public List<String> getPersonModelCustomFieldNames();
+	List<String> getPersonModelCustomFieldNames();
 
-	public List<String> getTransformationFunctionNames();
+	List<String> getTransformationFunctionNames();
 
-	public List<String> getComparatorFunctionNames();
+	List<String> getComparatorFunctionNames();
 
-	public SystemConfigurationWeb getSystemConfigurationInfo(String entityName);
+	SystemConfigurationWeb getSystemConfigurationInfo(String entityName);
 
-	public List<EntityAttributeDatatypeWeb> getEntityAttributeDatatypes();
+	List<EntityAttributeDatatypeWeb> getEntityAttributeDatatypes();
 
-	public List<EntityValidationRuleWeb> getValidationRules();
+	List<EntityValidationRuleWeb> getValidationRules();
 
-	public List<JobTypeWeb> getJobTypes();
+	List<JobTypeWeb> getJobTypes();
 
-	public List<JobStatusWeb> getJobStatuses();
+	List<JobStatusWeb> getJobStatuses();
 }

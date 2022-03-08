@@ -45,7 +45,7 @@ public class TransactionsSet {
 	/* The type of this transactions set. */
     private String type = null;
     /* Hashtable<String(id), Transactions>*/
-    private Hashtable<String, Transactions> values = new Hashtable<String, Transactions>();
+    private final Hashtable<String, Transactions> values = new Hashtable<String, Transactions>();
 
     public TransactionsSet(String type) {
         this.type = type;

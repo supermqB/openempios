@@ -33,32 +33,32 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ReportService
 {
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public Report addReport(Report report) throws ApplicationException;
+    Report addReport(Report report) throws ApplicationException;
 	
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void deleteReport(Report report) throws ApplicationException;
+    void deleteReport(Report report) throws ApplicationException;
 
-	@Transactional(propagation=Propagation.NOT_SUPPORTED) 
-	public ReportRequestEntry generateReport(ReportRequest reportRequest) throws ApplicationException;
+	@Transactional(propagation=Propagation.NOT_SUPPORTED)
+    ReportRequestEntry generateReport(ReportRequest reportRequest) throws ApplicationException;
 
-	@Transactional(propagation=Propagation.NOT_SUPPORTED) 
-	public List<Report> getReports();
+	@Transactional(propagation=Propagation.NOT_SUPPORTED)
+    List<Report> getReports();
 	
-	@Transactional(propagation=Propagation.NOT_SUPPORTED) 
-	public Report getReportByName(String reportName);
+	@Transactional(propagation=Propagation.NOT_SUPPORTED)
+    Report getReportByName(String reportName);
 	
-	@Transactional(propagation=Propagation.NOT_SUPPORTED) 
-	public Report getReportById(Integer reportId);
+	@Transactional(propagation=Propagation.NOT_SUPPORTED)
+    Report getReportById(Integer reportId);
 	
-	@Transactional(propagation=Propagation.NOT_SUPPORTED) 
-	public File getReportDataDirectory();
+	@Transactional(propagation=Propagation.NOT_SUPPORTED)
+    File getReportDataDirectory();
 	
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public Report updateReport(Report report) throws ApplicationException;
+    Report updateReport(Report report) throws ApplicationException;
 	
-	@Transactional(propagation=Propagation.NOT_SUPPORTED) 
-	public List<ReportRequestEntry> getReportRequests();
+	@Transactional(propagation=Propagation.NOT_SUPPORTED)
+    List<ReportRequestEntry> getReportRequests();
 	
-	@Transactional(propagation=Propagation.NOT_SUPPORTED) 
-	public void reassignReportRequestsToReport(Integer oldReportId, Integer newReportId);
+	@Transactional(propagation=Propagation.NOT_SUPPORTED)
+    void reassignReportRequestsToReport(Integer oldReportId, Integer newReportId);
 }

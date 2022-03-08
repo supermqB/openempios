@@ -24,9 +24,9 @@ import com.orientechnologies.orient.core.metadata.schema.OType;
 
 public class InternalAttribute
 {
-    private String name;
-    private OType type;
-    private boolean indexed;
+    private final String name;
+    private final OType type;
+    private final boolean indexed;
 
     public InternalAttribute(String name, OType type, boolean indexed) {
         this.name = name;

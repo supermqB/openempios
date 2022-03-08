@@ -45,7 +45,7 @@ public class ExactMatchDistanceMetric extends AbstractDistanceMetric
 					string2 = string2.substring(0,truncationLength.intValue());
 				}
 			}
-			match = (string1.equalsIgnoreCase(string2)) ? true : false;
+			match = string1.equalsIgnoreCase(string2);
 		}
 		double distance = 0.0;
 		if (match) {

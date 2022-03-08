@@ -47,9 +47,9 @@ import ca.uhn.hl7v2.model.v231.segment.MSH;
 public class HL7v231 {
 	
 	/* HL7 v2.3.1 DateTime format */
-	private static SimpleDateFormat DTMformatter = new SimpleDateFormat("yyyyMMddHHmmssZ");
-	private static SimpleDateFormat DTformatter = new SimpleDateFormat("yyyyMMdd");
-	private static DecimalFormat TZformatter = new DecimalFormat("+0000;-0000");
+	private static final SimpleDateFormat DTMformatter = new SimpleDateFormat("yyyyMMddHHmmssZ");
+	private static final SimpleDateFormat DTformatter = new SimpleDateFormat("yyyyMMdd");
+	private static final DecimalFormat TZformatter = new DecimalFormat("+0000;-0000");
 
   /**
    * Populates an HL7 v2.3.1 MSH segment according to the IHE standard

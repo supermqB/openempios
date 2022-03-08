@@ -124,7 +124,7 @@ public class ReportGenerateController extends Controller
 	private void requestReportGenerate(AppEvent event) {
 		ReportDataServiceAsync reportDataService = getReportDataService();
     	
-		ReportRequestWeb reportRequestWeb = (ReportRequestWeb) event.getData();		
+		ReportRequestWeb reportRequestWeb = event.getData();
 
 		reportDataService.generateReport(reportRequestWeb, new AsyncCallback<ReportRequestEntryWeb>() {
 			

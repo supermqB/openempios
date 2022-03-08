@@ -208,18 +208,12 @@ public class PixManagerAdapter extends BasePixPdqAdapter implements IPixManagerA
 	}
 
 	private boolean isPopulated(String field) {
-		if (field != null && field.length() > 0) {
-			return true;
-		}
-		return false;
-	}
+        return field != null && field.length() > 0;
+    }
 	
 	private boolean isPopulated(java.util.Date field) {
-		if (field != null && field.toString().length() > 0) {
-			return true;
-		}
-		return false;
-	}
+        return field != null && field.toString().length() > 0;
+    }
 	
 	public List<PatientIdentifier> findPatientIds(PatientIdentifier identifier, MessageHeader messageHeader)
 			throws PixManagerException {
@@ -259,11 +253,8 @@ public class PixManagerAdapter extends BasePixPdqAdapter implements IPixManagerA
 		try {
 			SecurityHelper.getSessionKey();
 			Person person = Context.getPersonQueryService().findPersonById(ConversionHelper.getPersonIdentifier(patientIdentifier));
-			if (person != null) {
-				return true;
-			}
-			return false;
-		} catch (Exception e) {
+            return person != null;
+        } catch (Exception e) {
 			throw new PixManagerException(e);
 		}
 	}
@@ -297,11 +288,8 @@ public class PixManagerAdapter extends BasePixPdqAdapter implements IPixManagerA
 	}
 
 	private boolean idInSet(PersonIdentifier id, Set<PersonIdentifier> foundIds) {
-		if (foundIds.contains(id)) {
-			return true;
-		}
-		return false;
-	}
+        return foundIds.contains(id);
+    }
 
     public boolean isEnforceDistinctIdentifiers() {
         return enforceDistinctIdentifiers;

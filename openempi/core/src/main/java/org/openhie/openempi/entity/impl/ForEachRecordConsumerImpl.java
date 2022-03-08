@@ -36,7 +36,7 @@ public class ForEachRecordConsumerImpl implements ForEachRecordConsumer
 {
 	private RecordConsumer[] children;
 	private CountDownLatch latch;
-	private List<BlockingQueue<Record>> queueList = new ArrayList<BlockingQueue<Record>>();
+	private final List<BlockingQueue<Record>> queueList = new ArrayList<BlockingQueue<Record>>();
 	private int queueCapacity = 1000;
 	private boolean queuePerConsumer;
 	private RecordProducer producer;

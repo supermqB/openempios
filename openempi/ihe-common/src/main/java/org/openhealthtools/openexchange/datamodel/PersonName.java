@@ -238,11 +238,8 @@ public class PersonName {
 		} else if (!secondName.equals(other.secondName))
 			return false;
 		if (suffix == null) {
-			if (other.suffix != null)
-				return false;
-		} else if (!suffix.equals(other.suffix))
-			return false;
-		return true;
+			return other.suffix == null;
+		} else return suffix.equals(other.suffix);
 	}
 	
 	

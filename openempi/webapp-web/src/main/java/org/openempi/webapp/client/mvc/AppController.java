@@ -148,10 +148,10 @@ public class AppController extends Controller {
 			}
 			Registry.register(Constants.TRANSFORMATION_FUNCTION_NAMES, trafoFuncNames);
 		} else if (type == AppEvents.RoleListReceived) {
-			List<RoleWeb> roleList = (List<RoleWeb>) event.getData();
+			List<RoleWeb> roleList = event.getData();
 			Registry.register(Constants.ROLE_LIST, roleList);
 		} else if (type == AppEvents.PermissionListReceived) {
-			List<PermissionWeb> roleList = (List<PermissionWeb>) event.getData();
+			List<PermissionWeb> roleList = event.getData();
 			Registry.register(Constants.PERMISSION_LIST, roleList);
 		} else if (type == AppEvents.EntityAttributeDatatypesReceived) {
 			List<EntityAttributeDatatypeWeb> dataTypes = event.getData();
@@ -185,14 +185,14 @@ public class AppController extends Controller {
 	}
 
 	protected void onError(AppEvent ae) {
-		System.out.println("error: " + ae.<Object>getData());
+		System.out.println("error: " + ae.getData());
 	}
 
 	private void onInit(AppEvent event) {
 		forwardToView(appView, event);
-		userDataService = (UserDataServiceAsync) Registry.get(Constants.USER_DATA_SERVICE);
+		userDataService = Registry.get(Constants.USER_DATA_SERVICE);
 
-		referenceDataService = (ReferenceDataServiceAsync) Registry.get(Constants.REF_DATA_SERVICE);
+		referenceDataService = Registry.get(Constants.REF_DATA_SERVICE);
 		referenceDataService.getIdentifierDomainTypeCodes(new AsyncCallback<List<IdentifierDomainTypeCodeWeb>>() {
 			public void onFailure(Throwable caught) {
 
@@ -551,7 +551,7 @@ public class AppController extends Controller {
   			allAttributeNames.add(new ModelPropertyWeb(name, Utility.convertToDescription(name)));
   		}
 
-		List<ModelPropertyWeb> customFieldNames = (List<ModelPropertyWeb>) Registry.get(Constants.PERSON_MODEL_CUSTOM_FIELD_NAMES);
+		List<ModelPropertyWeb> customFieldNames = Registry.get(Constants.PERSON_MODEL_CUSTOM_FIELD_NAMES);
   		if (customFieldNames != null) {
 	  		for (ModelPropertyWeb customFieldName : customFieldNames) {
 				String name = customFieldName.getName();
