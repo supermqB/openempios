@@ -14,5 +14,5 @@
 </settings>
 ```
 2. 使用maven_fix分支
-3. 确定jdk runningtime是1.8
+3. 确定jdk runtime是1.8
 4. 运行mvn clean compile 
