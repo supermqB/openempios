@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.openhie.openempi</groupId>
-		<artifactId>openempi-entity</artifactId>
-		<version>3.1.0</version>
-		<relativePath>../pom.xml</relativePath>
-	</parent>
+    <parent>
+        <groupId>org.openhie.openempi</groupId>
+        <artifactId>openempi-entity</artifactId>
+        <version>3.1.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
 
-	<artifactId>openempi-entity-shallow-matching</artifactId>
-	<packaging>jar</packaging>
-	<name>OpenEMPI Entity - Shallow Matching</name>
-	<licenses>
-		<license>
-			<name>GNU Affero General Public License, Version 3</name>
-			<url>http://www.gnu.org/licenses/agpl-3.0-standalone.html</url>
-			<comments>The software ("Software") developed and owned by Network Engine for
+    <artifactId>openempi-entity-shallow-matching</artifactId>
+    <packaging>jar</packaging>
+    <name>OpenEMPI Entity - Shallow Matching</name>
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License, Version 3</name>
+            <url>http://www.gnu.org/licenses/agpl-3.0-standalone.html</url>
+            <comments>The software ("Software") developed and owned by Network Engine for
 			Objects in Lund AB (referred to in this notice as "Neo Technology") is
 			licensed under the GNU AFFERO GENERAL PUBLIC LICENSE Version 3 to all
 			third parties and that license is included below.
@@ -31,19 +30,24 @@
 			such Commercial Agreement will supersede the GNU AFFERO GENERAL PUBLIC
 			LICENSE Version 3 and you may use the Software solely pursuant to the
 			terms of the relevant Commercial Agreement.
-			</comments>
-		</license>
-	</licenses>
-	<dependencies>
-		<dependency>
-			<groupId>org.openhie.openempi</groupId>
-			<artifactId>openempi-entity-configuration</artifactId>
-			<version>${release.version}</version>
-		</dependency>	
-		<dependency>
-			<groupId>org.openhie.openempi</groupId>
-			<artifactId>openempi-entity-core</artifactId>
-			<version>${release.version}</version>
-		</dependency>
-	</dependencies>
+            </comments>
+        </license>
+    </licenses>
+    <dependencies>
+        <dependency>
+            <groupId>org.openhie.openempi</groupId>
+            <artifactId>openempi-entity-configuration</artifactId>
+            <version>${release.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openhie.openempi</groupId>
+            <artifactId>openempi-entity-core</artifactId>
+            <version>${release.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openhie.openempi</groupId>
+            <artifactId>openempi-entity-ihe-common</artifactId>
+            <version>${release.version}</version>
+        </dependency>
+    </dependencies>
 </project>
