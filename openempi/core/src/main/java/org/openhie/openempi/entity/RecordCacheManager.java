@@ -25,7 +25,7 @@ import org.openhie.openempi.model.User;
 
 public interface RecordCacheManager
 {
-	public IdentifierDomain getIdentifierDomain(Integer identifierDomainId);
+	IdentifierDomain getIdentifierDomain(Integer identifierDomainId);
 	
-	public User getUser(Long userId);
+	User getUser(Long userId);
 }

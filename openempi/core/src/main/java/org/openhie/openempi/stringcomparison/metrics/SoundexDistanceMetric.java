@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.Soundex;
 
 public class SoundexDistanceMetric extends AbstractDistanceMetric
 {
-	private Soundex soundex = new Soundex();
+	private final Soundex soundex = new Soundex();
 	
 	public SoundexDistanceMetric() {
 	}

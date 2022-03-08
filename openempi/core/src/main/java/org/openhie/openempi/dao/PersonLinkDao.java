@@ -32,53 +32,53 @@ import org.openhie.openempi.model.ReviewRecordPair;
 
 public interface PersonLinkDao extends UniversalDao
 {
-	public void addPersonLink(PersonLink personLink);
+	void addPersonLink(PersonLink personLink);
 	
-	public void addPersonLinks(List<PersonLink> personLinks);
+	void addPersonLinks(List<PersonLink> personLinks);
 
-	public List<PersonLink> getPersonLinks(Person person);
+	List<PersonLink> getPersonLinks(Person person);
 	
-	public Map<Long,Integer> getClusterIdByRecordIdMap(Integer sourceId);
+	Map<Long,Integer> getClusterIdByRecordIdMap(Integer sourceId);
 	
-	public Integer getClusterId(Long[] recordIds, Integer sourceId);
+	Integer getClusterId(Long[] recordIds, Integer sourceId);
 	
-	public Integer getClusterId(Set<Long> recordIds, Integer sourceId);
+	Integer getClusterId(Set<Long> recordIds, Integer sourceId);
 	
-	public void convertReviewLinkToLink(ReviewRecordPair recordPair);
+	void convertReviewLinkToLink(ReviewRecordPair recordPair);
 	
-	public List<PersonLink> getPersonLinksByLinkSource(Integer linkSourceId);
+	List<PersonLink> getPersonLinksByLinkSource(Integer linkSourceId);
 	
-	public List<PersonLink> getPersonLinks(Integer clusterId);
+	List<PersonLink> getPersonLinks(Integer clusterId);
 	
-	public List<PersonLink> getPersonLinks(Set<Long> recordIds);
+	List<PersonLink> getPersonLinks(Set<Long> recordIds);
 	
-	public PersonLink getPersonLink(Person leftPerson, Person rightPerson);
+	PersonLink getPersonLink(Person leftPerson, Person rightPerson);
 	
-	public void removeLink(PersonLink personLink);
+	void removeLink(PersonLink personLink);
 	
-	public int removeAllLinks();
+	int removeAllLinks();
 	
-	public int removeLinksBySource(LinkSource linkSource);
+	int removeLinksBySource(LinkSource linkSource);
 	
-	public void addReviewRecordPair(ReviewRecordPair reviewRecordPair);
+	void addReviewRecordPair(ReviewRecordPair reviewRecordPair);
 	
-	public void addReviewRecordPairs(List<ReviewRecordPair> reviewRecordPairs);
+	void addReviewRecordPairs(List<ReviewRecordPair> reviewRecordPairs);
 	
-	public List<ReviewRecordPair> getAllUnreviewedReviewRecordPairs();
+	List<ReviewRecordPair> getAllUnreviewedReviewRecordPairs();
 	
-	public List<ReviewRecordPair> getUnreviewedReviewRecordPairs(int maxResults);
+	List<ReviewRecordPair> getUnreviewedReviewRecordPairs(int maxResults);
 	
-	public ReviewRecordPair getReviewRecordPair(int reviewRecordPairId);
+	ReviewRecordPair getReviewRecordPair(int reviewRecordPairId);
 	
-	public ReviewRecordPair getReviewRecordPair(int leftPersonId, int rightPersonId);
+	ReviewRecordPair getReviewRecordPair(int leftPersonId, int rightPersonId);
 	
-	public void updateReviewRecordPair(ReviewRecordPair reviewRecordPair);
+	void updateReviewRecordPair(ReviewRecordPair reviewRecordPair);
 	
-	public void removeReviewRecordPair(ReviewRecordPair reviewRecordPair);
+	void removeReviewRecordPair(ReviewRecordPair reviewRecordPair);
 	
-	public void removeAllReviewRecordPairs();
+	void removeAllReviewRecordPairs();
 	
-	public int removeReviewLinksBySource(LinkSource linkSource);
+	int removeReviewLinksBySource(LinkSource linkSource);
 	
-	public Integer getNextClusterId();
+	Integer getNextClusterId();
 }

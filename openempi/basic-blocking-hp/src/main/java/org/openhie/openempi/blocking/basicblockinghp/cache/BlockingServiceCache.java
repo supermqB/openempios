@@ -58,7 +58,7 @@ public class BlockingServiceCache
     private EntityDao entityDao;
     private List<BlockingRound> blockingRounds;
     private Integer maximumBlockSize;
-    private Map<String, BlockingRoundClass> roundClassByRound = new HashMap<String, BlockingRoundClass>();
+    private final Map<String, BlockingRoundClass> roundClassByRound = new HashMap<String, BlockingRoundClass>();
     private Entity entity;
 
     public BlockingServiceCache() {
@@ -107,7 +107,7 @@ public class BlockingServiceCache
     }
     
     private class RecordConsumerForBlocking extends AbstractRecordConsumer {
-        private BlockingRoundClass blockingRoundClass;
+        private final BlockingRoundClass blockingRoundClass;
         
         public RecordConsumerForBlocking(BlockingRoundClass blockingRoundClass) {
             this.blockingRoundClass = blockingRoundClass;

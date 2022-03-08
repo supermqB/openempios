@@ -74,13 +74,13 @@ import com.google.gwt.core.client.GWT;
 public class BlockingHPConfigurationView extends View
 {
 	private Grid<BaseFieldWeb> roundGrid;
-	private GroupingStore<BaseFieldWeb> roundStore = new GroupingStore<BaseFieldWeb>();
+	private final GroupingStore<BaseFieldWeb> roundStore = new GroupingStore<BaseFieldWeb>();
 
 	private Dialog addBlockingRoundDialog = null;
 	private Boolean addOrEditRoundMode = true;
 	private int editedMatchRound = 0;
 	private ComboBox<ModelPropertyWeb> listCombo = null;
-	private ListStore<ModelPropertyWeb> listStore = new ListStore<ModelPropertyWeb>();
+	private final ListStore<ModelPropertyWeb> listStore = new ListStore<ModelPropertyWeb>();
 	private Grid<BaseFieldWeb> addRoundGrid;
     private SpinnerField maximumBlockSizeSpin;
 
@@ -99,7 +99,7 @@ public class BlockingHPConfigurationView extends View
 		} else if (event.getType() == AppEvents.BlockingHPConfigurationReceived) {
 		    roundStore.removeAll();
 
-			BlockingEntryListWeb configuration = (BlockingEntryListWeb) event.getData();
+			BlockingEntryListWeb configuration = event.getData();
 			List<BaseFieldWeb> fields = configuration.getBlockingRoundEntries();
 
 			// Blocking rounds
@@ -131,7 +131,7 @@ public class BlockingHPConfigurationView extends View
 		GWT.log("Initializing the UI ", null);
 
 		listStore.removeAll();
-		List<ModelPropertyWeb> attributeNames = (List<ModelPropertyWeb>) Registry.get(Constants.PERSON_MODEL_ALL_ATTRIBUTE_NAMES);
+		List<ModelPropertyWeb> attributeNames = Registry.get(Constants.PERSON_MODEL_ALL_ATTRIBUTE_NAMES);
 		if (attributeNames != null) {
 			listStore.add(attributeNames);
 		}
@@ -293,7 +293,7 @@ public class BlockingHPConfigurationView extends View
 
 		container.add(cp);
 
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

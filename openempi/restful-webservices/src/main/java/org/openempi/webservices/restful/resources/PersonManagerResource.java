@@ -46,7 +46,7 @@ import org.openhie.openempi.service.ResourceServiceFactory;
 @Path("/person-manager-resource")
 public class PersonManagerResource
 {
-    private PersonManagerResourceService service;
+    private final PersonManagerResourceService service;
     
     public PersonManagerResource() {
         service = (PersonManagerResourceService)

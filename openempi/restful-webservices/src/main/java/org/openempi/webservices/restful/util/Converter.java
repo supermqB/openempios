@@ -145,7 +145,7 @@ public class Converter
         RecordLink recordLink = new RecordLink();
 
         if (restRecordLink.getRecordLinkId() != null) {
-            recordLink.setRecordLinkId(restRecordLink.getRecordLinkId().toString());
+            recordLink.setRecordLinkId(restRecordLink.getRecordLinkId());
         }
 
         if (restRecordLink.getLeftRecord() != null) {

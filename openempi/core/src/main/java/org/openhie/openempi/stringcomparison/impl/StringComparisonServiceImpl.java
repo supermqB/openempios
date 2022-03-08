@@ -36,7 +36,7 @@ public class StringComparisonServiceImpl extends BaseServiceImpl implements Stri
 {
 	private HashMap<String,DistanceMetric> distanceMetricTypeMap;
 	private final static String DEFAULT_DATE_FORMAT = "yyyy.MM.dd";
-	private SimpleDateFormat dateFormatter = new SimpleDateFormat(DEFAULT_DATE_FORMAT);
+	private final SimpleDateFormat dateFormatter = new SimpleDateFormat(DEFAULT_DATE_FORMAT);
 	private Boolean missingValuesMatch = Boolean.FALSE;
 
 	public double score(String metricType, Object value1, Object value2) {

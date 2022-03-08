@@ -73,9 +73,7 @@ public class AttributeMetadata
 				return false;
 		} else if (!attributeName.equals(other.attributeName))
 			return false;
-		if (datatype != other.datatype)
-			return false;
-		return true;
+		return datatype == other.datatype;
 	}
 
 	@Override

@@ -51,10 +51,10 @@ public abstract class AbstractFileLoader implements FileLoader
 	private PersonLoaderManager personManager;
 	private EntityLoaderManager entityManager;
 
-	private Map<String,Race> raceCacheByName = new HashMap<String,Race>();
-	private Map<String,Race> raceCacheByCode = new HashMap<String,Race>();
-	private Map<String,Gender> genderCacheByCode = new HashMap<String,Gender>();
-	private Map<String,Gender> genderCacheByName = new HashMap<String,Gender>();
+	private final Map<String,Race> raceCacheByName = new HashMap<String,Race>();
+	private final Map<String,Race> raceCacheByCode = new HashMap<String,Race>();
+	private final Map<String,Gender> genderCacheByCode = new HashMap<String,Gender>();
+	private final Map<String,Gender> genderCacheByName = new HashMap<String,Gender>();
 
 	public void init() {
         log.info("Initializing the file loader.");

@@ -32,7 +32,7 @@ public class UserSessionDaoHibernate extends UniversalDaoHibernate implements Us
 	    if (log.isDebugEnabled()) {
 	        log.debug("Locating session by id: " + sessionId);
 	    }
-		UserSession session = (UserSession) getHibernateTemplate().load(UserSession.class, sessionId);
+		UserSession session = getHibernateTemplate().load(UserSession.class, sessionId);
         if (log.isDebugEnabled()) {
             log.debug("Found session: " + session);
         }

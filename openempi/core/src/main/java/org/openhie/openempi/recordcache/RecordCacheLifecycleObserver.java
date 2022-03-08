@@ -36,7 +36,7 @@ public interface RecordCacheLifecycleObserver
 	 * exception.
 	 * 
 	 */
-	public void startup() throws InitializationException;
+    void startup() throws InitializationException;
 	
 	/**
 	 * The system uses the isReady method to confirm that the record cache service has finished its
@@ -45,19 +45,19 @@ public interface RecordCacheLifecycleObserver
 	 * initialization.
 	 * 
 	 */
-	public boolean isReady();
+    boolean isReady();
 	
 	/**
 	 * The shutdown method is invoked against the record cache service when the system starts to
 	 * shutdown gracefully. It gives an opportunity to the record cache service to gracefully shutdown 
 	 * its backing stores before the system goes down.
 	 */
-	public void shutdown();
+    void shutdown();
 	
 	/**
 	 * The isDown method is the mirror image of the isReady method and it is the polling
 	 * mechanism used by the system to confirm that the system has shutdown before "pulling
 	 * the plug". After a certain amount of time, it will force the shutdown.
 	 */
-	public boolean isDown();
+    boolean isDown();
 }

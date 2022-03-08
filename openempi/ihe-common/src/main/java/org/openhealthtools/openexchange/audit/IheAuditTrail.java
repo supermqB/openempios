@@ -89,7 +89,7 @@ import org.openhealthtools.openexchange.utils.LibraryConfig;
 public class IheAuditTrail implements IAuditTrail {
 	
 	final static Log log = LogFactory.getLog(IheAuditTrail.class);
-	private String actorName;
+	private final String actorName;
 	private List<IMessageTransmitter> messengers = null;
 
 	/** 

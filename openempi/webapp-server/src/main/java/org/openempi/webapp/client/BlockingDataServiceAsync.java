@@ -30,15 +30,15 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface BlockingDataServiceAsync
 {
-	public void loadTraditionalBlockingConfigurationData(String entityName, AsyncCallback<BlockingEntryListWeb> callback);
+	void loadTraditionalBlockingConfigurationData(String entityName, AsyncCallback<BlockingEntryListWeb> callback);
 	
-	public void loadSortedNeighborhoodBlockingConfigurationData(String entityName, AsyncCallback<SortedNeighborhoodConfigurationWeb> callback);
+	void loadSortedNeighborhoodBlockingConfigurationData(String entityName, AsyncCallback<SortedNeighborhoodConfigurationWeb> callback);
 	
-	public void loadSuffixArrayBlockingConfigurationData(String entityName, AsyncCallback<SuffixArrayBlockingConfigurationWeb> callback);
+	void loadSuffixArrayBlockingConfigurationData(String entityName, AsyncCallback<SuffixArrayBlockingConfigurationWeb> callback);
 	
-	public void saveTraditionalBlockingConfigurationData(BlockingEntryListWeb configuration, AsyncCallback<String> callback);
+	void saveTraditionalBlockingConfigurationData(BlockingEntryListWeb configuration, AsyncCallback<String> callback);
 	
-	public void saveSortedNeighborhoodBlockingConfigurationData(SortedNeighborhoodConfigurationWeb configuration, AsyncCallback<String> callback);
+	void saveSortedNeighborhoodBlockingConfigurationData(SortedNeighborhoodConfigurationWeb configuration, AsyncCallback<String> callback);
 
-	public void saveSuffixArrayBlockingConfigurationData(SuffixArrayBlockingConfigurationWeb configuration, AsyncCallback<String> callback);
+	void saveSuffixArrayBlockingConfigurationData(SuffixArrayBlockingConfigurationWeb configuration, AsyncCallback<String> callback);
 }

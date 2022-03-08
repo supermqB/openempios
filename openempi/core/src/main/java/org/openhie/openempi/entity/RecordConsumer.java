@@ -28,15 +28,15 @@ import org.openhie.openempi.model.Record;
 
 public interface RecordConsumer extends Runnable
 {
-    public Entity getEntity();
+    Entity getEntity();
     
-    public void setEntity(Entity entity);
+    void setEntity(Entity entity);
     
-    public BlockingQueue<Record> getQueue();
+    BlockingQueue<Record> getQueue();
 
-    public void setQueue(BlockingQueue<Record> queue);
+    void setQueue(BlockingQueue<Record> queue);
 
-    public CountDownLatch getLatch();
+    CountDownLatch getLatch();
     
-    public void setLatch(CountDownLatch latch);
+    void setLatch(CountDownLatch latch);
 }

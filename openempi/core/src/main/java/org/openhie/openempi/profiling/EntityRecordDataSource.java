@@ -39,7 +39,7 @@ public class EntityRecordDataSource extends AbstractRecordDataSource
 
     private Entity entity;
     private EntityDao entityDao;
-    private Set<Entity> initializedEntities = new HashSet<Entity>();
+    private final Set<Entity> initializedEntities = new HashSet<Entity>();
     private Entity entityDef = null;
 
     private EntityDefinitionManagerService entityDefinitionService;
@@ -119,18 +119,14 @@ public class EntityRecordDataSource extends AbstractRecordDataSource
     }
 
     public boolean isEmpty() {
-        boolean isEmpty = false;
-
-        if ((getEntityDao(entity).getRecordCount(getEntity())).longValue() == 0) {
-            isEmpty = true;
-        }
+        boolean isEmpty = (getEntityDao(entity).getRecordCount(getEntity())).longValue() == 0;
 
         return isEmpty;
     }
 
     private class RecordIterator implements Iterator<Record>
     {
-        private int blockSize;
+        private final int blockSize;
         java.util.List<Record> records;
         int currentIndex;
         int startIndex;

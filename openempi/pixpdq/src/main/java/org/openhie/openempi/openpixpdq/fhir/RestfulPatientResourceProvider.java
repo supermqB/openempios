@@ -52,7 +52,7 @@ import ca.uhn.fhir.rest.server.IResourceProvider;
  */
 public class RestfulPatientResourceProvider implements IResourceProvider
 {
-    private Logger log = Logger.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
 	PdqFhirServer pdqFhirServer;
 	

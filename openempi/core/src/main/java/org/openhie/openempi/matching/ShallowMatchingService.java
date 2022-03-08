@@ -35,7 +35,7 @@ public interface ShallowMatchingService
      * 
      * @return The unique identifier of the particular Matching Algorithm
      */
-    public int getMatchingServiceId();
+    int getMatchingServiceId();
 
     /**
      * This match method takes a record as a parameter and returns all the records that the
@@ -45,5 +45,5 @@ public interface ShallowMatchingService
      * @param record
      * @return
      */
-    public Set<RecordPair> match(Record record) throws ApplicationException;    
+    Set<RecordPair> match(Record record) throws ApplicationException;
 }

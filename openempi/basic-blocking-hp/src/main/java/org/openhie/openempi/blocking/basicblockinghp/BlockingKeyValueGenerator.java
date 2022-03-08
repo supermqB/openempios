@@ -29,7 +29,7 @@ import org.openhie.openempi.model.Record;
 
 public class BlockingKeyValueGenerator
 {
-	private static Logger log = Logger.getLogger(BlockingKeyValueGenerator.class);
+	private static final Logger log = Logger.getLogger(BlockingKeyValueGenerator.class);
 	
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
 	

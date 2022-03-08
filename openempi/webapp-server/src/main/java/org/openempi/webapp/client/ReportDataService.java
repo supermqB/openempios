@@ -30,15 +30,15 @@ import com.google.gwt.user.client.rpc.RemoteService;
 public interface ReportDataService extends RemoteService
 {
 	
-	public List<ReportWeb> getReports() throws Exception;
+	List<ReportWeb> getReports() throws Exception;
 	
-	public ReportWeb addReport(ReportWeb report) throws Exception;
+	ReportWeb addReport(ReportWeb report) throws Exception;
 
-	public String deleteReport(ReportWeb report) throws Exception;
+	String deleteReport(ReportWeb report) throws Exception;
 	
-	public ReportWeb updateReport(ReportWeb report) throws Exception;
+	ReportWeb updateReport(ReportWeb report) throws Exception;
 	
-	public ReportRequestEntryWeb generateReport(ReportRequestWeb reportRequest) throws Exception;
+	ReportRequestEntryWeb generateReport(ReportRequestWeb reportRequest) throws Exception;
 	
-	public List<ReportRequestEntryWeb> getReportRequests() throws Exception;
+	List<ReportRequestEntryWeb> getReportRequests() throws Exception;
 }

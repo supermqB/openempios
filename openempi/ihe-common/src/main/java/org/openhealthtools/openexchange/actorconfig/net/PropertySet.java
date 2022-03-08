@@ -29,7 +29,7 @@ import java.util.Hashtable;
 public class PropertySet {
 
     private String name = null;
-    private Hashtable<String, String> values = new Hashtable<String, String>();
+    private final Hashtable<String, String> values = new Hashtable<String, String>();
 
     //private static String HIMSS_CODE = "HIMSS2005&1.3.6.1.4.1.21367.2005.1.1&ISO";
 

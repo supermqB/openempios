@@ -42,7 +42,7 @@ public interface IPixManager extends IheActor {
 	 * 
 	 * @return the connection of XDS Registry
 	 */
-	public IConnectionDescription getXdsRegistryConnection(); 
+    IConnectionDescription getXdsRegistryConnection();
 
 	/**
      * Gets a collection of all PIX Consumers who have subscribed to

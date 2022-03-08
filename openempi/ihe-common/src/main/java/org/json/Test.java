@@ -15,7 +15,7 @@ public class Test {
      * Entry point.
      * @param args
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Iterator it;
         JSONArray a;
         JSONObject j;
@@ -28,9 +28,9 @@ public class Test {
  *  a JSONObject with an array of names.
  */
         class Obj implements JSONString {
-        	public String aString;
-        	public double aNumber;
-        	public boolean aBoolean;
+        	public final String aString;
+        	public final double aNumber;
+        	public final boolean aBoolean;
         	
             public Obj(String string, double n, boolean b) {
                 this.aString = string;
@@ -72,10 +72,10 @@ public class Test {
         
         try {     
             j = XML.toJSONObject("<![CDATA[This is a collection of test patterns and examples for org.json.]]>  Ignore the stuff past the end.  ");
-            System.out.println(j.toString());
+            System.out.println(j);
                     	
             j = new JSONObject(obj);
-            System.out.println(j.toString());
+            System.out.println(j);
 
             jj = new JSONStringer();
             s = jj
@@ -140,15 +140,15 @@ public class Test {
             jj.endObject();
             jj.value(obj);
             jj.endArray();
-            System.out.println(jj.toString());
+            System.out.println(jj);
 
             System.out.println(new JSONArray(jj.toString()).toString(4));
 
-        	int ar[] = {1, 2, 3};
+        	int[] ar = {1, 2, 3};
         	JSONArray ja = new JSONArray(ar);
-        	System.out.println(ja.toString());
+        	System.out.println(ja);
         	
-        	String sa[] = {"aString", "aNumber", "aBoolean"};            
+        	String[] sa = {"aString", "aNumber", "aBoolean"};
             j = new JSONObject(obj, sa);
             j.put("Testing JSONString interface", obj);
             System.out.println(j.toString(4));          
@@ -156,7 +156,7 @@ public class Test {
             j = new JSONObject("{slashes: '///', closetag: '</script>', backslash:'\\\\', ei: {quotes: '\"\\''},eo: {a: '\"quoted\"', b:\"don't\"}, quotes: [\"'\", '\"']}");
             System.out.println(j.toString(2));
             System.out.println(XML.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = new JSONObject(
                 "/*comment*/{foo: [true, false,9876543210,    0.0, 1.00000001,  1.000000000001, 1.00000000000000001," +
@@ -200,48 +200,48 @@ public class Test {
             j = XML.toJSONObject("<xml one = 1 two=' \"2\" '><five></five>First \u0009&lt;content&gt;<five></five> This is \"content\". <three>  3  </three>JSON does not preserve the sequencing of elements and contents.<three>  III  </three>  <three>  T H R E E</three><four/>Content text is an implied structure in XML. <six content=\"6\"/>JSON does not have implied structure:<seven>7</seven>everything is explicit.<![CDATA[CDATA blocks<are><supported>!]]></xml>");
             System.out.println(j.toString(2));
             System.out.println(XML.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = XML.toJSONObject("<mapping><empty/>   <class name = \"Customer\">      <field name = \"ID\" type = \"string\">         <bind-xml name=\"ID\" node=\"attribute\"/>      </field>      <field name = \"FirstName\" type = \"FirstName\"/>      <field name = \"MI\" type = \"MI\"/>      <field name = \"LastName\" type = \"LastName\"/>   </class>   <class name = \"FirstName\">      <field name = \"text\">         <bind-xml name = \"text\" node = \"text\"/>      </field>   </class>   <class name = \"MI\">      <field name = \"text\">         <bind-xml name = \"text\" node = \"text\"/>      </field>   </class>   <class name = \"LastName\">      <field name = \"text\">         <bind-xml name = \"text\" node = \"text\"/>      </field>   </class></mapping>");
 
             System.out.println(j.toString(2));
             System.out.println(XML.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = XML.toJSONObject("<?xml version=\"1.0\" ?><Book Author=\"Anonymous\"><Title>Sample Book</Title><Chapter id=\"1\">This is chapter 1. It is not very long or interesting.</Chapter><Chapter id=\"2\">This is chapter 2. Although it is longer than chapter 1, it is not any more interesting.</Chapter></Book>");
             System.out.println(j.toString(2));
             System.out.println(XML.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = XML.toJSONObject("<!DOCTYPE bCard 'http://www.cs.caltech.edu/~adam/schemas/bCard'><bCard><?xml default bCard        firstname = ''        lastname  = '' company   = '' email = '' homepage  = ''?><bCard        firstname = 'Rohit'        lastname  = 'Khare'        company   = 'MCI'        email     = 'khare@mci.net'        homepage  = 'http://pest.w3.org/'/><bCard        firstname = 'Adam'        lastname  = 'Rifkin'        company   = 'Caltech Infospheres Project'        email     = 'adam@cs.caltech.edu'        homepage  = 'http://www.cs.caltech.edu/~adam/'/></bCard>");
             System.out.println(j.toString(2));
             System.out.println(XML.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = XML.toJSONObject("<?xml version=\"1.0\"?><customer>    <firstName>        <text>Fred</text>    </firstName>    <ID>fbs0001</ID>    <lastName> <text>Scerbo</text>    </lastName>    <MI>        <text>B</text>    </MI></customer>");
             System.out.println(j.toString(2));
             System.out.println(XML.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = XML.toJSONObject("<!ENTITY tp-address PUBLIC '-//ABC University::Special Collections Library//TEXT (titlepage: name and address)//EN' 'tpspcoll.sgm'><list type='simple'><head>Repository Address </head><item>Special Collections Library</item><item>ABC University</item><item>Main Library, 40 Circle Drive</item><item>Ourtown, Pennsylvania</item><item>17654 USA</item></list>");
-            System.out.println(j.toString());
+            System.out.println(j);
             System.out.println(XML.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = XML.toJSONObject("<test intertag status=ok><empty/>deluxe<blip sweet=true>&amp;&quot;toot&quot;&toot;&#x41;</blip><x>eks</x><w>bonus</w><w>bonus2</w></test>");
             System.out.println(j.toString(2));
             System.out.println(XML.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = HTTP.toJSONObject("GET / HTTP/1.0\nAccept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-powerpoint, application/vnd.ms-excel, application/msword, */*\nAccept-Language: en-us\nUser-Agent: Mozilla/4.0 (compatible; MSIE 5.5; Windows 98; Win 9x 4.90; T312461; Q312461)\nHost: www.nokko.com\nConnection: keep-alive\nAccept-encoding: gzip, deflate\n");
             System.out.println(j.toString(2));
             System.out.println(HTTP.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = HTTP.toJSONObject("HTTP/1.1 200 Oki Doki\nDate: Sun, 26 May 2002 17:38:52 GMT\nServer: Apache/1.3.23 (Unix) mod_perl/1.26\nKeep-Alive: timeout=15, max=100\nConnection: Keep-Alive\nTransfer-Encoding: chunked\nContent-Type: text/html\n");
             System.out.println(j.toString(2));
             System.out.println(HTTP.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = new JSONObject("{nix: null, nux: false, null: 'null', 'Request-URI': '/', Method: 'GET', 'HTTP-Version': 'HTTP/1.0'}");
             System.out.println(j.toString(2));
@@ -249,7 +249,7 @@ public class Test {
             System.out.println("   has: " + j.has("nix"));
             System.out.println(XML.toString(j));
             System.out.println(HTTP.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = XML.toJSONObject("<?xml version='1.0' encoding='UTF-8'?>"+"\n\n"+"<SOAP-ENV:Envelope"+
               " xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\""+
@@ -272,62 +272,62 @@ public class Test {
               "</SOAP-ENV:Body></SOAP-ENV:Envelope>");
             System.out.println(j.toString(2));
             System.out.println(XML.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = new JSONObject("{Envelope: {Body: {\"ns1:doGoogleSearch\": {oe: \"latin1\", filter: true, q: \"'+search+'\", key: \"GOOGLEKEY\", maxResults: 10, \"SOAP-ENV:encodingStyle\": \"http://schemas.xmlsoap.org/soap/encoding/\", start: 0, ie: \"latin1\", safeSearch:false, \"xmlns:ns1\": \"urn:GoogleSearch\"}}}}");
             System.out.println(j.toString(2));
             System.out.println(XML.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = CookieList.toJSONObject("  f%oo = b+l=ah  ; o;n%40e = t.wo ");
             System.out.println(j.toString(2));
             System.out.println(CookieList.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = Cookie.toJSONObject("f%oo=blah; secure ;expires = April 24, 2002");
             System.out.println(j.toString(2));
             System.out.println(Cookie.toString(j));
-            System.out.println("");
+            System.out.println();
 
             j = new JSONObject("{script: 'It is not allowed in HTML to send a close script tag in a string<script>because it confuses browsers</script>so we insert a backslash before the /'}");
-            System.out.println(j.toString());
-            System.out.println("");
+            System.out.println(j);
+            System.out.println();
 
             JSONTokener jt = new JSONTokener("{op:'test', to:'session', pre:1}{op:'test', to:'session', pre:2}");
             j = new JSONObject(jt);
-            System.out.println(j.toString());
+            System.out.println(j);
             System.out.println("pre: " + j.optInt("pre"));
             int i = jt.skipTo('{');
             System.out.println(i);
             j = new JSONObject(jt);
-            System.out.println(j.toString());
-            System.out.println("");
+            System.out.println(j);
+            System.out.println();
 
             a = CDL.toJSONArray("No quotes, 'Single Quotes', \"Double Quotes\"\n1,'2',\"3\"\n,'It is \"good,\"', \"It works.\"\n\n");
 
             System.out.println(CDL.toString(a));
-            System.out.println("");
+            System.out.println();
             System.out.println(a.toString(4));
-            System.out.println("");
+            System.out.println();
 
             a = new JSONArray(" [\"<escape>\", next is an implied null , , ok,] ");
-            System.out.println(a.toString());
-            System.out.println("");
+            System.out.println(a);
+            System.out.println();
             System.out.println(XML.toString(a));
-            System.out.println("");
+            System.out.println();
 
             j = new JSONObject("{ fun => with non-standard forms ; forgiving => This package can be used to parse formats that are similar to but not stricting conforming to JSON; why=To make it easier to migrate existing data to JSON,one = [[1.00]]; uno=[[{1=>1}]];'+':+6e66 ;pluses=+++;empty = '' , 'double':0.666,true: TRUE, false: FALSE, null=NULL;[true] = [[!,@;*]]; string=>  o. k. ; # comment\r oct=0666; hex=0x666; dec=666; o=0999; noh=0x0x}");
             System.out.println(j.toString(4));
-            System.out.println("");
+            System.out.println();
             if (j.getBoolean("true") && !j.getBoolean("false")) {
                 System.out.println("It's all good");
             }
 
-            System.out.println("");
+            System.out.println();
             j = new JSONObject(j, new String[]{"dec", "oct", "hex", "missing"});
             System.out.println(j.toString(4));
 
-            System.out.println("");
+            System.out.println();
             System.out.println(new JSONStringer().array().value(a).value(j).endArray());
 
             j = new JSONObject("{string: \"98.6\", long: 2147483648, int: 2147483647, longer: 9223372036854775807, double: 9223372036854775808}");
@@ -414,7 +414,7 @@ public class Test {
             
             s = " (\"San Francisco\", \"New York\", \"Seoul\", \"London\", \"Seattle\", \"Shanghai\")";
             a = new JSONArray(s);
-            System.out.println(a.toString());
+            System.out.println(a);
            
             
             System.out.println("\nTesting Exceptions: ");
@@ -476,7 +476,7 @@ public class Test {
             System.out.print("Exception: ");
             try {            	
             	ja = new JSONArray(new Object());
-            	System.out.println(ja.toString());
+            	System.out.println(ja);
             } catch (Exception e) {
             	System.out.println(e);
             }
@@ -485,13 +485,13 @@ public class Test {
             try {            	
             	s = "[)";
             	a = new JSONArray(s);
-            	System.out.println(a.toString());
+            	System.out.println(a);
             } catch (Exception e) {
             	System.out.println(e);
             }
 
         } catch (Exception e) {
-            System.out.println(e.toString());
+            System.out.println(e);
         }
     }
 }

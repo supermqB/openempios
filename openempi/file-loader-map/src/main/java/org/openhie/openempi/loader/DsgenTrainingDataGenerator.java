@@ -26,7 +26,7 @@ import org.apache.log4j.Logger;
 
 public class DsgenTrainingDataGenerator implements TrainingDataExtractor
 {
-	private Logger log = Logger.getLogger(getClass());
+	private final Logger log = Logger.getLogger(getClass());
 
 	public Serializable extractKey(String line) {
 		String[] fields = line.split(",");

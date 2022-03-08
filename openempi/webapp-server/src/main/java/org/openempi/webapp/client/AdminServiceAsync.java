@@ -26,23 +26,23 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface AdminServiceAsync
 {
-	public void assignGlobalIdentifiers(EntityWeb entity, AsyncCallback<String> callback);
+	void assignGlobalIdentifiers(EntityWeb entity, AsyncCallback<String> callback);
 
-	public void clearLoggedLinks(EntityWeb entity, AsyncCallback<String> callback);
+	void clearLoggedLinks(EntityWeb entity, AsyncCallback<String> callback);
 
-	public void createEntityIndexes(EntityWeb entity, AsyncCallback<String> callback);
+	void createEntityIndexes(EntityWeb entity, AsyncCallback<String> callback);
 
-    public void dropEntityIndexes(EntityWeb entity, AsyncCallback<String> callback);
+    void dropEntityIndexes(EntityWeb entity, AsyncCallback<String> callback);
 
-	public void startPixPdqServer(AsyncCallback<String> callback);
+	void startPixPdqServer(AsyncCallback<String> callback);
 
-	public void stopPixPdqServer(AsyncCallback<String> callback);
+	void stopPixPdqServer(AsyncCallback<String> callback);
 
-	public void initializeRepository(EntityWeb entity, AsyncCallback<String> callback);
+	void initializeRepository(EntityWeb entity, AsyncCallback<String> callback);
 
-	public void linkAllRecordPairs(EntityWeb entity, AsyncCallback<String> callback);
+	void linkAllRecordPairs(EntityWeb entity, AsyncCallback<String> callback);
 
-	public void initializeCustomConfiguration(EntityWeb entity, AsyncCallback<String> callback);
+	void initializeCustomConfiguration(EntityWeb entity, AsyncCallback<String> callback);
 
-	public void rebuildBlockingIndex(EntityWeb entity, AsyncCallback<String> callback);
+	void rebuildBlockingIndex(EntityWeb entity, AsyncCallback<String> callback);
 }

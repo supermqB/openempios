@@ -241,7 +241,7 @@ public class RecordResourceServiceImpl extends BaseServiceImpl implements Record
 
     @Override
     public void assignGlobalIdentifiers(String versionId, Integer entityId)
-            throws ApplicationException, AuthorizationException, BadRequestException {
+            throws ApplicationException, AuthorizationException {
         if (entityId == null) {
             throw new BadRequestException();
         }
@@ -259,7 +259,7 @@ public class RecordResourceServiceImpl extends BaseServiceImpl implements Record
 
     @Override
     public void generateCustomFields(String versionId, Integer entityId)
-            throws ApplicationException, AuthorizationException, BadRequestException {
+            throws ApplicationException, AuthorizationException {
         if (entityId == null) {
             throw new BadRequestException();
         }
@@ -277,7 +277,7 @@ public class RecordResourceServiceImpl extends BaseServiceImpl implements Record
 
     @Override
     public void generateRecordLinks(String versionId, Integer entityId)
-            throws ApplicationException, AuthorizationException, BadRequestException {
+            throws ApplicationException, AuthorizationException {
         if (entityId == null) {
             throw new BadRequestException();
         }
@@ -295,7 +295,7 @@ public class RecordResourceServiceImpl extends BaseServiceImpl implements Record
 
     @Override
     public void initializeMatchingAlgorithm(String versionId, Integer entityId)
-            throws ApplicationException, AuthorizationException, BadRequestException {
+            throws ApplicationException, AuthorizationException {
         if (entityId == null) {
             throw new BadRequestException();
         }
@@ -313,7 +313,7 @@ public class RecordResourceServiceImpl extends BaseServiceImpl implements Record
 
     @Override
     public void rebuildBlockingIndexes(String versionId, Integer entityId)
-            throws ApplicationException, AuthorizationException, BadRequestException {
+            throws ApplicationException, AuthorizationException {
         if (entityId == null) {
             throw new BadRequestException();
         }

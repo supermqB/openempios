@@ -29,20 +29,20 @@ package org.openhealthtools.openexchange.syslog;
 
 public interface Log {
 
-	public LogMessage createMessage(String ipAddress) throws LoggerException;
+	LogMessage createMessage(String ipAddress) throws LoggerException;
 
-	public LogMessage createMessage() throws LoggerException;
+	LogMessage createMessage() throws LoggerException;
 
-	public void logMessage(LogMessage m) throws LoggerException;
+	void logMessage(LogMessage m) throws LoggerException;
 
-	public void writeMessage(LogMessage m) throws LoggerException;
+	void writeMessage(LogMessage m) throws LoggerException;
 
-	public void deleteMessage(LogMessage m) throws LoggerException;
+	void deleteMessage(LogMessage m) throws LoggerException;
 
-	public void deleteMessage(String messageID) throws LoggerException;
+	void deleteMessage(String messageID) throws LoggerException;
 
-	public Message readMessage(String messageID) throws LoggerException;
+	Message readMessage(String messageID) throws LoggerException;
 	
-	public void writeIp(CompanyDetails cd) throws LoggerException;
+	void writeIp(CompanyDetails cd) throws LoggerException;
 		
 }

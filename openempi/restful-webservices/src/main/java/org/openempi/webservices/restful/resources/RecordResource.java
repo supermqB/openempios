@@ -53,7 +53,7 @@ import org.openhie.openempi.service.ResourceServiceFactory;
 @Path("/{versionId}/records")
 public class RecordResource extends BaseResource
 {
-    private RecordResourceService recordService;
+    private final RecordResourceService recordService;
     
     public RecordResource() {
         recordService = (RecordResourceService)

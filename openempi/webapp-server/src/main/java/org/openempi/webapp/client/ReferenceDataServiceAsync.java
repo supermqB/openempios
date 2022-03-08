@@ -35,31 +35,31 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface ReferenceDataServiceAsync
 {
-    public void getGlobalIdentifierDomain(AsyncCallback<IdentifierDomainWeb> callback);
+    void getGlobalIdentifierDomain(AsyncCallback<IdentifierDomainWeb> callback);
 
-	public void getIdentifierDomains(AsyncCallback<List<IdentifierDomainWeb>> callback);
+	void getIdentifierDomains(AsyncCallback<List<IdentifierDomainWeb>> callback);
 
-	public void getIdentifierDomainTypeCodes(AsyncCallback<List<IdentifierDomainTypeCodeWeb>> callback);
+	void getIdentifierDomainTypeCodes(AsyncCallback<List<IdentifierDomainTypeCodeWeb>> callback);
 
-	public void getAuditEventTypeCodes(AsyncCallback<List<AuditEventTypeWeb>> callback);
+	void getAuditEventTypeCodes(AsyncCallback<List<AuditEventTypeWeb>> callback);
 
-	public void getPersonModelAllAttributeNames(AsyncCallback<List<String>> callback);
+	void getPersonModelAllAttributeNames(AsyncCallback<List<String>> callback);
 
-	public void getPersonModelAttributeNames(AsyncCallback<List<String>> callback);
+	void getPersonModelAttributeNames(AsyncCallback<List<String>> callback);
 
-	public void getPersonModelCustomFieldNames(AsyncCallback<List<String>> callback);
+	void getPersonModelCustomFieldNames(AsyncCallback<List<String>> callback);
 
-	public void getTransformationFunctionNames(AsyncCallback<List<String>> callback);
+	void getTransformationFunctionNames(AsyncCallback<List<String>> callback);
 
-	public void getComparatorFunctionNames(AsyncCallback<List<String>> callback);
+	void getComparatorFunctionNames(AsyncCallback<List<String>> callback);
 
-	public void getSystemConfigurationInfo(String entityName, AsyncCallback<SystemConfigurationWeb> callback);
+	void getSystemConfigurationInfo(String entityName, AsyncCallback<SystemConfigurationWeb> callback);
 
-	public void getEntityAttributeDatatypes(AsyncCallback<List<EntityAttributeDatatypeWeb>> callback);
+	void getEntityAttributeDatatypes(AsyncCallback<List<EntityAttributeDatatypeWeb>> callback);
 
-	public void getValidationRules(AsyncCallback<List<EntityValidationRuleWeb>> callback);
+	void getValidationRules(AsyncCallback<List<EntityValidationRuleWeb>> callback);
 
-    public void getJobTypes(AsyncCallback<List<JobTypeWeb>> callback);
+    void getJobTypes(AsyncCallback<List<JobTypeWeb>> callback);
 
-    public void getJobStatuses(AsyncCallback<List<JobStatusWeb>> callback);
+    void getJobStatuses(AsyncCallback<List<JobStatusWeb>> callback);
 }

@@ -30,8 +30,8 @@ import com.tinkerpop.blueprints.impls.orient.OrientBaseGraph;
 
 public class IntentMassiveInsertImpl implements DataAccessIntent
 {
-    private Logger log = Logger.getLogger(getClass());
-    private EntityDaoOrientdb dao;
+    private final Logger log = Logger.getLogger(getClass());
+    private final EntityDaoOrientdb dao;
     private Entity entity;
     
     public IntentMassiveInsertImpl(EntityDaoOrientdb dao) {

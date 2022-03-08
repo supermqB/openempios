@@ -26,5 +26,5 @@ import org.openhie.openempi.model.Record;
 
 public interface SingleBestRecordService
 {
-	public Record getSingleBestRecord(List<Record> records);
+	Record getSingleBestRecord(List<Record> records);
 }

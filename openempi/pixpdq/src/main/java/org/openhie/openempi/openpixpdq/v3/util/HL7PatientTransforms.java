@@ -67,7 +67,7 @@ import org.openhealthtools.openexchange.datamodel.PatientIdentifier;
  */
 public class HL7PatientTransforms
 {
-    private static Log log = LogFactory.getLog(HL7PatientTransforms.class);
+    private static final Log log = LogFactory.getLog(HL7PatientTransforms.class);
 
     public static org.hl7.v3.PRPAMT201301UV02Patient create201301Patient(PRPAMT201306UV02ParameterList paramList, String aaId) {
         PRPAMT201301UV02Patient result = new PRPAMT201301UV02Patient();

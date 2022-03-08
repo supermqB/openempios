@@ -28,21 +28,21 @@ import org.openhie.openempi.model.DataProfileAttributeValue;
 
 public interface DataProfileAttributeDao
 {
-    public DataProfile saveDataProfile(DataProfile dataProfile);
+    DataProfile saveDataProfile(DataProfile dataProfile);
     
-    public void removeDataProfile(int dataProfileId);
+    void removeDataProfile(int dataProfileId);
     
-	public DataProfileAttribute saveDataProfileAttribute(DataProfileAttribute dataProfileAttribute);
+	DataProfileAttribute saveDataProfileAttribute(DataProfileAttribute dataProfileAttribute);
 
-	public DataProfileAttributeValue saveDataProfileAttributeValue(DataProfileAttributeValue dataProfileAttributeValue);
+	DataProfileAttributeValue saveDataProfileAttributeValue(DataProfileAttributeValue dataProfileAttributeValue);
 
-	public int removeDataProfileAttribute(DataProfileAttribute dataProfileAttribute);
+	int removeDataProfileAttribute(DataProfileAttribute dataProfileAttribute);
 	
-	public int removeAllDataProfileAttributes(int dataProfileId);
+	int removeAllDataProfileAttributes(int dataProfileId);
 	
-	public List<DataProfile> getDataProfiles();
+	List<DataProfile> getDataProfiles();
 	
-	public List<DataProfileAttribute> getDataProfileAttributes(int dataProfileId);
+	List<DataProfileAttribute> getDataProfileAttributes(int dataProfileId);
 	
-	public List<DataProfileAttributeValue> getTopDataProfileAttributeValues(int attributeId, int topCount);
+	List<DataProfileAttributeValue> getTopDataProfileAttributeValues(int attributeId, int topCount);
 }

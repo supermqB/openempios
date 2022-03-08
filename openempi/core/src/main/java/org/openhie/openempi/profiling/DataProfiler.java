@@ -45,7 +45,7 @@ public class DataProfiler extends BaseServiceImpl implements Runnable, Parameter
 	private RecordDataSource recordDataSource;
 	private DataProfileAttributeDao dataProfileAttributeDao;
 	private java.util.Map<String, Object> parameters;
-	private java.util.Map<String, AttributeMetadata> metadata;
+	private final java.util.Map<String, AttributeMetadata> metadata;
 	private java.util.List<String> attributeNames;
 	private String entityName;
 	private Entity entity;
@@ -384,10 +384,7 @@ public class DataProfiler extends BaseServiceImpl implements Runnable, Parameter
 	// Otherwise, there is more work to be done.
 	//
 	private boolean isMoreAttributeBlocksLeft(int attributeBlockStartIndex, int blockSize) {
-		if (blockSize == 0 || attributeBlockStartIndex >= getAttributeCount()) {
-			return true;
-		}
-		return false;
+		return blockSize == 0 || attributeBlockStartIndex >= getAttributeCount();
 	}
 
 	// If we are processing all the attributes in one run through the data in
@@ -450,14 +447,11 @@ public class DataProfiler extends BaseServiceImpl implements Runnable, Parameter
 	}
 
 	public boolean isNumericDatatype(int datatypeId) {
-		if (datatypeId == DataProfileAttribute.DOUBLE_DATA_TYPE || datatypeId == DataProfileAttribute.FLOAT_DATA_TYPE
+		return datatypeId == DataProfileAttribute.DOUBLE_DATA_TYPE || datatypeId == DataProfileAttribute.FLOAT_DATA_TYPE
 				|| datatypeId == DataProfileAttribute.INTEGER_DATA_TYPE
 				|| datatypeId == DataProfileAttribute.DATE_DATA_TYPE
-		        || datatypeId == DataProfileAttribute.TIMESTAMP_DATA_TYPE
-				|| datatypeId == DataProfileAttribute.LONG_DATA_TYPE) {
-			return true;
-		}
-		return false;
+				|| datatypeId == DataProfileAttribute.TIMESTAMP_DATA_TYPE
+				|| datatypeId == DataProfileAttribute.LONG_DATA_TYPE;
 	}
 
 	public int getAttributeCount() {
@@ -504,8 +498,8 @@ public class DataProfiler extends BaseServiceImpl implements Runnable, Parameter
 	{
 		private static final long serialVersionUID = -5805814946755578692L;
 
-		private java.util.Map<Object, Integer> valueFrequencyMap;
-		private AttributeMetadata metadata;
+		private final java.util.Map<Object, Integer> valueFrequencyMap;
+		private final AttributeMetadata metadata;
 		private double tempAverageLength;
 		private double tempAverageValue;
 		private double tempSquareDiff;

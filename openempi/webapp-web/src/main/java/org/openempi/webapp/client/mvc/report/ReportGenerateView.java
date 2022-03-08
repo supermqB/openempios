@@ -86,9 +86,9 @@ public class ReportGenerateView extends View
 	public static final Integer TYPE_NUMERIC = 2;
 	
 	private Grid<ReportWeb> gridReport;
-	private GroupingStore<ReportWeb> store = new GroupingStore<ReportWeb>();
+	private final GroupingStore<ReportWeb> store = new GroupingStore<ReportWeb>();
 	private Grid<ReportRequestEntryWeb> gridEntry;
-	private GroupingStore<ReportRequestEntryWeb> storeEntries = new GroupingStore<ReportRequestEntryWeb>();
+	private final GroupingStore<ReportRequestEntryWeb> storeEntries = new GroupingStore<ReportRequestEntryWeb>();
 	
 	private Button generateReportButton;
 	private Button reloadReportButton;
@@ -126,7 +126,7 @@ public class ReportGenerateView extends View
 			// Info.display("Information", "ReportReceived.");
 			store.removeAll();
 				
-			List<ReportWeb> reports = (List<ReportWeb>) event.getData();						
+			List<ReportWeb> reports = event.getData();
 			store.add(reports);
 /*
 			for( ReportWeb report : reports) {		
@@ -150,7 +150,7 @@ public class ReportGenerateView extends View
 			// Info.display("Information", "ReportRequestEntryReceived.");
 			storeEntries.removeAll();
 				
-			List<ReportRequestEntryWeb> reports = (List<ReportRequestEntryWeb>) event.getData();						
+			List<ReportRequestEntryWeb> reports = event.getData();
 			storeEntries.add(reports);
 
 			showDefaultCursor();
@@ -215,7 +215,7 @@ public class ReportGenerateView extends View
 		pdfViewFrame.setVisible(false);
 		container.add(pdfViewFrame);
 		
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();
@@ -420,7 +420,7 @@ public class ReportGenerateView extends View
 							"<th class=\"identifierColumn\">Query Parameters</th>" +
 						"</tr> " +
 						"<tr>" +
-						    "<tpl if=\"typeof reportQueries !=\'undefined\'\">" +
+				"<tpl if=\"typeof reportQueries !='undefined'\">" +
 							"<tpl for=\"reportQueries\"> " +
 								"<tr> " +
 									"<td>{name}</td>" +
@@ -432,7 +432,7 @@ public class ReportGenerateView extends View
 												"<th class=\"identifierColumn\">Name</th>" +
 												"<th class=\"identifierColumn\">Required</th>" +
 											"</tr> " +
-										    "<tpl if=\"typeof reportQueryParameters !=\'undefined\'\">" +
+				"<tpl if=\"typeof reportQueryParameters !='undefined'\">" +
 												"<tpl for=\"reportQueryParameters\"> " +
 													"<tr> " +
 														// values: The values in the current scope.

@@ -38,7 +38,7 @@ public class DBConnection {
 	private static String USERNAME = "logs"; 
 	private static String PASSWORD = "logs"; 
 	private static String databaseType = null;
-	private static org.apache.commons.logging.Log logger = LogFactory.getLog(DBConnection.class);
+	private static final org.apache.commons.logging.Log logger = LogFactory.getLog(DBConnection.class);
 	
 	private static Connection connection = null ; 
 	private DBConnection(){

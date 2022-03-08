@@ -24,13 +24,13 @@ import java.util.Map;
 
 public interface TransformationFunction
 {
-	public void init(Map<String,String> configParameters);
+	void init(Map<String, String> configParameters);
 
-	public Object transform(Object field);
+	Object transform(Object field);
 
-	public String getName();
+	String getName();
 
-	public void setName(String name);
+	void setName(String name);
 	
-	public String[] getParameterNames();
+	String[] getParameterNames();
 }

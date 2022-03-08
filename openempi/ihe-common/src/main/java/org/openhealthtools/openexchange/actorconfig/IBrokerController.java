@@ -34,6 +34,6 @@ public interface IBrokerController {
 	 * 
 	 * @return 'true' if the supplied actor should be removed and stopped
 	 */
-	public boolean shouldUnregister(Object actor);
+    boolean shouldUnregister(Object actor);
 
 }

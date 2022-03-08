@@ -45,7 +45,7 @@ import ca.uhn.fhir.rest.param.TokenParam;
 
 public class FhirConversionHelper
 {    
-	private static Logger log = Logger.getLogger(FhirConversionHelper.class);
+	private static final Logger log = Logger.getLogger(FhirConversionHelper.class);
     public static final String FAMILY_NAME = "family";
 	public static final String GIVEN_NAME = "given";
 	public static final String BIRTH_DATE = "birthdate";
@@ -94,13 +94,13 @@ public class FhirConversionHelper
 
 	private static void addGivenNameQueryParam(PdqQuery query, StringDt value) {
 		PersonName personName = new PersonName();
-		personName.setFirstName((String) value.getValue());
+		personName.setFirstName(value.getValue());
 		query.setPersonName(personName);
 	}
 
 	private static void addFamilyNameQueryParam(PdqQuery query, StringDt value) {
 		PersonName personName = new PersonName();
-		personName.setLastName((String) value.getValue());
+		personName.setLastName(value.getValue());
 		query.setPersonName(personName);
 	}
 

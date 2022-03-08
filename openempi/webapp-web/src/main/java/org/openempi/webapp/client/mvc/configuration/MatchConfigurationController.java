@@ -73,7 +73,7 @@ public class MatchConfigurationController extends Controller
 
 	private void saveMatchConfiguration(AppEvent event) {
 		ConfigurationDataServiceAsync configurationDataService = getConfigurationDataService();
-		MatchConfigurationWeb configuration = (MatchConfigurationWeb) event.getData();
+		MatchConfigurationWeb configuration = event.getData();
 		EntityWeb currentEntity = Registry.get(Constants.ENTITY_ATTRIBUTE_MODEL);
 		if (currentEntity != null) {
 			configuration.setEntityName(currentEntity.getName());

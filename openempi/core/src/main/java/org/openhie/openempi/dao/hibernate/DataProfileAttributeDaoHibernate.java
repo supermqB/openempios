@@ -43,7 +43,7 @@ public class DataProfileAttributeDaoHibernate extends UniversalDaoHibernate impl
 
     public void removeDataProfile(int dataProfileId) {
         log.trace("Removing data profile with id " + dataProfileId);
-        DataProfile profileFound = (DataProfile) getHibernateTemplate().load(DataProfile.class, dataProfileId);
+        DataProfile profileFound = getHibernateTemplate().load(DataProfile.class, dataProfileId);
         if (profileFound == null) {
             return;
         }

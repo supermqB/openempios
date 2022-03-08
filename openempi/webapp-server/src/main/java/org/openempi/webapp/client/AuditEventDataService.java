@@ -31,10 +31,10 @@ import com.google.gwt.user.client.rpc.RemoteService;
 
 public interface AuditEventDataService extends RemoteService
 {	
-	public AuditEventListWeb getAuditEventsBySearch(AuditEventSearchCriteriaWeb searchCriteria) throws Exception;
+	AuditEventListWeb getAuditEventsBySearch(AuditEventSearchCriteriaWeb searchCriteria) throws Exception;
 	
-	public AuditEventEntryListWeb getAuditEventEntriesBySearch(AuditEventSearchCriteriaWeb searchCriteria) throws Exception;
+	AuditEventEntryListWeb getAuditEventEntriesBySearch(AuditEventSearchCriteriaWeb searchCriteria) throws Exception;
 
-	public MessageLogListWeb getMessageLogsBySearch(MessageLogSearchCriteriaWeb searchCriteria) throws Exception;
-	public MessageLogEntryWeb getMessageLogEntry(Integer messageLogId) throws Exception;
+	MessageLogListWeb getMessageLogsBySearch(MessageLogSearchCriteriaWeb searchCriteria) throws Exception;
+	MessageLogEntryWeb getMessageLogEntry(Integer messageLogId) throws Exception;
 }

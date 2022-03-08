@@ -49,7 +49,7 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 public class IdentifierDomainDaoHibernate extends UniversalDaoHibernate implements IdentifierDomainDao, Observer
 {
     private boolean registeredUpdateListener = false;
-    private static List<IdentifierDomain> identifierDomainCache = new ArrayList<IdentifierDomain>();
+    private static final List<IdentifierDomain> identifierDomainCache = new ArrayList<IdentifierDomain>();
 
 	public List<IdentifierDomain> getIdentifierDomains() {
         return getDomainsFromCache();
@@ -185,11 +185,8 @@ public class IdentifierDomainDaoHibernate extends UniversalDaoHibernate implemen
 	public boolean isKnownUniversalIdentifierTypeCode(String universalIdentifierTypeCode) {
 		String queryString = "from IdentifierDomain i where i.universalIdentifierTypeCode = ?";
 		List<IdentifierDomain> domains = getHibernateTemplate().find(queryString, universalIdentifierTypeCode);
-		if (domains.size() == 0) {
-			return false;
-		}
-		return true;
-	}
+        return domains.size() != 0;
+    }
 
 	@SuppressWarnings("unchecked")
 	public IdentifierDomainAttribute addIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName, String attributeValue) {
@@ -197,7 +194,7 @@ public class IdentifierDomainDaoHibernate extends UniversalDaoHibernate implemen
 			log.debug("User attempted to add identifier domain attribute for an unknown identifier domain: " + identifierDomain);
 			return null;
 		}
-		IdentifierDomain foundIdentifierDomain = (IdentifierDomain) getHibernateTemplate().get(IdentifierDomain.class, identifierDomain.getIdentifierDomainId());
+		IdentifierDomain foundIdentifierDomain = getHibernateTemplate().get(IdentifierDomain.class, identifierDomain.getIdentifierDomainId());
 		if (foundIdentifierDomain == null) {
 			log.debug("User attempted to add identifier domain attribute for an unknown identifier domain: " + identifierDomain);
 			return null;
@@ -339,7 +336,7 @@ public class IdentifierDomainDaoHibernate extends UniversalDaoHibernate implemen
     }
 
     public IdentifierUpdateEvent findIdentifierUpdateEvent(long identifierUpdateEventId) {
-        IdentifierUpdateEvent identifierUpdateEvent = (IdentifierUpdateEvent) getHibernateTemplate().get(
+        IdentifierUpdateEvent identifierUpdateEvent = getHibernateTemplate().get(
                 IdentifierUpdateEvent.class, identifierUpdateEventId);
         return identifierUpdateEvent;
     }
@@ -356,7 +353,7 @@ public class IdentifierDomainDaoHibernate extends UniversalDaoHibernate implemen
                         query.setParameter("updateRecipient", eventRecipient);
                         query.setFirstResult(startIndex);
                         query.setMaxResults(maxEvents);
-                        log.debug("Querying using " + query.toString());
+                        log.debug("Querying using " + query);
                         List<IdentifierUpdateEvent> list = (List<IdentifierUpdateEvent>) query.setResultTransformer(
                                 Criteria.DISTINCT_ROOT_ENTITY).list();
                         log.debug("Query returned: " + list.size() + " elements.");
@@ -376,7 +373,7 @@ public class IdentifierDomainDaoHibernate extends UniversalDaoHibernate implemen
                                 .createQuery("from IdentifierUpdateEvent i where i.updateRecipient = :updateRecipient"
                                         + " order by i.identifierUpdateEventId");
                         query.setParameter("updateRecipient", eventRecipient);
-                        log.debug("Querying using " + query.toString());
+                        log.debug("Querying using " + query);
                         List<IdentifierUpdateEvent> list = (List<IdentifierUpdateEvent>) query.setResultTransformer(
                                 Criteria.DISTINCT_ROOT_ENTITY).list();
                         log.debug("Query returned: " + list.size() + " elements.");
@@ -394,7 +391,7 @@ public class IdentifierDomainDaoHibernate extends UniversalDaoHibernate implemen
                         "order by i.dateCreated");
                 query.setParameter("startDate", startDate);
                 query.setParameter("updateRecipient", eventRecipient);
-                log.debug("Querying using " + query.toString());
+                log.debug("Querying using " + query);
                 List<IdentifierUpdateEvent> list = (List<IdentifierUpdateEvent>) query.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
                         .list();
 
@@ -417,7 +414,7 @@ public class IdentifierDomainDaoHibernate extends UniversalDaoHibernate implemen
                                         + "order by i.dateCreated");
                         query.setParameter("startDate", startDate);
                         query.setParameter("updateRecipient", eventRecipient);
-                        log.debug("Querying using " + query.toString());
+                        log.debug("Querying using " + query);
                         List<IdentifierUpdateEvent> list = (List<IdentifierUpdateEvent>) query.setResultTransformer(
                                 Criteria.DISTINCT_ROOT_ENTITY).list();
 

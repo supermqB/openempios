@@ -142,7 +142,7 @@ public class MatchConfigurationView extends BaseEntityView
 
     private Grid<MatchFieldWeb> grid1;
     private Grid<MatchFieldWeb> grid2;
-    private ListStore<MatchFieldWeb> store = new ListStore<MatchFieldWeb>();
+    private final ListStore<MatchFieldWeb> store = new ListStore<MatchFieldWeb>();
     private Dialog addEditMatchFieldDialog = null;
     private Boolean addOrEditFieldMode = true;
     private int editedFieldIndex = 0;
@@ -150,15 +150,15 @@ public class MatchConfigurationView extends BaseEntityView
     private String entityName;
 
     // Basic
-    private TextField<String> configFileDirectoryEdit = new TextField<String>();
+    private final TextField<String> configFileDirectoryEdit = new TextField<String>();
 
-    private ComboBox<ModelPropertyWeb> attributeNameCombo = new ComboBox<ModelPropertyWeb>();
-    private ComboBox<ModelPropertyWeb> comparatorFuncNameCombo = new ComboBox<ModelPropertyWeb>();
-    private NumberField matchThresholdEdit = new NumberField();
+    private final ComboBox<ModelPropertyWeb> attributeNameCombo = new ComboBox<ModelPropertyWeb>();
+    private final ComboBox<ModelPropertyWeb> comparatorFuncNameCombo = new ComboBox<ModelPropertyWeb>();
+    private final NumberField matchThresholdEdit = new NumberField();
 
     private List<ModelPropertyWeb> attributeNames;
-    private ListStore<ModelPropertyWeb> attributeNameStore = new ListStore<ModelPropertyWeb>();
-    private ListStore<ModelPropertyWeb> comparatorFuncNameStore = new ListStore<ModelPropertyWeb>();
+    private final ListStore<ModelPropertyWeb> attributeNameStore = new ListStore<ModelPropertyWeb>();
+    private final ListStore<ModelPropertyWeb> comparatorFuncNameStore = new ListStore<ModelPropertyWeb>();
 
     // Advanced
     private NumberField lowerBoundEdit;
@@ -178,10 +178,10 @@ public class MatchConfigurationView extends BaseEntityView
     private SpinnerField vectorsFractionSpin;
     private SpinnerField weightFractionSpin;
     private ComboBox<ModelPropertyWeb> loggingDestinationCombo;
-    private ListStore<ModelPropertyWeb> loggingDestinationStore = new ListStore<ModelPropertyWeb>();
+    private final ListStore<ModelPropertyWeb> loggingDestinationStore = new ListStore<ModelPropertyWeb>();
 
-    private ListStore<VectorWeb> dualListFrom = new ListStore<VectorWeb>();
-    private ListStore<VectorWeb> dualListTo = new ListStore<VectorWeb>();
+    private final ListStore<VectorWeb> dualListFrom = new ListStore<VectorWeb>();
+    private final ListStore<VectorWeb> dualListTo = new ListStore<VectorWeb>();
 
     // vector
     private Grid<BaseModelData> gridVector;
@@ -219,17 +219,17 @@ public class MatchConfigurationView extends BaseEntityView
 
     private EntityWeb currentEntity;
     private Map<String, String> recordFieldMap;
-    private Map<String, String> nonmatchFieldMap = new HashMap<String, String>();
+    private final Map<String, String> nonmatchFieldMap = new HashMap<String, String>();
 
-    private ListStore<IdentifierWeb> leftIdentifierStore = new ListStore<IdentifierWeb>();
-    private ListStore<IdentifierWeb> rightIdentifierStore = new ListStore<IdentifierWeb>();
-    private ListStore<BaseModelData> linkPairStore = new ListStore<BaseModelData>();
+    private final ListStore<IdentifierWeb> leftIdentifierStore = new ListStore<IdentifierWeb>();
+    private final ListStore<IdentifierWeb> rightIdentifierStore = new ListStore<IdentifierWeb>();
+    private final ListStore<BaseModelData> linkPairStore = new ListStore<BaseModelData>();
 
     @SuppressWarnings("unchecked")
     public MatchConfigurationView(Controller controller) {
         super(controller);
 
-        List<ModelPropertyWeb> comparatorFuncNames = (List<ModelPropertyWeb>) Registry
+        List<ModelPropertyWeb> comparatorFuncNames = Registry
                 .get(Constants.COMPARATOR_FUNCTION_NAMES);
 
         try {
@@ -255,7 +255,7 @@ public class MatchConfigurationView extends BaseEntityView
 
         } else if (event.getType() == AppEvents.MatchConfigurationReceived) {
 
-            MatchConfigurationWeb config = (MatchConfigurationWeb) event.getData();
+            MatchConfigurationWeb config = event.getData();
             currentConfig = config;
             controller.handleEvent(new AppEvent(AppEvents.MatchVectorConfigurationRequest));
 
@@ -264,7 +264,7 @@ public class MatchConfigurationView extends BaseEntityView
             currentEntity = Registry.get(Constants.ENTITY_ATTRIBUTE_MODEL);
 
             // sort by display order
-            List<VectorConfigurationWeb> vectorConfs = (List<VectorConfigurationWeb>) event.getData();
+            List<VectorConfigurationWeb> vectorConfs = event.getData();
             Collections.sort(vectorConfs, VECTOR_WEIGHT_DISPLAY_ORDER);
 
             // Vector Selection
@@ -289,7 +289,7 @@ public class MatchConfigurationView extends BaseEntityView
             convergenceErrorEdit.setValue(Float.parseFloat(nfc.format(currentConfig.getConvergenceError())));
 
             // store.add(config.getMatchFields());
-            List<MatchFieldWeb> fields = (List<MatchFieldWeb>) currentConfig.getMatchFields();
+            List<MatchFieldWeb> fields = currentConfig.getMatchFields();
             for (MatchFieldWeb matchField : fields) {
                 // Info.display("Information", "MatchThreshold: "+matchField.getMatchThreshold());
                 matchField.setFieldDescription(Utility.convertToDescription(matchField.getFieldName()));
@@ -409,7 +409,7 @@ public class MatchConfigurationView extends BaseEntityView
     protected void initVectorSelection(List<VectorConfigurationWeb> vectorConfs) {
         // Info.display("Number Of Vectors", ""+vectorConfs.size());
         vectorLocalStore = new ListStore<BaseModelData>();
-        List<MatchFieldWeb> fields = (List<MatchFieldWeb>) currentConfig.getMatchFields();
+        List<MatchFieldWeb> fields = currentConfig.getMatchFields();
 
         for (VectorConfigurationWeb vectorConf : vectorConfs) {
             BaseModelData vector = new BaseModelData();
@@ -442,7 +442,7 @@ public class MatchConfigurationView extends BaseEntityView
             for (MatchFieldWeb matchField : fields) {
                 // set bit such as 1, 10, 100, 1000
                 int bit = (int) Math.pow(2, j);
-                String value =  Utility.convertToDescription(matchField.getFieldName()) + ":" + Integer.toString(bit);
+                String value =  Utility.convertToDescription(matchField.getFieldName()) + ":" + bit;
                 map.put(matchField.getFieldName(), value);
                 j++;
             }
@@ -462,7 +462,7 @@ public class MatchConfigurationView extends BaseEntityView
         GWT.log("Initializing the UI ", null);
 
         attributeNameStore.removeAll();
-        attributeNames = (List<ModelPropertyWeb>) Registry.get(Constants.PERSON_MODEL_ALL_ATTRIBUTE_NAMES);
+        attributeNames = Registry.get(Constants.PERSON_MODEL_ALL_ATTRIBUTE_NAMES);
         if (attributeNames != null) {
             attributeNameStore.add(attributeNames);
         }
@@ -540,16 +540,12 @@ public class MatchConfigurationView extends BaseEntityView
                     ListStore<BaseModelData> store, Grid<BaseModelData> grid) {
 
                 // get cell value which is manualClassification setting
-                Boolean result = (Boolean) model.get(property);
+                Boolean result = model.get(property);
                 CheckBox checkBox = new CheckBox();
-                if (result) {
-                    checkBox.setValue(true);
-                } else {
-                    checkBox.setValue(false);
-                }
+                checkBox.setValue(result);
 
                 // 1. match, 2. probable , 3. non-match
-                int matchDefault = (Integer) model.get("matchDefault");
+                int matchDefault = model.get("matchDefault");
                 if (matchDefault == colIndex + 1) {
                     // algorithmClassification is default setting
                     checkBox.setValue(true);
@@ -577,20 +573,20 @@ public class MatchConfigurationView extends BaseEntityView
         {
             String backgroundColor;
             String decoration;
-            String fontWeight = "bold";
+            final String fontWeight = "bold";
 
             @Override
             public String render(BaseModelData model, String property, ColumnData config, int rowIndex, int colIndex,
                     ListStore<BaseModelData> store, Grid<BaseModelData> grid) {
 
                 // get cell value: name : bit
-                String value = (String) model.get(property);
+                String value = model.get(property);
                 String[] result = value.split(":");
                 String name = result[0];
                 int bit = Integer.parseInt(result[1]);
 
                 // get vector value
-                int val = (Integer) model.get("vector");
+                int val = model.get("vector");
                 int color = val & bit;
 
                 backgroundColor = "#E79191"; // "orangered";
@@ -605,7 +601,7 @@ public class MatchConfigurationView extends BaseEntityView
             }
         };
 
-        List<MatchFieldWeb> fields = (List<MatchFieldWeb>) currentConfig.getMatchFields();
+        List<MatchFieldWeb> fields = currentConfig.getMatchFields();
         for (MatchFieldWeb matchField : fields) {
             ColumnConfig fieldColumn = new ColumnConfig(matchField.getFieldName(), matchField.getFieldDescription(),
                     matchField.getFieldName().length() * 9);
@@ -727,7 +723,7 @@ public class MatchConfigurationView extends BaseEntityView
                 if (index < 3) {
                     // Info.display("Cell clicked: ",be.getRowIndex()+" "+be.getColIndex());
                     BaseModelData selection = be.getModel();
-                    int matchDefault = (Integer) selection.get("matchDefault");
+                    int matchDefault = selection.get("matchDefault");
                     switch (index) {
                     case 0:
                         if (matchDefault != Constants.MATCH_CLASSIFICATION) {
@@ -759,7 +755,7 @@ public class MatchConfigurationView extends BaseEntityView
 
                 selectedVector = be.getGrid().getSelectionModel().getSelectedItem();
                 if (selectedVector != null) {
-                    Integer val = (Integer) selectedVector.get("vector");
+                    Integer val = selectedVector.get("vector");
 
                     if (Registry.get(Constants.ENTITY_ATTRIBUTE_MODEL) != null) {
 
@@ -796,7 +792,7 @@ public class MatchConfigurationView extends BaseEntityView
                     public void componentSelected(MenuEvent ce) {
                         selectedVector = gridVector.getSelectionModel().getSelectedItem();
                         if (selectedVector != null) {
-                            Integer val = (Integer) selectedVector.get("vector");
+                            Integer val = selectedVector.get("vector");
 
                             if (Registry.get(Constants.ENTITY_ATTRIBUTE_MODEL) != null) {
 
@@ -863,7 +859,7 @@ public class MatchConfigurationView extends BaseEntityView
         cp.add(tabPanel);
         container.add(cp);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();
@@ -873,8 +869,8 @@ public class MatchConfigurationView extends BaseEntityView
     private void setMatchValue(BaseModelData selection, String match, String matchOther1, String matchOther2,
             int other1, int other2) {
 
-        int matchDefault = (Integer) selection.get("matchDefault");
-        boolean val = (Boolean) selection.get(match);
+        int matchDefault = selection.get("matchDefault");
+        boolean val = selection.get(match);
 
         if (val == true) {
             selection.set(match, false);
@@ -1841,10 +1837,10 @@ public class MatchConfigurationView extends BaseEntityView
                     ListStore<BaseModelData> store, Grid<BaseModelData> grid) {
 
                 // get cell value
-                String value = (String) model.get(property);
-                String attributeName = (String) model.get("attribute");
-                String valueLeft = (String) model.get("leftRecord");
-                String valueRight = (String) model.get("rightRecord");
+                String value = model.get(property);
+                String attributeName = model.get("attribute");
+                String valueLeft = model.get("leftRecord");
+                String valueRight = model.get("rightRecord");
 
                 String backgroundColor = "lightgrey";
                 if (valueLeft == null && valueRight == null) {
@@ -2022,9 +2018,9 @@ public class MatchConfigurationView extends BaseEntityView
                             // Info.display("Information: ", field.getLeftRecord().getEntityDefinitionName());
 
                             // non match fields
-                            List<MatchFieldWeb> fields = (List<MatchFieldWeb>) currentConfig.getMatchFields();
+                            List<MatchFieldWeb> fields = currentConfig.getMatchFields();
                             nonmatchFieldMap.clear();
-                            int val = (Integer) field.getVector();
+                            int val = field.getVector();
                             int j = 0;
                             for (MatchFieldWeb matchField : fields) {
                                 // set bit such as 1, 10, 100, 1000

@@ -34,7 +34,7 @@ public class ReportRequest extends BaseObject implements Serializable
 	private static final long serialVersionUID = 1943429923033311936L;
 	
 	private Integer reportId;
-	private List<ReportRequestParameter> reportParameters = new java.util.ArrayList<ReportRequestParameter>();;
+	private List<ReportRequestParameter> reportParameters = new java.util.ArrayList<ReportRequestParameter>();
 	private Date requestDate;
 
 	public ReportRequest() {
@@ -93,11 +93,8 @@ public class ReportRequest extends BaseObject implements Serializable
 		} else if (!reportParameters.equals(other.reportParameters))
 			return false;
 		if (requestDate == null) {
-			if (other.requestDate != null)
-				return false;
-		} else if (!requestDate.equals(other.requestDate))
-			return false;
-		return true;
+			return other.requestDate == null;
+		} else return requestDate.equals(other.requestDate);
 	}
 
 	@Override

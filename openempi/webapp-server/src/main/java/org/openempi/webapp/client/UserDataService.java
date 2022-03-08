@@ -30,26 +30,26 @@ import com.google.gwt.user.client.rpc.RemoteService;
 
 public interface UserDataService extends RemoteService
 {
-	public List<UserWeb> getUsers() throws Exception;
+	List<UserWeb> getUsers() throws Exception;
 
-	public UserWeb saveUser(UserWeb user) throws Exception;
+	UserWeb saveUser(UserWeb user) throws Exception;
 	
-	public UserWeb getUserByUsername(String username) throws Exception;
+	UserWeb getUserByUsername(String username) throws Exception;
 	
-	public String deleteUser(UserWeb user) throws Exception;
+	String deleteUser(UserWeb user) throws Exception;
 	
-	public UserWeb authenticateUser(String username, String password, boolean verifyPasswordOnly) throws Exception;
+	UserWeb authenticateUser(String username, String password, boolean verifyPasswordOnly) throws Exception;
 	
-	public List<RoleWeb> getRoles() throws Exception;
+	List<RoleWeb> getRoles() throws Exception;
 	
-	public RoleWeb saveRole(RoleWeb role) throws Exception;
+	RoleWeb saveRole(RoleWeb role) throws Exception;
 	
-	public RoleWeb getRole(Long roleId) throws Exception;
+	RoleWeb getRole(Long roleId) throws Exception;
 	
-	public String deleteRole(RoleWeb role) throws Exception;
+	String deleteRole(RoleWeb role) throws Exception;
 	
-	public List<PermissionWeb> getPermissions() throws Exception;
+	List<PermissionWeb> getPermissions() throws Exception;
 	
-	public Map<String,PermissionWeb> getUserPermissions(UserWeb user) throws Exception;
+	Map<String,PermissionWeb> getUserPermissions(UserWeb user) throws Exception;
 	
 }

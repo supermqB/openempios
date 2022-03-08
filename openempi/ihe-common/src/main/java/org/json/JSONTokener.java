@@ -42,7 +42,7 @@ public class JSONTokener {
     /**
      * The source string being tokenized.
      */
-    private String mySource;
+    private final String mySource;
 
 
     /**
@@ -448,7 +448,7 @@ public class JSONTokener {
      * @return  A JSONException object, suitable for throwing
      */
     public JSONException syntaxError(String message) {
-        return new JSONException(message + toString());
+        return new JSONException(message + this);
     }
 
 

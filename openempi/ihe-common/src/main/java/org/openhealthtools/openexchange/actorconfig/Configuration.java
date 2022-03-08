@@ -43,7 +43,7 @@ import org.openhealthtools.openexchange.datamodel.Identifier;
  */
 public class Configuration {
 
-	private static Log log = LogFactory.getLog(Configuration.class);
+	private static final Log log = LogFactory.getLog(Configuration.class);
 	/**
 	 * Gets an identifier description from this actor or the connection
 	 * of this actor is using.
@@ -106,7 +106,7 @@ public class Configuration {
 		if (pset == null) return null;
 		String result = pset.getValue(valueName);
 		if ((result == null) && isRequired)
-			throw new IheConfigurationException("Property set '" + setName + "' for actor/connection \"" + description.getName() + "\" has no value for \'" + valueName + "'");
+			throw new IheConfigurationException("Property set '" + setName + "' for actor/connection \"" + description.getName() + "\" has no value for '" + valueName + "'");
 		return result;
 	}
 
@@ -124,7 +124,7 @@ public class Configuration {
 			throw new IheConfigurationException("Invalid property value name (NULL)");
 		String result = description.getProperty(valueName);
 		if ((result == null) && isRequired)
-			throw new IheConfigurationException("Actor/Connection \"" + description.getName() + "\" has no value for \'" + valueName + "'");
+			throw new IheConfigurationException("Actor/Connection \"" + description.getName() + "\" has no value for '" + valueName + "'");
 		return result;
 	}
 
@@ -156,7 +156,7 @@ public class Configuration {
 		} else {
 			String translation = emap.getCodeValue(value);
 			if (isRequired && (translation == null))
-				throw new IheConfigurationException("No translation of '" + value.toString() + "' in string map '" + enumType.getSimpleName() + "' for actor/connection \"" + description.getName() + "\"");
+				throw new IheConfigurationException("No translation of '" + value + "' in string map '" + enumType.getSimpleName() + "' for actor/connection \"" + description.getName() + "\"");
 			return translation;
 		}
 	}

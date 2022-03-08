@@ -223,10 +223,10 @@ public class BaseSearchEntityView extends BaseEntityView
                       int colIndex, ListStore<BaseModelData> store, Grid<BaseModelData> grid) {
 
                       // get cell value
-                      String value = (String) model.get(property);
+                      String value = model.get(property);
                       // String attributeName = (String) model.get("attribute");
-                      String valueLeft = (String) model.get("leftRecord");
-                      String valueRight = (String) model.get("rightRecord");
+                      String valueLeft = model.get("leftRecord");
+                      String valueRight = model.get("rightRecord");
 
                       if (valueLeft == null && valueRight == null) {
                           return null;

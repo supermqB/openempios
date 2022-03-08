@@ -50,7 +50,7 @@ public interface PersonManagerService
 	 * @param person
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public Person addPerson(Person person) throws ApplicationException;
+    Person addPerson(Person person) throws ApplicationException;
 	
 	/**
 	 * Updates the attributes maintained in the EMPI about the person. The system will locate the person record using the person identifiers as
@@ -61,7 +61,7 @@ public interface PersonManagerService
 	 * @param person
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void updatePerson(Person person) throws ApplicationException;
+    void updatePerson(Person person) throws ApplicationException;
 
 	/**
 	 * Updates the attributes maintained in the EMPI about the person. The system will locate the person record using the internal person identifier.
@@ -72,7 +72,7 @@ public interface PersonManagerService
 	 * @param person
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public Person updatePersonById(Person person) throws ApplicationException;
+    Person updatePersonById(Person person) throws ApplicationException;
 	
 	/**
 	 * Deletes a person from the EMPI. The system locates the person record using the person identifiers as search criteria. If the record is not
@@ -82,7 +82,7 @@ public interface PersonManagerService
 	 *  @param personIdentifier
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void deletePerson(PersonIdentifier personIdentifier) throws ApplicationException;
+    void deletePerson(PersonIdentifier personIdentifier) throws ApplicationException;
 	
 	/**
 	 * Deletes a person from the EMPI. The system locates the person record using the person's internal unique identifier. If the record is not
@@ -92,7 +92,7 @@ public interface PersonManagerService
 	 *  @param personIdentifier
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void deletePersonById(Person person) throws ApplicationException;
+    void deletePersonById(Person person) throws ApplicationException;
 	
 	/**
 	 * Merges a person into another person record. This operation is usually the result of the creation of two duplicate records in the EMPI by one of the
@@ -102,7 +102,7 @@ public interface PersonManagerService
 	 * @param survivingIdentifer to be preserved
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void mergePersons(PersonIdentifier retiredIdentifier, PersonIdentifier survivingIdentifer) throws ApplicationException;
+    void mergePersons(PersonIdentifier retiredIdentifier, PersonIdentifier survivingIdentifer) throws ApplicationException;
 	
 	/**
 	 * Links two person records together as identified by the parameters PersonLink. The PersonLink parameter provides
@@ -111,7 +111,7 @@ public interface PersonManagerService
 	 * @param PersonLink must provide references to the unique identifiers of the two person records that must be linked together.
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public PersonLink linkPersons(PersonLink personLink) throws ApplicationException;
+    PersonLink linkPersons(PersonLink personLink) throws ApplicationException;
 		
 	/**
 	 * Removes the link between the two records that are currently linked together into a single cluster. The second entry referenced in the
@@ -127,7 +127,7 @@ public interface PersonManagerService
 	 * @param PersonLink must provide either the unique id of the link that must be removed or references to the two person records that must be unlinked
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void unlinkPersons(PersonLink personLink) throws ApplicationException;
+    void unlinkPersons(PersonLink personLink) throws ApplicationException;
 	
 	
 	/**
@@ -135,7 +135,7 @@ public interface PersonManagerService
 	 * 
 	 * @param person
 	 */
-	public Person getPerson(List<PersonIdentifier> personIdentifiers);
+    Person getPerson(List<PersonIdentifier> personIdentifiers);
 	
 	/**
 	 * Imports a person record to the EMPI. The system will first check to see if a user with the same identifier is already known to the system. If the person
@@ -146,7 +146,7 @@ public interface PersonManagerService
 	 * @param person
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public Person importPerson(Person person) throws ApplicationException;
+    Person importPerson(Person person) throws ApplicationException;
 	
 	/**
 	 * Adds a new identifier domain to the EMPI repository. The system will first check to see if the identifier domain is already known to the
@@ -156,14 +156,14 @@ public interface PersonManagerService
 	 * @param identifierDomain
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public IdentifierDomain addIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
+    IdentifierDomain addIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
 	
 	/**
 	 * Update an existing identifier domain. The existing entry is located using the internal identifier.
 	 * 
 	 * @param identifierDomain
 	 */
-	public IdentifierDomain updateIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
+    IdentifierDomain updateIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
 	
 	/**
 	 * Deletes an identifier domain from the repository. The caller must provide the internal primary key that identifier the identifier domain,
@@ -172,7 +172,7 @@ public interface PersonManagerService
 	 *  @param identifierDomain
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void deleteIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
+    void deleteIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
 	
 	/**
 	 * This method finds person entries that do not have a global identifier assigned to them and for each cluster
@@ -186,7 +186,7 @@ public interface PersonManagerService
 	 * 
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public boolean assignGlobalIdentifier();
+    boolean assignGlobalIdentifier();
 	
 	/**
 	 * This method generates a unique identifier domain identifier within the given universalIdentifierTypeCode. This method
@@ -194,7 +194,7 @@ public interface PersonManagerService
 	 * for which OpenEMPI collects person identity information for.
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public IdentifierDomain obtainUniqueIdentifierDomain(String universalIdentifierTypeCode);
+    IdentifierDomain obtainUniqueIdentifierDomain(String universalIdentifierTypeCode);
 	
 	/**
 	 * The addIdentifierDomainAttribute method allows the caller to associate with a given identifier
@@ -215,7 +215,7 @@ public interface PersonManagerService
 	 * add operation completion or null if the add operation fails.
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public IdentifierDomainAttribute addIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName, String attributeValue);
+    IdentifierDomainAttribute addIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName, String attributeValue);
 	
 	/**
 	 * This method updates an existing identifier domain attribute with the name and value specified.
@@ -223,7 +223,7 @@ public interface PersonManagerService
 	 * @param identifierDomainAttribute
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void updateIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
+    void updateIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
 
 	/**
 	 * This method removes an existing identifier domain attribute. The identifier domain attribute id
@@ -232,7 +232,7 @@ public interface PersonManagerService
 	 * @param identifierDomainAttribute
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void removeIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
+    void removeIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
 	
 	/**
 	 * This method invokes the underlying matching algorithm of the system and requests that
@@ -242,13 +242,13 @@ public interface PersonManagerService
 	 * records in the repository.
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void linkAllRecordPairs() throws ApplicationException;
+    void linkAllRecordPairs() throws ApplicationException;
 	
 	/**
 	 * 
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void initializeRepository(Entity entity) throws ApplicationException;
+    void initializeRepository(Entity entity) throws ApplicationException;
 	
 	/**
 	 * This method iterates over all records in the repository and generates the custom
@@ -256,7 +256,7 @@ public interface PersonManagerService
 	 * values from their current settings so that there is no confusing overlap of values
 	 * left in the repository.
 	 */
-	public void generateCustomFields() throws ApplicationException;
+    void generateCustomFields() throws ApplicationException;
 	
 	/**
 	 * This method clears the values of all custom fields. It is usually used before
@@ -266,7 +266,7 @@ public interface PersonManagerService
 	 * 
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void clearCustomFields();
+    void clearCustomFields();
 	
 	/**
 	 * This method removes all the links in the repository that have been generated by
@@ -276,10 +276,10 @@ public interface PersonManagerService
 	 * 
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void clearAllLinks();
+    void clearAllLinks();
 	
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void generateCustomFields(final List<Person> records);
+    void generateCustomFields(final List<Person> records);
 	
 	/**
 	 * This method will add a new review record pair entry into the repository. This entry
@@ -292,10 +292,10 @@ public interface PersonManagerService
 	 * 
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void addReviewRecordPair(ReviewRecordPair recordPair) throws ApplicationException;
+    void addReviewRecordPair(ReviewRecordPair recordPair) throws ApplicationException;
 
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void addReviewRecordPairs(List<ReviewRecordPair> recordPairs) throws ApplicationException;
+    void addReviewRecordPairs(List<ReviewRecordPair> recordPairs) throws ApplicationException;
 
 	/**
 	 * This method manually creates a link between the two referenced records or marks thems
@@ -310,7 +310,7 @@ public interface PersonManagerService
 	 * whether the link should be made or not
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void matchReviewRecordPair(ReviewRecordPair recordPair) throws ApplicationException;
+    void matchReviewRecordPair(ReviewRecordPair recordPair) throws ApplicationException;
 	
 	/**
 	 * This method deletes the specified review record pair entry from the repository. This
@@ -320,7 +320,7 @@ public interface PersonManagerService
 	 * @param recordPair The record review entry identified by the reviewRecordPairId attribute.
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void deleteReviewRecordPair(ReviewRecordPair recordPair);
+    void deleteReviewRecordPair(ReviewRecordPair recordPair);
 	
 	/**
 	 * This method deletes all the review record pair entries from the repository. This
@@ -329,7 +329,7 @@ public interface PersonManagerService
 	 * 
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void deleteReviewRecordPairs();
+    void deleteReviewRecordPairs();
 	
 	/**
 	 * This method completely wipes out all data associated with a person record from
@@ -339,5 +339,5 @@ public interface PersonManagerService
 	 * patient records and this method eliminates elements of that trail.
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void removePerson(Integer personId) throws ApplicationException;
+    void removePerson(Integer personId) throws ApplicationException;
 }

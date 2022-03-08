@@ -283,11 +283,8 @@ public class Entity extends BaseObject implements Serializable
 		if (versionId != null && other.versionId != null && !versionId.equals(other.versionId))
 			return false;
 		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
+			return other.name == null;
+		} else return name.equals(other.name);
 	}
 
 	@Override

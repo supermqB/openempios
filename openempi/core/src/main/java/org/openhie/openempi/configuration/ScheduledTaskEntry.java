@@ -136,11 +136,8 @@ public class ScheduledTaskEntry extends BaseObject
 			return false;
 		ScheduledTaskEntry other = (ScheduledTaskEntry) obj;
 		if (taskImplementation == null) {
-			if (other.taskImplementation != null)
-				return false;
-		} else if (!taskImplementation.equals(other.taskImplementation))
-			return false;
-		return true;
+			return other.taskImplementation == null;
+		} else return taskImplementation.equals(other.taskImplementation);
 	}
 
 	@Override

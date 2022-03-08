@@ -37,7 +37,7 @@ import org.apache.log4j.Logger;
 class Log4JMessenger implements IMessageTransmitter {
 		
 	private static Logger log4Messenger;
-	private AuditTrailDescription desc;
+	private final AuditTrailDescription desc;
 
 	public Log4JMessenger(AuditTrailDescription description) {
 		desc = description;

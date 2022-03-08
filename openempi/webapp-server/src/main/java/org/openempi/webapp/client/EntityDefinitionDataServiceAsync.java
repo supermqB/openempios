@@ -30,15 +30,15 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface EntityDefinitionDataServiceAsync
 {
-	public void loadEntities(AsyncCallback<List<EntityWeb>> callback);
+	void loadEntities(AsyncCallback<List<EntityWeb>> callback);
 	
-	public void addEntity(EntityWeb entity, AsyncCallback<EntityWeb> callback);
+	void addEntity(EntityWeb entity, AsyncCallback<EntityWeb> callback);
 	
-	public void updateEntity(EntityWeb entity, AsyncCallback<EntityWeb> callback);
+	void updateEntity(EntityWeb entity, AsyncCallback<EntityWeb> callback);
 	
-	public void deleteEntity(EntityWeb entity, AsyncCallback<String> callback);
+	void deleteEntity(EntityWeb entity, AsyncCallback<String> callback);
 	
-	public void importEntity(UserFileWeb userFile, AsyncCallback<String> callback);
+	void importEntity(UserFileWeb userFile, AsyncCallback<String> callback);
     
-	public void exportEntity(EntityWeb entityModel, String fileName, AsyncCallback<String> callback);
+	void exportEntity(EntityWeb entityModel, String fileName, AsyncCallback<String> callback);
 }

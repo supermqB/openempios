@@ -47,9 +47,9 @@ public class DefaultPropertyConfig implements PropertyConfig {
 	private final static Log log = LogFactory.getLog(DefaultPropertyConfig.class);
 	
     /** Cached set of known Properties. Map<String(filename), Properties> */
-    private Map<String, Properties> allproperties = Collections.synchronizedMap(new HashMap<String, Properties>());
+    private final Map<String, Properties> allproperties = Collections.synchronizedMap(new HashMap<String, Properties>());
     /** Cached set of known local properties. Map<String(filename), Properties> */
-    private Map<String, Properties> allLocalProperties = Collections.synchronizedMap(new HashMap<String, Properties>());
+    private final Map<String, Properties> allLocalProperties = Collections.synchronizedMap(new HashMap<String, Properties>());
 
     /**
      * Constructor which takes an array of property files.

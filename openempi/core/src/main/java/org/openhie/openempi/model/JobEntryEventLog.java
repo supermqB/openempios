@@ -110,11 +110,8 @@ public class JobEntryEventLog extends BaseObject implements Serializable
             return false;
         JobEntryEventLog other = (JobEntryEventLog) obj;
         if (eventEntryEventLogId == null) {
-            if (other.eventEntryEventLogId != null)
-                return false;
-        } else if (!eventEntryEventLogId.equals(other.eventEntryEventLogId))
-            return false;
-        return true;
+            return other.eventEntryEventLogId == null;
+        } else return eventEntryEventLogId.equals(other.eventEntryEventLogId);
     }
 
     @Override

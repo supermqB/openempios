@@ -38,7 +38,7 @@ public class PdqFhirServer extends RestfulServer
 {
 	private static final long serialVersionUID = 1L;
 	private static final String PDQM_ACTOR_NAME = "pdsupfhir";
-    private Logger log = Logger.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private IPdSupplierAdapter pdAdapter;
 	private PdqSupplierFhir pdqSupplier;

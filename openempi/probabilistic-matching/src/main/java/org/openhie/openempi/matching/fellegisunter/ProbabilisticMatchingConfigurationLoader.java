@@ -53,7 +53,7 @@ import org.openhie.openempi.notification.ObservationEventType;
 
 public class ProbabilisticMatchingConfigurationLoader implements ConfigurationLoader
 {
-	private Log log = LogFactory.getLog(ProbabilisticMatchingConfigurationLoader.class);
+	private final Log log = LogFactory.getLog(ProbabilisticMatchingConfigurationLoader.class);
 	static final double DEFAULT_M_INITIAL_VALUE = 0.9;
 	static final double DEFAULT_U_INITIAL_VALUE = 0.1;
 	static final double DEFAULT_P_INITIAL_VALUE = 0.1;

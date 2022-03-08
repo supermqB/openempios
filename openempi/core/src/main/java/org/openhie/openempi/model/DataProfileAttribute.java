@@ -357,11 +357,8 @@ public class DataProfileAttribute extends BaseObject implements Serializable
 			return false;
 		DataProfileAttribute other = (DataProfileAttribute) obj;
 		if (attributeId == null) {
-			if (other.attributeId != null)
-				return false;
-		} else if (!attributeId.equals(other.attributeId))
-			return false;
-		return true;
+			return other.attributeId == null;
+		} else return attributeId.equals(other.attributeId);
 	}
 
 	@Override

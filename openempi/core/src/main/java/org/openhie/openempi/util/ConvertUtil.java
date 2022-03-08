@@ -304,18 +304,12 @@ public final class ConvertUtil
 				fieldNumberStr = fieldName.substring(7);
 			}
 			Integer fieldNumber = Integer.valueOf(fieldNumberStr);	// That allows signs and other stuff also
-			if (fieldNumber <= 0 || fieldNumber > Constants.CUSTOM_FIELD_MAX_NUMBER) {
-				return false;
-			}
+			return fieldNumber > 0 && fieldNumber <= Constants.CUSTOM_FIELD_MAX_NUMBER;
 		}
-		return true;
 	}
 
 	public static boolean isNullOrEmpty(String value) {
-		if (value == null || value.length() == 0) {
-			return true;
-		}
-		return false;
+		return value == null || value.length() == 0;
 	}
 
 	public static List<String> getAllModelAttributeNames(Record record) {
@@ -332,7 +326,7 @@ public final class ConvertUtil
 		java.util.Set<String> propertySet = record.getPropertyNames();
 		java.util.List<String> sortedList = new java.util.ArrayList<String>(propertySet.size());
 		for (String property : propertySet) {
-			if (!(needCustomFields ^ isValidCustomFieldName(property))) {
+			if (needCustomFields == isValidCustomFieldName(property)) {
 				sortedList.add(property);
 			}
 		}
@@ -683,7 +677,7 @@ public final class ConvertUtil
                 int left = reviewRecordPairId.intValue() >> 16;
                 int right = reviewRecordPairId.intValue() & 0xFF;
 
-                recordLink = new RecordLink("#"+Integer.toString(left)+":"+Integer.toString(right));
+                recordLink = new RecordLink("#"+ left +":"+ right);
             }
 
             if (recordPair.getPersonLeft() != null && recordPair.getPersonRight() != null) {
@@ -709,9 +703,9 @@ public final class ConvertUtil
 
     public static RecordLink createRecordLinkFromPersons(Entity entityDef, PersonLink personLink, Person personLeft, Person personRight) {
         if (personLink != null && personLeft != null && personRight != null) {
-            RecordLink recordLink = new RecordLink();;
+            RecordLink recordLink = new RecordLink();
 
-            recordLink.setLeftRecord(getRecordFromPerson(entityDef, personLeft));
+			recordLink.setLeftRecord(getRecordFromPerson(entityDef, personLeft));
             recordLink.setRightRecord(getRecordFromPerson(entityDef, personRight));
 
             Date date = personLink.getDateCreated();
@@ -763,7 +757,7 @@ public final class ConvertUtil
                 int left = personbLinkId.intValue() >> 16;
                 int right = personbLinkId.intValue() & 0xFF;
 
-                recordLink = new RecordLink("#"+Integer.toString(left)+":"+Integer.toString(right));
+                recordLink = new RecordLink("#"+ left +":"+ right);
             }
 
             if (personLink.getPersonLeft() != null && personLink.getPersonRight() != null) {

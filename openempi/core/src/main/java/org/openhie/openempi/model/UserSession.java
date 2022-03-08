@@ -141,12 +141,9 @@ public class UserSession implements Serializable
             return false;
         UserSession other = (UserSession) obj;
         if (sessionKey == null) {
-            if (other.sessionKey != null)
-                return false;
-        } else if (!sessionKey.equals(other.sessionKey))
-            return false;
-        return true;
-    }
+			return other.sessionKey == null;
+        } else return sessionKey.equals(other.sessionKey);
+	}
 
 	@Override
     public int hashCode() {

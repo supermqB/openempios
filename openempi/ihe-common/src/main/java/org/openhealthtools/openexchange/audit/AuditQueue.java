@@ -50,7 +50,7 @@ class AuditQueue extends Thread {
 	
 	/* A map of audit repository name and its assigned audit queue. 
 	 * Structure: Map<String(audit repository name (i.e. connection name)), AuditQueue> */
-	private static Map<String, AuditQueue> queueMap = Collections.synchronizedMap(new HashMap<String, AuditQueue>());
+	private static final Map<String, AuditQueue> queueMap = Collections.synchronizedMap(new HashMap<String, AuditQueue>());
 	
 	/**
 	 * Factory method to get an instance of AuditQueue.

@@ -72,7 +72,7 @@ import com.google.gwt.core.client.GWT;
 public class ManageUserView extends View
 {
 	private Grid<UserWeb> grid;
-	private ListStore<UserWeb> userStore = new ListStore<UserWeb>();
+	private final ListStore<UserWeb> userStore = new ListStore<UserWeb>();
 	private ListStore<UserWeb> userPageStore;
 	private PagingToolBar toolBar;
 	
@@ -366,7 +366,7 @@ public class ManageUserView extends View
 		data.setMargins(new Margins(2, 2, 2, 2));
 		container.add(gridContainer, data);
 
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.NeedlemanWunch;
 
 public class NeedlemanWunschDistanceMetric extends AbstractDistanceMetric
 {
-	private NeedlemanWunch needlemanWunsch = new NeedlemanWunch();
+	private final NeedlemanWunch needlemanWunsch = new NeedlemanWunch();
 
 	public NeedlemanWunschDistanceMetric() {
 	}

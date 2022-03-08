@@ -193,11 +193,8 @@ public class IdentifierUpdateEvent extends BaseObject implements Serializable
 			return false;
 		IdentifierUpdateEvent other = (IdentifierUpdateEvent) obj;
 		if (identifierUpdateEventId == null) {
-			if (other.identifierUpdateEventId != null)
-				return false;
-		} else if (!identifierUpdateEventId.equals(other.identifierUpdateEventId))
-			return false;
-		return true;
+			return other.identifierUpdateEventId == null;
+		} else return identifierUpdateEventId.equals(other.identifierUpdateEventId);
 	}
 
 	public int hashCode() {

@@ -53,7 +53,7 @@ import org.hibernate.annotations.Parameter;
 public class Report extends BaseObject implements Serializable
 {
 	private static final long serialVersionUID = 1943429923033311936L;
-	private Logger log = Logger.getLogger(getClass());
+	private final Logger log = Logger.getLogger(getClass());
 	
 	private Integer reportId;
 	private String name;
@@ -224,11 +224,8 @@ public class Report extends BaseObject implements Serializable
 		} else if (!name.equals(other.name))
 			return false;
 		if (reportId == null) {
-			if (other.reportId != null)
-				return false;
-		} else if (!reportId.equals(other.reportId))
-			return false;
-		return true;
+			return other.reportId == null;
+		} else return reportId.equals(other.reportId);
 	}
 
 	@Override

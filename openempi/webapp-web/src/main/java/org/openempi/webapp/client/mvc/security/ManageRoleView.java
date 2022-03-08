@@ -64,18 +64,18 @@ import com.google.gwt.core.client.GWT;
 public class ManageRoleView extends View
 {
 	private Grid<RoleWeb> grid;
-	private ListStore<RoleWeb> store = new ListStore<RoleWeb>();
+	private final ListStore<RoleWeb> store = new ListStore<RoleWeb>();
 
 	private Dialog  roleDialog = null;
 	private String  addEditDeleteMode = "ADD";
 
 	private RoleWeb editedRole;
 
-	private TextField<String> roleName = new TextField<String>();
-	private TextField<String> roleDescription = new TextField<String>();
+	private final TextField<String> roleName = new TextField<String>();
+	private final TextField<String> roleDescription = new TextField<String>();
 
 	private CheckBoxListView<PermissionWeb> permissionCheckBoxList;
-	private ListStore<PermissionWeb> permissionStore = new ListStore<PermissionWeb>();;
+	private final ListStore<PermissionWeb> permissionStore = new ListStore<PermissionWeb>();
 
 	private LayoutContainer container;
 
@@ -98,7 +98,7 @@ public class ManageRoleView extends View
 		} else if (event.getType() == AppEvents.ManageRoleReceived) {
 
 			// Info.display("Information", "ManageRoleReceived");
-			List<RoleWeb> roles = (List<RoleWeb>) event.getData();
+			List<RoleWeb> roles = event.getData();
 			store.removeAll();
 			store.add(roles);
 
@@ -107,7 +107,7 @@ public class ManageRoleView extends View
 
 		} else if (event.getType() == AppEvents.RoleUpdateRenderData) {
 
-			RoleWeb renderRole = (RoleWeb) event.getData();
+			RoleWeb renderRole = event.getData();
 			// Info.display("Information", "Role: "+ editedRole.getName());
 
 	    	List<PermissionWeb> permissionList = Registry.get(Constants.PERMISSION_LIST);
@@ -124,7 +124,7 @@ public class ManageRoleView extends View
 
 		} else if (event.getType() == AppEvents.RoleDeleteRenderData) {
 
-			RoleWeb renderRole = (RoleWeb) event.getData();
+			RoleWeb renderRole = event.getData();
 			// Info.display("Information", "Role: "+ editedRole.getName());
 
 	    	List<PermissionWeb> permissionList = Registry.get(Constants.PERMISSION_LIST);
@@ -141,7 +141,7 @@ public class ManageRoleView extends View
 
 		} else if (event.getType() == AppEvents.ManageRoleAddComplete) {
 
-	        RoleWeb newRole = (RoleWeb) event.getData();
+	        RoleWeb newRole = event.getData();
 	       	store.add(newRole);
 
 			List<RoleWeb> roleEntries = Registry.get(Constants.ROLE_LIST);
@@ -153,7 +153,7 @@ public class ManageRoleView extends View
 		} else if (event.getType() == AppEvents.ManageRoleUpdateComplete) {
 
 	       	store.remove(editedRole);
-	        RoleWeb updateRole = (RoleWeb) event.getData();
+	        RoleWeb updateRole = event.getData();
 	       	store.add(updateRole);
 
 			List<RoleWeb> roleEntries = Registry.get(Constants.ROLE_LIST);
@@ -367,7 +367,7 @@ public class ManageRoleView extends View
 
 		container.add(cp);
 
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

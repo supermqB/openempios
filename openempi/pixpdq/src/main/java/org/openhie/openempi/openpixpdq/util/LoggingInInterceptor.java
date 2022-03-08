@@ -250,7 +250,7 @@ public class LoggingInInterceptor extends AbstractLoggingInterceptor {
 
     private String hasContentTypeKey(Set<String> keySet) {
     	for (String key : keySet) {
-    		if (key.toLowerCase().equals("content-type")) {
+    		if (key.equalsIgnoreCase("content-type")) {
     			return key;
     		}
     	}

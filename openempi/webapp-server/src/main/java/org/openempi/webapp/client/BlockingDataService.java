@@ -30,15 +30,15 @@ import com.google.gwt.user.client.rpc.RemoteService;
 
 public interface BlockingDataService extends RemoteService
 {
-	public BlockingEntryListWeb loadTraditionalBlockingConfigurationData(String entityName) throws Exception;
+	BlockingEntryListWeb loadTraditionalBlockingConfigurationData(String entityName) throws Exception;
 	
-	public SortedNeighborhoodConfigurationWeb loadSortedNeighborhoodBlockingConfigurationData(String entityName) throws Exception;
+	SortedNeighborhoodConfigurationWeb loadSortedNeighborhoodBlockingConfigurationData(String entityName) throws Exception;
 	
-	public SuffixArrayBlockingConfigurationWeb loadSuffixArrayBlockingConfigurationData(String entityName) throws Exception;
+	SuffixArrayBlockingConfigurationWeb loadSuffixArrayBlockingConfigurationData(String entityName) throws Exception;
 	
-	public String saveTraditionalBlockingConfigurationData(BlockingEntryListWeb configuration) throws Exception;
+	String saveTraditionalBlockingConfigurationData(BlockingEntryListWeb configuration) throws Exception;
 	
-	public String saveSortedNeighborhoodBlockingConfigurationData(SortedNeighborhoodConfigurationWeb configuration) throws Exception;
+	String saveSortedNeighborhoodBlockingConfigurationData(SortedNeighborhoodConfigurationWeb configuration) throws Exception;
 	
-	public String saveSuffixArrayBlockingConfigurationData(SuffixArrayBlockingConfigurationWeb configuration) throws Exception;
+	String saveSuffixArrayBlockingConfigurationData(SuffixArrayBlockingConfigurationWeb configuration) throws Exception;
 }

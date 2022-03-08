@@ -24,5 +24,5 @@ import org.openhie.openempi.ValidationException;
 
 public interface ValidationService
 {
-	public void validate(Object obj) throws ValidationException;
+	void validate(Object obj) throws ValidationException;
 }

@@ -52,9 +52,9 @@ public class NotificationServiceImpl extends BaseServiceImpl implements Notifica
 {
 	private JmsTemplate jmsTemplate;
 	private Map<String,Topic> topicMap;
-	private Map<String,MessageListenerImpl> listenerMap;
+	private final Map<String,MessageListenerImpl> listenerMap;
 	private static BrokerService brokerService;
-	private MessageHandler loggingMessageHandler = new LoggingMessageHandler();
+	private final MessageHandler loggingMessageHandler = new LoggingMessageHandler();
 	private boolean brokerInitialized = false;
 	
 	public NotificationServiceImpl() {
@@ -234,11 +234,8 @@ public class NotificationServiceImpl extends BaseServiceImpl implements Notifica
 	}
 
 	private boolean isValidHandler(MessageHandler handler) {
-		if (handler == null || handler.getClientId() == null || 
-				handler.getClientId().length() == 0) {
-			return false;
-		}
-		return true;
+		return handler != null && handler.getClientId() != null &&
+				handler.getClientId().length() != 0;
 	}
 	
 	public void startup() {
@@ -264,7 +261,7 @@ public class NotificationServiceImpl extends BaseServiceImpl implements Notifica
 						EventType.MERGE_EVENT_TYPE.getEventTypeName(),
 						EventType.UPDATE_EVENT_TYPE.getEventTypeName()
 					};
-				registerListener((List<String>) Arrays.asList(events), loggingMessageHandler);
+				registerListener(Arrays.asList(events), loggingMessageHandler);
 				log.info("Registered the logging listener...");
 			} catch (java.io.IOException e) {
 				log.warn("It seems that the Notification Broker is already up and running: " + e, e);
@@ -290,7 +287,7 @@ public class NotificationServiceImpl extends BaseServiceImpl implements Notifica
 					EventType.MERGE_EVENT_TYPE.getEventTypeName(),
 					EventType.UPDATE_EVENT_TYPE.getEventTypeName()
 				};
-			unregisterListener((List<String>) Arrays.asList(events), loggingMessageHandler);
+			unregisterListener(Arrays.asList(events), loggingMessageHandler);
 			log.info("Unregistered the logging listener...");
 			
 			log.info("Shutting down the notification broker...");
@@ -315,10 +312,7 @@ public class NotificationServiceImpl extends BaseServiceImpl implements Notifica
 	
 	private boolean isListenerRegistered(MessageHandler handler, String eventTypeName) {
 		String key = buildMapKey(handler, eventTypeName);
-		if (listenerMap.get(key) != null) {
-			return true;
-		}
-		return false;
+		return listenerMap.get(key) != null;
 	}
 
 	private String buildMapKey(MessageHandler handler, String eventTypeName) {

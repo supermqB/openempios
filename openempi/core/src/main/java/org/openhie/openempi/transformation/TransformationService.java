@@ -25,15 +25,15 @@ import java.util.Map;
 
 public interface TransformationService
 {
-	public TransformationFunctionType[] getTransformationFunctionTypes();
+	TransformationFunctionType[] getTransformationFunctionTypes();
 	
-	public List<String> getTransformationFunctionNames();
+	List<String> getTransformationFunctionNames();
 	
-	public TransformationFunctionType getTransformationFunctionType(String name);
+	TransformationFunctionType getTransformationFunctionType(String name);
 	
-	public void init(String transformationFunctionType, Map<String,String> configParameters);
+	void init(String transformationFunctionType, Map<String, String> configParameters);
 	
-	public Object transform(String transformationFunctionType, Object field);
+	Object transform(String transformationFunctionType, Object field);
 	
-	public Object transform(String transformationFunctionType, Object field, Map<String,String> functionConfigurationParameters);	
+	Object transform(String transformationFunctionType, Object field, Map<String, String> functionConfigurationParameters);
 }

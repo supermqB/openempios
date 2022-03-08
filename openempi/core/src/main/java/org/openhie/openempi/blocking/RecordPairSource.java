@@ -22,6 +22,6 @@ package org.openhie.openempi.blocking;
 
 public interface RecordPairSource
 {
-	public void init();
-	public RecordPairIterator iterator();
+	void init();
+	RecordPairIterator iterator();
 }

@@ -28,13 +28,13 @@ import org.openhie.openempi.service.PersonQueryService;
 
 public interface PersonLoaderManager
 {
-	public void setupConnection(Map<String,Object> properties);
+	void setupConnection(Map<String, Object> properties);
 	
-	public Person addPerson(Person person) throws ApplicationException;
+	Person addPerson(Person person) throws ApplicationException;
 	
-	public PersonQueryService getPersonQueryService();
+	PersonQueryService getPersonQueryService();
 	
-	public Map<String,Object> getPropertyMap();
+	Map<String,Object> getPropertyMap();
 	
-	public void shutdownConnection();
+	void shutdownConnection();
 }

@@ -37,7 +37,7 @@ public class BasicRecordPairIterator implements RecordPairIterator
 {
 	protected final Log log = LogFactory.getLog(getClass());
 
-	private BasicRecordPairSource recordPairSource;
+	private final BasicRecordPairSource recordPairSource;
 	private boolean initialized = false;
 	private int lastNameValuePairsSet;
 	private List<List<NameValuePair>> nameValuePairsList;

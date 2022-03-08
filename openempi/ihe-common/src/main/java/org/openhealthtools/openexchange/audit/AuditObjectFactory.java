@@ -84,15 +84,15 @@ import org.openhealthtools.openexchange.audit.jaxb.TypeValuePairType;
  * @version 1.0 - Nov 13, 2005
  */
 public class AuditObjectFactory {
-	private ObjectFactory messageFactory;
+	private final ObjectFactory messageFactory;
 	private EventIdentificationType eventId = null;
-	private List<AuditMessage.ActiveParticipant> activeParticipants;
-	private List<AuditSourceIdentificationType> sourceIds;
-	private List<ParticipantObjectIdentificationType> objectIds;
+	private final List<AuditMessage.ActiveParticipant> activeParticipants;
+	private final List<AuditSourceIdentificationType> sourceIds;
+	private final List<ParticipantObjectIdentificationType> objectIds;
 	
-	private String     dIE; // Default Id Encoding
-	private String     dNE; // Default NameEncoding
-	private IMessageTransmitter messenger;
+	private final String     dIE; // Default Id Encoding
+	private final String     dNE; // Default NameEncoding
+	private final IMessageTransmitter messenger;
 	
 	/** 
 	 * Generates and initializes a blank audit message factory. 

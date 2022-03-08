@@ -294,9 +294,7 @@ public class PixPdqConfigurationLoader extends ActorConfigurationLoader {
 			// Unregister any IHE Actor
 			if (actor instanceof IheAuditTrail) return true;
             if (actor instanceof IPixManager) return true;
-            if (actor instanceof IPdSupplier) return true;
-
-            return false;
+			return actor instanceof IPdSupplier;
 		}
 	}	
 }

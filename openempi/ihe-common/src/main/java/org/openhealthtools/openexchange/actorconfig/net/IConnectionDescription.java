@@ -37,14 +37,14 @@ public interface IConnectionDescription extends IBaseDescription {
      *
      * @return The IP or name of the other host.
      */
-    public String getHostname();
+    String getHostname();
 
     /**
      * Used to get the port on the remote host we connect to.
      *
      * @return The port as an integer, -1 if specific port is not set.
      */
-    public int getPort();
+    int getPort();
 
     /**
      * Used to get the URL of the service we connect to, not
@@ -52,19 +52,19 @@ public interface IConnectionDescription extends IBaseDescription {
      *
      * @return The url of the service, or null if not specified
      */
-    public String getUrlPath();
+    String getUrlPath();
 
     /**
      * Used to determine if this is an SSL/TLS connection.
      *
      * @return True if it is.
      */
-    public boolean isSecure();
+    boolean isSecure();
 
     /**
      * Used to determine if this is a server connection.
      *
      * @return True if it is.
      */
-    public boolean isServer();
+    boolean isServer();
 }

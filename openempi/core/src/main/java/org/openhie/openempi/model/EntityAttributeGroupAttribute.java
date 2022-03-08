@@ -97,11 +97,8 @@ public class EntityAttributeGroupAttribute extends BaseObject implements Seriali
 			return false;
 		EntityAttributeGroupAttribute other = (EntityAttributeGroupAttribute) obj;
 		if (entityAttribute == null) {
-			if (other.entityAttribute != null)
-				return false;
-		} else if (!entityAttribute.equals(other.entityAttribute))
-			return false;
-		return true;
+			return other.entityAttribute == null;
+		} else return entityAttribute.equals(other.entityAttribute);
 	}
 
 	@Override

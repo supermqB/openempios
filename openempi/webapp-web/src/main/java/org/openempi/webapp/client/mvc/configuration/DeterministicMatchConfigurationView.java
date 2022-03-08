@@ -76,9 +76,9 @@ public class DeterministicMatchConfigurationView extends View
 	private static final NumberFormat nfc = NumberFormat.getFormat("#,##0.0000");
 
 	private Grid<MatchRuleWeb> ruleGrid;
-	private GroupingStore<MatchRuleWeb> ruleStore = new GroupingStore<MatchRuleWeb>();
+	private final GroupingStore<MatchRuleWeb> ruleStore = new GroupingStore<MatchRuleWeb>();
 	private Grid<MatchFieldWeb> grid;
-	private ListStore<MatchFieldWeb> store = new ListStore<MatchFieldWeb>();
+	private final ListStore<MatchFieldWeb> store = new ListStore<MatchFieldWeb>();
 
 	private Dialog addMatchRuleDialog = null;
 	private Boolean addOrEditRuleMode = true;
@@ -89,12 +89,12 @@ public class DeterministicMatchConfigurationView extends View
 	private int editedFieldIndex = 0;
 	private MatchFieldWeb editedField;
 	private List<ModelPropertyWeb> attributeNames;
-	private ListStore<ModelPropertyWeb> attributeNameStore = new ListStore<ModelPropertyWeb>();
-	private ListStore<ModelPropertyWeb> comparatorFuncNameStore = new ListStore<ModelPropertyWeb>();
+	private final ListStore<ModelPropertyWeb> attributeNameStore = new ListStore<ModelPropertyWeb>();
+	private final ListStore<ModelPropertyWeb> comparatorFuncNameStore = new ListStore<ModelPropertyWeb>();
 
-	private ComboBox<ModelPropertyWeb> attributeNameCombo = new ComboBox<ModelPropertyWeb>();
-	private ComboBox<ModelPropertyWeb> comparatorFuncNameCombo = new ComboBox<ModelPropertyWeb>();
-	private NumberField matchThresholdEdit = new NumberField();
+	private final ComboBox<ModelPropertyWeb> attributeNameCombo = new ComboBox<ModelPropertyWeb>();
+	private final ComboBox<ModelPropertyWeb> comparatorFuncNameCombo = new ComboBox<ModelPropertyWeb>();
+	private final NumberField matchThresholdEdit = new NumberField();
 
 	private LayoutContainer container;
 
@@ -102,7 +102,7 @@ public class DeterministicMatchConfigurationView extends View
 	public DeterministicMatchConfigurationView(Controller controller) {
 		super(controller);
 
-		List<ModelPropertyWeb> comparatorFuncNames = (List<ModelPropertyWeb>) Registry.get(Constants.COMPARATOR_FUNCTION_NAMES);
+		List<ModelPropertyWeb> comparatorFuncNames = Registry.get(Constants.COMPARATOR_FUNCTION_NAMES);
 
 		try {
 			comparatorFuncNameStore.add(comparatorFuncNames);
@@ -118,7 +118,7 @@ public class DeterministicMatchConfigurationView extends View
 		} else if (event.getType() == AppEvents.DeterministicMatchConfigurationReceived) {
 			ruleStore.removeAll();
 
-			MatchRuleEntryListWeb config = (MatchRuleEntryListWeb) event.getData();
+			MatchRuleEntryListWeb config = event.getData();
             List<MatchRuleWeb> fields = config.getMatchRuleEntries();
 
             // Matching rules
@@ -148,7 +148,7 @@ public class DeterministicMatchConfigurationView extends View
         GWT.log("Initializing the UI ", null);
 
         attributeNameStore.removeAll();
-        attributeNames = (List<ModelPropertyWeb>) Registry.get(Constants.PERSON_MODEL_ALL_ATTRIBUTE_NAMES);
+        attributeNames = Registry.get(Constants.PERSON_MODEL_ALL_ATTRIBUTE_NAMES);
         if (attributeNames!= null) {
            attributeNameStore.add(attributeNames);
         }
@@ -289,7 +289,7 @@ public class DeterministicMatchConfigurationView extends View
 
         container.add(cp);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();

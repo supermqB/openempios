@@ -133,14 +133,14 @@ public class EntityLinkView extends BaseEntityView
 	private ListStore<RecordLinkWeb> pairStore = new ListStore<RecordLinkWeb>();
 	private List<MatchFieldWeb> fields = null;
 
-	private ListStore<IdentifierWeb> leftIdentifierStore = new ListStore<IdentifierWeb>();
-	private ListStore<IdentifierWeb> rightIdentifierStore = new ListStore<IdentifierWeb>();
+	private final ListStore<IdentifierWeb> leftIdentifierStore = new ListStore<IdentifierWeb>();
+	private final ListStore<IdentifierWeb> rightIdentifierStore = new ListStore<IdentifierWeb>();
 
 	private Grid<BaseModelData> gridLinkPair;
-	private ListStore<BaseModelData> linkPairStore = new ListStore<BaseModelData>();
+	private final ListStore<BaseModelData> linkPairStore = new ListStore<BaseModelData>();
 
 	private Map<String, String> recordFieldMap;
-	private Map<String, String> nonmatchFieldMap = new HashMap<String, String>();
+	private final Map<String, String> nonmatchFieldMap = new HashMap<String, String>();
 
 	public EntityLinkView(Controller controller) {
 		super(controller);
@@ -152,7 +152,7 @@ public class EntityLinkView extends BaseEntityView
 
 		if (event.getType() == AppEvents.EntityLinkView) {
 
-			SystemConfigurationWeb systemInfo = (SystemConfigurationWeb) Registry.get(Constants.SYSTEM_CONFIGURATION_INFO);
+			SystemConfigurationWeb systemInfo = Registry.get(Constants.SYSTEM_CONFIGURATION_INFO);
 			if (systemInfo != null && systemInfo.getMatchingAlgorithmName().contains("Deterministic Matching Algorithm")){
 
 				// Info.display("Information", "Deterministic Matching Algorithm");
@@ -168,7 +168,7 @@ public class EntityLinkView extends BaseEntityView
 //            ExactMatchingConfigurationWeb config = (ExactMatchingConfigurationWeb) event.getData();
 //            fields = (List<MatchFieldWeb>) config.getMatchFields();
 
-            MatchRuleEntryListWeb config = (MatchRuleEntryListWeb) event.getData();
+            MatchRuleEntryListWeb config = event.getData();
             List<MatchRuleWeb> matchRuleFields = config.getMatchRuleEntries();
 
             fields = new ArrayList<MatchFieldWeb>();
@@ -216,12 +216,12 @@ public class EntityLinkView extends BaseEntityView
 		} else if (event.getType() == AppEvents.MatchConfigurationReceived) {
 	    	// Info.display("Information", "MatchConfigurationReceived");
 
-			MatchConfigurationWeb config = (MatchConfigurationWeb) event.getData();
+			MatchConfigurationWeb config = event.getData();
 
 			if (Registry.get(Constants.ENTITY_ATTRIBUTE_MODEL) != null) {
 
 				currentEntity = Registry.get(Constants.ENTITY_ATTRIBUTE_MODEL);
-	            fields = (List<MatchFieldWeb>) config.getMatchFields();
+	            fields = config.getMatchFields();
 	            for (MatchFieldWeb matchField : fields) {
 /*	                EntityAttributeWeb attribute = currentEntity.findEntityAttributeByName(matchField.getFieldName());
 	                if (attribute != null) {
@@ -273,7 +273,7 @@ public class EntityLinkView extends BaseEntityView
 */
 		} else if (event.getType() == AppEvents.EntityOneLinkPairRequest) {
 			// Info.display("Information", "RecordLink Received.");
-			RecordLinkWeb entityPair = (RecordLinkWeb) event.getData();
+			RecordLinkWeb entityPair = event.getData();
 
 			leftIdentifierStore.removeAll();
 		    rightIdentifierStore.removeAll();
@@ -438,7 +438,7 @@ public class EntityLinkView extends BaseEntityView
 	 	    					       // set bit such as 1, 10, 100, 1000
 	 	    						   int bit = (int) Math.pow(2, j);
 //	 	    						   String value = matchField.getFieldName() + ":" + Integer.toString(bit);
-	                                   String value = matchField.getFieldDescription() + ":" + Integer.toString(bit);
+	                                   String value = matchField.getFieldDescription() + ":" + bit;
 	 	    						   entityPair.set(matchField.getFieldName(), value);
 	 	    						   j++;
 	 	    					   }
@@ -511,7 +511,7 @@ public class EntityLinkView extends BaseEntityView
 			          int colIndex, ListStore<BaseModelData> store, Grid<BaseModelData> grid) {
 
 			    	  // get cell value:  name : bit
-			          String value = (String) model.get(property);
+			          String value = model.get(property);
 			          String[] result = value.split(":");
 			          String name = result[0];
 			          int bit = Integer.parseInt(result[1]);
@@ -520,7 +520,7 @@ public class EntityLinkView extends BaseEntityView
 			          int color = 0;
 			          int val = 0;
 			          if (model.get("vector") != null) {
-	                      val = (Integer) model.get("vector");
+	                      val = model.get("vector");
 	                      color = val & bit;
 			          }
 			          String backgroundColor = "#E79191"; //"orangered";
@@ -575,7 +575,7 @@ public class EntityLinkView extends BaseEntityView
 				      		nonmatchFieldMap.clear();
 		                    int val = 0;
 		                    if (field.getVector() != null) {
-		                        val = (Integer) field.getVector();
+		                        val = field.getVector();
 		                    }
 	 	    				int j = 0;
 	 	    				for (MatchFieldWeb matchField : fields) {
@@ -707,7 +707,7 @@ public class EntityLinkView extends BaseEntityView
 			    	  // get cell value
 			          String value = getStringValueFromModel(model, property);
 			          
-			          String attributeName = (String) model.get("attribute");
+			          String attributeName = model.get("attribute");
 			          String valueLeft = getStringValueFromModel(model, "leftRecord");
 			          String valueRight = getStringValueFromModel(model, "rightRecord");
 
@@ -929,7 +929,7 @@ public class EntityLinkView extends BaseEntityView
 		container.add(gridContainer, new BorderLayoutData(LayoutRegion.NORTH, 250));
 
 
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

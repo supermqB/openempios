@@ -38,7 +38,7 @@ public interface MatchingService
 	 *   
 	 * @throws ApplicationException
 	 */
-	public void initializeRepository(String entityName) throws ApplicationException;
+    void initializeRepository(String entityName) throws ApplicationException;
 
 	/**
 	 * The getMatchingServiceId method returns a unique identifier for the matching algorithm.
@@ -47,7 +47,7 @@ public interface MatchingService
 	 * 
 	 * @return The unique identifier of the particular Matching Algorithm
 	 */
-	public int getMatchingServiceId();
+    int getMatchingServiceId();
 
 	/**
 	 * This match method takes a record as a parameter and returns all the records that the
@@ -57,7 +57,7 @@ public interface MatchingService
 	 * @param record
 	 * @return
 	 */
-	public Set<RecordPair> match(Record record) throws ApplicationException;
+    Set<RecordPair> match(Record record) throws ApplicationException;
 	
 	/**
 	 * This match method takes a record pair as a parameter and returns it back after
@@ -66,7 +66,7 @@ public interface MatchingService
 	 * @param recordPair
 	 * @return the record pair with an adjusted match outcome and match weight.
 	 */
-	public RecordPair match(RecordPair recordPair) throws ApplicationException;
+    RecordPair match(RecordPair recordPair) throws ApplicationException;
 	
 	/**
 	 * This method returns the set of fields from a record that are used by the matching
@@ -77,5 +77,5 @@ public interface MatchingService
 	 * @param The name of the entity for which the matching fields are needed.
 	 * @return returns the set of field names
 	 */
-	public Set<String> getMatchFields(String entityName);
+    Set<String> getMatchFields(String entityName);
 }

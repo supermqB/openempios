@@ -121,11 +121,8 @@ public class DriversLicense {
 		} else if (!issuingState.equals(other.issuingState))
 			return false;
 		if (licenseNumber == null) {
-			if (other.licenseNumber != null)
-				return false;
-		} else if (!licenseNumber.equals(other.licenseNumber))
-			return false;
-		return true;
+			return other.licenseNumber == null;
+		} else return licenseNumber.equals(other.licenseNumber);
 	}
 	
 	

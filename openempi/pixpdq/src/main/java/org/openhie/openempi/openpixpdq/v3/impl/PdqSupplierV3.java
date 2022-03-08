@@ -30,7 +30,7 @@ import org.openhealthtools.openpixpdq.common.HL7Actor;
 public class PdqSupplierV3 extends HL7Actor implements IPdSupplier
 {
     /* Logger for problems during SOAP exchanges */
-    private static Logger log = Logger.getLogger(PdqSupplierV3.class);
+    private static final Logger log = Logger.getLogger(PdqSupplierV3.class);
     
 	public PdqSupplierV3(IActorDescription actorDescription, IheAuditTrail auditTrail) throws IheConfigurationException {
 		super(actorDescription, auditTrail);

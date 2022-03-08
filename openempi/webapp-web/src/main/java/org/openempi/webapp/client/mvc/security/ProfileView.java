@@ -134,7 +134,7 @@ public class ProfileView extends View
 			status.hide();
 			submitButton.unmask();  
 			
-			updateUser = (UserWeb) event.getData();		
+			updateUser = event.getData();
 		    Registry.register(Constants.LOGIN_USER, updateUser);
 	
 	        MessageBox.alert("Information", "User profile was successfully updated", listenInfoMsg);  	
@@ -612,7 +612,7 @@ public class ProfileView extends View
 		data.setMargins(new Margins(4, 2, 4, 2));
 		container.add(formButtonContainer, data);		
 				
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

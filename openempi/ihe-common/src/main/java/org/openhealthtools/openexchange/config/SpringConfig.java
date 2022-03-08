@@ -36,5 +36,5 @@ public interface SpringConfig {
      * 
      * @return the application context
      */
-	public ApplicationContext getApplicationContext();
+    ApplicationContext getApplicationContext();
 }

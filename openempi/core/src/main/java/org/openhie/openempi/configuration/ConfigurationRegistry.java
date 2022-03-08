@@ -22,19 +22,19 @@ package org.openhie.openempi.configuration;
 
 public interface ConfigurationRegistry
 {
-	public final static String CUSTOM_FIELD_LIST_BY_ENTITY_NAME_MAP = "customFieldListByEntityName";
-	public final static String CUSTOM_FIELD_MAP_BY_ENTITY_NAME_MAP = "customFieldMapByEntityName";
-	public final static String SCHEDULED_TASK_LIST = "scheduledTaskList";
-	public final static String BLOCKING_CONFIGURATION = "blockingConfiguration";
-	public final static String MATCH_CONFIGURATION = "matchConfiguration";
-	public final static String FILE_LOADER_CONFIGURATION = "fileLoaderConfiguration";
-    public final static String SHALLOW_MATCH_CONFIGURATION = "shallowMatchConfiguration";
-    public final static String SINGLE_BEST_RECORD_CONFIGURATION = "singleBestRecordConfiguration";
+	String CUSTOM_FIELD_LIST_BY_ENTITY_NAME_MAP = "customFieldListByEntityName";
+	String CUSTOM_FIELD_MAP_BY_ENTITY_NAME_MAP = "customFieldMapByEntityName";
+	String SCHEDULED_TASK_LIST = "scheduledTaskList";
+	String BLOCKING_CONFIGURATION = "blockingConfiguration";
+	String MATCH_CONFIGURATION = "matchConfiguration";
+	String FILE_LOADER_CONFIGURATION = "fileLoaderConfiguration";
+    String SHALLOW_MATCH_CONFIGURATION = "shallowMatchConfiguration";
+    String SINGLE_BEST_RECORD_CONFIGURATION = "singleBestRecordConfiguration";
 	
-	public final static String BLOCKING_ALGORITHM_NAME_KEY = "blockingAlgorithmName";
-	public final static String MATCHING_ALGORITHM_NAME_KEY = "matchingAlgorithmName";
-    public final static String SHALLOW_MATCHING_ALGORITHM_NAME_KEY = "shallowMatchingAlgorithmName";
-	public static final String ENTITY_NAME = "entityName";
+	String BLOCKING_ALGORITHM_NAME_KEY = "blockingAlgorithmName";
+	String MATCHING_ALGORITHM_NAME_KEY = "matchingAlgorithmName";
+    String SHALLOW_MATCHING_ALGORITHM_NAME_KEY = "shallowMatchingAlgorithmName";
+	String ENTITY_NAME = "entityName";
 	
 
 	/**
@@ -46,7 +46,7 @@ public interface ConfigurationRegistry
 	 * @param key Should uniquely identify the configuration entry
 	 * @return
 	 */
-	public Object lookupConfigurationEntry(String entityName, String key);
+    Object lookupConfigurationEntry(String entityName, String key);
 	
 	/**
 	 * Register a new configuration entry for a component and make it available for
@@ -55,5 +55,5 @@ public interface ConfigurationRegistry
 	 * @param key A string that uniquely identifies the configuration entry
 	 * @param entry The actual configuration entry object itself.
 	 */
-	public void registerConfigurationEntry(String entityName, String key, Object entry);
+    void registerConfigurationEntry(String entityName, String key, Object entry);
 }

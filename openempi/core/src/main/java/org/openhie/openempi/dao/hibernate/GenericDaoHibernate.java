@@ -56,7 +56,7 @@ public class GenericDaoHibernate<T, PK extends Serializable> extends HibernateDa
      * Log variable for all child classes. Uses LogFactory.getLog(getClass()) from Commons Logging
      */
     protected final Log log = LogFactory.getLog(getClass());
-    private Class<T> persistentClass;
+    private final Class<T> persistentClass;
 
     /**
      * Constructor that takes in a class to see which type of entity to persist
@@ -88,7 +88,7 @@ public class GenericDaoHibernate<T, PK extends Serializable> extends HibernateDa
      */
     @SuppressWarnings("unchecked")
     public T get(PK id) {
-        T entity = (T) super.getHibernateTemplate().get(this.persistentClass, id);
+        T entity = super.getHibernateTemplate().get(this.persistentClass, id);
 
         if (entity == null) {
             log.warn("Uh oh, '" + this.persistentClass + "' object with id '" + id + "' not found...");
@@ -103,7 +103,7 @@ public class GenericDaoHibernate<T, PK extends Serializable> extends HibernateDa
      */
     @SuppressWarnings("unchecked")
     public boolean exists(PK id) {
-        T entity = (T) super.getHibernateTemplate().get(this.persistentClass, id);
+        T entity = super.getHibernateTemplate().get(this.persistentClass, id);
         return entity != null;
     }
 
@@ -112,7 +112,7 @@ public class GenericDaoHibernate<T, PK extends Serializable> extends HibernateDa
      */
     @SuppressWarnings("unchecked")
     public T save(T object) {
-        return (T) super.getHibernateTemplate().merge(object);
+        return super.getHibernateTemplate().merge(object);
     }
 
     /**

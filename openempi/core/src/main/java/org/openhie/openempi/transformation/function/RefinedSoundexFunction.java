@@ -20,11 +20,11 @@
  */
 package org.openhie.openempi.transformation.function;
 
-import org.apache.commons.codec.language.RefinedSoundex;;
+import org.apache.commons.codec.language.RefinedSoundex;
 
 public class RefinedSoundexFunction extends AbstractTransformationFunction
 {
-	private RefinedSoundex refinedSoundex;
+	private final RefinedSoundex refinedSoundex;
 	
 	public RefinedSoundexFunction() {
 		super();

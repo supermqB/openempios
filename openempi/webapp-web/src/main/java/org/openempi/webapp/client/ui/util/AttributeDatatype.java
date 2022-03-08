@@ -44,10 +44,10 @@ public enum AttributeDatatype
 	private static final AttributeDatatype[] TYPES = new AttributeDatatype[] { 
 		INTEGER, SHORT, LONG, DOUBLE, FLOAT, STRING, BOOLEAN, DATE, TIMESTAMP
 	};
-	private String name;
-	private int id;
+	private final String name;
+	private final int id;
 	
-	private AttributeDatatype(String iName, int iId) {
+	AttributeDatatype(String iName, int iId) {
 		name = iName;
 		id = iId;
 	}

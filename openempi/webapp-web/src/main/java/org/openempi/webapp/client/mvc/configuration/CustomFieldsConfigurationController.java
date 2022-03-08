@@ -71,7 +71,7 @@ public class CustomFieldsConfigurationController extends Controller
 	@SuppressWarnings("unchecked")
 	private void saveCustomFieldsConfiguration(AppEvent event) {
 		ConfigurationDataServiceAsync configurationDataService = getConfigurationDataService();
-		final List<CustomFieldWeb> customFields = (List<CustomFieldWeb>) event.getData();
+		final List<CustomFieldWeb> customFields = event.getData();
     	EntityWeb entityModel = event.getData("entityModel");
 
 		configurationDataService.saveCustomFieldsConfiguration(entityModel, customFields, (new AsyncCallback<String>() {

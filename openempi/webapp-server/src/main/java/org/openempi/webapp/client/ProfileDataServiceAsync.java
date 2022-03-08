@@ -29,12 +29,12 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface ProfileDataServiceAsync
 {
-    public void getDataProfiles( AsyncCallback<List<DataProfileWeb>> callback);
+    void getDataProfiles(AsyncCallback<List<DataProfileWeb>> callback);
 
-    public void removeDataProfile(Integer dataProfileId, AsyncCallback<String> callback);
+    void removeDataProfile(Integer dataProfileId, AsyncCallback<String> callback);
 
-	public void getDataProfileAttributes( Integer dataResource, AsyncCallback<List<DataProfileAttributeWeb>> callback);
+	void getDataProfileAttributes(Integer dataResource, AsyncCallback<List<DataProfileAttributeWeb>> callback);
 	
-	public void getDataProfileAttributeValues( Integer attributeId, int topCount, AsyncCallback<List<DataProfileAttributeValueWeb>> callback);
+	void getDataProfileAttributeValues(Integer attributeId, int topCount, AsyncCallback<List<DataProfileAttributeValueWeb>> callback);
 	
 }

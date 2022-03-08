@@ -22,19 +22,19 @@ package org.openhie.openempi.stringcomparison.metrics;
 
 public interface DistanceMetric
 {
-	public double score(Object string1, Object string2);
+	double score(Object string1, Object string2);
 	
-	public String getName();
+	String getName();
 	
-	public void setName(String name);
+	void setName(String name);
 	
-	public void setParameters(java.util.Map<String, String> parameterMap);
+	void setParameters(java.util.Map<String, String> parameterMap);
 	
-	public void setParameter(String key, Object value);
+	void setParameter(String key, Object value);
 	
-	public Object getParameter(String key);
+	Object getParameter(String key);
 	
-	public void setMissingValuesMatch(boolean match);
+	void setMissingValuesMatch(boolean match);
 	
-	public boolean isMissingValuesMatch();
+	boolean isMissingValuesMatch();
 }

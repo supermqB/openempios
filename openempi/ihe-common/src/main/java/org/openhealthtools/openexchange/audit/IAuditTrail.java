@@ -36,7 +36,7 @@ public interface IAuditTrail extends IAuditTrailLifeCycle {
 	 * Described in DICOM Supp95 A 1.3.15 as User Authentication.
 	 * Described in ITI TF-2 p. 172 as Node-authentication-failure.
 	 */
-	public void userLogin(SuccessCode success, ActiveParticipant user);
+    void userLogin(SuccessCode success, ActiveParticipant user);
 	
 
 	/** Call when a user logs out. 
@@ -44,7 +44,7 @@ public interface IAuditTrail extends IAuditTrailLifeCycle {
 	 * Described in DICOM Supp95 A 1.3.15 as User Authentication.
 	 * Described in ITI TF-2 p. 172 as Node-authentication-failure.
 	 */
-	public void userLogout(SuccessCode success, ActiveParticipant user);
+    void userLogout(SuccessCode success, ActiveParticipant user);
 
 	/** Call when the node fails to authenticate itself with another node. 
 	 * 
@@ -53,5 +53,5 @@ public interface IAuditTrail extends IAuditTrailLifeCycle {
 	 * Described in DICOM Supp95 A 1.3.14 as Security Alert.
 	 * Described in ITI TF-2 p. 172 as Node-authentication-failure.
 	 */
-	public void nodeAuthenticationFailure(SuccessCode success, IConnectionDescription otherServer);
+    void nodeAuthenticationFailure(SuccessCode success, IConnectionDescription otherServer);
 }

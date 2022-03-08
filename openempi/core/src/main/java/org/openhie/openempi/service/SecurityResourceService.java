@@ -24,7 +24,7 @@ import org.openhie.openempi.AuthenticationException;
 
 public interface SecurityResourceService
 {
-    public String authenticate(String username, String password) throws AuthenticationException;
+    String authenticate(String username, String password) throws AuthenticationException;
     
-    public String isSessionValid(String sessionKey);
+    String isSessionValid(String sessionKey);
 }

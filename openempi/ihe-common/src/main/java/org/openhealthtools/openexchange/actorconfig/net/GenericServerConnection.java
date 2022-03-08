@@ -90,7 +90,6 @@ public abstract class GenericServerConnection implements IServerConnection {
                 ssocket.close();
             }
             catch (IOException e) {
-                ;
             } // TODO add logging message.
             // TODO add ATNA message?
         }

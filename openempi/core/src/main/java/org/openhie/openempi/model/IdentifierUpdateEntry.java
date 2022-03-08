@@ -116,11 +116,8 @@ public class IdentifierUpdateEntry extends BaseObject implements Serializable
 		} else if (!identifier.equals(other.identifier))
 			return false;
 		if (identifierDomain == null) {
-			if (other.identifierDomain != null)
-				return false;
-		} else if (!identifierDomain.equals(other.identifierDomain))
-			return false;
-		return true;
+			return other.identifierDomain == null;
+		} else return identifierDomain.equals(other.identifierDomain);
 	}
 
 	@Override

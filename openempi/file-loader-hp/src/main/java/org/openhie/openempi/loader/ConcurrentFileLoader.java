@@ -108,12 +108,12 @@ public class ConcurrentFileLoader extends AbstractFileLoader
     {
 
         private static final String IGNORE_ATTRIBUTE_VALUE = "<ignore>";
-        private String lineRecord;
-        private int lineIndex;
-        private Entity entityModel;
+        private final String lineRecord;
+        private final int lineIndex;
+        private final Entity entityModel;
         private Person person;
         private Record record;
-        private UserContext userContext;
+        private final UserContext userContext;
         
         public RecordParseTask(UserContext userContext, Entity entity, String lineRecord, int lineIndex) {
             this.entityModel = entity;

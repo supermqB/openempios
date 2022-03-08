@@ -23,7 +23,7 @@ package org.openhie.openempi.loader;
 
 public interface FileLoaderConfigurationService
 {
-	public void init();
+	void init();
 	
-	public LoaderConfig getConfiguration();
+	LoaderConfig getConfiguration();
 }

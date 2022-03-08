@@ -65,7 +65,7 @@ public class BlockingHPConfigurationController extends Controller
 	@SuppressWarnings("unchecked")
 	private void saveBlockingConfiguration(AppEvent event) {
 		BlockingDataServiceAsync blockingService = getBlockingDataService();
-		BlockingEntryListWeb configuration = (BlockingEntryListWeb) event.getData();
+		BlockingEntryListWeb configuration = event.getData();
         EntityWeb currentEntity = Registry.get(Constants.ENTITY_ATTRIBUTE_MODEL);
         if (currentEntity != null) {
             configuration.setEntityName(currentEntity.getName());

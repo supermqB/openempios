@@ -29,7 +29,7 @@ import org.openhealthtools.openpixpdq.common.HL7Actor;
 
 public class PdqSupplierFhir extends HL7Actor implements IPdSupplier
 {
-    private Logger log = Logger.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
     
 	public PdqSupplierFhir(IActorDescription actorDescription, IheAuditTrail auditTrail) throws IheConfigurationException {
 		super(actorDescription, auditTrail);

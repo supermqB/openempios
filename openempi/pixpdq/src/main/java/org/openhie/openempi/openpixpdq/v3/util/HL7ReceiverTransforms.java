@@ -45,7 +45,7 @@ import org.hl7.v3.MCCIMT000300UV01Receiver;
  */
 public class HL7ReceiverTransforms {
     
-    private static Log log = LogFactory.getLog(HL7DataTransformHelper.class);
+    private static final Log log = LogFactory.getLog(HL7DataTransformHelper.class);
     
     public static MCCIMT000200UV01Receiver createMCCIMT000200UV01Receiver(String OID) {
         MCCIMT000200UV01Receiver receiver = new MCCIMT000200UV01Receiver();

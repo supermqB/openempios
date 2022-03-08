@@ -77,7 +77,7 @@ import ca.uhn.hl7v2.util.Terser;
  */
 class PixQueryHandler extends BaseHandler implements ReceivingApplication {
 
-    private static Logger log = Logger.getLogger(PixQueryHandler.class);
+    private static final Logger log = Logger.getLogger(PixQueryHandler.class);
 	
 	private PixManager actor = null;
 	private IPixManagerAdapter pixAdapter = null;
@@ -103,10 +103,7 @@ class PixQueryHandler extends BaseHandler implements ReceivingApplication {
      * otherwise <code>false</code>.
      */
 	public boolean canProcess(Message theIn) {
-         if (theIn instanceof QBP_Q21)
-            return true;
-         else
-            return false;
+        return theIn instanceof QBP_Q21;
     }
 
     /**
@@ -206,7 +203,7 @@ class PixQueryHandler extends BaseHandler implements ReceivingApplication {
         //5. No ID found         (Case #2 in PIX specs: ID is not found)
 
         //1. validate ID domain  (Case #4 in PIX specs request ID Domain is not valid)
-        Identifier requestDomain = (Identifier)requestPatientId.getAssigningAuthority();
+        Identifier requestDomain = requestPatientId.getAssigningAuthority();
         boolean requestDomainOk = AssigningAuthorityUtil.validateDomain( requestDomain, actor.getActorDescription(), pixAdapter);
         if (!requestDomainOk) {
             HL7v25.populateMSA(reply.getMSA(), "AE", messageControlId);

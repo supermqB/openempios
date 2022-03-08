@@ -46,24 +46,24 @@ public interface IdentifierDomainService
 	 * @param identifierDomain
 	 * @return
 	 */
-	public IdentifierDomain findIdentifierDomain(IdentifierDomain identifierDomain);
+    IdentifierDomain findIdentifierDomain(IdentifierDomain identifierDomain);
 
-    public IdentifierDomain findIdentifierDomainByName(String identifierDomainName);
+    IdentifierDomain findIdentifierDomainByName(String identifierDomainName);
 
-    public IdentifierDomain findIdentifierDomainById(Integer id);
+    IdentifierDomain findIdentifierDomainById(Integer id);
 
 	/**
 	 * Returns the list of identifier domains known by the system
 	 *
 	 * @return
 	 */
-	public List<IdentifierDomain> getIdentifierDomains();
+    List<IdentifierDomain> getIdentifierDomains();
 
 	/**
 	 * Returns the list of distinct identifier domain type codes
 	 *
 	 */
-	public List<String> getIdentifierDomainTypeCodes();
+    List<String> getIdentifierDomainTypeCodes();
 
 	/**
 	 * Returns an instance of an IdentifierDomainAttribute associated with the identifier domain passed in and with the
@@ -76,7 +76,7 @@ public interface IdentifierDomainService
 	 * @param attributeName The name of the attribute.
 	 * @return
 	 */
-	public IdentifierDomainAttribute getIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName);
+    IdentifierDomainAttribute getIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName);
 
 	/**
 	 * This method returns a list of all the identifier domain attributes associated with a given identifier domain.
@@ -87,7 +87,7 @@ public interface IdentifierDomainService
 	 * attribute which is only useful internally to an OpenEMPI instance.
 	 * @return List of IdentifierDomainAttributes found.
 	 */
-	public List<IdentifierDomainAttribute> getIdentifierDomainAttributes(IdentifierDomain identifierDomain);
+    List<IdentifierDomainAttribute> getIdentifierDomainAttributes(IdentifierDomain identifierDomain);
 
 	/**
 	 * Adds a new identifier domain to the EMPI repository. The system will first check to see if the identifier domain is already known to the
@@ -97,14 +97,14 @@ public interface IdentifierDomainService
 	 * @param identifierDomain
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public IdentifierDomain addIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
+    IdentifierDomain addIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
 
 	/**
 	 * Update an existing identifier domain. The existing entry is located using the internal identifier.
 	 *
 	 * @param identifierDomain
 	 */
-	public IdentifierDomain updateIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
+    IdentifierDomain updateIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
 
 	/**
 	 * Deletes an identifier domain from the repository. The caller must provide the internal primary key that identifier the identifier domain,
@@ -113,7 +113,7 @@ public interface IdentifierDomainService
 	 *  @param identifierDomain
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void deleteIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
+    void deleteIdentifierDomain(IdentifierDomain identifierDomain) throws ApplicationException;
 
 	/**
 	 * This method generates a unique identifier domain identifier within the given universalIdentifierTypeCode. This method
@@ -121,7 +121,7 @@ public interface IdentifierDomainService
 	 * for which OpenEMPI collects person identity information for.
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public IdentifierDomain obtainUniqueIdentifierDomain(String universalIdentifierTypeCode);
+    IdentifierDomain obtainUniqueIdentifierDomain(String universalIdentifierTypeCode);
 
 	/**
 	 * The addIdentifierDomainAttribute method allows the caller to associate with a given identifier
@@ -142,7 +142,7 @@ public interface IdentifierDomainService
 	 * add operation completion or null if the add operation fails.
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public IdentifierDomainAttribute addIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName, String attributeValue);
+    IdentifierDomainAttribute addIdentifierDomainAttribute(IdentifierDomain identifierDomain, String attributeName, String attributeValue);
 
 	/**
 	 * This method updates an existing identifier domain attribute with the name and value specified.
@@ -150,7 +150,7 @@ public interface IdentifierDomainService
 	 * @param identifierDomainAttribute
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void updateIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
+    void updateIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
 
 	/**
 	 * This method removes an existing identifier domain attribute. The identifier domain attribute id
@@ -159,33 +159,33 @@ public interface IdentifierDomainService
 	 * @param identifierDomainAttribute
 	 */
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public void removeIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
+    void removeIdentifierDomainAttribute(IdentifierDomainAttribute identifierDomainAttribute);
 
-    public int getNotificationCount(User user);
+    int getNotificationCount(User user);
 
-    public IdentifierUpdateEvent findIdentifierUpdateEvent(long identifierUpdateEventId);
+    IdentifierUpdateEvent findIdentifierUpdateEvent(long identifierUpdateEventId);
 
-    public IdentifierUpdateEvent removeIdentifierUpdateEvent(IdentifierUpdateEvent identifierUpdateEvent);
+    IdentifierUpdateEvent removeIdentifierUpdateEvent(IdentifierUpdateEvent identifierUpdateEvent);
     
     @Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-    public List<IdentifierUpdateEvent> retrieveNotifications(int startIndex, int maxEvents, Boolean removeRecords, User eventRecipient);
+    List<IdentifierUpdateEvent> retrieveNotifications(int startIndex, int maxEvents, Boolean removeRecords, User eventRecipient);
          
     @Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-    public List<IdentifierUpdateEvent> retrieveNotifications(Boolean removeRecords, User eventRecipient);
+    List<IdentifierUpdateEvent> retrieveNotifications(Boolean removeRecords, User eventRecipient);
     
-    @Transactional(propagation=Propagation.REQUIRED, readOnly=false)     
-    public List<IdentifierUpdateEvent> retrieveNotificationsByDate(Date startDate, Boolean removeRecords, User eventRecipient);
+    @Transactional(propagation=Propagation.REQUIRED, readOnly=false)
+    List<IdentifierUpdateEvent> retrieveNotificationsByDate(Date startDate, Boolean removeRecords, User eventRecipient);
     
     /**
      *The removeNotification method is used for permanently removing update notification entries from the system.
      */
     @Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-     public int removeNotifications(List<IdentifierUpdateEvent> identifierUpdateEvents);
+    int removeNotifications(List<IdentifierUpdateEvent> identifierUpdateEvents);
     
     /**
      *The cleanupUpdateNotifications method is used for permanently removing update notification entries from the system as per configured 
      *  <time-to-live> value.
      */
     @Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-    public void cleanupUpdateNotifications();
+    void cleanupUpdateNotifications();
 }

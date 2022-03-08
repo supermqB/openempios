@@ -29,12 +29,12 @@ import com.google.gwt.user.client.rpc.RemoteService;
 
 public interface ProfileDataService extends RemoteService
 {
-    public List<DataProfileWeb> getDataProfiles() throws Exception;
+    List<DataProfileWeb> getDataProfiles() throws Exception;
 
-    public String removeDataProfile(Integer dataProfileId) throws Exception;
+    String removeDataProfile(Integer dataProfileId) throws Exception;
 
-	public List<DataProfileAttributeWeb> getDataProfileAttributes(Integer dataResource) throws Exception;
+	List<DataProfileAttributeWeb> getDataProfileAttributes(Integer dataResource) throws Exception;
 	
-	public List<DataProfileAttributeValueWeb> getDataProfileAttributeValues(Integer attributeId, int topCount) throws Exception;
+	List<DataProfileAttributeValueWeb> getDataProfileAttributeValues(Integer attributeId, int topCount) throws Exception;
 	
 }

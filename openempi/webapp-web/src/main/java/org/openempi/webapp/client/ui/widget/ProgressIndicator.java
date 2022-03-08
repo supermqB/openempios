@@ -27,7 +27,7 @@ package org.openempi.webapp.client.ui.widget;
  */
 public interface ProgressIndicator {
 
-    public final static String DEFAULT_MESSAGE = "Loading";
+    String DEFAULT_MESSAGE = "Loading";
 
     /**
      * Sets the message shown by this indicator.

@@ -159,22 +159,14 @@ public class RecordLink extends BaseObject
 		
 		// Check the case were either one or both of the leftRecords are null
 		if (leftRecord == null) {
-			if (other.leftRecord != null) {
-				return false;
-			} else {
-				return true;
-			}
+			return other.leftRecord == null;
 		} else if (other.leftRecord == null) {
 			return false;
 		}
 		
 		// Check the case were either one or both of the rightRecords are null
 		if (rightRecord == null) {
-			if (other.rightRecord != null) {
-				return false;
-			} else {
-				return true;
-			}
+			return other.rightRecord == null;
 		} else if (other.rightRecord == null) {
 			return false;
 		}
@@ -202,12 +194,9 @@ public class RecordLink extends BaseObject
 				rightRecord.getRecordId().equals(other.rightRecord.getRecordId())) {
 			return true;
 		}
-		
-		if (leftRecord.getRecordId().equals(other.rightRecord.getRecordId()) &&
-				rightRecord.getRecordId().equals(other.leftRecord.getRecordId())) {
-			return true;
-		}
-		return false;
+
+		return leftRecord.getRecordId().equals(other.rightRecord.getRecordId()) &&
+				rightRecord.getRecordId().equals(other.leftRecord.getRecordId());
 	}
 
 	@Override

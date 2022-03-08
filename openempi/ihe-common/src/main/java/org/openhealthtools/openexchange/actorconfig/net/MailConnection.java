@@ -100,7 +100,7 @@ public class MailConnection {
     }
 
     public Message[] retrieveAllMessages() throws MessagingException {
-        Message messages[] = null;
+        Message[] messages = null;
         if (store != null && pop3 != null) {
             if (inbox == null) {
                 store.connect(pop3.getValue("HOSTNAME"), pop3.getValue("USERNAME"), pop3.getValue("PASSWORD"));
@@ -142,7 +142,7 @@ public class MailConnection {
             RecipientInformationStore recipients = m.getRecipientInfos();
             // TODO figure out why this doesn't work...
             //RecipientInformation        recipient = recipients.get(recId);
-            RecipientInformation recipient = (RecipientInformation) recipients.getRecipients().iterator().next();
+            RecipientInformation recipient = recipients.getRecipients().iterator().next();
 //TODO This does not work;
             Key key = ks.getKey(getSenderKeyAlias(), getSenderKeystorePassword().toCharArray());
             byte[] byteContent = recipient.getContent(null);

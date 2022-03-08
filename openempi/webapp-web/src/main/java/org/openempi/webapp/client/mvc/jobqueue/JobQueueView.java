@@ -97,13 +97,13 @@ public class  JobQueueView extends BaseEntityView
 
 	private JobEntryWeb selectedJobEntry;
 	private Grid<JobEntryWeb> grid;
-	private ListStore<JobEntryWeb> jobEntryStore = new ListStore<JobEntryWeb>();
+	private final ListStore<JobEntryWeb> jobEntryStore = new ListStore<JobEntryWeb>();
 
-    private ListStore<JobTypeWeb> jobTypeStore = new ListStore<JobTypeWeb>();
-    private ComboBox<JobTypeWeb> jobTypeCombo = new ComboBox<JobTypeWeb>();
-    private ListStore<JobStatusWeb> jobStatusStore = new ListStore<JobStatusWeb>();
-    private ComboBox<JobStatusWeb> jobStatusCombo = new ComboBox<JobStatusWeb>();
-    private TextArea jobDescriptionEdit = new TextArea();
+    private final ListStore<JobTypeWeb> jobTypeStore = new ListStore<JobTypeWeb>();
+    private final ComboBox<JobTypeWeb> jobTypeCombo = new ComboBox<JobTypeWeb>();
+    private final ListStore<JobStatusWeb> jobStatusStore = new ListStore<JobStatusWeb>();
+    private final ComboBox<JobStatusWeb> jobStatusCombo = new ComboBox<JobStatusWeb>();
+    private final TextArea jobDescriptionEdit = new TextArea();
     private DateField dateCreatedEdit;
     private DateField dateStartedEdit;
     private DateField dateCompletedEdit;
@@ -113,7 +113,7 @@ public class  JobQueueView extends BaseEntityView
     private NumberField itemsErroredEdit;
 
 	private Grid<JobEntryEventLogWeb> gridEventLogs;
-	private ListStore<JobEntryEventLogWeb> eventLogsStore = new ListStore<JobEntryEventLogWeb>();
+	private final ListStore<JobEntryEventLogWeb> eventLogsStore = new ListStore<JobEntryEventLogWeb>();
 
 	public JobQueueView(Controller controller) {
 		super(controller);
@@ -131,18 +131,18 @@ public class  JobQueueView extends BaseEntityView
 	    	// Info.display("Information", "JobEntriesReceived");
 
             if (Registry.get(Constants.JOB_TYPES) != null) {
-                List<JobTypeWeb> jobTypes =  (List<JobTypeWeb>) Registry.get(Constants.JOB_TYPES);
+                List<JobTypeWeb> jobTypes = Registry.get(Constants.JOB_TYPES);
                 jobTypeStore.removeAll();
                 jobTypeStore.add(jobTypes);
             }
 
             if (Registry.get(Constants.JOB_STATUS) != null) {
-                List<JobStatusWeb> jobStatuses =  (List<JobStatusWeb>) Registry.get(Constants.JOB_STATUS);
+                List<JobStatusWeb> jobStatuses = Registry.get(Constants.JOB_STATUS);
                 jobStatusStore.removeAll();
                 jobStatusStore.add(jobStatuses);
             }
 
-		    List<JobEntryWeb> jobEntries = (List<JobEntryWeb>) event.getData();
+		    List<JobEntryWeb> jobEntries = event.getData();
 			if (Registry.get(Constants.ENTITY_ATTRIBUTE_MODEL) != null) {
 
 				currentEntity = Registry.get(Constants.ENTITY_ATTRIBUTE_MODEL);
@@ -158,7 +158,7 @@ public class  JobQueueView extends BaseEntityView
             // Info.display("Information", "JobEntryEnentLogsReceived");
             eventLogsStore.removeAll();
 
-            List<JobEntryEventLogWeb> eventLogs = (List<JobEntryEventLogWeb>) event.getData();
+            List<JobEntryEventLogWeb> eventLogs = event.getData();
             eventLogsStore.add(eventLogs);
 
             updateButton.enable();
@@ -613,7 +613,7 @@ public class  JobQueueView extends BaseEntityView
 	   container.add(formButtonContainer, data);
 	   container.add(gridContainer, new BorderLayoutData(LayoutRegion.NORTH, 200));
 	   
-	   LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+	   LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 	   wrapper.removeAll();
 	   wrapper.add(container);
 	   wrapper.layout();

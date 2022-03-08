@@ -144,7 +144,7 @@ public class SecureSocketFactory implements SecureProtocolSocketFactory {
 	private URL truststoreUrl = null;
 	private String truststorePassword = null;
 	private SSLContext sslcontext = null;
-	private SecureConnectionDescription scd;
+	private final SecureConnectionDescription scd;
 
 	/**
 	 * Constructor for HttpStreamHandler. Either a keystore or truststore file

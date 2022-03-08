@@ -28,15 +28,15 @@ import org.openhie.openempi.model.Record;
 
 public interface RecordDataSource extends Iterable<Record>
 {
-    public void init(Entity entity);
+    void init(Entity entity);
     
-	public List<AttributeMetadata> getAttributeMetadata();
+	List<AttributeMetadata> getAttributeMetadata();
 	
-	public int getRecordDataSourceId();
+	int getRecordDataSourceId();
 	
-	public Iterator<Record> iterator();
+	Iterator<Record> iterator();
 		
-	public void close(String message);
+	void close(String message);
 	
-	public boolean isEmpty();
+	boolean isEmpty();
 }

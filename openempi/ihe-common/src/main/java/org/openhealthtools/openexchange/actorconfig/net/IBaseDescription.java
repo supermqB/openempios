@@ -43,14 +43,14 @@ public interface IBaseDescription {
      *
      * @return The type of this actor.
      */
-    public String getType();
+    String getType();
 
     /**
      * Used to determine the name of this description.
      *
      * @return Name of this description.
      */
-    public String getName();
+    String getName();
 
     /**
      * Used to get a useful, human-readable description of this
@@ -59,14 +59,14 @@ public interface IBaseDescription {
      *
      * @return A human-readable description of this description
      */
-    public String getDescription();
+    String getDescription();
 
     /**
      * Gets all the code type names.
      *
      * @return a set of coding type names
      */
-    public Set<String> getAllCodeTypeNames();
+    Set<String> getAllCodeTypeNames();
 
     /**
      * Gets an ebXML coding scheme that is defined for this description.
@@ -74,7 +74,7 @@ public interface IBaseDescription {
      * @param typeName The name of the coding/classification scheme
      * @return The coding scheme definition
      */
-    public CodeSet getCodeSet(String typeName);
+    CodeSet getCodeSet(String typeName);
 
     /**
      * Gets a named property that is defined for this description.
@@ -82,7 +82,7 @@ public interface IBaseDescription {
      * @param name The name of the property
      * @return The value of the property
      */
-    public String getProperty(String name);
+    String getProperty(String name);
 
     /**
      * Gets a property set that is defined for this description.
@@ -90,7 +90,7 @@ public interface IBaseDescription {
      * @param name The name of the property set
      * @return The property set
      */
-    public PropertySet getPropertySet(String name);
+    PropertySet getPropertySet(String name);
 
     /**
      * Gets an enum map that is defined for this description.
@@ -98,7 +98,7 @@ public interface IBaseDescription {
      * @param enumClass The enum class being mapped
      * @return The enum map definition
      */
-    public EnumMap getEnumMap(Class enumClass);
+    EnumMap getEnumMap(Class enumClass);
 
     /**
      * Get a string map that is defined for this description.
@@ -106,7 +106,7 @@ public interface IBaseDescription {
      * @param name The string value type being mapped
      * @return The string map definition
      */
-    public StringMap getStringMap(String name);
+    StringMap getStringMap(String name);
 
     /**
      * Get a hierarchical identifier that is defined for this description.
@@ -114,7 +114,7 @@ public interface IBaseDescription {
      * @param name The name of the identifier
      * @return The hierarchical identifier
      */
-    public Identifier getIdentifier(String name);
+    Identifier getIdentifier(String name);
 
     /**
      * Get all identifiers of a given type.
@@ -123,5 +123,5 @@ public interface IBaseDescription {
      * @return The list of Identifiers whose type is matched with the given type.
      *         Returns an empty list if nothing is found by this type.
      */
-    public List<Identifier> getAllIdentifiersByType(String type);
+    List<Identifier> getAllIdentifiersByType(String type);
 }

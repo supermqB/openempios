@@ -69,7 +69,7 @@ public class ProbabilisticMatchingService extends AbstractMatchingLifecycleObser
     private UniversalDao universalDao;
     private boolean useSampling;
     private SamplingService samplingService;
-    private Map<String,MatchingConfiguration> configByEntity = new HashMap<String,MatchingConfiguration>();
+    private final Map<String,MatchingConfiguration> configByEntity = new HashMap<String,MatchingConfiguration>();
 
     public void startup() throws InitializationException {
         List<Entity> entities = Context.getEntityDefinitionManagerService().loadEntities();
@@ -632,7 +632,7 @@ public class ProbabilisticMatchingService extends AbstractMatchingLifecycleObser
                 }
             }
             if (log.isTraceEnabled()) {
-                log.trace("Loaded blocking fields for logging of " + blockingFieldList.toString());
+                log.trace("Loaded blocking fields for logging of " + blockingFieldList);
             }
         }
         config.setBlockingFieldList(blockingFieldList);
@@ -643,7 +643,7 @@ public class ProbabilisticMatchingService extends AbstractMatchingLifecycleObser
             logFieldList.add(field.getFieldName());
         }
         if (log.isTraceEnabled()) {
-            log.trace("Loaded matching fields for logging of " + logFieldList.toString());
+            log.trace("Loaded matching fields for logging of " + logFieldList);
         }
         config.setLogFieldList(logFieldList);
     }
@@ -698,7 +698,7 @@ public class ProbabilisticMatchingService extends AbstractMatchingLifecycleObser
         config.setMatchFieldNames(matchFieldNames);
         config.setMatchFieldByName(matchFieldByName);
         config.setMatchFields(matchFields);
-        log.debug("Matching service " + getClass().getName() + " will perform matching using " + toString());
+        log.debug("Matching service " + getClass().getName() + " will perform matching using " + this);
 
         if (configurationData.containsKey(ProbabilisticMatchingConstants.PROBABILISTIC_MATCHING_LOGGING_BY_VECTORS_KEY)
                 && (Boolean) configurationData
@@ -765,10 +765,7 @@ public class ProbabilisticMatchingService extends AbstractMatchingLifecycleObser
     }
 
     private boolean isLoggingEnabled(MatchingConfiguration config) {
-        if (config.isLogByVectors() || config.isLogByWeight()) {
-            return true;
-        }
-        return false;
+        return config.isLogByVectors() || config.isLogByWeight();
     }
 
     private void logRecordPair(MatchingConfiguration config, RecordPair pair) {
@@ -848,7 +845,7 @@ public class ProbabilisticMatchingService extends AbstractMatchingLifecycleObser
             if (value == null) {
                 sb.append("null");
             } else {
-                sb.append("'").append(value.toString()).append("'");
+                sb.append("'").append(value).append("'");
             }
             if (index < fields.size() - 1) {
                 sb.append(",");
@@ -864,7 +861,7 @@ public class ProbabilisticMatchingService extends AbstractMatchingLifecycleObser
             if (value == null) {
                 sb.append("null");
             } else {
-                sb.append("'").append(value.toString()).append("'");
+                sb.append("'").append(value).append("'");
             }
             if (i < fields.size() - 1) {
                 sb.append(",");
@@ -986,7 +983,7 @@ public class ProbabilisticMatchingService extends AbstractMatchingLifecycleObser
 	    private MatchField[] matchFields;
 	    private boolean initialized = false;
 	    private FellegiSunterParameters fellegiSunterParams;
-	    private HashMap<Integer, ComparisonVector> vectorByValueMap = new HashMap<Integer, ComparisonVector>();
+	    private final HashMap<Integer, ComparisonVector> vectorByValueMap = new HashMap<Integer, ComparisonVector>();
 	    private List<MatchField> fields = new ArrayList<MatchField>();
 	    private Float falseNegativeProbability;
 	    private Float falsePositiveProbability;

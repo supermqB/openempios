@@ -58,7 +58,7 @@ public class SchemaManagerLocal extends SchemaManagerAbstract
         if (user == null) {
 	        db.getRawGraph().getMetadata().getSecurity()
 	                .createUser(connectionManager.getUsername(), connectionManager.getPassword(),
-	                        new String[] { "admin" });
+                            "admin");
 	        log.debug("Created user: " + connectionManager.getUsername());
         }
         Object props = db.getRawGraph().get(ODatabase.ATTRIBUTES.CUSTOM);

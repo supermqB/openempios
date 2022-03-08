@@ -37,7 +37,7 @@ public interface MatchingLifecycleObserver
 	 * exception.
 	 * 
 	 */
-	public void startup() throws InitializationException;
+    void startup() throws InitializationException;
 	
 	/**
 	 * The system uses the isReady method to confirm that the matching algorithm has finished its
@@ -46,7 +46,7 @@ public interface MatchingLifecycleObserver
 	 * initialization.
 	 * 
 	 */
-	public boolean isReady();
+    boolean isReady();
 	
 	/**
 	 * The shutdown method is invoked against the matching algorithm when the system starts to
@@ -55,12 +55,12 @@ public interface MatchingLifecycleObserver
 	 * it needs this to synchronize its on-disk data structures with changes that have taken
 	 * place in memory.
 	 */
-	public void shutdown();
+    void shutdown();
 	
 	/**
 	 * The isDown method is the mirror image of the isReady method and it is the polling
 	 * mechanism used by the system to confirm that the system has shutdown before "pulling
 	 * the plug". After a certain amount of time, it will force the shutdown.
 	 */
-	public boolean isDown();
+    boolean isDown();
 }

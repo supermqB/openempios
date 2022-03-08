@@ -44,7 +44,7 @@ public class ParticipantObject {
 	private String id;
 	private String name;
 	private String query; //B64 encoded query;
-	private List<TypeValuePair> details = new ArrayList<TypeValuePair>();
+	private final List<TypeValuePair> details = new ArrayList<TypeValuePair>();
 	
 	ParticipantObjectIdTypeCode idTypeCode = ParticipantObjectIdTypeCode.Patient;
 	ParticipantObjectTypeCode typeCode;

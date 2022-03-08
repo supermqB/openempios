@@ -32,6 +32,6 @@ public interface IMessageStoreLogger {
 	 *  
 	 * @param messageLog a {@link MessageStore}
 	 */
-	public void saveLog(MessageStore messageLog);
+    public void saveLog(MessageStore messageLog);
 
 }

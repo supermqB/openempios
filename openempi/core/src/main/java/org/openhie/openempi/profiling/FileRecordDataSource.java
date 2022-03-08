@@ -386,7 +386,7 @@ public class FileRecordDataSource extends AbstractRecordDataSource
 
 	private class RecordIterator implements Iterator<Record>
 	{
-		private int blockSize;
+		private final int blockSize;
 		java.util.List<Record> records;
 		int currentIndex;
 		int startIndex;

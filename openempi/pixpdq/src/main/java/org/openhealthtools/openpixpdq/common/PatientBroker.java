@@ -49,11 +49,11 @@ public class PatientBroker
 	private static final Logger log = Logger.getLogger(PatientBroker.class);
 		
     /** A list of all known pix manager */
-    private Vector<IPixManager> pixManagers = new Vector<IPixManager>();
+    private final Vector<IPixManager> pixManagers = new Vector<IPixManager>();
     /** A list of all known pd supplier */
-    private Vector<IPdSupplier> pdSuppliers = new Vector<IPdSupplier>();
+    private final Vector<IPdSupplier> pdSuppliers = new Vector<IPdSupplier>();
     
-    private Map<String,IheActor> actorMap = new HashMap<String,IheActor>();
+    private final Map<String,IheActor> actorMap = new HashMap<String,IheActor>();
 
 	/**
 	 * A private constructor for creating the singleton instance.

@@ -141,11 +141,8 @@ public class MessageLogEntry extends BaseObject implements Serializable
 			return false;
 		MessageLogEntry other = (MessageLogEntry) obj;
 		if (messageLogId == null) {
-			if (other.messageLogId != null)
-				return false;
-		} else if (!messageLogId.equals(other.messageLogId))
-			return false;
-		return true;
+			return other.messageLogId == null;
+		} else return messageLogId.equals(other.messageLogId);
 	}
 
 	@Override

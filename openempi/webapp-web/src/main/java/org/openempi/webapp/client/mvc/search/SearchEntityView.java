@@ -145,7 +145,7 @@ public class SearchEntityView extends BaseSearchEntityView
     private RecordSearchCriteriaWeb searchCriteria;
 
     private EntityWeb currentEntity;
-    private ListStore<EntityWeb> entityStore = new GroupingStore<EntityWeb>();
+    private final ListStore<EntityWeb> entityStore = new GroupingStore<EntityWeb>();
 
     private TextField<String> identifier;
     private ComboBox<IdentifierDomainWeb> identifierDomains;
@@ -157,7 +157,7 @@ public class SearchEntityView extends BaseSearchEntityView
     private TextField<String> selectedSearchAttributeNames;
     private List<EntityAttributeWeb> selectedSearchAttributes;
     private ListView<EntityAttributeWeb> searchAttributes;
-    private ListStore<EntityAttributeWeb> searchAttributeStore = new ListStore<EntityAttributeWeb>();
+    private final ListStore<EntityAttributeWeb> searchAttributeStore = new ListStore<EntityAttributeWeb>();
 
     private Grid<RecordWeb> grid;
     private ListStore<RecordWeb> store = new ListStore<RecordWeb>();
@@ -166,7 +166,7 @@ public class SearchEntityView extends BaseSearchEntityView
     private Dialog recordLinksDialog = null;
 
     private Grid<RecordWeb> gridLinkList;
-    private ListStore<RecordWeb> storeLinkList = new ListStore<RecordWeb>();
+    private final ListStore<RecordWeb> storeLinkList = new ListStore<RecordWeb>();
 
     public SearchEntityView(Controller controller) {
         super(controller);
@@ -232,13 +232,13 @@ public class SearchEntityView extends BaseSearchEntityView
         } else if (event.getType() == AppEvents.EntitiesReceived) {
 
             // Info.display("Information", "EntitiesReceived.");
-            List<EntityWeb> entities = (List<EntityWeb>) event.getData();
+            List<EntityWeb> entities = event.getData();
             entityStore.removeAll();
             entityStore.add(entities);
 
         } else if (event.getType() == AppEvents.EntityInstancesReceived) {
 
-            List<RecordWeb> entities = (List<RecordWeb>) event.getData();
+            List<RecordWeb> entities = event.getData();
 
             /*
              * Info.display("Information", "EntityInstancesReceived. "+entities.size()); for( RecordWeb record :
@@ -257,7 +257,7 @@ public class SearchEntityView extends BaseSearchEntityView
             searchButton.unmask();
 
         } else if (event.getType() == AppEvents.EntityLinksReceived) {
-            List<RecordWeb> entityLinks = (List<RecordWeb>) event.getData();
+            List<RecordWeb> entityLinks = event.getData();
             // Info.display("Information", "EnttyLinks: "+entityLinks.size());
 
             buildRecordLinksDialog();
@@ -388,7 +388,7 @@ public class SearchEntityView extends BaseSearchEntityView
             pagingLoader.load(config);
 
         } else if (event.getType() == AppEvents.EntityLinkPairReceived) {
-            unlinkedPair = (RecordLinkWeb) event.getData();
+            unlinkedPair = event.getData();
             // Info.display("Information", "Link Pair: "+ linkedPair.getLeftRecord().getRecordId() +", "+linkedPair.getRightRecord().getRecordId());
 
             buildRecordLinkPairDialog(Constants.ADVANCED_SEARCH, currentEntity);
@@ -897,7 +897,7 @@ public class SearchEntityView extends BaseSearchEntityView
         leftFormPanel.add(identifier);
         rightFormPanel.add(identifierDomains);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();
@@ -953,7 +953,7 @@ public class SearchEntityView extends BaseSearchEntityView
         HBoxLayoutData dataTypes = new HBoxLayoutData(new Margins(5, 0, 5, 160));
         topFormPanel.add(searchAttributes, dataTypes);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();
@@ -985,7 +985,7 @@ public class SearchEntityView extends BaseSearchEntityView
             }
         }
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();
@@ -1207,7 +1207,7 @@ public class SearchEntityView extends BaseSearchEntityView
         data.setMargins(new Margins(4, 2, 4, 2));
         container.add(formButtonContainer, data);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();

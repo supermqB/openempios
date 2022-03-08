@@ -87,7 +87,7 @@ public class JSONArray {
     /**
      * The arrayList where the JSONArray's properties are kept.
      */
-    private ArrayList myArrayList;
+    private final ArrayList myArrayList;
 
 
     /**
@@ -137,7 +137,7 @@ public class JSONArray {
             case ']':
             case ')':
                 if (q != c) {
-                    throw x.syntaxError("Expected a '" + new String(new Character(c).toString()) + "'");
+                    throw x.syntaxError("Expected a '" + new Character(c).toString() + "'");
                 }
                 return;
             default:

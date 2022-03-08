@@ -30,10 +30,10 @@ import org.openhie.openempi.model.Entity;
 
 public class NaiveBlockingRecordPairSource implements RecordPairSource
 {
-	private Logger log = Logger.getLogger(getClass());
+	private final Logger log = Logger.getLogger(getClass());
 	
-	private EntityDao entityDao;
-	private Entity entity;
+	private final EntityDao entityDao;
+	private final Entity entity;
 	private List<Long> recordIds;
 	
 	public NaiveBlockingRecordPairSource(Entity entity, EntityDao entityDao) {

@@ -27,13 +27,13 @@ import com.orientechnologies.orient.core.metadata.schema.OClassImpl;
 
 public class EntityStore
 {
-    private String entityName;
-    private String storeName;
+    private final String entityName;
+    private final String storeName;
     private String storageName;
-    private String storeUrl;
+    private final String storeUrl;
     private OClassImpl entityClass;
     private OClassImpl identifierClass;
-    private Map<String, Integer> clusterIdByClassName = new HashMap<String, Integer>();
+    private final Map<String, Integer> clusterIdByClassName = new HashMap<String, Integer>();
 
     public EntityStore(String entityName, String storeName, String storeUrl, String storageName) {
         this.entityName = entityName;

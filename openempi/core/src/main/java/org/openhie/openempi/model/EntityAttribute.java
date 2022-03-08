@@ -289,11 +289,8 @@ public class EntityAttribute extends BaseObject implements Serializable
 		} else if (!entityAttributeId.equals(other.entityAttributeId))
 			return false;
 		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
+			return other.name == null;
+		} else return name.equals(other.name);
 	}
 
 	@Override

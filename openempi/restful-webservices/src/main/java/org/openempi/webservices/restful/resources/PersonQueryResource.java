@@ -50,7 +50,7 @@ import org.openhie.openempi.service.ResourceServiceFactory;
 @Path("/person-query-resource")
 public class PersonQueryResource
 {
-    private PersonQueryResourceService service;
+    private final PersonQueryResourceService service;
     
     public PersonQueryResource() {
         service = (PersonQueryResourceService)

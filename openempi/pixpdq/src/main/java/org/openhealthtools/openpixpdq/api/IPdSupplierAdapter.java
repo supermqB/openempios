@@ -42,7 +42,7 @@ public interface IPdSupplierAdapter extends IPixPdqAdapter{
      *         contains a continuation reference number.
      * @see PdqResult        
      */
-    public PdqResult findPatients(PdqQuery query, MessageHeader header) throws PdSupplierException;
+    PdqResult findPatients(PdqQuery query, MessageHeader header) throws PdSupplierException;
  
     /**
      * Cancels the existing PDQ Query whose reference id is given by pointer.
@@ -51,5 +51,5 @@ public interface IPdSupplierAdapter extends IPixPdqAdapter{
      * @param messageQueryName the messageQueryName 
      * @throws PdSupplierException when there is trouble canceling the query.
      */
-    public void cancelQuery(String queryTag, String messageQueryName) throws PdSupplierException;
+    void cancelQuery(String queryTag, String messageQueryName) throws PdSupplierException;
 }

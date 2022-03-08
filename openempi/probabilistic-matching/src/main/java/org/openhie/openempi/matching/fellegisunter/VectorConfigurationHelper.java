@@ -30,7 +30,7 @@ import org.openhie.openempi.model.VectorConfiguration;
 
 public class VectorConfigurationHelper
 {
-	private static Logger log = Logger.getLogger(VectorConfigurationHelper.class);
+	private static final Logger log = Logger.getLogger(VectorConfigurationHelper.class);
 	
 	/**
 	 * At startup, this method loads into the configuration registry the default list of vectors
@@ -81,7 +81,7 @@ public class VectorConfigurationHelper
 				get(ProbabilisticMatchingConstants.PROBABILISTIC_MATCHING_VECTOR_CLASSIFICATIONS);
 		if (vectorClassifications != null) {
     		for (VectorConfiguration vector : vectors) {
-    			Integer classification = (Integer) vectorClassifications.get(vector.getVectorValue());
+    			Integer classification = vectorClassifications.get(vector.getVectorValue());
     			if (classification == null) {
     				continue;
     			}

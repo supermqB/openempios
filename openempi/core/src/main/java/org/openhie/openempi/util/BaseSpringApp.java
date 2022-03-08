@@ -28,7 +28,7 @@ import org.springframework.context.support.GenericApplicationContext;
 
 public class BaseSpringApp
 {
-	private String[] DEFAULT_CONTEXT_RESOURCES = {
+	private final String[] DEFAULT_CONTEXT_RESOURCES = {
 	        "/applicationContext-resources.xml", "classpath:/applicationContext-dao.xml",
 	        "/applicationContext-service.xml", "classpath*:/**/applicationContext.xml"
 		};

@@ -24,7 +24,7 @@ import uk.ac.shef.wit.simmetrics.similaritymetrics.JaroWinkler;
 
 public class JaroWinklerSimmetricsDistanceMetric extends AbstractDistanceMetric
 {
-	private JaroWinkler jaroWinkler = new JaroWinkler();
+	private final JaroWinkler jaroWinkler = new JaroWinkler();
 
 	public JaroWinklerSimmetricsDistanceMetric() {
 	}

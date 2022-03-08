@@ -131,11 +131,8 @@ public class ReportQueryParameter extends BaseObject implements Serializable
 		} else if (!parameterName.equals(other.parameterName))
 			return false;
 		if (reportQueryParameterId == null) {
-			if (other.reportQueryParameterId != null)
-				return false;
-		} else if (!reportQueryParameterId.equals(other.reportQueryParameterId))
-			return false;
-		return true;
+			return other.reportQueryParameterId == null;
+		} else return reportQueryParameterId.equals(other.reportQueryParameterId);
 	}
 
 	@Override

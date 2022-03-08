@@ -64,11 +64,11 @@ import com.tinkerpop.blueprints.impls.orient.OrientVertex;
 
 public class EntityDaoOrientdb implements EntityDao
 {
-    private Logger log = Logger.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
     private static final String RECORD_LINK_TYPE = "recordLink";
     private static final String IDENTIFIER_TYPE = "identifier";
     private static final int MAX_RETRY_ATTEMPTS = 5;
-    private static ThreadLocal<DataAccessIntent> currentIntent = new ThreadLocal<DataAccessIntent>();
+    private static final ThreadLocal<DataAccessIntent> currentIntent = new ThreadLocal<DataAccessIntent>();
     private static ConnectionManager connectionManager;
     private static SchemaManager schemaManager;
     private RecordCacheManager entityCacheManager;
@@ -181,10 +181,10 @@ public class EntityDaoOrientdb implements EntityDao
         } else {
             properties.put(Constants.DIRTY_RECORD_PROPERTY, Boolean.FALSE);
         }
-        OrientVertex instance = (OrientVertex) db.addVertex(getClassName(entity.getName()), properties);
+        OrientVertex instance = db.addVertex(getClassName(entity.getName()), properties);
         instance.save();
         for (Identifier identifier : record.getIdentifiers()) {
-            OrientVertex vertex = (OrientVertex) saveIdentifier(db, instance, record, identifier);
+            OrientVertex vertex = saveIdentifier(db, instance, record, identifier);
             OrientEdge edge = db.addEdge(null, instance, vertex, Constants.IDENTIFIER_EDGE_TYPE);
             edge.save();
             if (log.isTraceEnabled()) {
@@ -397,7 +397,7 @@ public class EntityDaoOrientdb implements EntityDao
                 while (!done) {
                     try {
                         attempts++;
-                        vertex = (OrientVertex) db.addVertex(className, props);
+                        vertex = db.addVertex(className, props);
                         vertex.getBaseClassName();
                         db.commit();
                         done = true;
@@ -502,7 +502,7 @@ public class EntityDaoOrientdb implements EntityDao
                 .generateLoadQueryFromRecordId(OrientdbConverter.getRidFromRecordId(clusterId, id));
         try {
             db = connect(entityStore);
-            Iterable<Vertex> result = (Iterable<Vertex>) db.command(new OCommandSQL(query)).execute();
+            Iterable<Vertex> result = db.command(new OCommandSQL(query)).execute();
             if (result == null || !result.iterator().hasNext()) {
                 return null;
             }
@@ -549,7 +549,7 @@ public class EntityDaoOrientdb implements EntityDao
         try {
             db = connect(entityStore);
             @SuppressWarnings("unchecked")
-            Iterable<Vertex> result = (Iterable<Vertex>) db.command(new OCommandSQL(query)).execute();
+            Iterable<Vertex> result = db.command(new OCommandSQL(query)).execute();
             return OrientdbConverter.convertVertexToRecord(getEntityCacheManager(), entity, result);
         } catch (Exception e) {
             log.error("Failed while trying to query the system using entity: " + entityStore.getEntityName()
@@ -633,7 +633,7 @@ public class EntityDaoOrientdb implements EntityDao
         try {
             db = connect(entityStore);
 
-            Iterable<Vertex> result = (Iterable<Vertex>) db.command(new OSQLSynchQuery<ODocument>(query)).execute();
+            Iterable<Vertex> result = db.command(new OSQLSynchQuery<ODocument>(query)).execute();
             return OrientdbConverter.convertVertexToRecord(getEntityCacheManager(), entity, result);
         } catch (Exception e) {
             log.error("Failed while trying to query the system using entity: " + entityStore.getEntityName()
@@ -652,7 +652,7 @@ public class EntityDaoOrientdb implements EntityDao
         try {
             db = connect(entityStore);
             @SuppressWarnings("unchecked")
-            Iterable<Vertex> result = (Iterable<Vertex>) db.command(new OSQLSynchQuery<ODocument>(query)).execute(params);
+            Iterable<Vertex> result = db.command(new OSQLSynchQuery<ODocument>(query)).execute(params);
             return OrientdbConverter.convertVertexToRecord(getEntityCacheManager(), entity, result);
         } catch (Exception e) {
             log.error("Failed while trying to query the system using entity: " + entityStore.getEntityName()
@@ -671,7 +671,7 @@ public class EntityDaoOrientdb implements EntityDao
         EntityStore entityStore = getEntityStoreByName(entity.getName());
         try {
             db = connect(entityStore);
-            Iterable<Vertex> result = (Iterable<Vertex>) db.command(new OSQLSynchQuery<ODocument>(query)).execute(params);
+            Iterable<Vertex> result = db.command(new OSQLSynchQuery<ODocument>(query)).execute(params);
             if (result == null) {
                 return new ArrayList<Record>();
             }
@@ -694,7 +694,7 @@ public class EntityDaoOrientdb implements EntityDao
         EntityStore entityStore = getEntityStoreByName(entity.getName());
         try {
             db = connect(entityStore);
-            Iterable<Vertex> result = (Iterable<Vertex>) db.command(new OSQLSynchQuery<ODocument>(query)).execute(params);
+            Iterable<Vertex> result = db.command(new OSQLSynchQuery<ODocument>(query)).execute(params);
             if (result == null) {
                 return new ArrayList<Record>();
             }
@@ -780,7 +780,7 @@ public class EntityDaoOrientdb implements EntityDao
         EntityStore entityStore = getEntityStoreByName(entity.getName());
         try {
             db = connect(entityStore);
-            Iterable<Vertex> result = (Iterable<Vertex>) db.command(new OSQLSynchQuery<ODocument>(query)).execute(params);
+            Iterable<Vertex> result = db.command(new OSQLSynchQuery<ODocument>(query)).execute(params);
             if (result == null) {
                 return 0L;
             }
@@ -876,7 +876,7 @@ public class EntityDaoOrientdb implements EntityDao
         try {
             db = connect(entityStore);
             @SuppressWarnings("unchecked")
-            Iterable<Vertex> result = (Iterable<Vertex>) db.command(new OSQLSynchQuery<ODocument>(query)).execute(params);
+            Iterable<Vertex> result = db.command(new OSQLSynchQuery<ODocument>(query)).execute(params);
             return OrientdbConverter.convertVertexToRecord(getEntityCacheManager(), entity, result);
         } catch (Exception e) {
             log.error("Failed while trying to query the system using entity: " + entityStore.getEntityName()

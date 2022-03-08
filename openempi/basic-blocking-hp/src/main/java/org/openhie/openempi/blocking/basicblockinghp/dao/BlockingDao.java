@@ -46,17 +46,17 @@ import org.openhie.openempi.model.Record;
  
 public interface BlockingDao
 {
-	public Long getRecordPairCount(Entity entity, BlockingRound round);
+	Long getRecordPairCount(Entity entity, BlockingRound round);
 
-	public List<Long> getAllRecordIds(Entity entity);
+	List<Long> getAllRecordIds(Entity entity);
 	
-	public Long loadBlockDataCount(Entity entity, BlockingRoundClass roundClass);
+	Long loadBlockDataCount(Entity entity, BlockingRoundClass roundClass);
 	
-	public Set<Long> loadBlockData(Entity entity, String blockRecordId);
+	Set<Long> loadBlockData(Entity entity, String blockRecordId);
 	
-	public Set<String> loadBlockRecordIds(Entity entity, BlockingRoundClass roundClass);
+	Set<String> loadBlockRecordIds(Entity entity, BlockingRoundClass roundClass);
 	
-	public Record loadBlockData(Entity entity, BlockingRoundClass roundClass, String blockingKeyValue);
+	Record loadBlockData(Entity entity, BlockingRoundClass roundClass, String blockingKeyValue);
 	
-	public void saveBlockData(Entity entity, BlockingRoundClass roundClass, Record record);
+	void saveBlockData(Entity entity, BlockingRoundClass roundClass, Record record);
 }

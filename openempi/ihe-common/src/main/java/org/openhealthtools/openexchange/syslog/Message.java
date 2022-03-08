@@ -113,13 +113,13 @@ public class Message implements LogMessage{
 	List<ErrorMessage> errorMessages = new ArrayList<ErrorMessage>();
 
 	@Transient
-	private Hashtable<String , Vector<GenericTable>> miscVectors;
+	private final Hashtable<String , Vector<GenericTable>> miscVectors;
 
 	@Transient
 	private HashSet<String> tableList;
 	
 	@Transient
-	private MainTable mainMessage ;
+	private final MainTable mainMessage ;
 	
 	@Transient
 	private String ip;
@@ -395,7 +395,7 @@ public class Message implements LogMessage{
 		
 		
 		
-		return "<message number='"+   messageID  +"'>" + buffNodeNames.toString() + buff.toString() + "</message>" ;
+		return "<message number='"+   messageID  +"'>" + buffNodeNames + buff + "</message>" ;
 	}
 
 	public HashMap<String, HashMap<String, Object>> toHashMap() {

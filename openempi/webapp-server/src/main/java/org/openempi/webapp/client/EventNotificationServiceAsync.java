@@ -28,9 +28,9 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface EventNotificationServiceAsync
 {
-	public void getEvents(AsyncCallback<List<NotificationEventWeb>> callback);
+	void getEvents(AsyncCallback<List<NotificationEventWeb>> callback);
 	
-	public void registerListener(String eventTypeName, AsyncCallback<String> callback);
+	void registerListener(String eventTypeName, AsyncCallback<String> callback);
 	
-	public void unregisterListener(String eventTypeName, AsyncCallback<String> callback);
+	void unregisterListener(String eventTypeName, AsyncCallback<String> callback);
 }

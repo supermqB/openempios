@@ -28,7 +28,7 @@ public enum EventType
 	MERGE_EVENT_TYPE("mergeNotificationEventType"),
 	UPDATE_EVENT_TYPE("updateNotificationEventType");
 	
-	private String eventTypeName;
+	private final String eventTypeName;
 	
 	EventType(String eventTypeName) {
 		this.eventTypeName = eventTypeName;

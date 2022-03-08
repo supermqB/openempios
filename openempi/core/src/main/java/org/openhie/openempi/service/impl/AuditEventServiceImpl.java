@@ -82,7 +82,7 @@ public class AuditEventServiceImpl extends BaseServiceImpl implements AuditEvent
 	}
 	
 	public List<AuditEvent> filterAuditEvents(Date startDate, Date endDate, List<Integer> auditEventTypeCodes) {
-		return (List<AuditEvent>) auditEventDao.filterAuditEvents(startDate, endDate, auditEventTypeCodes);
+		return auditEventDao.filterAuditEvents(startDate, endDate, auditEventTypeCodes);
 	}
 
 	public int getAuditEventCount(Date startDate, Date endDate, List<Integer> auditEventTypeCodes) {
@@ -200,7 +200,7 @@ public class AuditEventServiceImpl extends BaseServiceImpl implements AuditEvent
 	}
 	
 	public MessageLogEntry getMessageLogEntry(Integer messageLogId) {
-		return (MessageLogEntry) messageLogDao.getMessageLogEntry(messageLogId);
+		return messageLogDao.getMessageLogEntry(messageLogId);
 	}
 	
 	public MessageLogEntry saveMessageLogEntry(MessageLogEntry messageLogEntry) {
@@ -208,7 +208,7 @@ public class AuditEventServiceImpl extends BaseServiceImpl implements AuditEvent
 		messageLogEntry.setIncomingMessageType(msgType);
 		msgType = loadMessageType(messageLogEntry.getOutgoingMessageType());
 		messageLogEntry.setOutgoingMessageType(msgType);
-		return (MessageLogEntry) messageLogDao.saveMessageLogEntry(messageLogEntry);
+		return messageLogDao.saveMessageLogEntry(messageLogEntry);
 	}
 	
 	private MessageType loadMessageType(MessageType msgType) {

@@ -88,7 +88,7 @@ import ca.uhn.hl7v2.protocol.ReceivingApplicationException;
 class PixFeedHandler extends BaseHandler implements ReceivingApplication
 {
 
-    private static Logger log = Logger.getLogger(PixFeedHandler.class);
+    private static final Logger log = Logger.getLogger(PixFeedHandler.class);
     private PixManager actor = null;
 
     private IPixManagerAdapter pixAdapter = null;
@@ -118,12 +118,9 @@ class PixFeedHandler extends BaseHandler implements ReceivingApplication
      * @return <code>true</code> if the incoming message can be processed; otherwise <code>false</code>.
      */
     public boolean canProcess(Message theIn) {
-        if (theIn instanceof ADT_A01 || theIn instanceof ADT_A04 || theIn instanceof ADT_A05 || theIn instanceof ADT_A08
+        return theIn instanceof ADT_A01 || theIn instanceof ADT_A04 || theIn instanceof ADT_A05 || theIn instanceof ADT_A08
                 || theIn instanceof ADT_A39 || theIn instanceof ca.uhn.hl7v2.model.v25.message.ADT_A01
-                || theIn instanceof ca.uhn.hl7v2.model.v25.message.ADT_A05)
-            return true;
-        else
-            return false;
+                || theIn instanceof ca.uhn.hl7v2.model.v25.message.ADT_A05;
     }
 
     /**
@@ -600,8 +597,7 @@ class PixFeedHandler extends BaseHandler implements ReceivingApplication
         if (mrgPatientId != null) {
             boolean isValidMrgPid = validatePatientId(reply, mrgPatientId, hl7Header.toMessageHeader(), true,
                     incomingMessageId);
-            if (!isValidMrgPid)
-                return false;
+            return isValidMrgPid;
         }
 
         // Finally, it must be true when it reaches here

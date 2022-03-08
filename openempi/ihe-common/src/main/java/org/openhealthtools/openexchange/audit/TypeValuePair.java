@@ -26,8 +26,8 @@ package org.openhealthtools.openexchange.audit;
  * @author <a href="mailto:wenzhi.li@misys.com">Wenzhi Li</a>
  */
 public class TypeValuePair {
-	private String type;
-	private String value;
+	private final String type;
+	private final String value;
 	
 	public TypeValuePair(String type, String value) {
 		this.type = type;

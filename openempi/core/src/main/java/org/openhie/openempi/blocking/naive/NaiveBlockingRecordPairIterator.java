@@ -31,11 +31,11 @@ import org.openhie.openempi.model.RecordPair;
 
 public class NaiveBlockingRecordPairIterator implements RecordPairIterator
 {
-	private Logger log = Logger.getLogger(getClass());
+	private final Logger log = Logger.getLogger(getClass());
 	
-	private Entity entity;
-	private EntityDao entityDao;
-	private List<Long> recordIds;
+	private final Entity entity;
+	private final EntityDao entityDao;
+	private final List<Long> recordIds;
 	private Record firstRecord;
 	private int indexFirst;
 	private int indexSecond;

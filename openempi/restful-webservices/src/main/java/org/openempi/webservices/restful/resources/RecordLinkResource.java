@@ -51,7 +51,7 @@ import org.openhie.openempi.service.ResourceServiceFactory;
 @Path("{versionId}/record-links")
 public class RecordLinkResource extends BaseResource
 {
-    private RecordLinkResourceService recordLinkService;
+    private final RecordLinkResourceService recordLinkService;
     
     public RecordLinkResource() {
         recordLinkService = (RecordLinkResourceService)

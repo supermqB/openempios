@@ -27,7 +27,7 @@ import org.openempi.webapp.client.domain.Candidate;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface TestServiceAsync {
-	public void myMethod(String s, AsyncCallback<String> callback);
-	public void getCandidates(AsyncCallback<ArrayList<Candidate>> callback);
-	public void longRunningMethod(int runningTime, AsyncCallback<String> callback);
+	void myMethod(String s, AsyncCallback<String> callback);
+	void getCandidates(AsyncCallback<ArrayList<Candidate>> callback);
+	void longRunningMethod(int runningTime, AsyncCallback<String> callback);
 }

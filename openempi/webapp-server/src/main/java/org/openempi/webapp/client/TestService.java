@@ -27,7 +27,7 @@ import org.openempi.webapp.client.domain.Candidate;
 import com.google.gwt.user.client.rpc.RemoteService;
 
 public interface TestService extends RemoteService {
-	public String myMethod(String s);
-	public ArrayList<Candidate> getCandidates();
-	public String longRunningMethod(int runningTime);
+	String myMethod(String s);
+	ArrayList<Candidate> getCandidates();
+	String longRunningMethod(int runningTime);
 }

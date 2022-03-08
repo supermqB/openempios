@@ -58,7 +58,7 @@ public class InformationPanelView extends View
 	private ContentPanel container;
 
     private Grid<BaseModelData> gridInfo;
-    private ListStore<BaseModelData> gridInfoStore = new ListStore<BaseModelData>();
+    private final ListStore<BaseModelData> gridInfoStore = new ListStore<BaseModelData>();
 
 	@SuppressWarnings("unchecked")
 	public InformationPanelView(Controller controller) {
@@ -76,7 +76,7 @@ public class InformationPanelView extends View
 		} else if (event.getType() == AppEvents.InformationMessage) {
 		    // Info.display("Information", "Information Message.");
 
-	        BaseModelData message = (BaseModelData) event.getData();
+	        BaseModelData message = event.getData();
 	        gridInfoStore.add(message);
 
 		} else if (event.getType() == AppEvents.Logout) {
@@ -139,7 +139,7 @@ public class InformationPanelView extends View
         data.setMargins(new Margins(4, 2, 4, 2));
         container.add(gridInfo, data);
 
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.SOUTH_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.SOUTH_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

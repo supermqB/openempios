@@ -71,9 +71,7 @@ public class Problem {
         if (probCode != null ? !probCode.equals(problem.probCode) : problem.probCode != null) return false;
         if (probCodeSystem != null ? !probCodeSystem.equals(problem.probCodeSystem) : problem.probCodeSystem != null) return false;
         if (probCodeVersion != null ? !probCodeVersion.equals(problem.probCodeVersion) : problem.probCodeVersion != null) return false;
-        if (probName != null ? !probName.equals(problem.probName) : problem.probName != null) return false;
-
-        return true;
+        return probName != null ? probName.equals(problem.probName) : problem.probName == null;
     }
 
     public int hashCode() {

@@ -45,30 +45,30 @@ public interface IServerConnection {
      * @return True if you can use this connection to get input and output streams.
      * @see ConnectionFactory
      */
-    public boolean isServerConnectionValid();
+    boolean isServerConnectionValid();
 
     /**
      * Get a direct handle on the server socket, beware!
      *
      * @return The sever socket that is being used for communication.
      */
-    public ServerSocket getServerSocket();
+    ServerSocket getServerSocket();
 
     /**
      * Closes the server connection.  Please close your own streams.
      */
-    public void closeServerConnection();
+    void closeServerConnection();
 
     /**
      * Gets the description object for this connection.
      *
      * @return The description object for this conenction.
      */
-    public IConnectionDescription getConnectionDescription();
+    IConnectionDescription getConnectionDescription();
 
     /**
      * Connects the server connection.  Only called by the factory.
      */
-    public void connect();
+    void connect();
 
 }

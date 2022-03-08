@@ -31,15 +31,15 @@ import org.openhie.openempi.model.Record;
 
 public interface EntityLoaderManager
 {
-    public void setupConnection(Map<String, Object> properties);
+    void setupConnection(Map<String, Object> properties);
 
-    public Record addRecord(Entity entity, Record record) throws ApplicationException;
+    Record addRecord(Entity entity, Record record) throws ApplicationException;
 
-    public Set<Record> addRecords(Entity entity, Collection<Record> records) throws ApplicationException;
+    Set<Record> addRecords(Entity entity, Collection<Record> records) throws ApplicationException;
 
-    public Map<String, Object> getPropertyMap();
+    Map<String, Object> getPropertyMap();
 
-    public void shutdownConnection();
+    void shutdownConnection();
     
-    public void declareIntent(Entity entity, DataAccessIntent intent);
+    void declareIntent(Entity entity, DataAccessIntent intent);
 }

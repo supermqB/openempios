@@ -28,5 +28,5 @@ import org.openhie.openempi.model.ReportRequest;
 
 public interface ReportGenerator
 {
-	public JRXmlDataSource generateReportDataSource(ReportRequest reportRequest, Report report) throws ApplicationException;
+	JRXmlDataSource generateReportDataSource(ReportRequest reportRequest, Report report) throws ApplicationException;
 }

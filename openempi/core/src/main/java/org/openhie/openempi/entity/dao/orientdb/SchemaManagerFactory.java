@@ -25,7 +25,7 @@ import org.openhie.openempi.entity.Constants;
 
 public class SchemaManagerFactory
 {
-    private static Logger log = Logger.getLogger(SchemaManagerFactory.class);
+    private static final Logger log = Logger.getLogger(SchemaManagerFactory.class);
     
     public static SchemaManager createSchemaManager(ConnectionManager connectionManager) {
         if (Constants.REMOTE_STORAGE_MODE.equalsIgnoreCase(connectionManager.getStorageMode())) {

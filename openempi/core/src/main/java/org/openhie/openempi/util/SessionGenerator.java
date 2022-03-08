@@ -47,7 +47,7 @@ public class SessionGenerator
 
 	public static synchronized String generateSessionId() {
 
-		byte random[] = new byte[16];
+		byte[] random = new byte[16];
 		String result = null;
 
 		StringBuffer buffer = new StringBuffer();
@@ -98,7 +98,7 @@ public class SessionGenerator
 		return digest;
 	}
 
-	protected static void getRandomBytes(byte bytes[]) {
+	protected static void getRandomBytes(byte[] bytes) {
 		getRandom().nextBytes(bytes);
 	}
 

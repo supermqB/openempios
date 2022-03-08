@@ -58,7 +58,7 @@ public class AuditCodeMappings {
 	 * 
 	 *  These are defined in DICOM Sup95 p. 38 and IHT ITI Vol 2. p. 184. 
 	 *  aka ccc1, version 2004xxxx, extensible (with IHE extensions). */
-	public static enum AuditEventIds {
+	public enum AuditEventIds {
 		ApplicationActivity,
 		AuditLogUsed,
 		BeginDICOMTransfer,
@@ -79,8 +79,8 @@ public class AuditCodeMappings {
 		PatientCareResourceAssignment,
 		PatientCareEpisode,
 		PatientCareProtocol		
-	};
-	
+	}
+
 	/** Used by the object factory to properly format this type of event.
 	 * 
 	 * @param id The event id enumeration to format.
@@ -137,7 +137,7 @@ public class AuditCodeMappings {
 	 * 
 	 * From DICOM Supp95 p. 38.
 	 * aka ccc2, version 2004xxxx, extensible. */
-	public static enum AuditTypeCodes {
+	public enum AuditTypeCodes {
 		ApplicationStart,
 		ApplicationStop,
 		Login,
@@ -172,7 +172,7 @@ public class AuditCodeMappings {
 		DocumentMetadataSubscribe,
 		DocumentMetadataNotify,
 		DocumentMetadataPublish,
-	};
+	}
 
 	/** Used by the object factory to properly format the event cause.
 	 * 
@@ -256,7 +256,7 @@ public class AuditCodeMappings {
 	 * 
 	 * From DICOM Supp95 p. 39.
 	 * aka ccc3, version 2004xxxx, extensible. */
-	public static enum ActiveParticipantIds {
+	public enum ActiveParticipantIds {
 		Application         ("110150", "Application"),
 		ApplicationLauncher ("110151", "Application Launcher"),
 		Destination         ("110152", "Destination"),
@@ -267,7 +267,7 @@ public class AuditCodeMappings {
 		AuditCodeMappings value;
 		ActiveParticipantIds(String code, String name) { value = new AuditCodeMappings("DCM", code, name); }
 		public AuditCodeMappings getValue() { return value; }
-	};
+	}
 
 	/** The type of security alert event that is being sent.
 	 * 
@@ -277,7 +277,7 @@ public class AuditCodeMappings {
 	 * 
 	 *  These are defined in DICOM Sup95 p. 38 and IHT ITI Vol 2. p. 184. 
 	 *  aka ccc4, version 2004xxxx, extensible. */
-	public static enum SecurityAlertType {
+	public enum SecurityAlertType {
 		NodeAuthentication(AuditTypeCodes.NodeAuthentication),
 		EmergencyOverride(AuditTypeCodes.EmergencyOverride),
 		NetworkConfiguration(AuditTypeCodes.NetworkConfiguration),
@@ -294,14 +294,14 @@ public class AuditCodeMappings {
 		SecurityAlertType(AuditCodeMappings.AuditTypeCodes value) { this.value = value; }
 	    private final AuditTypeCodes value;
 	    public AuditTypeCodes getValue() { return value; }
-	};
-	
+	}
+
 	/** Used by the factory to get the character defining the audited action.
 	 * 
 	 * Defined in RFC 3881 p. 13  Use the getValue function to get the string
 	 * value for this event action descrtiptor code.
 	 */
-	public static enum EventActionCode {
+	public enum EventActionCode {
 		Create ( "C" ),
 		Read   ( "R" ), // Read display, etc...
 		Update ( "U" ),
@@ -309,7 +309,7 @@ public class AuditCodeMappings {
 		Execute( "E" ), // most application functions.
 		Merge  ( "M" );
 		
-		private String value;
+		private final String value;
 		EventActionCode(String value) { this.value = value; }
 		/** Returns the code for this event action.
 		 * @return The encoded event, C, R, U, D, or E. */
@@ -319,13 +319,13 @@ public class AuditCodeMappings {
 	/** Result codes for actions to be audited.
 	 * 
 	 * Defined in RFC 3881 p. 15 */
-	public static enum SuccessCode {
+	public enum SuccessCode {
 		Success        ( "0" ),
 		MinorFailure   ( "4" ),
 		SeriousFailure ( "8" ),
 		MajorFailure   ( "12");
 		
-		private String value;
+		private final String value;
 		SuccessCode(String value) { this.value = value; }
 		/** Used by the factory to get the number defining a result.
 		 * @return The string representation of the result code. */
@@ -337,12 +337,12 @@ public class AuditCodeMappings {
      *
      * Defined in RFC 3881. Section 5.3.1
      */
-    public static enum NetworkAccessPointType {
+    public enum NetworkAccessPointType {
         MachineName     ((short)1),
         IPAddress       ((short)2),
         TelephoneNumber ((short)3);
 
-        private short value;
+        private final short value;
         NetworkAccessPointType(short value) { this.value = value; }
         /** Used by the factory to get the number defining a result.
 		 * @return The string representation of the result code. */
@@ -352,7 +352,7 @@ public class AuditCodeMappings {
     /** Devices that might be referenced in audit messages.
 	 * 
 	 * Defined in RFC 3881 p. 23 */
-	public static enum AuditSourceType {
+	public enum AuditSourceType {
 		EndUserGui            ("1"),
 		DataAcquisitionDevice ("2"),
 		WebServer             ("3"),
@@ -363,7 +363,7 @@ public class AuditCodeMappings {
 		IsoLevel456Os         ("8"),
 		Unknown               ("9");
 		
-		private String value;
+		private final String value;
 		AuditSourceType(String value) { this.value = value; }
 		/** Used by the factory to get the number defining a result.
 		 * @return The string representation of the result code. */
@@ -375,13 +375,13 @@ public class AuditCodeMappings {
 	/** Devices that might be referenced in audit messages.
 	 * 
 	 * Defined in RFC 3881, Section 5.5.1 */
-	public static enum ParticipantObjectTypeCode {
+	public enum ParticipantObjectTypeCode {
 		Person       ((short) 1),
 		SystemObject ((short) 2),
 		Organization ((short) 3),
 		Other        ((short) 4);
 		
-		private short value;
+		private final short value;
 		ParticipantObjectTypeCode(short value) { this.value = value; }
 		/** Used by the factory to get the number defining a result.
 		 * @return The string representation of the result code. */
@@ -391,7 +391,7 @@ public class AuditCodeMappings {
 	/** Devices that might be referenced in audit messages.
 	 * 
 	 * Defined in RFC 3881, Section 5.5.2 */
-	public static enum ParticipantObjectRoleCode {
+	public enum ParticipantObjectRoleCode {
 		Patient             (1, ParticipantObjectTypeCode.Person),
 		Location            (2, ParticipantObjectTypeCode.Organization),
 		Report              (3, ParticipantObjectTypeCode.SystemObject),
@@ -406,8 +406,8 @@ public class AuditCodeMappings {
 		//...
 		Query               (24, ParticipantObjectTypeCode.SystemObject);
 		
-		private short value;
-		private ParticipantObjectTypeCode type;
+		private final short value;
+		private final ParticipantObjectTypeCode type;
 		ParticipantObjectRoleCode(int value, ParticipantObjectTypeCode type) { this.value = (short) value; this.type = type; }
 		/** Used by the factory to get the number defining a result.
 		 * @return The string representation of the result code. */
@@ -418,7 +418,7 @@ public class AuditCodeMappings {
 	/** Defines the type of this ID.
 	 * 
 	 * Defined in RFC 3881, Section 5.5.4 */
-	public static enum ParticipantObjectIdTypeCode {
+	public enum ParticipantObjectIdTypeCode {
 		MedicalRecord    ("1", ParticipantObjectTypeCode.Person),
 		Patient          ("2", ParticipantObjectTypeCode.Person, "Patient Number", null, "RFC-3881"),
 		Encounter        ("3", ParticipantObjectTypeCode.Person),
@@ -445,11 +445,11 @@ public class AuditCodeMappings {
 		DocumentMetadataPublish("ITI-54", ParticipantObjectTypeCode.SystemObject, "Document Metadata Publish", "IHE Transactions", "IHE Transactions"),
         //SubmissionSet IdTypeCode is defined in ITI V4 vol2 Section 3.15.4.1.4
 		SubmissionSet    ("urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd", ParticipantObjectTypeCode.SystemObject, null, "IHE XDS Metadata");				
-		private String value;
-		private String name;
-		private ParticipantObjectTypeCode type;
-		private String codeSystem;
-		private String codeSystemName;
+		private final String value;
+		private final String name;
+		private final ParticipantObjectTypeCode type;
+		private final String codeSystem;
+		private final String codeSystemName;
 		ParticipantObjectIdTypeCode(String value, ParticipantObjectTypeCode type) {
 			this(value, type, null, null);
 		}

@@ -258,10 +258,7 @@ public class MessageHeader {
 		} else if (!messageStructure.equals(other.messageStructure))
 			return false;	
 		if (messgeDate == null) {
-			if (other.messgeDate != null)
-				return false;
-		} else if (!messgeDate.equals(other.messgeDate))
-			return false;
-		return true;
+			return other.messgeDate == null;
+		} else return messgeDate.equals(other.messgeDate);
 	}
 }

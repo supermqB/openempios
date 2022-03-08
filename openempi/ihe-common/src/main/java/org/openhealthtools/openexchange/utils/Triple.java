@@ -84,13 +84,8 @@ public final class Triple<A,B,C> implements Serializable {
             return false;
         }
         if (this.third == null) {
-            if (other.third != null) {
-                return false;
-            }
-        } else if (!this.third.equals(other.third)) {
-            return false;
-        }
-        return true;
+            return other.third == null;
+        } else return this.third.equals(other.third);
     }
 
     @Override

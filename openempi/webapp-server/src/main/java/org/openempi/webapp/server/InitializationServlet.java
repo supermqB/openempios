@@ -41,7 +41,7 @@ import org.openhie.openempi.model.Version;
 public class InitializationServlet extends HttpServlet
 {
     private static final String OPENEMPI_UPDATES_SITE = "OPENEMPI_UPDATES_SITE";
-    private Logger log = Logger.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -87,7 +87,7 @@ public class InitializationServlet extends HttpServlet
         }
     }
 
-    private void sendUpdatesRequest(String updateSiteUrl, Version version) throws HttpException, IOException {
+    private void sendUpdatesRequest(String updateSiteUrl, Version version) throws IOException {
         PostMethod post = new PostMethod(updateSiteUrl);
         HttpClient httpclient = new HttpClient();
         try {

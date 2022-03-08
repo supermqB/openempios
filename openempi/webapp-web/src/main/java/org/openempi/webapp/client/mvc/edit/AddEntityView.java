@@ -96,7 +96,7 @@ public class AddEntityView extends BaseEntityView
     private ComboBox<IdentifierDomainWeb> identifierDomains;
     private IdentifierDomainWeb globalIdentifierDomain;
 
-    private ListStore<IdentifierWeb> identifierStore = new ListStore<IdentifierWeb>();
+    private final ListStore<IdentifierWeb> identifierStore = new ListStore<IdentifierWeb>();
     private Grid<IdentifierWeb> identifierGrid;
     private Button addIdentifierButton;
     private Button removeIdentifierButton;
@@ -108,7 +108,7 @@ public class AddEntityView extends BaseEntityView
 
     private EntityWeb currentEntity;
     private ComboBox<EntityWeb> entityCombo;
-    private ListStore<EntityWeb> entityStore = new GroupingStore<EntityWeb>();
+    private final ListStore<EntityWeb> entityStore = new GroupingStore<EntityWeb>();
 
     // Map<String, Field<?>> attributeFieldMap;
 
@@ -135,7 +135,7 @@ public class AddEntityView extends BaseEntityView
         } else if (event.getType() == AppEvents.EntitiesReceived) {
 
             // Info.display("Information", "EntitiesReceived.");
-            List<EntityWeb> entities = (List<EntityWeb>) event.getData();
+            List<EntityWeb> entities = event.getData();
             entityStore.removeAll();
             entityStore.add(entities);
 
@@ -458,14 +458,12 @@ public class AddEntityView extends BaseEntityView
         formlayout.setCellVerticalAlign(VerticalAlignment.TOP);
 
         identifierContainer = new LayoutContainer();
-        ;
         identifierContainer.setLayout(identlayout);
         FormPanel identifierPanel = setupForm("", 150, 850);
         identifierPanel.add(setupIdentifierfieldSet(875, 1));
         identifierContainer.add(identifierPanel);
 
         topContainer = new LayoutContainer();
-        ;
         topContainer.setLayout(toplayout);
         topFormPanel = setupForm("", 150, 400);
         topFormPanel.setStyleAttribute("padding-left", "15px");
@@ -554,7 +552,7 @@ public class AddEntityView extends BaseEntityView
         data.setMargins(new Margins(4, 2, 4, 2));
         container.add(formButtonContainer, data);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();
@@ -603,7 +601,7 @@ public class AddEntityView extends BaseEntityView
         toolBar.add(entityCombo);
         container.setTopComponent(toolBar);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();

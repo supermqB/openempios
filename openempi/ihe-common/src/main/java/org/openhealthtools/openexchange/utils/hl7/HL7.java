@@ -45,7 +45,7 @@ import org.openhealthtools.openexchange.datamodel.SharedEnums.SexType;
  */
 public class HL7 {
 	
-	private static EncodingCharacters encodingCharacters = new EncodingCharacters('|', "^~\\&");
+	private static final EncodingCharacters encodingCharacters = new EncodingCharacters('|', "^~\\&");
 	
 	/**
 	 * Generates a CX data type from an ID and an AssigningAuthority.
@@ -509,7 +509,7 @@ public class HL7 {
 	 */
 	private static String getPart(String input, int field, String separator) {
 		if (input == null) return null;
-		String fields[] = input.split(separator);
+		String[] fields = input.split(separator);
 		if (fields == null) return null;
 		if (fields.length < field) return null;
 		String result = fields[field - 1];

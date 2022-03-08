@@ -111,60 +111,60 @@ public class EntityAttributeDesignView extends View
 	public static final Integer BASE_DISPLY_ORDER = new Integer(1);
 
 	private Grid<EntityWeb> grid;
-	private GroupingStore<EntityWeb> store = new GroupingStore<EntityWeb>();
+	private final GroupingStore<EntityWeb> store = new GroupingStore<EntityWeb>();
 
 	private Dialog entityDesignDialog = null;
 	private String addOrEditOrDeleteMode = "";
 
-		private TextField<String> entityNameEdit = new TextField<String>();
-		private TextField<String> entityDisplayNameEdit = new TextField<String>();
-		private SpinnerField versionSpin = new SpinnerField();
-		private TextArea entityDescriptionEdit = new TextArea();
-		private CheckBox synchronousCheckBox = new CheckBox();
+		private final TextField<String> entityNameEdit = new TextField<String>();
+		private final TextField<String> entityDisplayNameEdit = new TextField<String>();
+		private final SpinnerField versionSpin = new SpinnerField();
+		private final TextArea entityDescriptionEdit = new TextArea();
+		private final CheckBox synchronousCheckBox = new CheckBox();
 
 		private Grid<EntityAttributeWeb> attributeGrid;
-		private ListStore<EntityAttributeWeb> attributeStore = new GroupingStore<EntityAttributeWeb>();
+		private final ListStore<EntityAttributeWeb> attributeStore = new GroupingStore<EntityAttributeWeb>();
 
 	private Dialog manageGroupDialog = null;
 		private Grid<EntityAttributeGroupWeb> groupGrid;
-		private ListStore<EntityAttributeGroupWeb> groupStore = new GroupingStore<EntityAttributeGroupWeb>();
-		private ListStore<EntityAttributeGroupWeb> editedGroups = new GroupingStore<EntityAttributeGroupWeb>();
+		private final ListStore<EntityAttributeGroupWeb> groupStore = new GroupingStore<EntityAttributeGroupWeb>();
+		private final ListStore<EntityAttributeGroupWeb> editedGroups = new GroupingStore<EntityAttributeGroupWeb>();
 
 		private Dialog groupDialog = null;
 		private String addOrEditGroupMode = "";
-		private TextField<String> groupNameEdit = new TextField<String>();
-		private TextField<String> groupDisplayNameEdit = new TextField<String>();
-		private NumberField groupDisplayOrderEdit = new NumberField();
+		private final TextField<String> groupNameEdit = new TextField<String>();
+		private final TextField<String> groupDisplayNameEdit = new TextField<String>();
+		private final NumberField groupDisplayOrderEdit = new NumberField();
 
 	private Dialog attributeDialog = null;
 	private String addOrEditAttributeMode = "";
 		private ComboBox<EntityAttributeGroupWeb> groupCombo;
-		private TextField<String> attributeNameEdit = new TextField<String>();
-		private TextField<String> attributeDisplayNameEdit = new TextField<String>();
-		private TextField<String> attributeDescriptionEdit = new TextField<String>();
+		private final TextField<String> attributeNameEdit = new TextField<String>();
+		private final TextField<String> attributeDisplayNameEdit = new TextField<String>();
+		private final TextField<String> attributeDescriptionEdit = new TextField<String>();
 		// private Slider attributeDispayOrderSlider;
 	    private CheckBox attributeIndexedCheckBox;
         private CheckBox attributeSearchableCheckBox;
         private CheckBox attributeCaseInsensitiveCheckBox;
 
-		private ListStore<EntityAttributeDatatypeWeb> attributeDataTypeStore = new ListStore<EntityAttributeDatatypeWeb>();
-		private ComboBox<EntityAttributeDatatypeWeb> attributeDataTypeCombo = new ComboBox<EntityAttributeDatatypeWeb>();
+		private final ListStore<EntityAttributeDatatypeWeb> attributeDataTypeStore = new ListStore<EntityAttributeDatatypeWeb>();
+		private final ComboBox<EntityAttributeDatatypeWeb> attributeDataTypeCombo = new ComboBox<EntityAttributeDatatypeWeb>();
 
 
 		private Grid<EntityAttributeValidationWeb> validationGrid;
-		private ListStore<EntityAttributeValidationWeb> validationStore = new GroupingStore<EntityAttributeValidationWeb>();
+		private final ListStore<EntityAttributeValidationWeb> validationStore = new GroupingStore<EntityAttributeValidationWeb>();
 
 	private Dialog validationDialog = null;
 	private String addOrEditValidationMode = "";
 			private String validationRuleName = "";
 			private ComboBox<EntityValidationRuleWeb> validationRuleCombo;
-			private ListStore<EntityValidationRuleWeb> validationRuleStore = new GroupingStore<EntityValidationRuleWeb>();
+			private final ListStore<EntityValidationRuleWeb> validationRuleStore = new GroupingStore<EntityValidationRuleWeb>();
 
 			private ComboBox<ModelPropertyWeb> validationParameterNameCombo;
-			private ListStore<ModelPropertyWeb> validationParameterNameStore = new GroupingStore<ModelPropertyWeb>();
+			private final ListStore<ModelPropertyWeb> validationParameterNameStore = new GroupingStore<ModelPropertyWeb>();
 
 			private Grid<EntityAttributeValidationParameterWeb> validationParameterGrid;
-			private ListStore<EntityAttributeValidationParameterWeb> validationParameterStore = new GroupingStore<EntityAttributeValidationParameterWeb>();
+			private final ListStore<EntityAttributeValidationParameterWeb> validationParameterStore = new GroupingStore<EntityAttributeValidationParameterWeb>();
 
 	private Dialog importDialog = null;
     private ListStore<UserFileWeb> importFileStore;
@@ -210,7 +210,7 @@ public class EntityAttributeDesignView extends View
 			initUI();
 
 			if (Registry.get(Constants.ENTITY_ATTRIBUTE_DATA_TYPES) != null) {	
-				List<EntityAttributeDatatypeWeb> dataTypes =  (List<EntityAttributeDatatypeWeb>)Registry.get(Constants.ENTITY_ATTRIBUTE_DATA_TYPES);
+				List<EntityAttributeDatatypeWeb> dataTypes = Registry.get(Constants.ENTITY_ATTRIBUTE_DATA_TYPES);
 				// for (EntityAttributeDatatypeWeb type : dataTypes) {
 				// 	Info.display("Information", "Data Types: "+ type.getDataTypeCd() + ", " + type.getName());
 				// }
@@ -219,7 +219,7 @@ public class EntityAttributeDesignView extends View
 			}
 
 			if (Registry.get(Constants.ENTITY_VALIDATION_RULES) != null) {
-				List<EntityValidationRuleWeb> rules =  (List<EntityValidationRuleWeb>)Registry.get(Constants.ENTITY_VALIDATION_RULES);
+				List<EntityValidationRuleWeb> rules = Registry.get(Constants.ENTITY_VALIDATION_RULES);
 				// for (EntityValidationRuleWeb rule : rules) {
 				// 	Info.display("Information", "Validation Rule: " + rule.getValidationRuleName() +", "+rule.getValidationRuleDisplayName());
 				// }
@@ -239,7 +239,7 @@ public class EntityAttributeDesignView extends View
 			validationStore.removeAll();
 			validationParameterStore.removeAll();
 
-			List<EntityWeb> entities = (List<EntityWeb>) event.getData();
+			List<EntityWeb> entities = event.getData();
 			store.add(entities);
 
 			entitiesReceived = true;
@@ -388,7 +388,7 @@ public class EntityAttributeDesignView extends View
         Registry.register(Constants.PERSON_MODEL_ATTRIBUTE_NAMES, personModelAttributeNames);
 
         // Get custom field names
-		List<ModelPropertyWeb> customFieldNames = (List<ModelPropertyWeb>) Registry.get(Constants.PERSON_MODEL_CUSTOM_FIELD_NAMES);
+		List<ModelPropertyWeb> customFieldNames = Registry.get(Constants.PERSON_MODEL_CUSTOM_FIELD_NAMES);
 		if (customFieldNames != null) {
 	  		for (ModelPropertyWeb customFieldName : customFieldNames) {
 				String name = customFieldName.getName();
@@ -694,7 +694,7 @@ public class EntityAttributeDesignView extends View
         exportViewFrame.setVisible(false);
         container.add(exportViewFrame);
 
-		LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+		LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
 		wrapper.removeAll();
 		wrapper.add(container);
 		wrapper.layout();

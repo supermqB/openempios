@@ -24,5 +24,5 @@ import java.util.Set;
 
 public interface ForEachRecordConsumer
 {
-    public void startProcess(Set<RecordConsumer> consumers, boolean queuePerConsumer);
+    void startProcess(Set<RecordConsumer> consumers, boolean queuePerConsumer);
 }

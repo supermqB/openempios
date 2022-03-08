@@ -115,7 +115,7 @@ public class UserDaoHibernate extends GenericDaoHibernate<User, Long>implements 
         } else {
             User user = (User) users.get(0);
             Hibernate.initialize(user.getRoles());
-            UserDetails userDetails = (UserDetails) getUser(user.getId());
+            UserDetails userDetails = getUser(user.getId());
             for (GrantedAuthority authority : userDetails.getAuthorities()) {
                 log.trace("User " + username + " has authority: " + authority.getAuthority());
             }
@@ -129,7 +129,7 @@ public class UserDaoHibernate extends GenericDaoHibernate<User, Long>implements 
     public String getUserPassword(String username) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(SessionFactoryUtils.getDataSource(getSessionFactory()));
         Table table = AnnotationUtils.findAnnotation(User.class, Table.class);
-        return (String) jdbcTemplate.queryForObject("select password from " + table.name() + " where username=?",
+        return jdbcTemplate.queryForObject("select password from " + table.name() + " where username=?",
                 new Object[] { username }, String.class);
     }
 
@@ -147,7 +147,7 @@ public class UserDaoHibernate extends GenericDaoHibernate<User, Long>implements 
         if (userFileId == null) {
             return null;
         }
-        return (UserFile) getHibernateTemplate().get(UserFile.class, userFileId);
+        return getHibernateTemplate().get(UserFile.class, userFileId);
     }
 
     public UserFile saveUserFile(UserFile userFile) {
@@ -160,7 +160,7 @@ public class UserDaoHibernate extends GenericDaoHibernate<User, Long>implements 
         if (userFile == null || userFile.getUserFileId() == null) {
             return;
         }
-        UserFile theFile = (UserFile) getHibernateTemplate().get(UserFile.class, userFile.getUserFileId());
+        UserFile theFile = getHibernateTemplate().get(UserFile.class, userFile.getUserFileId());
         getHibernateTemplate().delete(theFile);
         getHibernateTemplate().flush();
     }
@@ -172,7 +172,7 @@ public class UserDaoHibernate extends GenericDaoHibernate<User, Long>implements 
         if (users == null || users.isEmpty()) {
             return null;
         }
-        User user = (User) users.get(0);
+        User user = users.get(0);
         Hibernate.initialize(user.getRoles());
         return user;
     }

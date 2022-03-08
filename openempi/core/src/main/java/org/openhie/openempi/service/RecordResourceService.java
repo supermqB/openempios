@@ -31,47 +31,47 @@ import org.openhie.openempi.model.Record;
 
 public interface RecordResourceService
 {
-    public Record addRecord(String versionId, Record record) throws ConflictException;
+    Record addRecord(String versionId, Record record) throws ConflictException;
 
-    public void deleteRecord(String versionId, Integer entityId, Long recordId, Boolean removeOption)
+    void deleteRecord(String versionId, Integer entityId, Long recordId, Boolean removeOption)
             throws ConflictException, NotFoundException;
 
-    public List<Record> findByAttributes(String versionId, Integer entityId, List<String> keyVal, Integer firstResult,
-            Integer maxResults) throws BadRequestException, NotFoundException;
+    List<Record> findByAttributes(String versionId, Integer entityId, List<String> keyVal, Integer firstResult,
+                                  Integer maxResults) throws BadRequestException, NotFoundException;
 
-    public List<Record> findByBlocking(String versionId, Integer entityId, List<String> keyVal)
+    List<Record> findByBlocking(String versionId, Integer entityId, List<String> keyVal)
             throws BadRequestException, NotFoundException;
 
-    public List<Record> findByIdentifier(String versionId, Integer entityId, String identifierName,
-            Integer identifierDomainId, Integer firstResult, Integer maxResults) throws BadRequestException,
+    List<Record> findByIdentifier(String versionId, Integer entityId, String identifierName,
+                                  Integer identifierDomainId, Integer firstResult, Integer maxResults) throws BadRequestException,
             NotFoundException;
 
-    public Record loadRecordById(String versionId, Integer entityId, Long id) throws BadRequestException,
+    Record loadRecordById(String versionId, Integer entityId, Long id) throws BadRequestException,
             NotFoundException;
 
-    public List<Record> loadRecordByIds(String versionId, Integer entityId, List<Long> recordIds)
+    List<Record> loadRecordByIds(String versionId, Integer entityId, List<Long> recordIds)
             throws BadRequestException, NotFoundException;
 
-    public String recordCountByAttributes(String versionId, Integer entityId, List<String> keyVal)
+    String recordCountByAttributes(String versionId, Integer entityId, List<String> keyVal)
             throws BadRequestException;
 
-    public String recordCountByIdentifier(String versionId, Integer entityId, String identifierName,
-            Integer identifierDomainId) throws BadRequestException;
+    String recordCountByIdentifier(String versionId, Integer entityId, String identifierName,
+                                   Integer identifierDomainId) throws BadRequestException;
 
-    public Record updateRecord(String versionId, Record record) throws ConflictException;
+    Record updateRecord(String versionId, Record record) throws ConflictException;
     
-    public void assignGlobalIdentifiers(String versionId, Integer entityId)
-            throws ApplicationException, AuthorizationException, BadRequestException;
+    void assignGlobalIdentifiers(String versionId, Integer entityId)
+            throws ApplicationException, AuthorizationException;
 
-    public void generateCustomFields(String versionId, Integer entityId)
-            throws ApplicationException, AuthorizationException, BadRequestException;
+    void generateCustomFields(String versionId, Integer entityId)
+            throws ApplicationException, AuthorizationException;
 
-    public void generateRecordLinks(String versionId, Integer entityId)
-            throws ApplicationException, AuthorizationException, BadRequestException;
+    void generateRecordLinks(String versionId, Integer entityId)
+            throws ApplicationException, AuthorizationException;
 
-    public void initializeMatchingAlgorithm(String versionId, Integer entityId)
-            throws ApplicationException, AuthorizationException, BadRequestException;
+    void initializeMatchingAlgorithm(String versionId, Integer entityId)
+            throws ApplicationException, AuthorizationException;
     
-    public void rebuildBlockingIndexes(String versionId, Integer entityId)
-            throws ApplicationException, AuthorizationException, BadRequestException;
+    void rebuildBlockingIndexes(String versionId, Integer entityId)
+            throws ApplicationException, AuthorizationException;
 }

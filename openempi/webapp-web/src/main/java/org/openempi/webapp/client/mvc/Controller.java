@@ -57,7 +57,7 @@ public abstract class Controller extends com.extjs.gxt.ui.client.mvc.Controller
     private EntityInstanceDataServiceAsync entityInstanceDataService;
     private JobQueueDataServiceAsync jobQueueDataService;
     
-    private HashMap<String, Object> cacheMap;
+    private final HashMap<String, Object> cacheMap;
 
     public Controller() {
         cacheMap = new HashMap<String, Object>();
@@ -90,7 +90,7 @@ public abstract class Controller extends com.extjs.gxt.ui.client.mvc.Controller
 
     protected synchronized IdentifierDomainDataServiceAsync getIdentifierDomainDataService() {
         if (identifierDomainDataService == null) {
-            identifierDomainDataService = (IdentifierDomainDataServiceAsync) Registry
+            identifierDomainDataService = Registry
                     .get(Constants.IDENTIFIER_DOMAIN_DATA_SERVICE);
         }
         return identifierDomainDataService;
@@ -98,49 +98,49 @@ public abstract class Controller extends com.extjs.gxt.ui.client.mvc.Controller
 
     protected synchronized UserFileDataServiceAsync getUserFileDataService() {
         if (userFileDataService == null) {
-            userFileDataService = (UserFileDataServiceAsync) Registry.get(Constants.USER_FILE_DATA_SERVICE);
+            userFileDataService = Registry.get(Constants.USER_FILE_DATA_SERVICE);
         }
         return userFileDataService;
     }
 
     protected synchronized ReportDataServiceAsync getReportDataService() {
         if (reportDataService == null) {
-            reportDataService = (ReportDataServiceAsync) Registry.get(Constants.REPORT_DATA_SERVICE);
+            reportDataService = Registry.get(Constants.REPORT_DATA_SERVICE);
         }
         return reportDataService;
     }
 
     public synchronized AuditEventDataServiceAsync getAuditEventDataService() {
         if (auditEventDataService == null) {
-            auditEventDataService = (AuditEventDataServiceAsync) Registry.get(Constants.AUDIT_EVENT_SERVICE);
+            auditEventDataService = Registry.get(Constants.AUDIT_EVENT_SERVICE);
         }
         return auditEventDataService;
     }
 
     protected synchronized ProfileDataServiceAsync getProfileDataService() {
         if (profileDataService == null) {
-            profileDataService = (ProfileDataServiceAsync) Registry.get(Constants.PROFILE_DATA_SERVICE);
+            profileDataService = Registry.get(Constants.PROFILE_DATA_SERVICE);
         }
         return profileDataService;
     }
 
     protected synchronized UserDataServiceAsync getUserDataService() {
         if (userDataService == null) {
-            userDataService = (UserDataServiceAsync) Registry.get(Constants.USER_DATA_SERVICE);
+            userDataService = Registry.get(Constants.USER_DATA_SERVICE);
         }
         return userDataService;
     }
 
     protected synchronized AdminServiceAsync getAdminService() {
         if (adminService == null) {
-            adminService = (AdminServiceAsync) Registry.get(Constants.ADMIN_SERVICE);
+            adminService = Registry.get(Constants.ADMIN_SERVICE);
         }
         return adminService;
     }
 
     protected synchronized EventNotificationServiceAsync getEventNotificationService() {
         if (eventNotificationService == null) {
-            eventNotificationService = (EventNotificationServiceAsync) Registry
+            eventNotificationService = Registry
                     .get(Constants.EVENT_NOTIFICATION_SERVICE);
         }
         return eventNotificationService;
@@ -148,7 +148,7 @@ public abstract class Controller extends com.extjs.gxt.ui.client.mvc.Controller
 
     protected synchronized ConfigurationDataServiceAsync getConfigurationDataService() {
         if (configurationDataService == null) {
-            configurationDataService = (ConfigurationDataServiceAsync) Registry
+            configurationDataService = Registry
                     .get(Constants.CONFIGURATION_DATA_SERVICE);
         }
         return configurationDataService;
@@ -156,21 +156,21 @@ public abstract class Controller extends com.extjs.gxt.ui.client.mvc.Controller
 
     protected synchronized BlockingDataServiceAsync getBlockingDataService() {
         if (blockingService == null) {
-            blockingService = (BlockingDataServiceAsync) Registry.get(Constants.BLOCKING_DATA_SERVICE);
+            blockingService = Registry.get(Constants.BLOCKING_DATA_SERVICE);
         }
         return blockingService;
     }
 
     protected synchronized ReferenceDataServiceAsync getReferenceDataService() {
         if (referenceService == null) {
-            referenceService = (ReferenceDataServiceAsync) Registry.get(Constants.REF_DATA_SERVICE);
+            referenceService = Registry.get(Constants.REF_DATA_SERVICE);
         }
         return referenceService;
     }
 
     public synchronized EntityDefinitionDataServiceAsync getEntityDefinitionDataService() {
         if (entityDefinitionDataService == null) {
-            entityDefinitionDataService = (EntityDefinitionDataServiceAsync) Registry
+            entityDefinitionDataService = Registry
                     .get(Constants.ENTITY_DEFINITION_DATA_SERVICE);
         }
         return entityDefinitionDataService;
@@ -178,7 +178,7 @@ public abstract class Controller extends com.extjs.gxt.ui.client.mvc.Controller
 
     public synchronized EntityInstanceDataServiceAsync getEntityInstanceDataService() {
         if (entityInstanceDataService == null) {
-            entityInstanceDataService = (EntityInstanceDataServiceAsync) Registry
+            entityInstanceDataService = Registry
                     .get(Constants.ENTITY_INSTANCE_DATA_SERVICE);
         }
         return entityInstanceDataService;
@@ -186,7 +186,7 @@ public abstract class Controller extends com.extjs.gxt.ui.client.mvc.Controller
     
     public synchronized JobQueueDataServiceAsync getJobQueueDataService() {
         if (jobQueueDataService == null) {
-            jobQueueDataService = (JobQueueDataServiceAsync) Registry
+            jobQueueDataService = Registry
                     .get(Constants.JOB_QUEUE_DATA_SERVICE);
         }
         return jobQueueDataService;

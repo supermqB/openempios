@@ -168,11 +168,8 @@ public class Identifier extends BaseObject implements Serializable
 		} else if (!identifierDomain.equals(other.identifierDomain))
 			return false;
 		if (identifierId == null) {
-			if (other.identifierId != null)
-				return false;
-		} else if (!identifierId.equals(other.identifierId))
-			return false;
-		return true;
+			return other.identifierId == null;
+		} else return identifierId.equals(other.identifierId);
 	}
 
 	@Override

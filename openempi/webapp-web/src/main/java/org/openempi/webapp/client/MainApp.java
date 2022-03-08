@@ -60,85 +60,85 @@ public class MainApp implements EntryPoint
 	public void onModuleLoad() {
 		GXT.setDefaultTheme(Theme.GRAY, true);
 
-		AdminServiceAsync adminService = (AdminServiceAsync) GWT.create(AdminService.class);
+		AdminServiceAsync adminService = GWT.create(AdminService.class);
 		ServiceDefTarget endpoint = (ServiceDefTarget) adminService;
 		String moduleRelativeURL = Constants.ADMIN_SERVICE;
 		endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
 		Registry.register(Constants.ADMIN_SERVICE, adminService);
 
-		BlockingDataServiceAsync blockingDataService = (BlockingDataServiceAsync) GWT.create(BlockingDataService.class);
+		BlockingDataServiceAsync blockingDataService = GWT.create(BlockingDataService.class);
 		endpoint = (ServiceDefTarget) blockingDataService;
 		moduleRelativeURL = Constants.BLOCKING_DATA_SERVICE;
 		endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
 		Registry.register(Constants.BLOCKING_DATA_SERVICE, blockingDataService);
 
-		ConfigurationDataServiceAsync configuartionDataService = (ConfigurationDataServiceAsync) GWT.create(ConfigurationDataService.class);
+		ConfigurationDataServiceAsync configuartionDataService = GWT.create(ConfigurationDataService.class);
 		endpoint = (ServiceDefTarget) configuartionDataService;
 		moduleRelativeURL = Constants.CONFIGURATION_DATA_SERVICE;
 		endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
 		Registry.register(Constants.CONFIGURATION_DATA_SERVICE, configuartionDataService);
 
-		EventNotificationServiceAsync eventNotificationService = (EventNotificationServiceAsync) GWT.create(EventNotificationService.class);
+		EventNotificationServiceAsync eventNotificationService = GWT.create(EventNotificationService.class);
 		endpoint = (ServiceDefTarget) eventNotificationService;
 		moduleRelativeURL = Constants.EVENT_NOTIFICATION_SERVICE;
 		endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
 		Registry.register(Constants.EVENT_NOTIFICATION_SERVICE, eventNotificationService);
 
-		IdentifierDomainDataServiceAsync identifierDomainDataService = (IdentifierDomainDataServiceAsync) GWT.create(IdentifierDomainDataService.class);
+		IdentifierDomainDataServiceAsync identifierDomainDataService = GWT.create(IdentifierDomainDataService.class);
         endpoint = (ServiceDefTarget) identifierDomainDataService;
         moduleRelativeURL = Constants.IDENTIFIER_DOMAIN_DATA_SERVICE;
         endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
         Registry.register(Constants.IDENTIFIER_DOMAIN_DATA_SERVICE, identifierDomainDataService);
 
-        UserFileDataServiceAsync userFileDataService = (UserFileDataServiceAsync) GWT.create(UserFileDataService.class);
+        UserFileDataServiceAsync userFileDataService = GWT.create(UserFileDataService.class);
         endpoint = (ServiceDefTarget) userFileDataService;
         moduleRelativeURL = Constants.USER_FILE_DATA_SERVICE;
         endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
         Registry.register(Constants.USER_FILE_DATA_SERVICE, userFileDataService);
 
-		ReportDataServiceAsync reportDataService = (ReportDataServiceAsync) GWT.create(ReportDataService.class);
+		ReportDataServiceAsync reportDataService = GWT.create(ReportDataService.class);
 		endpoint = (ServiceDefTarget) reportDataService;
 		moduleRelativeURL = Constants.REPORT_DATA_SERVICE;
 		endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
 		Registry.register(Constants.REPORT_DATA_SERVICE, reportDataService);
 
-		ProfileDataServiceAsync profileDataService = (ProfileDataServiceAsync) GWT.create(ProfileDataService.class);
+		ProfileDataServiceAsync profileDataService = GWT.create(ProfileDataService.class);
 		endpoint = (ServiceDefTarget) profileDataService;
 		moduleRelativeURL = Constants.PROFILE_DATA_SERVICE;
 		endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
 		Registry.register(Constants.PROFILE_DATA_SERVICE, profileDataService);
 
-		AuditEventDataServiceAsync auditEventDataService = (AuditEventDataServiceAsync) GWT.create(AuditEventDataService.class);
+		AuditEventDataServiceAsync auditEventDataService = GWT.create(AuditEventDataService.class);
 		endpoint = (ServiceDefTarget) auditEventDataService;
 		moduleRelativeURL = Constants.AUDIT_EVENT_SERVICE;
 		endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
 		Registry.register(Constants.AUDIT_EVENT_SERVICE, auditEventDataService);
 
-		UserDataServiceAsync userDataService = (UserDataServiceAsync) GWT.create(UserDataService.class);
+		UserDataServiceAsync userDataService = GWT.create(UserDataService.class);
 		endpoint = (ServiceDefTarget) userDataService;
 		moduleRelativeURL = Constants.USER_DATA_SERVICE;
 		endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
 		Registry.register(Constants.USER_DATA_SERVICE, userDataService);
 
-		ReferenceDataServiceAsync refDataService = (ReferenceDataServiceAsync) GWT.create(ReferenceDataService.class);
+		ReferenceDataServiceAsync refDataService = GWT.create(ReferenceDataService.class);
 		endpoint = (ServiceDefTarget) refDataService;
 		moduleRelativeURL = Constants.REF_DATA_SERVICE;
 		endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
 		Registry.register(Constants.REF_DATA_SERVICE, refDataService);
 
-		EntityDefinitionDataServiceAsync entityDefinitionDataService = (EntityDefinitionDataServiceAsync) GWT.create(EntityDefinitionDataService.class);
+		EntityDefinitionDataServiceAsync entityDefinitionDataService = GWT.create(EntityDefinitionDataService.class);
 		endpoint = (ServiceDefTarget) entityDefinitionDataService;
 		moduleRelativeURL = Constants.ENTITY_DEFINITION_DATA_SERVICE;
 		endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
 		Registry.register(Constants.ENTITY_DEFINITION_DATA_SERVICE, entityDefinitionDataService);
 
-		EntityInstanceDataServiceAsync entityInstanceDataService = (EntityInstanceDataServiceAsync) GWT.create(EntityInstanceDataService.class);
+		EntityInstanceDataServiceAsync entityInstanceDataService = GWT.create(EntityInstanceDataService.class);
 		endpoint = (ServiceDefTarget) entityInstanceDataService;
 		moduleRelativeURL = Constants.ENTITY_INSTANCE_DATA_SERVICE;
 		endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);
 		Registry.register(Constants.ENTITY_INSTANCE_DATA_SERVICE, entityInstanceDataService);
 
-        JobQueueDataServiceAsync jobQueueDataService = (JobQueueDataServiceAsync) GWT.create(JobQueueDataService.class);
+        JobQueueDataServiceAsync jobQueueDataService = GWT.create(JobQueueDataService.class);
         endpoint = (ServiceDefTarget) jobQueueDataService;
         moduleRelativeURL = Constants.JOB_QUEUE_DATA_SERVICE;
         endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + moduleRelativeURL);

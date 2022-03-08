@@ -28,7 +28,7 @@ public interface MessageHandler
 	 * Returns the unique client identifier that must be assigned to each Message Handler
 	 * @return the unique name of the handler.
 	 */
-	public String getClientId();
+    String getClientId();
 	
 	
 	/**
@@ -36,5 +36,5 @@ public interface MessageHandler
 	 * 
 	 * @param message
 	 */
-	public void processMessage(Message message);
+    void processMessage(Message message);
 }

@@ -53,8 +53,8 @@ public class BlockingServiceImpl extends AbstractBlockingLifecycleObserver imple
 
 	private BlockingDao blockingDao;
 	private EntityDao entityDao;
-	private Map<String,BlockingConfiguration> configByEntity = new HashMap<String,BlockingConfiguration>();
-	private Map<String,BlockingServiceCache> cacheByEntity = new HashMap<String,BlockingServiceCache>();
+	private final Map<String,BlockingConfiguration> configByEntity = new HashMap<String,BlockingConfiguration>();
+	private final Map<String,BlockingServiceCache> cacheByEntity = new HashMap<String,BlockingServiceCache>();
 	private List<Entity> entities;
 
 	public void startup() throws InitializationException {
@@ -272,7 +272,7 @@ public class BlockingServiceImpl extends AbstractBlockingLifecycleObserver imple
     {
         private List<BlockingRound> blockingRounds;
         private Integer maximumBlockSize;
-        private Date lastUpdateDate;
+        private final Date lastUpdateDate;
 
         public BlockingConfiguration(Date now) {
             lastUpdateDate = now;

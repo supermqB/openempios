@@ -36,7 +36,7 @@ import org.openhie.openempi.entity.EntityDefinitionManagerService;
 
 public class EntityDownloadServlet extends HttpServlet
 {
-	private Logger log = Logger.getLogger(getClass());
+	private final Logger log = Logger.getLogger(getClass());
 
 	private EntityDefinitionManagerService entityDefinitionManagerService;
 
@@ -54,8 +54,8 @@ public class EntityDownloadServlet extends HttpServlet
 			throws ServletException, IOException {
 
 		// get the 'file' parameter
-		String entityName = (String) request.getParameter("entityName");
-		String entityVersionId = (String) request.getParameter("entityVersionId");
+		String entityName = request.getParameter("entityName");
+		String entityVersionId = request.getParameter("entityVersionId");
 		if (entityName == null || entityName.equals("") || entityVersionId == null) {
 			log.error("Received request to retrieve entity using invalid entity name: " + entityName);
 			throw new ServletException("Invalid or non-existent entity name.");
@@ -72,7 +72,7 @@ public class EntityDownloadServlet extends HttpServlet
 			}
 			response.setContentType("application/x-download");
 	        response.addHeader("Content-Disposition", "filename=\"" + entityName + "_entity_definition.xml\"");
-			response.setContentLength((int) entity.length());
+			response.setContentLength(entity.length());
 
 			stream.write(entity.getBytes());
 

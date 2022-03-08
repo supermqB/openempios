@@ -52,7 +52,7 @@ import org.hl7.v3.MCCIMT000300UV01Sender;
 public class HL7SenderTransforms
 {
     
-    private static Log log = LogFactory.getLog(HL7SenderTransforms.class);
+    private static final Log log = LogFactory.getLog(HL7SenderTransforms.class);
 
     public static MCCIMT000200UV01Sender createMCCIMT000200UV01Sender(String OID) {
         MCCIMT000200UV01Sender sender = new MCCIMT000200UV01Sender();

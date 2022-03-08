@@ -115,7 +115,7 @@ public class AuditEventEntryView extends BaseEntityView
 
     private TextField<String> selectedEvenyTypes;
     private ListView<AuditEventTypeWeb> evenyTypes;
-    private ListStore<AuditEventTypeWeb> eventTypesStore = new ListStore<AuditEventTypeWeb>();
+    private final ListStore<AuditEventTypeWeb> eventTypesStore = new ListStore<AuditEventTypeWeb>();
     private DateField startDate;
     private DateField endDate;
 
@@ -138,7 +138,7 @@ public class AuditEventEntryView extends BaseEntityView
     private FormPanel leftFormPanel;
     private FormPanel rightFormPanel;
 
-    private ListStore<IdentifierWeb> identifierStore = new ListStore<IdentifierWeb>();
+    private final ListStore<IdentifierWeb> identifierStore = new ListStore<IdentifierWeb>();
     private Grid<IdentifierWeb> identifierGrid;
 
     private LayoutContainer container;
@@ -158,7 +158,7 @@ public class AuditEventEntryView extends BaseEntityView
             initUI();
 
             if (Registry.get(Constants.AUDIT_EVENT_TYPE_CODES) != null) {
-                List<AuditEventTypeWeb> auditEventTypes = (List<AuditEventTypeWeb>) Registry
+                List<AuditEventTypeWeb> auditEventTypes = Registry
                         .get(Constants.AUDIT_EVENT_TYPE_CODES);
                 /*
                  * for (AuditEventTypeWeb type : auditEventTypes) { Info.display("Information", "Event Types: "+
@@ -177,7 +177,7 @@ public class AuditEventEntryView extends BaseEntityView
             // Info.display("Information", "EventReceived");
             store.removeAll();
 
-            AuditEventEntryListWeb events = (AuditEventEntryListWeb) event.getData();
+            AuditEventEntryListWeb events = event.getData();
             if (events.getAuditEventEntries() != null) {
                 store.add(events.getAuditEventEntries());
             }
@@ -190,7 +190,7 @@ public class AuditEventEntryView extends BaseEntityView
 
         } else if (event.getType() == AppEvents.EntityByIdRequest) {
 
-            RecordWeb record = (RecordWeb) event.getData();
+            RecordWeb record = event.getData();
 
             if (record != null) {
                 identifierStore.removeAll();
@@ -633,7 +633,7 @@ public class AuditEventEntryView extends BaseEntityView
 
         container.add(cp);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();
@@ -685,14 +685,12 @@ public class AuditEventEntryView extends BaseEntityView
         formlayout.setCellVerticalAlign(VerticalAlignment.TOP);
 
         identifierContainer = new LayoutContainer();
-        ;
         identifierContainer.setLayout(identlayout);
         FormPanel identifierPanel = setupForm("", 150, 854);
         identifierPanel.add(setupIdentifierfieldSet(865, 1));
         identifierContainer.add(identifierPanel);
 
         topContainer = new LayoutContainer();
-        ;
         topContainer.setLayout(toplayout);
         topFormPanel = setupForm("", 150, 400);
         topFormPanel.setStyleAttribute("padding-left", "15px");

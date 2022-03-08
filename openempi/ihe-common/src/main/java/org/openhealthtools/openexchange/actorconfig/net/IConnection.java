@@ -48,50 +48,50 @@ public interface IConnection {
      * @return True if you can use this connection to get input and output streams.
      * @see ConnectionFactory
      */
-    public boolean isConnectionValid();
+    boolean isConnectionValid();
 
     /**
      * Get a way to write to this connection.
      *
      * @return The output stream that writes to this connection.
      */
-    public OutputStream getOutputStream();
+    OutputStream getOutputStream();
 
     /**
      * Get a way to read from the connection.
      *
      * @return The input stream that reads from this connection.
      */
-    public InputStream getInputStream();
+    InputStream getInputStream();
 
     /**
      * Get a direct handle on the socket, beware!
      *
      * @return The socket that is being used for communication.
      */
-    public Socket getSocket();
+    Socket getSocket();
 
     /**
      * Closes the connection.  Please close your own streams.
      */
-    public void closeConnection();
+    void closeConnection();
 
     /**
      * Gets the description object for this connection.
      *
      * @return The description object for this conenction.
      */
-    public IConnectionDescription getConnectionDescription();
+    IConnectionDescription getConnectionDescription();
 
     /**
      * Gets the protocol specific Endpoint with full URL for this connection.
      *
      * @return The Endpoint for this conenction.
      */
-    public String getConnectionEndpoint();
+    String getConnectionEndpoint();
     
     /**
      * Connects the connection.  Only called by the factory.
      */
-    public void connect();
+    void connect();
 }

@@ -44,7 +44,7 @@ import org.openhie.openempi.stringcomparison.StringComparisonService;
 
 public class DeterministicExactMatchingService extends AbstractMatchingLifecycleObserver implements MatchingService
 {
-    private Map<String,List<MatchRule>> matchRulesByEntityName = new HashMap<String,List<MatchRule>>();
+    private final Map<String,List<MatchRule>> matchRulesByEntityName = new HashMap<String,List<MatchRule>>();
 	private StringComparisonService comparisonService;
 
 	public void startup() throws InitializationException {

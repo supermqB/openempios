@@ -96,7 +96,7 @@ public class UpdateEntityView extends BaseEntityView
     private TextField<String> identifier;
     private ComboBox<IdentifierDomainWeb> identifierDomains;
 
-    private ListStore<IdentifierWeb> identifierStore = new ListStore<IdentifierWeb>();
+    private final ListStore<IdentifierWeb> identifierStore = new ListStore<IdentifierWeb>();
     private Grid<IdentifierWeb> identifierGrid;
     private Button addIdentifierButton;
     private Button removeIdentifierButton;
@@ -145,7 +145,7 @@ public class UpdateEntityView extends BaseEntityView
             status.hide();
             submitButton.unmask();
 
-            updateEntity = (RecordWeb) event.getData();
+            updateEntity = event.getData();
             MessageBox.alert("Information", "Entity was successfully updated", listenInfoMsg);
 
         } else if (event.getType() == AppEvents.Error) {
@@ -466,14 +466,12 @@ public class UpdateEntityView extends BaseEntityView
         formlayout.setCellVerticalAlign(VerticalAlignment.TOP);
 
         identifierContainer = new LayoutContainer();
-        ;
         identifierContainer.setLayout(identlayout);
         FormPanel identifierPanel = setupForm("", 150, 850);
         identifierPanel.add(setupIdentifierfieldSet(875, 1));
         identifierContainer.add(identifierPanel);
 
         topContainer = new LayoutContainer();
-        ;
         topContainer.setLayout(toplayout);
         topFormPanel = setupForm("", 150, 400);
         topFormPanel.setStyleAttribute("padding-left", "15px");
@@ -562,7 +560,7 @@ public class UpdateEntityView extends BaseEntityView
         data.setMargins(new Margins(4, 2, 4, 2));
         container.add(formButtonContainer, data);
 
-        LayoutContainer wrapper = (LayoutContainer) Registry.get(Constants.CENTER_PANEL);
+        LayoutContainer wrapper = Registry.get(Constants.CENTER_PANEL);
         wrapper.removeAll();
         wrapper.add(container);
         wrapper.layout();
